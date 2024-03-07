@@ -28,19 +28,18 @@ class LCCLearningPageState extends State<LCCLearningPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
-      children: [
+      children: [ Expanded(child:
         Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(color: Color(0xFFD6C4E4)),
-          child: Stack(
+            child:ListView(
+            padding: const EdgeInsets.all(20),
+
             children: [
-              const Positioned(
-                left: 24,
-                top: 40,
-                child: Text(
+              SizedBox(height: 50),
+               const Text(
                   'Essential Digital Skills',
                   style: TextStyle(
                     color: Colors.black,
@@ -50,7 +49,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     height: 0,
                   ),
                 ),
-              ),
+              SizedBox(height: 20),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
@@ -86,7 +85,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                       height: 0,
                                     ),
                                   ),
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 15),
                                   Text(
                                     '6 Skills',
                                     style: TextStyle(
@@ -101,15 +100,15 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                               ),
                               const SizedBox(width: 20),
                               Container(
-                                width: 80,
-                                height: 80,
+                                width: 70,
+                                height: 70,
                                 decoration: ShapeDecoration(
                                   image: const DecorationImage(
                                     image: NetworkImage("https://via.placeholder.com/80x80"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(155),
+                                    borderRadius: BorderRadius.circular(140),
                                   ),
                                 ),
                               ),
@@ -120,6 +119,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
+              SizedBox(height: 10),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
@@ -133,7 +133,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 80,
+                          height: 100,
                           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -155,7 +155,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                       height: 0,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  SizedBox(height: 15),
                                   Text(
                                     '7 Skills',
                                     style: TextStyle(
@@ -168,17 +168,17 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 99),
+                              const SizedBox(width: 80),
                               Container(
-                                width: 80,
-                                height: 80,
+                                width: 70,
+                                height: 70,
                                 decoration: ShapeDecoration(
                                   image: const DecorationImage(
                                     image: NetworkImage("https://via.placeholder.com/80x80"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(155),
+                                    borderRadius: BorderRadius.circular(140),
                                   ),
                                 ),
                               ),
@@ -189,7 +189,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
-
+              SizedBox(height: 10),
               Container(
 
                   height: 100,
@@ -204,7 +204,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 80,
+                          height: 100,
                           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -226,7 +226,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                       height: 0,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  SizedBox(height: 15),
                                   Text(
                                     '8 Skills',
                                     style: TextStyle(
@@ -239,17 +239,17 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 99),
+                              const SizedBox(width: 80),
                               Container(
-                                width: 80,
-                                height: 80,
+                                width: 70,
+                                height: 70,
                                 decoration: ShapeDecoration(
                                   image: const DecorationImage(
                                     image: NetworkImage("https://via.placeholder.com/80x80"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(155),
+                                    borderRadius: BorderRadius.circular(140),
                                   ),
                                 ),
                               ),
@@ -260,6 +260,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
+              SizedBox(height: 10),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
@@ -273,7 +274,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 80,
+                          height: 100,
                           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -295,7 +296,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                       height: 0,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  SizedBox(height: 15),
                                   Text(
                                     '4 Skills',
                                     style: TextStyle(
@@ -308,17 +309,17 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 99),
+                              const SizedBox(width: 80),
                               Container(
-                                width: 80,
-                                height: 80,
+                                width: 70,
+                                height: 70,
                                 decoration: ShapeDecoration(
                                   image: const DecorationImage(
                                     image: NetworkImage("https://via.placeholder.com/80x80"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(155),
+                                    borderRadius: BorderRadius.circular(140),
                                   ),
                                 ),
                               ),
@@ -329,9 +330,9 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
-
+              SizedBox(height: 10),
               Container(
-                  height: 80,
+                  height: 100,
                   decoration: ShapeDecoration(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
@@ -343,7 +344,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 116,
+                          height: 100,
                           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -365,7 +366,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                       height: 0,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  SizedBox(height: 15),
                                   Text(
                                     '4 Skills',
                                     style: TextStyle(
@@ -378,17 +379,17 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 99),
+                              const SizedBox(width: 80),
                               Container(
-                                width: 80,
-                                height: 80,
+                                width: 70,
+                                height: 70,
                                 decoration: ShapeDecoration(
                                   image: const DecorationImage(
                                     image: NetworkImage("https://via.placeholder.com/80x80"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(155),
+                                    borderRadius: BorderRadius.circular(140),
                                   ),
                                 ),
                               ),
@@ -399,63 +400,10 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
-
-              Positioned(
-                left: 0,
-                top: 761,
-                child: SizedBox(
-                  width: 390,
-                  height: 83,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 390,
-                        height: 83,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 0,
-                              top: 0,
-                              child: Container(
-                                width: 390,
-                                height: 83,
-                                decoration: const BoxDecoration(color: Colors.white),
-                              ),
-                            ),
-                            Positioned(
-                              left: 0,
-                              top: 0,
-                              child: Container(
-                                width: 130,
-                                height: 83,
-                                decoration: const BoxDecoration(color: Colors.black),
-                              ),
-                            ),
-                            Positioned(
-                              left: 135,
-                              top: 0,
-                              child: Opacity(
-                                opacity: 0,
-                                child: Container(
-                                  width: 126,
-                                  height: 83,
-                                  decoration: const BoxDecoration(color: Colors.black),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),
+    ),
       ],
       // This trailing comma makes auto-formatting nicer for build methods.
     );

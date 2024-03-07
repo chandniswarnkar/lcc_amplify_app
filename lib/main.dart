@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/learning_page.dart';
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
+import 'package:lcc_flutter_app/practice_page.dart';
+import 'package:lcc_flutter_app/rewards_page.dart';
+
 
 void main() {
   runApp(const LCCHomePage());
@@ -39,19 +43,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    hideScreen();
+  }
+
+  ///hide your splash screen
+  Future<void> hideScreen() async {
+    Future.delayed(Duration(milliseconds: 1800), () {
+      FlutterSplashScreen.hide();
+    });
+  }
+
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     LCCLearningPage(),
-    Text(
-      'Index 1: Rewards',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Practice',
-      style: optionStyle,
-    ),
+    RewardsPage(),
+    PracticePage()
   ];
 
   void _onItemTapped(int index) {
