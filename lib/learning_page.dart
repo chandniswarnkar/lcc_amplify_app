@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/category_page.dart';
 
 //
 // class YellowBird extends StatefulWidget {
@@ -26,6 +27,7 @@ class LCCLearningPage extends StatefulWidget {
 
 class LCCLearningPageState extends State<LCCLearningPage> {
 
+  //final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,7 +40,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
             padding: const EdgeInsets.all(20),
 
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: 80),
                const Text(
                   'Essential Digital Skills',
                   style: TextStyle(
@@ -56,7 +58,11 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     color: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                   ),
-                  child: Row(
+                  child: GestureDetector(
+                    onTap:(){
+                      Navigator.pushNamed(context, 'categoryPage');
+                    },
+                    child:Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -114,10 +120,12 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                               ),
                             ],
                           ),
+
                         ),
                       ),
                     ],
                   ),
+                      ),
                 ),
               SizedBox(height: 10),
               Container(
@@ -168,7 +176,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 80),
+                            //  const SizedBox(width: 80),
                               Container(
                                 width: 70,
                                 height: 70,
@@ -191,7 +199,6 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                 ),
               SizedBox(height: 10),
               Container(
-
                   height: 100,
                   decoration: ShapeDecoration(
                     color: Colors.white,
@@ -239,7 +246,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 80),
+                             // const SizedBox(width: 50),
                               Container(
                                 width: 70,
                                 height: 70,
@@ -269,7 +276,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
@@ -309,7 +316,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 80),
+                             // const SizedBox(width: 50),
                               Container(
                                 width: 70,
                                 height: 70,
@@ -379,7 +386,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 80),
+                            //  const SizedBox(width: 80),
                               Container(
                                 width: 70,
                                 height: 70,

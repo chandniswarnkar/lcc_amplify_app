@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/category_page.dart';
 import 'package:lcc_flutter_app/learning_page.dart';
 import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:lcc_flutter_app/practice_page.dart';
@@ -85,7 +86,15 @@ class _MyHomePageState extends State<MyHomePage> {
       //   // the App.build method, and use it to set our appbar title.
       //   title: Text(widget.title),
       // ),
-      body:_widgetOptions [_selectedIndex],
+      body://_widgetOptions [_selectedIndex],
+      Navigator(
+        onGenerateRoute: (settings) {
+          Widget page = LCCLearningPage();
+          if (settings.name == 'categoryPage') page = CategoryPage();
+          return MaterialPageRoute(builder: (_) => page);
+        },
+      ),
+
       bottomNavigationBar: BottomNavigationBar(
     items: const <BottomNavigationBarItem>[
     BottomNavigationBarItem(
@@ -105,24 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
     selectedItemColor: Colors.amber[800],
     onTap: _onItemTapped,
     ),
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-
-    // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
