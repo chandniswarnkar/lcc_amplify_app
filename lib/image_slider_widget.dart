@@ -217,14 +217,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute<Null>(
-                            builder: (BuildContext context) {
-                              return ExpertisePage();
-                            },
-                            fullscreenDialog: true,
-                          ));
+                      showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                          constraints: BoxConstraints.loose(Size(
+                              MediaQuery.of(context).size.width,
+                              MediaQuery.of(context).size.height * 0.65)),
+                          builder: (context)
+                      {
+                        return  ExpertisePage(); //ExpertisePage();
+                      }
+                      );
+
 
                     },
 
