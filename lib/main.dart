@@ -86,14 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
       //   // the App.build method, and use it to set our appbar title.
       //   title: Text(widget.title),
       // ),
-      body://_widgetOptions [_selectedIndex],
-      Navigator(
-        onGenerateRoute: (settings) {
-          Widget page = LCCLearningPage();
-          if (settings.name == 'categoryPage') page = CategoryPage();
-          return MaterialPageRoute(builder: (_) => page);
-        },
-      ),
+      body:_widgetOptions [_selectedIndex],
+      // Navigator(
+      //   onGenerateRoute: (settings) {
+      //     Widget page = LCCLearningPage();
+      //     if (settings.name == 'categoryPage') page = CategoryPage();
+      //     return MaterialPageRoute(builder: (_) => page);
+      //   },
+      // ),
 
       bottomNavigationBar: BottomNavigationBar(
     items: const <BottomNavigationBarItem>[

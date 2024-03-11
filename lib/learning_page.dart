@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/category_page.dart';
 
@@ -27,7 +28,6 @@ class LCCLearningPage extends StatefulWidget {
 
 class LCCLearningPageState extends State<LCCLearningPage> {
 
-  //final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,7 +60,15 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                   ),
                   child: GestureDetector(
                     onTap:(){
-                      Navigator.pushNamed(context, 'categoryPage');
+                      //to add
+                    //  Navigator.pushNamed(context, 'categoryPage');
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) => const CategoryPage(),
+                        ),
+                      );
+
                     },
                     child:Row(
                     mainAxisSize: MainAxisSize.min,
