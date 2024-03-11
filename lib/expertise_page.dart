@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
 
 
 class ExpertisePage extends StatefulWidget {
@@ -192,7 +194,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     //Row 3
                   GestureDetector(
                     onTap: () {
-                      print("abc");
+
                       setState(() {
                         isRowThreeTapped = !isRowThreeTapped!;
                       });
@@ -269,14 +271,27 @@ class _ExpertisePageState extends State<ExpertisePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'Continue',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 20),
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            fullscreenDialog: true,
+                            builder: (context) => const StartLevelPage(),
+                          ),
+                        );
+
+                      },
+                      child: const Text('Continue', style:TextStyle(
+                        color: Colors.white ,
+                        fontSize: 18,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,
-                        //height: 0,
+                        fontWeight: FontWeight.w500,
+                        // height: 0.07,
+                      ),
                       ),
                     ),
                   ],
