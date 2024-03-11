@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/know_your_card.dart';
 
 class StartLevelPage extends StatefulWidget {
   const StartLevelPage({ super.key });
@@ -91,7 +92,7 @@ Widget build(BuildContext context) {
                 Navigator.of(context).push(
                   CupertinoPageRoute(
                     fullscreenDialog: true,
-                    builder: (context) => const StartLevelPage(),
+                    builder: (context) => const KnowYourCardPage(),
                   ),
                 );
 
