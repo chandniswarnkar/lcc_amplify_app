@@ -229,7 +229,6 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                       }
                       );
 
-
                     },
 
                   ),

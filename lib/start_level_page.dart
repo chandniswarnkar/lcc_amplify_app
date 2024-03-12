@@ -1,7 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/know_your_card.dart';
+
+import 'common/wrong_ans_component.dart';
 
 class StartLevelPage extends StatefulWidget {
   const StartLevelPage({ super.key });
@@ -83,18 +86,24 @@ Widget build(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+
+
             TextButton(
               style: TextButton.styleFrom(
                 textStyle: const TextStyle(fontSize: 20),
                 backgroundColor: Colors.black,
               ),
               onPressed: () {
+
+
                 Navigator.of(context).push(
                   CupertinoPageRoute(
                     fullscreenDialog: true,
                     builder: (context) => const KnowYourCardPage(),
                   ),
                 );
+
+
 
               },
               child: const Text('Start', style:TextStyle(
