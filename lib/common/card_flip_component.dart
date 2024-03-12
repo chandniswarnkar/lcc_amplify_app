@@ -1,10 +1,7 @@
 import 'dart:async';
 
 import 'package:flippy/flippy.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
 
 class FlipCardComponent extends StatelessWidget//State<FlipCardComponent>
 {
@@ -61,8 +58,7 @@ class BackWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 300,
-      // height: 210,
+
       alignment: Alignment.center,
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -74,3 +70,4 @@ class BackWidget extends StatelessWidget {
 
   }
 }
+
