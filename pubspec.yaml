@@ -34,6 +34,7 @@ dependencies:
   amplify_flutter: ^1.0.0
   flutter_splash_screen: ^3.0.0
   carousel_slider: ^4.2.1
+  flippy: ^0.1.1
   flutter:
     sdk: flutter
 
