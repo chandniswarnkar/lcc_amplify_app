@@ -20,25 +20,7 @@ class _CategoryPageState extends State<CategoryPage> {
         body: ListView(
           //scrollDirection: Axis.vertical,
           children: <Widget>[
-           //  Row(
-           //    mainAxisAlignment:MainAxisAlignment.spaceEvenly,
-           //    children:<Widget> [Text(
-           //    'Essential Digital Skills',
-           //    style: TextStyle(
-           //      color: Colors.white,
-           //      fontSize: 20,
-           //      fontFamily: 'Inter',
-           //      fontWeight: FontWeight.w700,
-           //      height: 0,
-           //    ),
-           //  ),
-           //      Container(
-           //        height: 25,
-           //        width: 25,
-           //        child:Image.asset("assets/images/user_profile_white.png") ,
-           //      )
-           //      ],
-           // ),
+
             Container(
               height:MediaQuery.of(context).size.height,
               child: ImageSliderPage(),),
