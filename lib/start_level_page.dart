@@ -1,9 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/badge_screen.dart';
 import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/know_your_card.dart';
+import 'package:lcc_flutter_app/levelcompletion_video_screen.dart';
 
 import 'common/wrong_ans_component.dart';
 
@@ -96,15 +98,12 @@ Widget build(BuildContext context) {
               ),
               onPressed: () {
 
-
                 Navigator.of(context).push(
                   CupertinoPageRoute(
                     fullscreenDialog: true,
-                    builder: (context) => const KnowYourCardPage(),
+                    builder: (context) => const BadgeScreen(),
                   ),
                 );
-
-
 
               },
               child: const Text('Start', style:TextStyle(
