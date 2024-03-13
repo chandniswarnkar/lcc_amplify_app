@@ -100,7 +100,7 @@ Widget build(BuildContext context) {
                 Navigator.of(context).push(
                   CupertinoPageRoute(
                     fullscreenDialog: true,
-                    builder: (context) => const KnowYourCardPage(),
+                    builder: (context) => const OnlineShoppingPage(),
                   ),
                 );
 

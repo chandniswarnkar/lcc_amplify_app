@@ -2,20 +2,47 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/common/card_flip_component.dart';
-import 'package:lcc_flutter_app/kyc_bottom_card.dart';
 import 'package:lcc_flutter_app/productlist_page.dart';
 
-class OnlineShoppingPage extends StatefulWidget {
-  const OnlineShoppingPage({Key? key}) : super(key: key);
+class EnterCardDetailsPage extends StatefulWidget {
+  const EnterCardDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<OnlineShoppingPage> createState() => _OnlineShoppingPageState();
+  State<EnterCardDetailsPage> createState() => _EnterCardDetailsPageState();
 }
 
-class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
+
+
+
+class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
   double _currentSliderValue = 20;
   List<Widget> cardPageList = [];
   bool isNextButtonPressed = false;
+  String cardHolderName = '';
+  String cardNumber = '';
+  String cardExpiry = '';
+  String cardCVV = '';
+
+  void _updateCardHolderName(String newText) {
+    setState(() {
+      cardHolderName = newText; // Set the new value for labelText
+    });
+  }
+  void _updateCardNumber(String newText) {
+    setState(() {
+      cardNumber = newText; // Set the new value for labelText
+    });
+  }
+  void _updateCardExpiry(String newText) {
+    setState(() {
+      cardExpiry = newText; // Set the new value for labelText
+    });
+  }
+  void _updateCardCVV(String newText) {
+    setState(() {
+      cardCVV = newText; // Set the new value for labelText
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +119,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
           ),
           const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-              'Online Shopping',
+              'Enter Card Details',
               maxLines: 3,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -104,22 +131,9 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
               ),
             ),
           ]),
-          const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              'You are buying a new pair of shoes\nfor your granddaughter who is \n about to participate in a tennis match at school.',
-              maxLines: 3,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w400,
-                // height: 0.07,
-              ),
-            ),
-          ]),
+
           const SizedBox(
-            height: 30,
+            height: 10,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
@@ -128,13 +142,137 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
               width: 342, //MediaQuery.of(context).size.width,//Tochange
               child: FlipCardComponent(
                 isTappingRequired: true,
-                frontWidget: FrontTappableWidget(),
-                backWidget: BackTappableWidget(),
+                frontWidget: FrontTappableWidget(updateCardHolderName: _updateCardHolderName,updateCardNumber: _updateCardNumber,updateCardExpiry: _updateCardExpiry,),
+                backWidget: BackTappableWidget(updateCardCVV: _updateCardCVV,),
               ),
             )
           ]),
 
-          const HintGuideCard(),
+           const HintGuideCard(),
+          const SizedBox(
+            height: 10,
+          ),
+
+          Container(
+            margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Name on Card',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 1),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  child: TextFormField(
+                    decoration:  InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.fromLTRB(20, 0, 0, 3),
+                        hintText: "Enter Name",
+                    labelText: cardHolderName),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Card Number',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 1),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  child: TextFormField(
+                    decoration:  InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.fromLTRB(20, 0, 0, 3),
+                        hintText: "Enter password",
+                    labelText: cardNumber),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+             Container(
+                margin: EdgeInsets.all(10),
+                child:Column(
+                  children: [
+                     const Text(
+                      'Card Expiry',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    Text(
+                      cardExpiry,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+
+
+
+                  ],
+                ),
+              ),
+
+
+              Container(
+                  margin: EdgeInsets.all(10),
+                  child: const Text(
+                    'CVV',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),),
+
+          ]),
+
           const SizedBox(
             height: 20,
           ),
@@ -166,7 +304,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                     );
                   },
                   child: const Text(
-                    'Start Shopping',
+                    'Proceed Payment',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -186,7 +324,15 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
 }
 
 class FrontTappableWidget extends StatelessWidget {
-  const FrontTappableWidget({Key? key}) : super(key: key);
+  const FrontTappableWidget({Key? key,
+  required this.updateCardHolderName,
+  required this.updateCardNumber,
+    required this.updateCardExpiry,
+
+  }) : super(key: key);
+
+  final void Function(String) updateCardHolderName,updateCardNumber,updateCardExpiry;
+
 
   @override
   Widget build(BuildContext context) {
@@ -242,6 +388,7 @@ class FrontTappableWidget extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
+                  updateCardNumber('1234 5678 1234 5678');
                   print(" I am card number");
                 },
               ),
@@ -266,6 +413,7 @@ class FrontTappableWidget extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
+                  updateCardHolderName('JOHN SENIOR');
                   print(" I am name");
                 },
               ),
@@ -297,6 +445,7 @@ class FrontTappableWidget extends StatelessWidget {
                       ],
                     )),
                 onTap: () {
+                  updateCardExpiry( '08/30');
                   print(" I am expiry number");
                 },
               )
@@ -307,7 +456,9 @@ class FrontTappableWidget extends StatelessWidget {
 }
 
 class BackTappableWidget extends StatelessWidget {
-  const BackTappableWidget({Key? key}) : super(key: key);
+  const BackTappableWidget({Key? key, required this.updateCardCVV}) : super(key: key);
+
+  final void Function(String) updateCardCVV;
 
   @override
   Widget build(BuildContext context) {
@@ -336,6 +487,7 @@ class BackTappableWidget extends StatelessWidget {
           ),
         ),
         onTap: () {
+          updateCardCVV('123');
           print(" I am CVV");
         },
       ),
@@ -361,43 +513,26 @@ class HintGuideCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset("assets/images/OWL_Oops.gif",fit: BoxFit.fill,),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-        child: Column(
-          children: [
-
-              Text.rich(
-                TextSpan(
+              Image.asset(
+                "assets/images/OWL_Oops.gif",
+                fit: BoxFit.fill,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                child: Column(
                   children: [
-                    TextSpan(
-                      text: 'Use this virtual card to\nmake the purchase.\n\nBalance ',
+                    Text(
+                      'Find and tap the\ncorrect details on the \nvirtual card to enter \nthe data. ',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
-
-                      ),
-                    ),
-                    TextSpan(
-                      text: '110 coins',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w700,
-
                       ),
                     ),
                   ],
                 ),
               ),
-
-          ],
-        ),
-      ),
-
             ],
           ),
         ),
