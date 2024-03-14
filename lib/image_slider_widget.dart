@@ -69,7 +69,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
       backgroundColor: viewBGColor,//const Color.fromARGB(255, 18, 32, 47),
       body: Column(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
             Row(
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
               children:<Widget> [Text(
@@ -82,17 +82,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   height: 0,
                 ),
               ),
+                SizedBox(height: 10,),
                 Container(
-                  height: 25,
-                  width: 25,
+                  height: 30,
+                  width: 30,
                   child:Image.asset("assets/images/user_profile_white.png") ,
                 )
               ],
             ),
-            SizedBox(height: 8,),
+            SizedBox(height: 10,),
         Container(
             width: 300,
-            height: 230,
+            height: 250,
             child:CarouselSlider(
             items: imageSliders,
            // carouselController: _controller,
@@ -114,46 +115,46 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                 }),
           ),
     ),
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
              Text(
               textLabel,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 32,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w600,
                 height: 0,
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(height: 10,),
              Text(
                descriptionLabel,
               textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
+              //overflow: TextOverflow.ellipsis,
               maxLines: 3,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14,
+                fontSize: 16,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w400,
                 height: 1,
               ),
             ),
 
-                SizedBox(height: 20,),
+                SizedBox(height: 40,),
                 Row( mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                   children: <Widget>[Column(
                  // scrollDirection: Axis.vertical,
                   children:  [
                   const Text(
                   'Skills',
-                  style: TextStyle(color: Colors.white, fontSize: 12.0,fontFamily: 'Inter',
+                  style: TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,),
                 ),
                   Text(
                   skillsLabel,
-                  style: TextStyle(color: Colors.white, fontSize: 15.0,fontFamily: 'Inter',
+                  style: TextStyle(color: Colors.white, fontSize: 24.0,fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,),
                ),
                ],
@@ -164,11 +165,11 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                     children: [
                     const Text(
                       'Coins',
-                      style: TextStyle(color: Colors.white, fontSize: 12.0),
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
                     Text(
                       coinsLabel,
-                      style: TextStyle(color: Colors.white,fontSize: 15.0,fontFamily: 'Inter',
+                      style: TextStyle(color: Colors.white,fontSize: 24.0,fontFamily: 'Inter',
                         fontWeight: FontWeight.w600,),
                     ),
                   ],
@@ -179,18 +180,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                     children: [
                     const Text(
                       'Badges',
-                      style: TextStyle(color: Colors.white, fontSize: 12.0),
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
                     Text(
                      badgesLabel,
-                      style: TextStyle(color: Colors.white, fontSize: 15.0,fontFamily: 'Inter',
+                      style: TextStyle(color: Colors.white, fontSize: 24.0,fontFamily: 'Inter',
                         fontWeight: FontWeight.w600,),
                     ),
                   ],
                   ),
                   ],
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 40,),
             Container(
               width: 220,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),

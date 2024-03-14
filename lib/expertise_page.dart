@@ -39,7 +39,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
             children: [
               Container(  padding: const EdgeInsets.all(20),//margin:const EdgeInsets.symmetric(horizontal: 20),
                 child:
-                Text(
+                const Text(
                   'How much do you know about Transacting?',
                   maxLines: 3,
                   // overflow: TextOverflow.ellipsis,
@@ -257,8 +257,8 @@ class _ExpertisePageState extends State<ExpertisePage> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                margin: const EdgeInsets.symmetric(horizontal: 15,  vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                margin: const EdgeInsets.symmetric(horizontal: 85,  vertical: 10),
                 decoration: ShapeDecoration(
                   color:   Colors.black,
                   shape: RoundedRectangleBorder(

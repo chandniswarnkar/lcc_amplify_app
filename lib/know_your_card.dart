@@ -277,8 +277,10 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
+
               children: [ Container(
                 width: 250,
+                height: 70,
                 child:
                 TextButton(
                   style: TextButton.styleFrom(
@@ -296,7 +298,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                     color: Colors.white ,
                     fontSize: 18,
                     fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     // height: 0.07,
                   ),
                   ),

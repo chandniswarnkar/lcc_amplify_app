@@ -135,7 +135,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                               ),
                               const SizedBox(width: 20),
                               Container(
-                                  width: 70,
+                                  width: 65,
                                   height: 70,
                                   decoration: ShapeDecoration(
                                     image: const DecorationImage(

@@ -148,14 +148,29 @@ class _StartLevelPageState extends State<StartLevelPage> {
               Positioned(
                 bottom: 50,
                 child:
+                Container(
+                 // padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                 // margin: const EdgeInsets.symmetric(horizontal: 85,  vertical: 10),
+                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  margin: EdgeInsets.all(40),
+                  decoration: ShapeDecoration(
+                    color:   Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+             child:
              Row(
+
                mainAxisAlignment: MainAxisAlignment.center,
                  crossAxisAlignment: CrossAxisAlignment.center,
                  children:[
 
               Container(
                // width: 200,
-                padding: EdgeInsets.symmetric(vertical:5 ,horizontal: 150),
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                 margin: EdgeInsets.all(20),
+               // margin: EdgeInsets.symmetric()
                // alignment: Alignment.center,
                 child:
               TextButton(
@@ -176,15 +191,16 @@ class _StartLevelPageState extends State<StartLevelPage> {
                 },
                 child: const Text('Start', style:TextStyle(
                   color: Colors.white ,
-                  fontSize: 18,
+                  fontSize: 20,
                   fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500,
-                  // height: 0.07,
+                  fontWeight: FontWeight.w600,
+                   height: 1,
                 ),
                 ),
               ),
               ),
               ]),
+    ),
               ),
               ///
             ]

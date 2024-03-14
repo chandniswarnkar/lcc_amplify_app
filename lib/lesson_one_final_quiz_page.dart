@@ -62,7 +62,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                       ),
                     ),
                     const Text(
-                      '0',
+                      '5',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -237,7 +237,10 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 TextButton(onPressed : () {
-                                  isAnswerWrong = true;
+                                  setState(() {
+                                    isAnswerWrong = true;
+                                  });
+
                                   // Navigator.push(
                                   //     context,
                                   //     MaterialPageRoute(
