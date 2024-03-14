@@ -14,6 +14,9 @@ class VideoPlayerScreen extends StatefulWidget {
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
+  late Timer _timer;
+  int _secondsElapsed = 0;
+
 
   @override
   void initState() {
@@ -31,12 +34,23 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     // Use the controller to loop the video.
     _controller.setLooping(false);
     _controller.play();
+
+    // Start the timer when the video starts playing
+    _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
+      setState(() {
+        _secondsElapsed++;
+        if (_secondsElapsed >= 100) {
+          timer.cancel();
+        }
+      });
+    });
   }
 
   @override
   void dispose() {
     // Ensure disposing of the VideoPlayerController to free up resources.
     _controller.dispose();
+    _timer.cancel();
 
     super.dispose();
   }
@@ -97,7 +111,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                     ),
                   ),
 
-                  Countup(
+
+                  Text('$_secondsElapsed',
+                        style: const TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold
+                    ),),
+
+                 /* Countup(
                     begin: 0,
                     end: 100,
                     duration: const Duration(seconds: 12),
@@ -106,7 +127,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                       fontSize: 40,
                       fontWeight: FontWeight.bold
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             ],

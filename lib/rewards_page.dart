@@ -136,7 +136,7 @@ class RewardsIcons extends StatelessWidget {
                   height: 80,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/good_player.png"),
+                      image: AssetImage("assets/images/good_player_lock.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -153,7 +153,7 @@ class RewardsIcons extends StatelessWidget {
                   height: 80,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/king_player.png"),
+                      image: AssetImage("assets/images/king_player_lock.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
