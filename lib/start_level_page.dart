@@ -18,14 +18,44 @@ class StartLevelPage extends StatefulWidget {
 }
 
 class _StartLevelPageState extends State<StartLevelPage> {
-
+  final controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Transacting'),
         ),
-        body: Column( children: [
+        body:
+
+        // CustomScrollView(
+        //   slivers: <Widget>[
+        //
+        //     SliverFixedExtentList(
+        //       itemExtent: 1000.0,
+        //       delegate: SliverChildBuilderDelegate(
+        //             (BuildContext context, int index) {
+        //           return Container(
+        //             alignment: Alignment.center,
+        //             color: Colors.lightBlue,
+        //             child: Container(
+        //               width:MediaQuery.of(context).size.width ,
+        //               height: 1000,
+        //               child: Image(
+        //                 image: AssetImage("assets/images/bg_skill1.png"),
+        //                 fit: BoxFit.fill,
+        //               ),
+        //             ),
+        //           );
+        //         },
+        //       ),
+        //     ),
+        //   ],
+        // )
+
+
+        // add till here
+
+        Column( children: [
       // Row1
       Row(children: [
        Container (
@@ -87,21 +117,34 @@ class _StartLevelPageState extends State<StartLevelPage> {
      ]
       ),
             Stack( children:[
-            SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(children: [
-                  Container(
-                    width:MediaQuery.of(context).size.width ,
-                    height: 580,
-                    child: Image(
-                      image: AssetImage("assets/images/bg_skill1.png"),
-                      fit: BoxFit.fill,
+              Container(
+                height: 550,
+                child:
+              CustomScrollView(
+                slivers: <Widget>[
+
+                  SliverList(
+                  //  itemExtent: 1000.0,
+                    delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return Container(
+                          alignment: Alignment.center,
+                          color: Colors.lightBlue,
+                          child: Container(
+                            width:MediaQuery.of(context).size.width ,
+                            height: 1000,
+                            child: Image(
+                              image: AssetImage("assets/images/bg_skill1.png"),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                ]
-                )
-            ),
-
+                ],
+              ),
+    ),
               Positioned(
                 bottom: 50,
                 child:
