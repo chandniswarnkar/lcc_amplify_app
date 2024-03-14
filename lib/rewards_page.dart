@@ -8,22 +8,21 @@ class RewardsPage extends StatefulWidget {
 }
 
 class _RewardsPageState extends State<RewardsPage> {
+  bool isIconsPresented = false;
   @override
   Widget build(BuildContext context) {
     Timer(Duration(seconds: 1), () {
-      Navigator.push(
-          context,
-          MaterialPageRoute<Null>(
-            builder: (BuildContext context) {
-              return RewardsIcons();
-            },
-            fullscreenDialog: true,
-          ));
+      if (this.mounted) {
+        setState(() {
+          isIconsPresented = true;
+        });
+      }
     });
 
     return Scaffold(
 
-      body: Container(
+      body: isIconsPresented ? RewardsIcons()
+            : Container(
           color: const Color(0xFF530C17)
           // child: Text('Reward'),
         ),
@@ -42,7 +41,7 @@ class RewardsIcons extends StatelessWidget {
               padding:EdgeInsets.all(40),
               children: [
                 SizedBox(height: 80,),
-                Text(
+                const Text(
                   'Rewards',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -59,7 +58,7 @@ class RewardsIcons extends StatelessWidget {
                   children: [Container(child:Column(children: [Container(
                   width: 90,
                   height: 80,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/quick_learner.png"),
                       fit: BoxFit.fill,
@@ -97,7 +96,7 @@ class RewardsIcons extends StatelessWidget {
                   children: [ Container(child:Column(children: [Container(
                   width: 80,
                   height: 80,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/sharp_scholar.png"),
                       fit: BoxFit.fill,
@@ -134,7 +133,7 @@ class RewardsIcons extends StatelessWidget {
                   children: [ Container(child:Column(children: [Container(
                   width: 80,
                   height: 80,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/good_player_lock.png"),
                       fit: BoxFit.fill,
@@ -151,7 +150,7 @@ class RewardsIcons extends StatelessWidget {
                     Container(child:Column(children: [Container(
                   width: 80,
                   height: 80,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/king_player_lock.png"),
                       fit: BoxFit.fill,

@@ -43,6 +43,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           timer.cancel();
         }
       });
+
     });
   }
 

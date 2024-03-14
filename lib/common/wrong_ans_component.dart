@@ -11,21 +11,23 @@ class WrongAnswerComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
       ),
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: ListView(children: [
           Column(
             children: [
               Container(
                 width: 300,
-                height: 350,
+                height: 320,
                 child: Stack(
                   children: [
                     Container(
                       width: 300,
-                      height: 350,
+                      height: 320,
                       decoration: ShapeDecoration(
                         color: Color(0xFFFBD4CF),
                         shape: RoundedRectangleBorder(
@@ -35,8 +37,7 @@ class WrongAnswerComponent extends StatelessWidget {
                     ),
 
                     Container(
-                      //  width: 300,
-                      // height: 350,
+
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -77,9 +78,9 @@ class WrongAnswerComponent extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 28),
+                          const SizedBox(height: 10),
                           Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container( decoration: ShapeDecoration(
@@ -105,7 +106,7 @@ class WrongAnswerComponent extends StatelessWidget {
                                   onPressed: onHintPressed,
 
                                 ),
-    ),   SizedBox(width: 30,),
+    ),   //SizedBox(width: 30,),
                                 Container( decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(width: 1),
