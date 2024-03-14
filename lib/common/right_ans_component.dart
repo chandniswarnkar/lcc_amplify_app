@@ -10,21 +10,23 @@ class RightAnswerComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
       ),
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: ListView(children: [
           Column(
             children: [
               Container(
                 width: 300,
-                height: 350,
+                height: 310,
                 child: Stack(
                   children: [
                     Container(
                       width: 300,
-                      height: 350,
+                      height: 310,
                       decoration: ShapeDecoration(
                         color: Color(0xFF70E7A7),
                         shape: RoundedRectangleBorder(
