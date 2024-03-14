@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/category_page.dart';
 
 //
@@ -40,18 +41,38 @@ class LCCLearningPageState extends State<LCCLearningPage> {
             padding: const EdgeInsets.all(20),
 
             children: [
-              SizedBox(height: 80),
-               const Text(
-                  'Essential Digital Skills',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w700,
-                    height: 0,
-                  ),
-                ),
-              SizedBox(height: 20),
+              const SizedBox(height: 80),
+                Row(
+                 children: [
+                   const Text(
+                      'Essential Digital Skills',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w700,
+                        height: 0,
+                      ),
+                    ),
+                   const Spacer(),
+                   Container(
+                     width: 40,
+                     height: 40,
+                     decoration: ShapeDecoration(
+                       image: const DecorationImage(
+                         image: AssetImage("assets/images/user_profile.png"),
+                         fit: BoxFit.fill,
+                       ),
+                       shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(140),
+                       ),
+                     ),
+                   ),
+
+
+                 ],
+               ),
+              const SizedBox(height: 20),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
@@ -101,7 +122,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                                   SizedBox(height: 15),
                                   Text(
-                                    '6 Skills',
+                                    '4 Skills',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
@@ -114,18 +135,19 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                               ),
                               const SizedBox(width: 20),
                               Container(
-                                width: 70,
-                                height: 70,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage("https://via.placeholder.com/80x80"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(140),
+                                  width: 70,
+                                  height: 70,
+                                  decoration: ShapeDecoration(
+                                    image: const DecorationImage(
+                                      image:AssetImage("assets/images/transacting_ellipse.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(140),
+                                    ),
                                   ),
                                 ),
-                              ),
+
                             ],
                           ),
 
@@ -135,11 +157,11 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                   ),
                       ),
                 ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Colors.white,
+                    color: const Color.fromRGBO(255, 255, 255, 0.60),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                   ),
                   child: Row(
@@ -185,19 +207,42 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                 ],
                               ),
                             //  const SizedBox(width: 80),
-                              Container(
-                                width: 70,
-                                height: 70,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage("https://via.placeholder.com/80x80"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(140),
-                                  ),
-                                ),
-                              ),
+
+                                  Stack(children: [
+                                    Container(
+                                      width: 70,
+                                      height: 70,
+                                      decoration: ShapeDecoration(
+                                        image: const DecorationImage(
+                                          image:AssetImage("assets/images/communicating_ellipse.png"),
+                                          fit: BoxFit.fill,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(140),
+                                        ),
+                                      ),
+                                    ),
+
+
+                                    Positioned(
+                                      top: 0,
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Center(
+                                        child: Image.asset("assets/images/Lock.png",  fit: BoxFit.fill,
+
+                                        )
+                                      ),
+                                    ),
+
+
+
+
+
+                                  ],),
+
+
                             ],
                           ),
                         ),
@@ -205,11 +250,11 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Colors.white,
+                    color: const Color.fromRGBO(255, 255, 255, 0.60),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                   ),
                   child: Row(
@@ -255,19 +300,39 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                 ],
                               ),
                              // const SizedBox(width: 50),
-                              Container(
-                                width: 70,
-                                height: 70,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage("https://via.placeholder.com/80x80"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(140),
+                              Stack(children: [
+                                Container(
+                                  width: 70,
+                                  height: 70,
+                                  decoration: ShapeDecoration(
+                                    image: const DecorationImage(
+                                      image:AssetImage("assets/images/handling_ellipse.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(140),
+                                    ),
                                   ),
                                 ),
-                              ),
+
+
+                                Positioned(
+                                  top: 0,
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Center(
+                                      child: Image.asset("assets/images/Lock.png",  fit: BoxFit.fill,
+
+                                      )
+                                  ),
+                                ),
+
+
+
+
+
+                              ],),
                             ],
                           ),
                         ),
@@ -275,11 +340,11 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Colors.white,
+                    color: const Color.fromRGBO(255, 255, 255, 0.60),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                   ),
                   child: Row(
@@ -325,19 +390,39 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                 ],
                               ),
                              // const SizedBox(width: 50),
-                              Container(
-                                width: 70,
-                                height: 70,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage("https://via.placeholder.com/80x80"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(140),
+                              Stack(children: [
+                                Container(
+                                  width: 70,
+                                  height: 70,
+                                  decoration: ShapeDecoration(
+                                    image: const DecorationImage(
+                                      image:AssetImage("assets/images/problem_solving_ellipse.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(140),
+                                    ),
                                   ),
                                 ),
-                              ),
+
+
+                                Positioned(
+                                  top: 0,
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Center(
+                                      child: Image.asset("assets/images/Lock.png",  fit: BoxFit.fill,
+
+                                      )
+                                  ),
+                                ),
+
+
+
+
+
+                              ],),
                             ],
                           ),
                         ),
@@ -345,11 +430,11 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ],
                   ),
                 ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Colors.white,
+                    color: const Color.fromRGBO(255, 255, 255, 0.60),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                   ),
                   child: Row(
@@ -395,19 +480,39 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                 ],
                               ),
                             //  const SizedBox(width: 80),
-                              Container(
-                                width: 70,
-                                height: 70,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage("https://via.placeholder.com/80x80"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(140),
+                              Stack(children: [
+                                Container(
+                                  width: 70,
+                                  height: 70,
+                                  decoration: ShapeDecoration(
+                                    image: const DecorationImage(
+                                      image:AssetImage("assets/images/online_safety_ellipse.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(140),
+                                    ),
                                   ),
                                 ),
-                              ),
+
+
+                                Positioned(
+                                  top: 0,
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Center(
+                                      child: Image.asset("assets/images/Lock.png",  fit: BoxFit.fill,
+
+                                      )
+                                  ),
+                                ),
+
+
+
+
+
+                              ],),
                             ],
                           ),
                         ),
