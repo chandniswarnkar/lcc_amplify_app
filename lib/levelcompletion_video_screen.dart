@@ -43,7 +43,10 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           timer.cancel();
         }
       });
+
     });
+
+
   }
 
   @override
@@ -57,6 +60,16 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    _controller.addListener(() {                       //custom Listner
+      setState(() {
+        if (_controller.value.duration ==_controller.value.position) { //checking the duration and position every time
+
+          print("Video played ")
+;        }
+      });
+    });
+
     return Scaffold(
       // Use a FutureBuilder to display a loading spinner while waiting for the
       // VideoPlayerController to finish initializing.

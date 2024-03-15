@@ -7,19 +7,24 @@ import 'package:lcc_flutter_app/know_your_card.dart';
 import 'common/card_ques_component.dart';
 import 'common/hint_component.dart';
 
+enum BottomView { questionOnePresented, questionOneDone, questionTwoPresented }
 class KYCBottomPage extends StatefulWidget {
   final bool isLevelOneCompleted;
-  const KYCBottomPage({super.key, required this.isLevelOneCompleted});
+  final bool isLevelTwoPresented;
+  const KYCBottomPage({super.key, required this.isLevelOneCompleted, required this.isLevelTwoPresented});
 
   @override
   State<KYCBottomPage> createState() => _KYCBottomPageState();
 }
 
 class _KYCBottomPageState extends State<KYCBottomPage> {
+
   bool isHintOneShown = false;
   bool isVisible = true;
   late Timer timer;
   int count = 0;
+
+
   static Widget defaultTransitionBuilder(Widget child, Animation<double> animation) {
     return FadeTransition(
       opacity: animation,
@@ -45,11 +50,12 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("level one done");
-    bool isLevelOneCompleted = widget.isLevelOneCompleted;
+
     List<String> texts = ["GFG Text 1", "GFG Text 2", "GFG Text 3"];
     int currentIndex = 0; // Index to track the currently displayed text
-
+    bool levelTwoPresented = widget.isLevelTwoPresented;
+      print('is level 2 presented  $levelTwoPresented');
+     //var currentBottomView =  widget.isLevelTwoPresented ? BottomView.questionTwoPresented : (isLevelOneCompleted ? BottomView.questionOneDone : BottomView.questionOnePresented)
     return Container(
 
         color: Colors.white,
@@ -66,24 +72,34 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                     color: Colors.white,
                     child: Container(
                         height: 230,
-                        child: isLevelOneCompleted ?
+                        child: widget.isLevelTwoPresented ?
+
+                        CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
+                          bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
+                            :
+
+                        widget.isLevelOneCompleted  ?
 
                         AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 1),
-                            transitionBuilder: (Widget child, Animation<double> animation) {
-                              return ScaleTransition(child: child, scale: animation);
-                            },
-                            child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                              bgColor: Color(0xFFD2EAFF), isQuestionOneDone: isLevelOneCompleted,
-                              key:UniqueKey(),)
+                        duration: const Duration(milliseconds: 1),
+                        transitionBuilder: (Widget child, Animation<double> animation) {
+                        return ScaleTransition(child: child, scale: animation);
+                     },
+                     child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
+                    bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
+                     key:UniqueKey(),)
 
-                                : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                              bgColor: Color(0xFFDFBEEE), isQuestionOneDone: false, key: UniqueKey(),)
+                    : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
+                   bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
 
-                        )
+    )
+        :
 
-                            : CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                            bgColor: Color(0xFFD2EAFF), isQuestionOneDone: isLevelOneCompleted)
+    CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
+    bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)
+
+
+
 
                     ),
 

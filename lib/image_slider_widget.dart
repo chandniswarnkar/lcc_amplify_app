@@ -192,7 +192,8 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   ],
                 ),
                 SizedBox(height: 40,),
-            Container(
+            Visibility( visible: _current ==0,
+              child: Container(
               width: 220,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: ShapeDecoration(
@@ -235,6 +236,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   ),
                 ],
               ),
+            ),
             ),
       ]),
     );

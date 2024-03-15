@@ -25,7 +25,7 @@ class KnowYourCardPage extends StatefulWidget {
 }
 
 class _KnowYourCardPageState extends State<KnowYourCardPage> {
-  double _currentSliderValue = 20;
+  double _currentSliderValue = 0;
   List<Widget> cardPageList = [];
   bool showMainView = true;
   bool showQuizView = false;
@@ -33,7 +33,9 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
   bool showWrongAnswerView = false;
   bool showHintView = false;
   bool isQuestionOneDone = false;
+  bool isQuestionTwoPresented = false;
   bool isQuestionTwoDone = false;
+  String coinText = "0";
 
 
   @override
@@ -69,8 +71,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       ),
                     ),
                   ),
-                  const Text(
-                    '0',
+                   Text(
+                    coinText,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -85,6 +87,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             Expanded(child:
             Slider(
               value: _currentSliderValue,
+              activeColor: Colors.green,
+            // thumbColor: Colors.white,
               max: 100,
               divisions: 5,
               // label: _currentSliderValue.round().toString(),
@@ -106,7 +110,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               child: TextButton(
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 16),
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.grey,
+                  foregroundColor: Colors.white,
                 ),
                 onPressed: () {
                   setState(() {
@@ -148,19 +153,61 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                   child: FlipCardComponent(isTappingRequired: true,frontWidget: FrontTappableWidget(dateValueSetter: () {
                     print("inside expiry date pressed");
                     setState(() {
-                      showCorrectAnswerView = true;
-                      showHintView = false;
-                      showWrongAnswerView = false;
-                      showQuizView = false;
-                      isQuestionOneDone = true;
+                      if (isQuestionOneDone) {
+                      showCorrectAnswerView =  false;
+                      showWrongAnswerView =  true;
+
+                      _currentSliderValue = 5;
+
+
+                      } else {
+                        showCorrectAnswerView =  true;
+                        isQuestionOneDone = true;
+                        isQuestionTwoPresented = true;
+                        coinText = "5";
+                      }
+                      //showCorrectAnswerView =  true;
+                         showHintView = false;
+                        showQuizView =  false;
+                       isQuestionTwoDone = false;
+
+
+      print('is level 2 home page  $isQuestionTwoPresented');
+
                     });
-                  },),backWidget: BackTappableWidget(cvvValueSetter: () {
+                  }, wrongDateValueSetter: () {
                     setState(() {
-                      showCorrectAnswerView = true;
+
+                      if (isQuestionOneDone) {
+                        showCorrectAnswerView =  false;
+
+                        showWrongAnswerView =  true;
+
+                      } else {
+                        showCorrectAnswerView =  true;
+                       // isQuestionOneDone = true;
+
+                      }
+                      showQuizView = false;
+                      showCorrectAnswerView = false;
                       showHintView = false;
-                      showWrongAnswerView = false;
+                      showWrongAnswerView = true;
+
+
+                      isQuestionTwoDone = false;
+
+                    });
+
+                  },
+                  ),backWidget: BackTappableWidget(cvvValueSetter: () {
+                    setState(() {
+                      showCorrectAnswerView = isQuestionOneDone ? true : false;
+                      showHintView = false;
+                      showWrongAnswerView = isQuestionOneDone ? false : true;
                       showQuizView = false;
                       isQuestionTwoDone = true;
+                      showHintView = false;
+
                     });
 
                   },),),)
@@ -196,7 +243,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [ Expanded(
-                  child: KYCBottomPage(isLevelOneCompleted: isQuestionOneDone,),
+                  child: KYCBottomPage(isLevelOneCompleted: isQuestionOneDone, isLevelTwoPresented: isQuestionTwoPresented,),
                 ),
                 ]
             ),
@@ -262,8 +309,12 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               Container(
                 height: 320,
                 child: HintComponent(hintText: 'The Expiry date is a four-digit number printed on the front of the card.', onPressed: () {
-                  showHintView = false;
-                  showQuizView = true;
+                  setState(() {
+                    showHintView = false;
+                    showQuizView = true;
+                  });
+
+
                 }, ),
               )
               )
@@ -315,9 +366,10 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
 }
 
 class FrontTappableWidget extends StatelessWidget {
-  final VoidCallback dateValueSetter;
+  final VoidCallback? dateValueSetter;
+  final VoidCallback? wrongDateValueSetter;
 
-  const FrontTappableWidget({Key? key, required this.dateValueSetter}) : super(key: key);
+  const FrontTappableWidget({Key? key,  this.dateValueSetter, this.wrongDateValueSetter}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -376,7 +428,7 @@ class FrontTappableWidget extends StatelessWidget {
                       ),
 
                     ),
-                    onTap: dateValueSetter,
+                    onTap: wrongDateValueSetter,
                   ),
                 ]
 
@@ -401,7 +453,7 @@ class FrontTappableWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onTap: dateValueSetter,
+                    onTap: wrongDateValueSetter,
                   ),
 
                   GestureDetector(
@@ -432,7 +484,7 @@ class FrontTappableWidget extends StatelessWidget {
                         ],)
 
                     ),
-                    onTap: dateValueSetter,
+                    onTap:  dateValueSetter,
                   )
                 ]
 

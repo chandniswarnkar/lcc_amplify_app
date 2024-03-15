@@ -31,7 +31,8 @@ class LCCLearningPageState extends State<LCCLearningPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+     body: Column(
       children: [ Expanded(child:
         Container(
           width: MediaQuery.of(context).size.width,
@@ -83,11 +84,18 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     onTap:(){
                       //to add
                     //  Navigator.pushNamed(context, 'categoryPage');
-                      Navigator.of(context).push(
-                        CupertinoPageRoute(
-                          fullscreenDialog: true,
-                          builder: (context) => const CategoryPage(),
-                        ),
+
+                      // Navigator.of(context).push(
+                      //   CupertinoPageRoute(
+                      //     fullscreenDialog: true,
+                      //     builder: (context) => const CategoryPage(),
+                      //   ),
+                      // );
+                    //  Navigator.push(context,MaterialPageRoute(builder: (context)=>CategoryPage()), );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CategoryPage(), fullscreenDialog: true),
                       );
 
                     },
@@ -526,6 +534,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
     ),
       ],
       // This trailing comma makes auto-formatting nicer for build methods.
+    ),
     );
   }
 }
