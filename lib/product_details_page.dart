@@ -5,9 +5,9 @@ import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/payment_method_page.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  const ProductDetailPage({Key? key, required this.productItemModel}) : super(key: key);
+  const ProductDetailPage(  {super.key,required this.productItemsModel});
 
-  final ProductItemModel productItemModel;
+  final ProductItemModel productItemsModel;
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
@@ -140,7 +140,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       SizedBox(
                         width: 200,
                         height: 200,
-                        child: Image.asset("assets/images/shoo1.png",
+                        child: Image.asset(widget.productItemsModel.itemImage,
                             fit: BoxFit.fill, width: double.infinity),
                       ),
                       const SizedBox(height: 140),
@@ -151,9 +151,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Shoe 1',
-                              style: TextStyle(
+                             Text(
+                              widget.productItemsModel.itemNumber,
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,
                                 fontFamily: 'Inter',
@@ -167,9 +167,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                   "assets/images/coin 2.png",
                                   fit: BoxFit.fill,
                                 ),
-                                const Text(
-                                  '100',
-                                  style: TextStyle(
+                                 Text(
+                                  widget.productItemsModel.coins,
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 18,
                                     fontFamily: 'Inter',
@@ -212,7 +212,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           fullscreenDialog: true,
-                          builder: (context) => const PaymentMethodPage(),
+                          builder: (context) =>  PaymentMethodPage(productItemsModel:widget.productItemsModel),
                         ),
                       );
                     },

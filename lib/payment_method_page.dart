@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/enter_card_details_page.dart';
 
+import 'models/product_item_model.dart';
 import 'online_shopping_page.dart';
 
 class PaymentMethodPage extends StatefulWidget {
-  const PaymentMethodPage({Key? key}) : super(key: key);
+  const PaymentMethodPage(  {super.key,required this.productItemsModel});
+
+  final ProductItemModel productItemsModel;
 
   @override
   State<PaymentMethodPage> createState() => _PaymentMethodPageState();
@@ -138,7 +141,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       SizedBox(
                         width: 200,
                         height: 200,
-                        child: Image.asset("assets/images/shoo1.png",
+                        child: Image.asset(widget.productItemsModel.itemImage,
                             fit: BoxFit.fill, width: double.infinity),
                       ),
                       const SizedBox(height: 50),
