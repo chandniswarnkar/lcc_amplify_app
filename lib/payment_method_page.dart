@@ -1,24 +1,98 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/enter_card_details_page.dart';
 
+import 'models/product_item_model.dart';
 import 'online_shopping_page.dart';
 
 class PaymentMethodPage extends StatefulWidget {
-  const PaymentMethodPage({Key? key}) : super(key: key);
+  const PaymentMethodPage(  {super.key,required this.productItemsModel});
+
+  final ProductItemModel productItemsModel;
 
   @override
   State<PaymentMethodPage> createState() => _PaymentMethodPageState();
 }
 
 class _PaymentMethodPageState extends State<PaymentMethodPage> {
+
+  double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
       home: Scaffold(
         body: Column(
           children: [
+
+            SafeArea(
+              child: Row(children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 60,
+                  height: 40,
+                  margin: const EdgeInsets.all(20),
+                  padding:
+                  const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
+                  decoration: ShapeDecoration(
+                    color: Color(0xFFE9ECED),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6)),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 24,
+                        height: 24,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image:
+                            NetworkImage("https://via.placeholder.com/24x24"),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        '0',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
+                          height: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Slider(
+                    value: _currentSliderValue,
+                    max: 100,
+                    divisions: 5,
+                    // label: _currentSliderValue.round().toString(),
+                    onChanged: (double value) {
+                      setState(() {
+                        _currentSliderValue = value;
+                      });
+                    },
+                  ),
+                ),
+                Container(
+                  width: 34.60,
+                  height: 34.60,
+                  margin: const EdgeInsets.all(20),
+                  decoration: const ShapeDecoration(
+                    color: Colors.grey,
+                    shape: OvalBorder(),
+                  ),
+                ),
+              ]),
+            ),
             const SizedBox(
-              height:100,
+              height:18,
             ),
             const Text(
               'Payment Method',
@@ -37,7 +111,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
             const Padding(
               padding: EdgeInsets.fromLTRB(10, 5,10, 5),
               child: Text(
-                'Choose a Payment Method',
+                'Choose a \n Payment Method',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -47,7 +121,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 15,),
             Column(
               children: [
                 Container(
@@ -67,7 +141,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       SizedBox(
                         width: 200,
                         height: 200,
-                        child: Image.asset("assets/images/shoo1.png",
+                        child: Image.asset(widget.productItemsModel.itemImage,
                             fit: BoxFit.fill, width: double.infinity),
                       ),
                       const SizedBox(height: 50),
@@ -137,7 +211,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           fullscreenDialog: true,
-                          builder: (context) => const OnlineShoppingPage(),
+                          builder: (context) => const EnterCardDetailsPage(),
                         ),
                       );
 
@@ -178,7 +252,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           fullscreenDialog: true,
-                          builder: (context) => const OnlineShoppingPage(),
+                          builder: (context) => const EnterCardDetailsPage(),
                         ),
                       );
 
