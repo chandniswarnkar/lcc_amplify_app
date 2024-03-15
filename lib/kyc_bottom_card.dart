@@ -50,12 +50,11 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("level one done");
-  //  bool isLevelOneCompleted = widget.isLevelOneCompleted;
 
     List<String> texts = ["GFG Text 1", "GFG Text 2", "GFG Text 3"];
     int currentIndex = 0; // Index to track the currently displayed text
-
+    bool levelTwoPresented = widget.isLevelTwoPresented;
+      print('is level 2 presented  $levelTwoPresented');
      //var currentBottomView =  widget.isLevelTwoPresented ? BottomView.questionTwoPresented : (isLevelOneCompleted ? BottomView.questionOneDone : BottomView.questionOnePresented)
     return Container(
 
@@ -76,7 +75,7 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                         child: widget.isLevelTwoPresented ?
 
                         CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                          bgColor: Color(0xFFDFBEEE), isQuestionOneDone: true, key: UniqueKey(),)
+                          bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
                             :
 
                         widget.isLevelOneCompleted  ?
@@ -87,40 +86,20 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                         return ScaleTransition(child: child, scale: animation);
                      },
                      child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                    bgColor: Color(0xFFD2EAFF), isQuestionOneDone: widget.isLevelOneCompleted,
+                    bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
                      key:UniqueKey(),)
 
                     : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                   bgColor: Color(0xFFDFBEEE), isQuestionOneDone: false, key: UniqueKey(),)
+                   bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
 
     )
         :
 
     CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-    bgColor: Color(0xFFD2EAFF), isQuestionOneDone: widget.isLevelOneCompleted)
+    bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)
 
 
 
-/*
-                        isLevelOneCompleted ?
-
-                        AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 1),
-                            transitionBuilder: (Widget child, Animation<double> animation) {
-                              return ScaleTransition(child: child, scale: animation);
-                            },
-                            child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                              bgColor: Color(0xFFD2EAFF), isQuestionOneDone: isLevelOneCompleted,
-                              key:UniqueKey(),)
-
-                                : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                              bgColor: Color(0xFFDFBEEE), isQuestionOneDone: false, key: UniqueKey(),)
-
-                        )
-
-                            : CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                            bgColor: Color(0xFFD2EAFF), isQuestionOneDone: isLevelOneCompleted)
-*/
 
                     ),
 

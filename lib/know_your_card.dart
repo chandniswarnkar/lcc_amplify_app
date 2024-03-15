@@ -35,6 +35,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
   bool isQuestionOneDone = false;
   bool isQuestionTwoPresented = false;
   bool isQuestionTwoDone = false;
+  String coinText = "0";
 
 
   @override
@@ -70,8 +71,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       ),
                     ),
                   ),
-                  const Text(
-                    '0',
+                   Text(
+                    coinText,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -109,7 +110,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               child: TextButton(
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 16),
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.grey,
+                  foregroundColor: Colors.white,
                 ),
                 onPressed: () {
                   setState(() {
@@ -154,20 +156,23 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       if (isQuestionOneDone) {
                       showCorrectAnswerView =  false;
                       showWrongAnswerView =  true;
-                      isQuestionTwoPresented = true;
+
                       _currentSliderValue = 5;
+
 
                       } else {
                         showCorrectAnswerView =  true;
                         isQuestionOneDone = true;
-                       // isQuestionTwoPresented = false;
-
+                        isQuestionTwoPresented = true;
+                        coinText = "5";
                       }
                       //showCorrectAnswerView =  true;
                          showHintView = false;
                         showQuizView =  false;
                        isQuestionTwoDone = false;
 
+
+      print('is level 2 home page  $isQuestionTwoPresented');
 
                     });
                   }, wrongDateValueSetter: () {
@@ -202,6 +207,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       showQuizView = false;
                       isQuestionTwoDone = true;
                       showHintView = false;
+
                     });
 
                   },),),)

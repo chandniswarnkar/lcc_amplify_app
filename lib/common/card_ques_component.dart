@@ -6,10 +6,10 @@ class CardQuestionComponent extends StatelessWidget {
   final String questionNumber;
   final String questionDescription;
   final Color bgColor;
-  final bool isQuestionOneDone;
+  final bool showCompletedStatus;
 
 
-  const CardQuestionComponent({super.key,  required this.questionNumber, required this.questionDescription, required this.bgColor, required this.isQuestionOneDone});
+  const CardQuestionComponent({super.key,  required this.questionNumber, required this.questionDescription, required this.bgColor, required this.showCompletedStatus});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class CardQuestionComponent extends StatelessWidget {
                     SizedBox(
                       //  width: 279,
                       height: 50,
-                      child: isQuestionOneDone == false ? const Text(
+                      child: showCompletedStatus == false ? const Text(
                         'Use your finger to drag and explore your card around.',
                         textAlign: TextAlign.center,
                         maxLines: 2,

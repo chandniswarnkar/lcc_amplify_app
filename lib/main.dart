@@ -88,31 +88,31 @@ class _MyHomePageState extends State<MyHomePage> {
       //   title: Text(widget.title),
       // ),
       body:_widgetOptions [_selectedIndex],
-      // Navigator(
-      //   onGenerateRoute: (settings) {
-      //     Widget page = LCCLearningPage();
-      //     if (settings.name == 'categoryPage') page = CategoryPage();
-      //     return MaterialPageRoute(builder: (_) => page);
-      //   },
-      // ),
 
       bottomNavigationBar: BottomNavigationBar(
-    items: const <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
+
+        backgroundColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        selectedIconTheme: const IconThemeData(color: Colors.white, size: 30),
+    items:  <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+
         icon: Icon(Icons.book),
-    label: 'Learn',
-    ),
+        label: 'Learn',
+      ),
     BottomNavigationBarItem(
     icon: Icon(Icons.circle),
     label: 'Rewards',
     ),
     BottomNavigationBarItem(
-    icon: Icon(Icons.book),
+    icon: Icon(Icons.book_online_outlined),
     label: 'Practice',
     ),
     ],
     currentIndex: _selectedIndex,
-    selectedItemColor: Colors.amber[800],
+    //selectedItemColor: Colors.blue,
+    showSelectedLabels: true,
+
     onTap: _onItemTapped,
     ),
     );

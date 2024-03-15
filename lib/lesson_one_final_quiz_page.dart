@@ -37,7 +37,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                 height: 20,
               ),
               Container(
-                width: 60,
+                width: 70,
                 height: 40,
                 margin: const EdgeInsets.all(20),
                 padding:
@@ -51,8 +51,8 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      width: 24,
-                      height: 24,
+                      width: 30,
+                      height: 30,
                       decoration: const BoxDecoration(
                       //  color: Colors.deepOrange,
                         image: DecorationImage(
@@ -62,10 +62,10 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                       ),
                     ),
                     const Text(
-                      '5',
+                      '10',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 20,
+                        fontSize: 16,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w600,
                         height: 0,
@@ -79,10 +79,11 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                   value: _currentSliderValue,
                   max: 100,
                   divisions: 5,
+                  activeColor: Colors.green,
                   // label: _currentSliderValue.round().toString(),
                   onChanged: (double value) {
                     setState(() {
-                      _currentSliderValue = value;
+                      //_currentSliderValue = value;
                     });
                   },
                 ),
@@ -98,7 +99,8 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                 child: TextButton(
                   style: TextButton.styleFrom(
                     textStyle: const TextStyle(fontSize: 16),
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.grey,
+                    foregroundColor: Colors.white,
                   ),
                   onPressed: () {
                     setState(() {
