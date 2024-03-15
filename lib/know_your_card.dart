@@ -91,7 +91,11 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               max: 100,
               divisions: 5,
               // label: _currentSliderValue.round().toString(),
-              onChanged: null
+              onChanged: (double value) {
+                setState(() {
+                  _currentSliderValue = value;
+                });
+              },
             ),
             ),
             Container(
