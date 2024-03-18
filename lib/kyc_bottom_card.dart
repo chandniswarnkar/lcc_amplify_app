@@ -72,31 +72,28 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                     color: Colors.white,
                     child: Container(
                         height: 230,
-                        child: widget.isLevelTwoPresented ?
+                        child: widget.isLevelOneCompleted  ?
 
-                        CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                          bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
-                            :
-
-                        widget.isLevelOneCompleted  ?
+                        widget.isLevelTwoPresented  ? CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Find and tap on expiry date of the card',
+                            bgColor: Color(0xFFD2EAFF), showCompletedStatus: false) :
 
                         AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 1),
-                        transitionBuilder: (Widget child, Animation<double> animation) {
-                        return ScaleTransition(child: child, scale: animation);
-                     },
-                     child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                    bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
-                     key:UniqueKey(),)
+                            duration: const Duration(milliseconds: 1),
+                            transitionBuilder: (Widget child, Animation<double> animation) {
+                              return ScaleTransition(child: child, scale: animation);
+                            },
+                            child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
+                              bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
+                              key:UniqueKey(),)
 
-                    : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                   bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
+                                : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
+                              bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
 
-    )
-        :
+                        )
 
-    CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-    bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)
+
+                            :  CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
+                    bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)
 
 
 
@@ -148,7 +145,7 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                               ),
                             ),
                             onPressed: () {
-                              print("hint button pressed");
+
                               setState(() {
                                 isHintOneShown = true;
                               });

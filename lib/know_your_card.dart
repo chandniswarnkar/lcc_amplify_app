@@ -36,6 +36,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
   bool isQuestionTwoPresented = false;
   bool isQuestionTwoDone = false;
   String coinText = "0";
+  bool isNextButtonPressed = false;
 
 
   @override
@@ -151,37 +152,33 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                   height: 280,
                   width: 320, //MediaQuery.of(context).size.width,//Tochange
                   child: FlipCardComponent(isTappingRequired: true,frontWidget: FrontTappableWidget(dateValueSetter: () {
-                    print("inside expiry date pressed");
+               if  (isNextButtonPressed) {
                     setState(() {
                       if (isQuestionOneDone) {
                       showCorrectAnswerView =  false;
                       showWrongAnswerView =  true;
-
                       _currentSliderValue = 5;
-
+                        isQuestionTwoPresented = true;
 
                       } else {
                         showCorrectAnswerView =  true;
                         isQuestionOneDone = true;
-                        isQuestionTwoPresented = true;
+
                         coinText = "5";
                       }
-                      //showCorrectAnswerView =  true;
                          showHintView = false;
                         showQuizView =  false;
-                       isQuestionTwoDone = false;
-
-
-      print('is level 2 home page  $isQuestionTwoPresented');
 
                     });
+                    }
                   }, wrongDateValueSetter: () {
+                    if (isNextButtonPressed) {
                     setState(() {
 
                       if (isQuestionOneDone) {
                         showCorrectAnswerView =  false;
-
                         showWrongAnswerView =  true;
+                        isQuestionTwoPresented = true;
 
                       } else {
                         showCorrectAnswerView =  true;
@@ -192,25 +189,29 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       showCorrectAnswerView = false;
                       showHintView = false;
                       showWrongAnswerView = true;
-
-
                       isQuestionTwoDone = false;
 
                     });
+                    }
 
                   },
                   ),backWidget: BackTappableWidget(cvvValueSetter: () {
-                    setState(() {
-                      showCorrectAnswerView = isQuestionOneDone ? true : false;
-                      showHintView = false;
-                      showWrongAnswerView = isQuestionOneDone ? false : true;
-                      showQuizView = false;
-                      isQuestionTwoDone = true;
-                      showHintView = false;
-
-                    });
-
-                  },),),)
+                    if (isNextButtonPressed) {
+                      setState(() {
+                        isQuestionTwoPresented = true;
+                        showCorrectAnswerView =
+                        isQuestionOneDone ? true : false;
+                        showHintView = false;
+                        showWrongAnswerView = isQuestionOneDone ? false : true;
+                        showQuizView = false;
+                        isQuestionTwoDone = true;
+                        showHintView = false;
+                      });
+                    }
+                  },
+                  ),
+                  ),
+                )
               ]
           ),
           Visibility(visible: showMainView,
@@ -255,7 +256,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 height: 320,
                 child: RightAnswerComponent(successText: 'You have got 5 coins',onPressed: () {
                   if (isQuestionTwoDone) {
-                    print("move to new level ");
+
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -340,6 +341,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                   ),
                   onPressed: () {
                     setState(() {
+                      isNextButtonPressed = true;
                       showMainView = false;
                       showQuizView = true;
                     });
@@ -535,3 +537,4 @@ class BackTappableWidget extends StatelessWidget {
 
   }
 }
+
