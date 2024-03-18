@@ -25,8 +25,8 @@ class PracticeView extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 390,
-          height: 844,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(color: Color(0xFFE8D9F0)),
           child: ListView(
