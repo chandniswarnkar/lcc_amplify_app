@@ -127,19 +127,20 @@ class LCCLearningPageState extends State<LCCLearningPage> {
               ////
               Expanded(child:
                 Container(
-                  color: Colors.orangeAccent,
+                 // color: Colors.orangeAccent,
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   child:
 
               ListView.builder(
-             // shrinkWrap: true,
+
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
                 return Container(
                   height: 110,
                   child:
                   ListView(
+                    physics: NeverScrollableScrollPhysics(),
                   children: [ Container(
                     height: 100,
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 0),
@@ -147,7 +148,15 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                       color: const Color.fromRGBO(255, 255, 255, 0.60),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                     ),
-                    child: Row(
+                    child: GestureDetector(
+                      onTap: snapshot.data?[index]?.questionLabel == "Transacting"?   () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CategoryPage()),
+                        );
+                      } : (){},
+                      child:
+                    Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -155,7 +164,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                         Expanded(
                           child: Container(
                             height: 100,
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -206,7 +215,9 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                     ),
                                   ),
 
+                                Visibility(visible: snapshot.data?[index]?.questionLabel != "Transacting",
 
+                                  child:
                                   Positioned(
                                     top: 0,
                                     bottom: 0,
@@ -218,6 +229,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                         )
                                     ),
                                   ),
+                          ),
 
 
 
@@ -232,6 +244,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                         ),
                       ],
                     ),
+                  ),
                   ),
 
 
