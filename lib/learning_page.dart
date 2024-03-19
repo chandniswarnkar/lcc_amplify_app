@@ -33,6 +33,14 @@ class LCCLearningPage extends StatefulWidget {
 class LCCLearningPageState extends State<LCCLearningPage> {
   bool _isAmplifyConfigured = false;
 
+  List<AssetImage> listOfImages = [ AssetImage("assets/images/transacting_ellipse.png"),
+  AssetImage("assets/images/communicating_ellipse.png"),
+  AssetImage("assets/images/handling_ellipse.png"),
+  AssetImage("assets/images/problem_solving_ellipse.png"),
+  AssetImage("assets/images/online_safety_ellipse.png")
+  ];
+
+
   @override
   void initState() {
     super.initState();
@@ -90,7 +98,6 @@ class LCCLearningPageState extends State<LCCLearningPage> {
               SizedBox(height: 60,),
               Container(
                 height: 40,
-               // color: Colors.green,
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                 child:
               Row(
@@ -145,7 +152,8 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     height: 100,
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 0),
                     decoration: ShapeDecoration(
-                      color: const Color.fromRGBO(255, 255, 255, 0.60),
+                      color:   snapshot.data?[index]?.questionLabel  == "Transacting" ? const Color.fromRGBO(255, 255, 255, 1) :
+                      const Color.fromRGBO(255, 255, 255, 0.6),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                     ),
                     child: GestureDetector(
@@ -205,8 +213,8 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                     width: 70,
                                     height: 70,
                                     decoration: ShapeDecoration(
-                                      image: const DecorationImage(
-                                        image:AssetImage("assets/images/communicating_ellipse.png"),
+                                      image: DecorationImage(
+                                        image: listOfImages[index] ,
                                         fit: BoxFit.fill,
                                       ),
                                       shape: RoundedRectangleBorder(
@@ -231,10 +239,6 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   ),
                           ),
 
-
-
-
-
                                 ],),
 
 
@@ -252,15 +256,6 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                 ),
                 );
 
-
-                  ///////
-                  /*
-                  ListTile(
-                  title: Text(snapshot.data?[index]?.questionLabel ?? 'Line 1'),
-                  subtitle: Text(
-                      snapshot.data?[index]?.questionDescription ?? 'Line 2'),
-                );*/
-                /////
               },
 
             ),
