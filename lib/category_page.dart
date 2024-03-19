@@ -18,7 +18,7 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(''),),
+      //appBar: AppBar(title: Text(''),),
       backgroundColor: Color(0xFF11442B),
       body: _selectedIndex == 1 ? RewardsPage() : _selectedIndex == 2 ? PracticePage() :
 
