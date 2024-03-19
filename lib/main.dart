@@ -78,43 +78,154 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      // appBar: AppBar(
-      //   // TRY THIS: Try changing the color here to a specific color (to
-      //   // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-      //   // change color while the other colors stay the same.
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   // Here we take the value from the MyHomePage object that was created by
-      //   // the App.build method, and use it to set our appbar title.
-      //   title: Text(widget.title),
-      // ),
       body:_widgetOptions [_selectedIndex],
 
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:Row(
+        children: [
+          GestureDetector( onTap: () {
+            setState(() {
+              _selectedIndex = 0;
+            });
 
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        selectedIconTheme: const IconThemeData(color: Colors.white, size: 30),
-    items:  <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
+          },
+            child:
+          Container(
+            width: MediaQuery.of(context).size.width/3,
+            height: 85,
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            decoration: _selectedIndex == 0 ? BoxDecoration(color: Colors.black) : BoxDecoration(color: Colors.white),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(),
+                  child:  _selectedIndex == 0 ? Image.asset("assets/images/Learn_icon_White.png") : Image.asset("assets/images/Learn_icon_Black.png"),
 
-        icon: Icon(Icons.book),
-        label: 'Learn',
-      ),
-    BottomNavigationBarItem(
-    icon: Icon(Icons.circle),
-    label: 'Rewards',
+                ),
+                Text(
+                  'Learn',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: _selectedIndex == 0 ? Colors.white : Colors.black,
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0,
+                  ),
+                ),
+              ],
+            ),
+          ),
     ),
-    BottomNavigationBarItem(
-    icon: Icon(Icons.book_online_outlined),
-    label: 'Practice',
-    ),
-    ],
-    currentIndex: _selectedIndex,
-    //selectedItemColor: Colors.blue,
-    showSelectedLabels: true,
+          GestureDetector( onTap: () {
+            setState(() {
+              _selectedIndex = 1;
+            });
+          },
+            child:
+          Container(
+            width: MediaQuery.of(context).size.width/3,
+            height: 85,
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            decoration: _selectedIndex == 1 ? BoxDecoration(color: Colors.black) : BoxDecoration(color: Colors.white),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal:2, vertical: 2),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 35.0,
+                        height: 35.0,
+                        child: _selectedIndex == 1 ? Image.asset("assets/images/Reward_Icon_white.png") : Image.asset("assets/images/Reward_Icon_black.png"
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  'Rewards',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: _selectedIndex == 1 ? Colors.white : Colors.black,
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ),
+          GestureDetector( onTap: () {
+            setState(() {
+              _selectedIndex = 2;
+            });
+        },
+            child:
+          Container(
+            width: MediaQuery.of(context).size.width/3,
+            height: 85,
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            decoration: _selectedIndex == 2 ? BoxDecoration(color: Colors.black) : BoxDecoration(color: Colors.white),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  padding: const EdgeInsets.all(2),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 35,
+                        height: 35,
+                        child: _selectedIndex == 2 ? Image.asset("assets/images/Practice_Icon_white.png") : Image.asset("assets/images/Practice_Icon_black.png"),
 
-    onTap: _onItemTapped,
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  'Practice',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: _selectedIndex == 2 ?Colors.white : Colors.black,
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0,
+                  ),
+                ),
+              ],
+            ),
+          ),
     ),
+        ],
+      )
     );
   }
 }
