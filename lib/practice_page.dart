@@ -11,9 +11,9 @@ class PracticePage extends StatefulWidget {
 class _PracticePageState extends State<PracticePage> {
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      PracticeView(),
-    ]);
+    return Scaffold(
+      body: PracticeView(),
+    );
   }
 }
 
@@ -24,6 +24,7 @@ class PracticeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Expanded(child:
         Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -32,8 +33,8 @@ class PracticeView extends StatelessWidget {
           child: ListView(
             children: [
               Container(
-                width: 390,
-                height: 208,
+                width: MediaQuery.of(context).size.width,
+                height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/OWL_Practice.gif"),
@@ -67,12 +68,13 @@ class PracticeView extends StatelessWidget {
                 ),
               SizedBox(height: 20),
                Container(
+                 height: 120,
                   width: MediaQuery.of(context).size.width,
                  margin: EdgeInsets.all(20),
                   padding: const EdgeInsets.only(
                     top: 40,
-                    left: 33,
-                    right: 40,
+                    left: 0,
+                    right: 0,
                     bottom: 40,
                   ),
                   decoration: ShapeDecoration(
@@ -83,8 +85,8 @@ class PracticeView extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         'Mistakes',
@@ -96,7 +98,7 @@ class PracticeView extends StatelessWidget {
                           height: 0,
                         ),
                       ),
-                      const SizedBox(width: 104),
+                      const SizedBox(width: 120),
                       Text(
                         '02',
                         textAlign: TextAlign.right,
@@ -111,57 +113,57 @@ class PracticeView extends StatelessWidget {
                     ],
                   ),
                 ),
-               Container(
-                  width: MediaQuery.of(context).size.width,
-                 margin: EdgeInsets.all(20),
-                  padding: const EdgeInsets.only(
-                    top: 40,
-                    left: 33,
-                    right: 40,
-                    bottom: 40,
+              Container(
+                height: 120,
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.all(20),
+                padding: const EdgeInsets.only(
+                  top: 40,
+                  left: 0,
+                  right: 0,
+                  bottom: 40,
+                ),
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Review',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+                        height: 0,
+                      ),
                     ),
-                  ),
-                  child:
-                  Row(
-
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Review',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
-                        ),
+                    const SizedBox(width: 120),
+                    Text(
+                      '04',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+                        height: 0,
                       ),
-                      const SizedBox(width: 125),
-                      Text(
-                        '02',
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
-                        ),
-                      ),
-                    ],
-                   ),
+                    ),
+                  ],
                 ),
+              ),
 
             ],
           ),
         ),
+    ),
       ],
     );
   }
