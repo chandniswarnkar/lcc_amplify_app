@@ -36,6 +36,8 @@ dependencies:
   carousel_slider: ^4.2.1
   flippy: ^0.1.1
   video_player: ^2.8.3
+  flutter_launcher_icons: ^0.13.1
+
 
 
   flutter:
@@ -50,6 +52,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  image_path: "assets/icons/app_icon.png"
+  android: true
+  ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

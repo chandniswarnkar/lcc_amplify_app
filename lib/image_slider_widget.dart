@@ -39,6 +39,21 @@ final List<Widget> imageSliders = images
 
               ),
             ),
+            Visibility(visible: item != "assets/images/category1.png",
+
+              child:
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Center(
+                    child: Image.asset("assets/images/Lock.png",  fit: BoxFit.fill,
+
+                    )
+                ),
+              ),
+            ),
           ],
         )),
   ),

@@ -33,6 +33,16 @@ class LCCLearningPage extends StatefulWidget {
 class LCCLearningPageState extends State<LCCLearningPage> {
   bool _isAmplifyConfigured = false;
 
+  // Future<List<Question?>> questionList =  [ Question(id: "123",questionLabel: "Transacting", questionDescription: "4 Skills"),
+  //   Question(id: "124",questionLabel: "Communicating", questionDescription: "7 Skills"),
+  //   Question(id: "125",questionLabel: "Handling Content", questionDescription: "8 Skills"),
+  //   Question(id: "126",questionLabel: "Problem Solving", questionDescription: "4 Skills"),
+  //   Question(id: "127",questionLabel: "Online Safety", questionDescription: "4 Skills")
+  //
+  // ] as Future<List<Question?>> ;
+
+
+
   List<AssetImage> listOfImages = [ AssetImage("assets/images/transacting_ellipse.png"),
   AssetImage("assets/images/communicating_ellipse.png"),
   AssetImage("assets/images/handling_ellipse.png"),
@@ -43,13 +53,13 @@ class LCCLearningPageState extends State<LCCLearningPage> {
 
   @override
   void initState() {
+
     super.initState();
     if (Amplify.isConfigured == false) {
       _configureAmplify();
     }
 
-    print('Successfully init');
-    //queryListItems();
+
   }
 
   Future<void> _configureAmplify() async {
@@ -65,6 +75,18 @@ class LCCLearningPageState extends State<LCCLearningPage> {
     }
   }
 
+  Future<List<Question?>> questionListItems() async
+  {
+    return [ Question(id: "123",questionLabel: "Transacting", questionDescription: "4 Skills"),
+      Question(id: "124",questionLabel: "Communicating", questionDescription: "7 Skills"),
+      Question(id: "125",questionLabel: "Handling Content", questionDescription: "8 Skills"),
+      Question(id: "126",questionLabel: "Problem Solving", questionDescription: "4 Skills"),
+      Question(id: "127",questionLabel: "Online Safety", questionDescription: "9 Skills")
+
+    ];
+
+  }
+
   Future<List<Question?>> queryListItems() async {
     try {
       final request = ModelQueries.list(Question.classType);
@@ -73,17 +95,19 @@ class LCCLearningPageState extends State<LCCLearningPage> {
       final questions = response.data?.items;
       if (questions == null) {
         safePrint('errors: ${response.errors}');
-        return const [];
+        return questionListItems();
       }
       return questions;
     } on ApiException catch (e) {
       safePrint('Query failed: $e');
-      return const [];
+      return questionListItems();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
    backgroundColor: Color(0xFFD6C4E4) ,
       body: FutureBuilder(
@@ -92,6 +116,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator();
           } else if (snapshot.hasError) {
+
             return Text('Error: ${snapshot.error}');
           } else {
             return Column(children: [
@@ -134,14 +159,14 @@ class LCCLearningPageState extends State<LCCLearningPage> {
               ////
               Expanded(child:
                 Container(
-                 // color: Colors.orangeAccent,
+
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   child:
 
               ListView.builder(
 
-              itemCount: snapshot.data?.length,
+              itemCount: snapshot.data != null ? snapshot.data?.length : 5,
               itemBuilder: (context, index) {
                 return Container(
                   height: 110,
