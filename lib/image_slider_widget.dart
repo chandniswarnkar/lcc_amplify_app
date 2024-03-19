@@ -192,12 +192,11 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   ],
                 ),
                 SizedBox(height: 40,),
-            Visibility( visible: _current ==0,
-              child: Container(
+             Container(
               width: 220,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: ShapeDecoration(
-                color: Colors.white,
+                color:  _current ==0 ? Colors.white : Color.fromRGBO(255, 255, 255, 0.6),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -208,7 +207,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   TextButton(
-                    child: Text(
+                    child: _current ==0 ?   Text(
                       "Start Playing",
                       style: TextStyle(
                         color: Colors.black,
@@ -217,9 +216,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                         fontWeight: FontWeight.w600,
 
                       ),
+                    ) : Text(
+                      "Coming Soon",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+
+                      ),
                     ),
-                    onPressed: () {
-                      showModalBottomSheet(
+                    onPressed: _current ==0 ? () {
+                    showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
                           constraints: BoxConstraints.loose(Size(
@@ -231,13 +239,13 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                       }
                       );
 
-                    },
+                    } : null,
 
                   ),
                 ],
               ),
             ),
-            ),
+
       ]),
     );
   }
