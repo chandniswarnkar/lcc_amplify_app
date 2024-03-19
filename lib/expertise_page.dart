@@ -256,6 +256,8 @@ class _ExpertisePageState extends State<ExpertisePage> {
                   ],
                 ),
               ),
+              Visibility(visible: isRowOneTapped || isRowTwoTapped || isRowThreeTapped,
+                child:
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 margin: const EdgeInsets.symmetric(horizontal: 85,  vertical: 10),
@@ -297,6 +299,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                   ],
                 ),
               ),
+                    ),
             ],
           ),
         ),
