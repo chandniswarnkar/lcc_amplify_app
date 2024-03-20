@@ -48,43 +48,28 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     _controller.addListener(() {
       Duration duration = _controller.value.duration;
       Duration position = _controller.value.position;
-      if (duration.compareTo(position) != 1) {
+
+      if (_controller.value.position >= _controller.value.duration)  {
         print("video completed");
-        Navigator.of(context).push(
-                CupertinoPageRoute(
-                  fullscreenDialog: true,
-                  builder: (context) =>  const StartLevel2Page(),
-                ),
-              );
+
+        if (widget.levelComlpetionText == "Level 1 Completed") {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              fullscreenDialog: true,
+              builder: (context) =>  const StartLevel2Page(),
+            ),
+          );
+        }
+        // Navigator.of(context).push(
+        //         CupertinoPageRoute(
+        //           fullscreenDialog: true,
+        //           builder: (context) =>  const StartLevel2Page(),
+        //         ),
+        //       );
+
       }
 
     });
-
-   /* // Create and store the VideoPlayerController. The VideoPlayerController
-    // offers several different constructors to play videos from assets, files,
-    // or the internet.
-    _controller =
-        VideoPlayerController.asset('assets/images/Level_Completion_blank.mp4');
-
-    // Initialize the controller and store the Future for later use.
-    _initializeVideoPlayerFuture = _controller.initialize();
-
-    // Use the controller to loop the video.
-    _controller.setLooping(false);
-    _controller.play();
-
-    // Start the timer when the video starts playing
-    _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
-      setState(() {
-        _secondsElapsed++;
-        if (_secondsElapsed >= 100) {
-          timer.cancel();
-        }
-      });
-
-    });
-  //  _controller.addListener(checkVideo);*/
-
 
 
   }
