@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/common/card_flip_component.dart';
-import 'package:lcc_flutter_app/kyc_bottom_card.dart';
 import 'package:lcc_flutter_app/productlist_page.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
 
 class OnlineShoppingPage extends StatefulWidget {
   const OnlineShoppingPage({Key? key}) : super(key: key);
@@ -16,6 +16,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
   double _currentSliderValue = 20;
   List<Widget> cardPageList = [];
   bool isNextButtonPressed = false;
+  String coinText = "0";
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +26,15 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
         children: <Widget>[
           SafeArea(
             child: Row(children: [
-              SizedBox(
-                height: 20,
-              ),
+
               Container(
                 width: 60,
                 height: 40,
                 margin: const EdgeInsets.all(20),
-                padding:
-                    const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
+                padding: const EdgeInsets.only(
+                    top: 8, left: 8, right: 8, bottom: 8),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFE9ECED),
+                  color: const Color(0xFFE9ECED),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6)),
                 ),
@@ -47,8 +46,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                       height: 24,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image:
-                              NetworkImage("https://via.placeholder.com/24x24"),
+                          image: AssetImage('assets/images/coin 2.png'),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -69,6 +67,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
               Expanded(
                 child: Slider(
                   value: _currentSliderValue,
+                  activeColor: Colors.green,
                   max: 100,
                   divisions: 5,
                   // label: _currentSliderValue.round().toString(),
@@ -86,6 +85,26 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                 decoration: const ShapeDecoration(
                   color: Colors.grey,
                   shape: OvalBorder(),
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 16),
+                    backgroundColor: const Color(0xFFE9ECED),
+                    foregroundColor: Colors.grey,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) =>  const StartLevelPage(),
+                        ),
+                      );
+                    });
+
+                  },
+                  child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ]),
@@ -106,7 +125,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
           ]),
           const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-              'You are buying a new pair of shoes\nfor your granddaughter who is \n about to participate in a tennis match at school.',
+              'You are buying a new pair of shoes\nfor your granddaughter who is \n about to participate in a tennis \nmatch at school.',
               maxLines: 3,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -128,8 +147,8 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
               width: 342, //MediaQuery.of(context).size.width,//Tochange
               child: FlipCardComponent(
                 isTappingRequired: true,
-                frontWidget: FrontTappableWidget(),
-                backWidget: BackTappableWidget(),
+                frontWidget: const FrontTappableWidget(),
+                backWidget: const BackTappableWidget(),
               ),
             )
           ]),
@@ -207,7 +226,7 @@ class FrontTappableWidget extends StatelessWidget {
               children: [
                 Container(
                   // color: Colors.deepOrange,
-                  margin: EdgeInsets.all(20.0),
+                  margin: const EdgeInsets.all(20.0),
                   height: 20,
                   //  alignment: Alignment.topRight,
                   child: const Text(
@@ -223,7 +242,7 @@ class FrontTappableWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -246,13 +265,13 @@ class FrontTappableWidget extends StatelessWidget {
                 },
               ),
             ]),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               GestureDetector(
                 child: Container(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   child: const Text(
                     'JOHN SENIOR',
                     textAlign: TextAlign.center,
@@ -271,10 +290,10 @@ class FrontTappableWidget extends StatelessWidget {
               ),
               GestureDetector(
                 child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
-                        const Text(
+                        Text(
                           'VALID\n THRU',
                           style: TextStyle(
                             color: Colors.white,
@@ -284,7 +303,7 @@ class FrontTappableWidget extends StatelessWidget {
                             height: 0,
                           ),
                         ),
-                        const Text(
+                        Text(
                           '08/30',
                           style: TextStyle(
                             color: Colors.white,
@@ -313,7 +332,7 @@ class BackTappableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      padding: EdgeInsets.only(right: 30),
+      padding: const EdgeInsets.only(right: 30),
       decoration: const BoxDecoration(
           image: DecorationImage(
         image: AssetImage("assets/images/card_back_blank.png"),
@@ -361,9 +380,15 @@ class HintGuideCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset("assets/images/OWL_Oops.gif",fit: BoxFit.fill,),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+              Container(
+                width: 100,
+                height: 100,
+                margin: const EdgeInsets.only(left: 20),
+                child:
+                const Image(image: AssetImage('assets/images/OWL_Default.gif')),
+              ),
+      const Padding(
+        padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
         child: Column(
           children: [
 

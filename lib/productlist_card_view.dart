@@ -47,7 +47,7 @@ class ProductListCardViewItem extends StatelessWidget {
                     ),
                   ),
                    Padding(
-                    padding:  EdgeInsets.fromLTRB(10, 0, 10, 2),
+                    padding:  const EdgeInsets.fromLTRB(10, 0, 10, 2),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Row(
@@ -55,7 +55,7 @@ class ProductListCardViewItem extends StatelessWidget {
                         Image.asset("assets/images/coin 2.png",fit: BoxFit.fill,),
                            Text(
                              productItemsModel.coins,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontFamily: 'Inter',

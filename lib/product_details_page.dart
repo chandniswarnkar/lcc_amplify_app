@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/models/product_item_model.dart';
 import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/payment_method_page.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage(  {super.key,required this.productItemsModel});
@@ -24,7 +26,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
             SafeArea(
               child: Row(children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
@@ -34,7 +36,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   padding:
                   const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
                   decoration: ShapeDecoration(
-                    color: Color(0xFFE9ECED),
+                    color: const Color(0xFFE9ECED),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6)),
                   ),
@@ -46,8 +48,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         height: 24,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image:
-                            NetworkImage("https://via.placeholder.com/24x24"),
+                            image: AssetImage('assets/images/coin 2.png'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -68,6 +69,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 Expanded(
                   child: Slider(
                     value: _currentSliderValue,
+                    activeColor: Colors.green,
                     max: 100,
                     divisions: 5,
                     // label: _currentSliderValue.round().toString(),
@@ -85,6 +87,26 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   decoration: const ShapeDecoration(
                     color: Colors.grey,
                     shape: OvalBorder(),
+                  ),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 16),
+                      backgroundColor: const Color(0xFFE9ECED),
+                      foregroundColor: Colors.grey,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            fullscreenDialog: true,
+                            builder: (context) =>  const StartLevelPage(),
+                          ),
+                        );
+                      });
+
+                    },
+                    child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ]),
@@ -133,17 +155,20 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                   ),
                   child: Column(
-                    // mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                     //mainAxisSize: MainAxisSize.min,
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 200,
-                        height: 200,
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+                        width: 300,
+                        height: 180,
                         child: Image.asset(widget.productItemsModel.itemImage,
                             fit: BoxFit.fill, width: double.infinity),
                       ),
-                      const SizedBox(height: 140),
+                      const SizedBox(height: 100),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(30, 0,30, 10),
                         child: Row(
@@ -186,7 +211,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             Container(

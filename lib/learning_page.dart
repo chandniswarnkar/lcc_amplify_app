@@ -75,21 +75,21 @@ class LCCLearningPageState extends State<LCCLearningPage> {
     }
   }
 
-  Future<List<Question?>> questionListItems() async
+  Future<List<Content?>> questionListItems() async
   {
-    return [ Question(id: "123",questionLabel: "Transacting", questionDescription: "4 Skills"),
-      Question(id: "124",questionLabel: "Communicating", questionDescription: "7 Skills"),
-      Question(id: "125",questionLabel: "Handling Content", questionDescription: "8 Skills"),
-      Question(id: "126",questionLabel: "Problem Solving", questionDescription: "4 Skills"),
-      Question(id: "127",questionLabel: "Online Safety", questionDescription: "9 Skills")
+    return [ Content(id: "123",contentLabel: "Transacting", contentDescription: "4 Skills"),
+      Content(id: "124",contentLabel: "Communicating", contentDescription: "7 Skills"),
+      Content(id: "125",contentLabel: "Handling Content", contentDescription: "8 Skills"),
+      Content(id: "126",contentLabel: "Problem Solving", contentDescription: "4 Skills"),
+      Content(id: "127",contentLabel: "Online Safety", contentDescription: "9 Skills")
 
     ];
 
   }
 
-  Future<List<Question?>> queryListItems() async {
+  Future<List<Content?>> queryListItems() async {
     try {
-      final request = ModelQueries.list(Question.classType);
+      final request = ModelQueries.list(Content.classType);
       final response = await Amplify.API.query(request: request).response;
 
       final questions = response.data?.items;
@@ -177,12 +177,12 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     height: 100,
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 0),
                     decoration: ShapeDecoration(
-                      color:   snapshot.data?[index]?.questionLabel  == "Transacting" ? const Color.fromRGBO(255, 255, 255, 1) :
+                      color:   snapshot.data?[index]?.contentLabel  == "Transacting" ? const Color.fromRGBO(255, 255, 255, 1) :
                       const Color.fromRGBO(255, 255, 255, 0.6),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                     ),
                     child: GestureDetector(
-                      onTap: snapshot.data?[index]?.questionLabel == "Transacting"?   () {
+                      onTap: snapshot.data?[index]?.contentLabel == "Transacting"?   () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => CategoryPage()),
@@ -209,7 +209,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                   snapshot.data?[index]?.questionLabel ?? 'Transacting',
+                                   snapshot.data?[index]?.contentLabel ?? 'Transacting',
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 20,
@@ -220,7 +220,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                     ),
                                     SizedBox(height: 15),
                                     Text(
-                                      snapshot.data?[index]?.questionDescription ?? '4 Skills',
+                                      snapshot.data?[index]?.contentDescription ?? '4 Skills',
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
@@ -248,7 +248,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                     ),
                                   ),
 
-                                Visibility(visible: snapshot.data?[index]?.questionLabel != "Transacting",
+                                Visibility(visible: snapshot.data?[index]?.contentLabel != "Transacting",
 
                                   child:
                                   Positioned(

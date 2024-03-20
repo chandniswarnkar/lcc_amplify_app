@@ -1,6 +1,6 @@
 {
   "api": {
-    "LCCSampleApp": {
+    "lccapp": {
       "dependsOn": [],
       "output": {
         "authConfig": {

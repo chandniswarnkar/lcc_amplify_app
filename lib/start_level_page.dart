@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +9,7 @@ import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/know_your_card.dart';
 import 'package:lcc_flutter_app/levelcompletion_video_screen.dart';
+import 'package:lcc_flutter_app/common/constants.dart';
 
 import 'common/wrong_ans_component.dart';
 
@@ -19,27 +22,35 @@ class StartLevelPage extends StatefulWidget {
 }
 
 class _StartLevelPageState extends State<StartLevelPage> {
+  final controller = ScrollController();
 
   void initState() {
     super.initState();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => () {
-     print("view loaded");
-      controller.animateTo(
-        20.0,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.decelerate,
-      );
 
-    });
   }
 
-  final controller = ScrollController();
+
+
+
+  scrollTo(BuildContext context, int i) => controller.animateTo(
+  i == 0.0
+  ? 0.0
+      : i == 1
+  ? MediaQuery.of(context).size.height * .18
+      : MediaQuery.of(context).size.height * 1.5,
+  duration: scrollAnimationDuration,
+  curve: scrollAnimationCurve,
+  );
 
 
   @override
   Widget build(BuildContext context) {
 
+    Timer(Duration(seconds: 1), () {
+      if (this.mounted) {
+        scrollTo(context, 1);
+      }
+    });
 
     return Scaffold(
         appBar: AppBar(
@@ -121,9 +132,10 @@ class _StartLevelPageState extends State<StartLevelPage> {
       ),
             Stack( children:[
               Container(
-                height: 550,
+                height: 540,
                 child:
               CustomScrollView(
+                controller: controller,
                 slivers: <Widget>[
 
                   SliverList(
