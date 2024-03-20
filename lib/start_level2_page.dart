@@ -1,7 +1,11 @@
 
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/online_shopping_page.dart';
+
+import 'common/constants.dart';
 
 class StartLevel2Page extends StatefulWidget {
   const StartLevel2Page({ super.key });
@@ -15,24 +19,30 @@ class _StartLevel2PageState extends State<StartLevel2Page> {
 
   void initState() {
     super.initState();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => () {
-      print("view loaded");
-      controller.animateTo(
-        20.0,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.decelerate,
-      );
 
-    });
   }
 
   final controller = ScrollController();
 
+  scrollTo(BuildContext context, int i) => controller.animateTo(
+    i == 0.0
+        ? 0.0 :
+         i == 2
+        ? MediaQuery.of(context).size.height * .35
+        : MediaQuery.of(context).size.height * 1.5,
+    duration: scrollAnimationDuration,
+    curve: scrollAnimationCurve,
+  );
 
   @override
   Widget build(BuildContext context) {
 
+
+    Timer(Duration(seconds: 1), () {
+      if (this.mounted) {
+        scrollTo(context, 2);
+      }
+    });
 
     return Scaffold(
         appBar: AppBar(
@@ -117,6 +127,7 @@ class _StartLevel2PageState extends State<StartLevel2Page> {
               height: 540,
               child:
               CustomScrollView(
+                controller: controller,
                 slivers: <Widget>[
 
                   SliverList(

@@ -36,7 +36,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             setState(() {
               _secondsElapsed++;
               if (_secondsElapsed >= 100) {
+
                 timer.cancel();
+
               }
             });
 
@@ -44,16 +46,27 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         });
       });
     _controller.addListener(() {
-      if (_controller.value.position >= _controller.value.duration) {
-        // Video has completed playing
+      Duration duration = _controller.value.duration;
+      Duration position = _controller.value.position;
+      if (duration.compareTo(position) != 1) {
+        print("video completed");
         Navigator.of(context).push(
-          CupertinoPageRoute(
-            fullscreenDialog: true,
-            builder: (context) =>  const StartLevel2Page(),
-          ),
-        );
-        print('Video completed');
+                CupertinoPageRoute(
+                  fullscreenDialog: true,
+                  builder: (context) =>  const StartLevel2Page(),
+                ),
+              );
       }
+      // if (_controller.value.position >= _controller.value.duration) {
+      //   // Video has completed playing
+      //   Navigator.of(context).push(
+      //     CupertinoPageRoute(
+      //       fullscreenDialog: true,
+      //       builder: (context) =>  const StartLevel2Page(),
+      //     ),
+      //   );
+      //   print('Video completed');
+      // }
     });
 
    /* // Create and store the VideoPlayerController. The VideoPlayerController
