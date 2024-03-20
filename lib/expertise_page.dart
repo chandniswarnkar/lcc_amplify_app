@@ -127,8 +127,6 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     //Row 2
                 GestureDetector(
                   onTap: () {
-                    print(" www");
-
                     setState(() {
                       isRowTwoTapped = !isRowTwoTapped!;
                     });

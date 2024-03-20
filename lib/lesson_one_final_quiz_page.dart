@@ -284,7 +284,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (BuildContext context) =>  BadgeScreen()));
+                                          builder: (BuildContext context) =>  const BadgeScreen(msgTextTop: 'You are a\nQuick Learner',msgTextBottom: 'Badge:\nQuick Lerner',image: "assets/images/Badge_01.gif",flag: 'Level_1',)));
                                 },
                                 child:
                                 const Text(
@@ -424,7 +424,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (BuildContext context) =>  VideoPlayerScreen()));
+                                          builder: (BuildContext context) =>  const VideoPlayerScreen(levelComlpetionText: 'Level 1 Completed',)));
                                 }
                                   , child:
                                   const Text(

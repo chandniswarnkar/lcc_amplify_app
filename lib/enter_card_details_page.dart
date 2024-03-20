@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/common/card_flip_component.dart';
 import 'package:lcc_flutter_app/productlist_page.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
+
+import 'badge_screen.dart';
+import 'common/hint_component.dart';
+import 'common/wrong_ans_component.dart';
+import 'common/wrong_ans_component_retry_btn.dart';
 
 class EnterCardDetailsPage extends StatefulWidget {
   const EnterCardDetailsPage({Key? key}) : super(key: key);
@@ -20,28 +26,82 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
   String cardExpiry = '';
   String cardCVV = '';
 
+  String coinText = "0";
+  bool showWrongAnswerView = false;
+  bool _fieldsContainer = true;
+  bool showHintView = false;
+  String hintText = '';
+  bool hintBtnClickd = false;
+
+  //Click of Name
   void _updateCardHolderName(String newText) {
+    if(cardHolderName!=''){
+
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+
+    }
+
     setState(() {
       cardHolderName = newText; // Set the new value for labelText
     });
   }
 
+  //Click of Number
   void _updateCardNumber(String newText) {
     setState(() {
-      cardNumber = newText; // Set the new value for labelText
+      if(cardHolderName == ''){
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      } else if(cardNumber !=''){
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      }
+      else{
+        setState(() {
+          cardNumber = newText; // Set the new value for labelText
+        });
+      }
     });
-  }
 
+  }
+//Click of date
   void _updateCardExpiry(String newText) {
-    setState(() {
-      cardExpiry = newText; // Set the new value for labelText
-    });
+    if(cardHolderName == ''){
+      _fieldsContainer = false;
+      showWrongAnswerView = true;
+    }else if(cardNumber == ''){
+      _fieldsContainer = false;
+      showWrongAnswerView = true;
+    }else if(cardExpiry != ''){
+      _fieldsContainer = false;
+      showWrongAnswerView = true;
+    }
+
+    else{
+      setState(() {
+        cardExpiry = newText;
+       // Set the new value for labelText
+      });
+    }
+
   }
 
+  //Click of CVV
   void _updateCardCVV(String newText) {
-    setState(() {
-      cardCVV = newText; // Set the new value for labelText
-    });
+    if(cardHolderName == ''){
+      _fieldsContainer = false;
+      showWrongAnswerView = true;
+    }else if(cardExpiry == ''){
+      _fieldsContainer = false;
+      showWrongAnswerView = true;
+    }
+    else{
+      setState(() {
+        cardCVV = newText; // Set the new value for labelText
+      });
+    }
+
   }
 
   bool _isCardHolderNameVisible = false;
@@ -50,19 +110,13 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
   bool _isCardCVVVisible = false;
   Color colour = Colors.white;
 
-  _changeBackground() {
-    setState(() {
-      if (cardHolderName != "") {
-        Color colour = Color(0xFFD9FFDB);
-      }
-    });
-  }
 
   _isCardNumberFieldVisible() {
     Future.delayed(const Duration(seconds: 4), () {
       setState(() {
         if (cardHolderName == 'JOHN SENIOR') {
           _isCardHolderNameVisible = true;
+          coinText ='5';
         }
       });
     });
@@ -74,6 +128,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       setState(() {
         if (cardNumber == '1234 5678 1234 5678') {
           _isCardNumberVisible = true;
+          coinText ='10';
         }
       });
     });
@@ -85,6 +140,10 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       setState(() {
         if (cardExpiry == '08/30') {
           _isCardExpiryVisible = true;
+          coinText ='15';
+        }
+        if(cardCVV == '123'){
+          coinText ='20';
         }
       });
     });
@@ -114,7 +173,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 height: 20,
               ),
               Container(
-                width: 60,
+                width: 70,
                 height: 40,
                 margin: const EdgeInsets.all(20),
                 padding:
@@ -132,15 +191,14 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                       height: 24,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image:
-                              NetworkImage("https://via.placeholder.com/24x24"),
+                          image: AssetImage('assets/images/coin 2.png'),
                           fit: BoxFit.fill,
                         ),
                       ),
                     ),
-                    const Text(
-                      '0',
-                      style: TextStyle(
+                     Text(
+                      coinText,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontFamily: 'Inter',
@@ -154,6 +212,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
               Expanded(
                 child: Slider(
                   value: _currentSliderValue,
+                  activeColor: Colors.green,
                   max: 100,
                   divisions: 5,
                   // label: _currentSliderValue.round().toString(),
@@ -171,6 +230,26 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 decoration: const ShapeDecoration(
                   color: Colors.grey,
                   shape: OvalBorder(),
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 16),
+                    backgroundColor: const Color(0xFFE9ECED),
+                    foregroundColor: Colors.grey,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) =>  const StartLevelPage(),
+                        ),
+                      );
+                    });
+
+                  },
+                  child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ]),
@@ -210,263 +289,401 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
               ),
             )
           ]),
-          Visibility(
-              visible: !_isCardNumberFieldVisible(),
-              child: const HintGuideCard()),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Name on Card',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                  decoration: ShapeDecoration(
-                    color: cardHolderName != ''
-                        ? const Color(0xFFD9FFDB)
-                        : Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                  child: TextFormField(
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
 
-                    ),
-                    controller: TextEditingController(text: cardHolderName),
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 3),
-                      //labelText: cardHolderName
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-            child: Visibility(
-              visible: _isCardNumberFieldVisible(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Card Number',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                    decoration: ShapeDecoration(
-                      color: cardHolderName != ''
-                          ? const Color(0xFFD9FFDB)
-                          : Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                    ),
-                    child: TextFormField(
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                      ),
-                      controller: TextEditingController(text: cardNumber),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.fromLTRB(20, 0, 0, 3),
-                        //labelText: cardNumber
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Visibility(
-              visible: _isCardExpiryFieldVisible(),
-              child: Column(
-                children: [
-                  const Text(
-                    'Card Expiry',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
-                    padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
-                    decoration: ShapeDecoration(
-                      color: cardHolderName != ''
-                          ? const Color(0xFFD9FFDB)
-                          : Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                    ),
-                    child: Text(
-                      cardExpiry,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Visibility(
-              visible: _isCardCVVFieldVisible(),
-              child: Column(
-                children: [
-                  const Text(
-                    'CVV',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                    padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
-                    decoration: ShapeDecoration(
-                      //color: cardHolderName !=''? const Color(0xFFD9FFDB):Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                    ),
-                    child: Text(
-                      cardCVV,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ]),
-          const SizedBox(
-            height: 20,
-          ),
           Visibility(
-            visible: !_isCardCVVValueVisible(),
-            child: Container(
-              width: 350,
-              height: 100,
-              child: Row(
+            visible: _fieldsContainer,
+            child: Column(
                 children: [
-                  Image.asset(
-                    "assets/images/OWL_Oops.gif",
-                    fit: BoxFit.fill,
+
+                  Visibility(
+                      visible: !_isCardNumberFieldVisible(),
+                      child: const HintGuideCard()),
+                  const SizedBox(
+                    height: 10,
                   ),
-                  const Spacer(),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Give me a Hint',
+                        const Text(
+                          'Name on Card',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 18,
+                            fontSize: 20,
                             fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                          decoration: ShapeDecoration(
+                            /*color: cardHolderName != ''
+                          ? const Color(0xFFD9FFDB)
+                          : Colors.white,*/
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(width: 1),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                          ),
+                          child: TextFormField(
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+
+                            ),
+                            controller: TextEditingController(text: cardHolderName),
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 3),
+                              //labelText: cardHolderName
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-          Visibility(
-            visible: _isCardCVVValueVisible(),
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-              decoration: ShapeDecoration(
-                color: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              child: Row(
-                // mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: Colors.black,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        CupertinoPageRoute(
-                          fullscreenDialog: true,
-                          builder: (context) => const ProductListPage(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      'Proceed Payment',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                        // height: 0.07,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: Visibility(
+                      visible: _isCardNumberFieldVisible(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Card Number',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            decoration: ShapeDecoration(
+                              /*color: cardHolderName != ''
+                            ? const Color(0xFFD9FFDB)
+                            : Colors.white,*/
+                              shape: RoundedRectangleBorder(
+                                side: const BorderSide(width: 1),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ),
+                            child: TextFormField(
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                              controller: TextEditingController(text: cardNumber),
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 3),
+                                //labelText: cardNumber
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                    Visibility(
+                      visible: _isCardExpiryFieldVisible(),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Card Expiry',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
+                            padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
+                            decoration: ShapeDecoration(
+                              /* color: cardHolderName != ''
+                            ? const Color(0xFFD9FFDB)
+                            : Colors.white,*/
+                              shape: RoundedRectangleBorder(
+                                side: const BorderSide(width: 1),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ),
+                            child: Text(
+                              cardExpiry,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Visibility(
+                      visible: _isCardCVVFieldVisible(),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'CVV',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                            padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
+                            decoration: ShapeDecoration(
+                              //color: cardHolderName !=''? const Color(0xFFD9FFDB):Colors.white,
+                              shape: RoundedRectangleBorder(
+                                side: const BorderSide(width: 1),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ),
+                            child: Text(
+                              cardCVV,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Visibility(
+                    visible: !_isCardCVVValueVisible(),
+                    child:  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          margin: const EdgeInsets.only(left: 20),
+                          child:
+                          const Image(image: AssetImage('assets/images/OWL_Default.gif')),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 130,
+                          margin: const EdgeInsets.only(right: 20),
+                          // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: hintBtnClickd == true ? Colors.black : Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(width: 1),
+                              borderRadius: BorderRadius.circular(26),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              TextButton(
+                                child:  Text(
+                                  "Give me a Hint",
+                                  textAlign: TextAlign.center,
+                                  style: hintBtnClickd == true ? const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w400,
+                                  ):const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onPressed: () {
+
+                                  setState(() {
+
+                                    if(cardHolderName == ''){
+
+                                    }
+                                    else if(cardNumber == ''){
+                                      hintBtnClickd = true;
+                                      hintText = 'The card number is a\n 16-digit number.';
+                                      showHintView = true;
+                                      _fieldsContainer = false;
+                                    }
+                                    else if(cardExpiry == ''){
+                                      hintText = 'The Expiry date is a four \n-digit number printed on the \nfront of the card.';
+                                      showHintView = true;
+                                      _fieldsContainer = false;
+                                    }
+                                    else if(cardCVV == ''){
+                                      hintText = 'The CVV is a three digit\nnumber printed on the back \nof the card';
+                                      showHintView = true;
+                                      _fieldsContainer = false;
+                                    }else{
+                                      showHintView = false;
+                                      _fieldsContainer = true;
+                                    }
+
+                                  });
+
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Visibility(
+                    visible: _isCardCVVValueVisible(),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                      decoration: ShapeDecoration(
+                        color: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: Row(
+                        // mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              textStyle: const TextStyle(fontSize: 20),
+                              backgroundColor: Colors.black,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                CupertinoPageRoute(
+                                  fullscreenDialog: true,
+                                  builder: (context) =>  const BadgeScreen(msgTextTop: 'You are a \nCurious Explorer',msgTextBottom: 'Badge:\nCurious Explorer',image: "assets/images/curious_explorer_badge.gif",flag: 'Level_2',),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              'Proceed Payment',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                                // height: 0.07,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+
                 ],
               ),
+          ),
+
+          Visibility( visible: showWrongAnswerView,
+            child: Row(children:[
+              Expanded( child :
+              SizedBox(
+                height: 320,
+                child: (cardHolderName == '')? WrongAnswerComponentRetryBtn(errorText: 'Oops\n Wrong Answer', onRetryPressed: () {
+                  setState(() {
+                    showWrongAnswerView = false;
+                    _fieldsContainer = true;
+
+                  });
+                },
+
+
+                ):WrongAnswerComponent(errorText: 'Oops\n Wrong Answer', onHintPressed: () {
+                  setState(() {
+
+                    if(cardNumber == ''){
+                      hintBtnClickd = true;
+                      hintText = 'The card number is a\n 16-digit number.';
+                      showHintView = true;
+                      showWrongAnswerView = false;
+                    }
+                    else if(cardExpiry == ''){
+                      hintText = 'The Expiry date is a four \n-digit number printed on the \nfront of the card.';
+                      showHintView = true;
+                      showWrongAnswerView = false;
+                    }
+                    else if(cardCVV == ''){
+                      hintText = 'The CVV is a three digit\nnumber printed on the back \nof the card';
+                      showHintView = true;
+                      showWrongAnswerView = false;
+                    }else{
+                      showHintView = false;
+                      showWrongAnswerView = false;
+
+                    }
+
+                  });
+                }, onRetryPressed: () {
+                  setState(() {
+                    showWrongAnswerView = false;
+                    _fieldsContainer = true;
+
+                  });
+                },
+
+
+                ),
+              )
+              )
+            ]
             ),
           ),
+
+          Visibility( visible: showHintView ,
+            child: Row(children:[
+              Expanded( child :
+              Container(
+                height: 320,
+                child: HintComponent(hintText: hintText, onPressed: () {
+                  setState(() {
+                    showHintView = false;
+                    _fieldsContainer = true;
+
+                  });
+
+
+                }, ),
+              )
+              )
+            ]
+            ),
+          ),
+
         ],
       ),
     );
@@ -504,7 +721,7 @@ class FrontTappableWidget extends StatelessWidget {
               children: [
                 Container(
                   // color: Colors.deepOrange,
-                  margin: EdgeInsets.all(20.0),
+                  margin: const EdgeInsets.all(20.0),
                   height: 20,
                   //  alignment: Alignment.topRight,
                   child: const Text(
@@ -540,8 +757,7 @@ class FrontTappableWidget extends StatelessWidget {
                 ),
                 onTap: () {
                   updateCardNumber('1234 5678 1234 5678');
-                  print(" I am card number");
-                },
+                  },
               ),
             ]),
             const SizedBox(
@@ -550,7 +766,7 @@ class FrontTappableWidget extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               GestureDetector(
                 child: Container(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   child: const Text(
                     'JOHN SENIOR',
                     textAlign: TextAlign.center,
@@ -571,7 +787,7 @@ class FrontTappableWidget extends StatelessWidget {
               ),
               GestureDetector(
                 child: Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: const Row(
                       children: [
                         Text(
@@ -617,7 +833,7 @@ class BackTappableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      padding: EdgeInsets.only(right: 30),
+      padding: const EdgeInsets.only(right: 30),
       decoration: const BoxDecoration(
           image: DecorationImage(
         image: AssetImage("assets/images/card_back_blank.png"),
@@ -666,12 +882,15 @@ class HintGuideCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset(
-                "assets/images/OWL_Oops.gif",
-                fit: BoxFit.fill,
+              Container(
+                width: 80,
+                height: 80,
+                margin: const EdgeInsets.only(left: 20),
+                child:
+                const Image(image: AssetImage('assets/images/OWL_Default.gif')),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20, 30, 0, 0),
                 child: Column(
                   children: [
                     Text(

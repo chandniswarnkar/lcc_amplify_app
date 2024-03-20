@@ -121,7 +121,7 @@ class _StartLevelPageState extends State<StartLevelPage> {
       ),
             Stack( children:[
               Container(
-                height: 550,
+                height: 540,
                 child:
               CustomScrollView(
                 slivers: <Widget>[

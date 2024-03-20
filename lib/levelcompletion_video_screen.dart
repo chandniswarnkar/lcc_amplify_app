@@ -1,11 +1,14 @@
 import 'dart:async';
 
 import 'package:countup/countup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lcc_flutter_app/start_level2_page.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({super.key});
+  const VideoPlayerScreen({super.key,required this.levelComlpetionText});
+  final String levelComlpetionText;
 
   @override
   State<VideoPlayerScreen> createState() => _VideoPlayerScreenState();
@@ -22,7 +25,38 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   void initState() {
     super.initState();
 
-    // Create and store the VideoPlayerController. The VideoPlayerController
+    _controller = VideoPlayerController.asset('assets/images/Level_Completion_blank.mp4')
+      ..initialize().then((_) {
+        _controller.play();
+        // Ensure the first frame is shown after the video is initialized
+        setState(() {
+
+          // Start the timer when the video starts playing
+          _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
+            setState(() {
+              _secondsElapsed++;
+              if (_secondsElapsed >= 100) {
+                timer.cancel();
+              }
+            });
+
+          });
+        });
+      });
+    _controller.addListener(() {
+      if (_controller.value.position >= _controller.value.duration) {
+        // Video has completed playing
+        Navigator.of(context).push(
+          CupertinoPageRoute(
+            fullscreenDialog: true,
+            builder: (context) =>  const StartLevel2Page(),
+          ),
+        );
+        print('Video completed');
+      }
+    });
+
+   /* // Create and store the VideoPlayerController. The VideoPlayerController
     // offers several different constructors to play videos from assets, files,
     // or the internet.
     _controller =
@@ -45,6 +79,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       });
 
     });
+  //  _controller.addListener(checkVideo);*/
+
 
 
   }
@@ -58,17 +94,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
-
-    _controller.addListener(() {                       //custom Listner
-      setState(() {
-        if (_controller.value.duration ==_controller.value.position) { //checking the duration and position every time
-
-          print("Video played ")
-;        }
-      });
-    });
 
     return Scaffold(
       // Use a FutureBuilder to display a loading spinner while waiting for the
@@ -77,7 +105,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         alignment: Alignment.center,
         children: [
           FutureBuilder(
-            future: _initializeVideoPlayerFuture,
+            future: _controller.initialize(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 // If the VideoPlayerController has finished initialization, use
@@ -101,10 +129,10 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 80, 0, 0),
-                child: const Text(
-                  'Level 1 Completed',
+                child:  Text(widget.levelComlpetionText,
+
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 24,
                     fontFamily: 'Inter',

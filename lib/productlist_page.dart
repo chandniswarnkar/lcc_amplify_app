@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/product_details_page.dart';
 import 'package:lcc_flutter_app/productlist_card_view.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
 
 import 'models/product_item_model.dart';
 
@@ -78,8 +79,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         height: 24,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                "https://via.placeholder.com/24x24"),
+                            image: AssetImage('assets/images/coin 2.png'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -100,6 +100,7 @@ class _ProductListPageState extends State<ProductListPage> {
                 Expanded(
                   child: Slider(
                     value: _currentSliderValue,
+                    activeColor: Colors.green,
                     max: 100,
                     divisions: 5,
                     // label: _currentSliderValue.round().toString(),
@@ -117,6 +118,26 @@ class _ProductListPageState extends State<ProductListPage> {
                   decoration: const ShapeDecoration(
                     color: Colors.grey,
                     shape: OvalBorder(),
+                  ),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 16),
+                      backgroundColor: const Color(0xFFE9ECED),
+                      foregroundColor: Colors.grey,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            fullscreenDialog: true,
+                            builder: (context) =>  const StartLevelPage(),
+                          ),
+                        );
+                      });
+
+                    },
+                    child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ]),
@@ -170,10 +191,10 @@ class _ProductListPageState extends State<ProductListPage> {
             Visibility(
                   visible: _isErrorContainerVisible,
                   child: Container(
-                    width: 341.12,
+                    width: 335,
                     height: 80,
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 27),
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                    padding: const EdgeInsets.fromLTRB(20, 0, 3, 0),
                     decoration: ShapeDecoration(
                       color: const Color(0xFFFBD4CF),
                       shape: RoundedRectangleBorder(
@@ -186,7 +207,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(
-                          width: 237.12,
+                          width: 235,
                           child: Text(
                             'Insufficient coins. Choose another\nproduct under 100 coins.',
                             style: TextStyle(
@@ -198,18 +219,17 @@ class _ProductListPageState extends State<ProductListPage> {
                             ),
                           ),
                         ),
-                        IconButton(
-                          icon:
-                          const Icon(
-                            Icons.add,
-                            size: 20,
-                          ),
+
+                        TextButton(
+                          child: const Text('X',style: TextStyle(fontSize: 20),),
                           onPressed: (){
                             setState(() {
                               _isErrorContainerVisible = false;
                             });
                           },
                         ),
+
+
                       ],
                     ),
                   ),

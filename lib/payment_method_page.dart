@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/enter_card_details_page.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
 
 import 'models/product_item_model.dart';
 import 'online_shopping_page.dart';
@@ -48,8 +49,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                         height: 24,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image:
-                            NetworkImage("https://via.placeholder.com/24x24"),
+                            image: AssetImage('assets/images/coin 2.png'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -70,6 +70,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                 Expanded(
                   child: Slider(
                     value: _currentSliderValue,
+                    activeColor: Colors.green,
                     max: 100,
                     divisions: 5,
                     // label: _currentSliderValue.round().toString(),
@@ -87,6 +88,26 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                   decoration: const ShapeDecoration(
                     color: Colors.grey,
                     shape: OvalBorder(),
+                  ),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 16),
+                      backgroundColor: const Color(0xFFE9ECED),
+                      foregroundColor: Colors.grey,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            fullscreenDialog: true,
+                            builder: (context) =>  const StartLevelPage(),
+                          ),
+                        );
+                      });
+
+                    },
+                    child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ]),
@@ -139,8 +160,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                     //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 200,
-                        height: 200,
+                        width: 300,
+                        height: 180,
                         child: Image.asset(widget.productItemsModel.itemImage,
                             fit: BoxFit.fill, width: double.infinity),
                       ),

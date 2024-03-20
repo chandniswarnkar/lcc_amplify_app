@@ -5,7 +5,10 @@ import 'package:lcc_flutter_app/levelcompletion_video_screen.dart';
 
 
 class BadgeScreen extends StatefulWidget {
-  const BadgeScreen({Key? key}) : super(key: key);
+   const BadgeScreen(  {super.key,required this.msgTextTop,required this.msgTextBottom,required this.image,required this.flag});
+
+  final String msgTextTop,msgTextBottom,image,flag ;
+
 
   @override
   State<BadgeScreen> createState() => _BadgeScreenState();
@@ -15,6 +18,7 @@ class BadgeScreen extends StatefulWidget {
 
 class _BadgeScreenState extends State<BadgeScreen> {
 
+
   @override
   void initState() {
     super.initState();
@@ -23,7 +27,7 @@ class _BadgeScreenState extends State<BadgeScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const VideoPlayerScreen(),
+          builder: (context) =>  VideoPlayerScreen(levelComlpetionText: widget.flag=="Level_1"?'Level 1 Completed':'Level 2 Completed',),
         ),
       );
     });
@@ -51,10 +55,10 @@ class _BadgeScreenState extends State<BadgeScreen> {
             ),
 
             const SizedBox(height: 20,),
-            const Text(
-              'You are a\nQuick Learner',
+             Text(
+              widget.msgTextTop,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 24,
                 fontFamily: 'Inter',
@@ -62,22 +66,36 @@ class _BadgeScreenState extends State<BadgeScreen> {
                 height: 0,
               ),
             ),
+Stack(
+  children: [
+    Container(
+      width: 350,
+      height: 300,
+      decoration:  BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(widget.image),
+          // fit: BoxFit.fill,
+        ),
+      ),
+    ),
+    Positioned(
+      left: 0,
+      right: 0,
+      top:0,
+      child: Image.asset(
+        'assets/images/Animation_badge_completion.gif',
+        fit: BoxFit.cover,
+      ),
+    ),
+    //Image.asset('assets/images/Animation_badge_completion.gif')
+  ],
+),
 
-            Container(
-              width: 350,
-              height: 300,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/Badge_01.gif"),
-                 // fit: BoxFit.fill,
-                ),
-              ),
-            ),
             const SizedBox(height: 100,),
-            const Text(
-              'Badge:\nQuick Learner',
+             Text(
+              widget.msgTextBottom,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
                 fontFamily: 'Inter',
