@@ -13,7 +13,7 @@ class ProductListCardViewItem extends StatelessWidget {
 
     return
       Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 5, 5),
+        //margin: const EdgeInsets.fromLTRB(20, 0, 20, 5),
 
           alignment: Alignment.center,
           child: Card(

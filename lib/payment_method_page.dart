@@ -17,7 +17,7 @@ class PaymentMethodPage extends StatefulWidget {
 
 class _PaymentMethodPageState extends State<PaymentMethodPage> {
 
-  double _currentSliderValue = 20;
+  double _currentSliderValue = 5;
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
@@ -97,12 +97,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        Navigator.of(context).push(
-                          CupertinoPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context) =>  const StartLevelPage(),
-                          ),
-                        );
+                        Navigator.pop(context);
                       });
 
                     },

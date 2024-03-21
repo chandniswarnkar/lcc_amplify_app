@@ -70,7 +70,7 @@ class ImageSliderPage extends StatefulWidget {
 class _ImageSliderPageState extends State<ImageSliderPage> {
   int _current = 0;
   String textLabel = 'Transacting';
-  String descriptionLabel = 'Register, transact, and manage online transactions effortlessly';
+  String descriptionLabel = 'Register, transact, and manage \nonline transactions effortlessly';
   String  skillsLabel = '04';
   String coinsLabel = '1000';
   String badgesLabel = '10';
