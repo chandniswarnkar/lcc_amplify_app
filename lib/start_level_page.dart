@@ -12,6 +12,7 @@ import 'package:lcc_flutter_app/levelcompletion_video_screen.dart';
 import 'package:lcc_flutter_app/common/constants.dart';
 
 import 'common/wrong_ans_component.dart';
+import 'level3/link_bank_account_page.dart';
 
 class StartLevelPage extends StatefulWidget {
   const StartLevelPage({ super.key });
@@ -187,7 +188,7 @@ class _StartLevelPageState extends State<StartLevelPage> {
                           Navigator.of(context).push(
                             CupertinoPageRoute(
                               fullscreenDialog: true,
-                              builder: (context) =>  KnowYourCardPage(),
+                              builder: (context) =>  LinkBankAccountPage(),
                             ),
                           );
 
