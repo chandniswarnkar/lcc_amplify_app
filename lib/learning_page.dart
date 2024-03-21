@@ -173,7 +173,16 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                   child:
                   ListView(
                     physics: NeverScrollableScrollPhysics(),
-                  children: [ Container(
+                  children: [
+                  GestureDetector(
+                  onTap: snapshot.data?[index]?.contentLabel == "Transacting"?   () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CategoryPage()),
+                );
+                } : (){},
+                child:
+                    Container(
                     height: 100,
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 0),
                     decoration: ShapeDecoration(
@@ -181,14 +190,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                       const Color.fromRGBO(255, 255, 255, 0.6),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                     ),
-                    child: GestureDetector(
-                      onTap: snapshot.data?[index]?.contentLabel == "Transacting"?   () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => CategoryPage()),
-                        );
-                      } : (){},
-                      child:
+                    child:
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -275,6 +277,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                     ),
                   ),
                   ),
+
 
 
                   ],

@@ -17,7 +17,7 @@ class PaymentMethodPage extends StatefulWidget {
 
 class _PaymentMethodPageState extends State<PaymentMethodPage> {
 
-  double _currentSliderValue = 0;
+  double _currentSliderValue = 5;
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(

@@ -18,7 +18,7 @@ class EnterCardDetailsPage extends StatefulWidget {
 }
 
 class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
-  double _currentSliderValue = 0;
+  double _currentSliderValue = 5;
   List<Widget> cardPageList = [];
   bool isNextButtonPressed = false;
   String cardHolderName = '';
@@ -128,7 +128,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
         if (cardHolderName == 'JOHN SENIOR') {
           _isCardHolderNameVisible = true;
           coinText ='5';
-          _currentSliderValue = 20;
+          _currentSliderValue = 25;
 
         }
       });
@@ -142,7 +142,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
         if (cardNumber == '1234 5678 1234 5678') {
           _isCardNumberVisible = true;
           coinText ='10';
-          _currentSliderValue = 40;
+          _currentSliderValue = 50;
 
         }
       });
@@ -156,11 +156,11 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
         if (cardExpiry == '08/30') {
           _isCardExpiryVisible = true;
           coinText ='15';
-          _currentSliderValue = 60;
+          _currentSliderValue = 75;
         }
         if(cardCVV == '123'){
           coinText ='20';
-          _currentSliderValue = 80;
+          _currentSliderValue = 100;
         }
       });
     });
