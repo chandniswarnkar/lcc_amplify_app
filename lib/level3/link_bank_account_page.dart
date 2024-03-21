@@ -74,7 +74,30 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
               },
             ),
             ),
+            Container(
+              width: 34.60,
+              height: 34.60,
+              margin: const EdgeInsets.all(10),
+              decoration: const ShapeDecoration(
+                color: Colors.grey,
+                shape: OvalBorder(),
+              ),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 16),
+                  backgroundColor: Colors.grey,
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
 
+                },
+                child: const Text('X'
+                ),
+              ),
+            ),
           ]
           ),
           ),
