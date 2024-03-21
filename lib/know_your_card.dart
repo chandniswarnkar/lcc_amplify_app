@@ -111,8 +111,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               child: TextButton(
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 16),
-                  backgroundColor: Colors.grey,
-                  foregroundColor: Colors.white,
+                  backgroundColor: Color(0xFFE9ECED),
+                  foregroundColor: Colors.grey,
                 ),
                 onPressed: () {
                   setState(() {

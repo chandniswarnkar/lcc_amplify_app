@@ -118,7 +118,7 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                       Image(image: AssetImage('assets/images/OWL_Default.gif')),
                     ),
                     Container(
-                      height: 60,
+                      height: 45,
                       // color: Colors.blue,
                       margin: const EdgeInsets.only(right: 20),
                       // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),

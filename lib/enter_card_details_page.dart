@@ -197,7 +197,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
               ),
               Container(
-                height: 50,
+                height: 45,
                 width: 130,
                 margin: const EdgeInsets.only(right: 20),
                 // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
@@ -214,7 +214,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                   children: [
                     TextButton(
                       child:  Text(
-                        "Give me a Hint",
+                        " Give me a Hint",
                         textAlign: TextAlign.center,
                         style:const TextStyle(
                           color: Colors.black,

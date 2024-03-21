@@ -91,7 +91,6 @@ class CardQuestionComponent extends StatelessWidget {
                       height: 50,
                       child: showCompletedStatus == false ? const Text(
                         'Use your finger to drag and explore your card around.',
-                        textAlign: TextAlign.center,
                         maxLines: 2,
                         style: TextStyle(
                           color: Colors.black,
