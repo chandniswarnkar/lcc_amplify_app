@@ -48,10 +48,10 @@ class _ProductListPageState extends State<ProductListPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 3.1;
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2.9;
     final double itemWidth = size.width / 2;
 
-    double _currentSliderValue = 20;
+    double _currentSliderValue = 0;
 
     return MaterialApp(
       home: Scaffold(
@@ -127,12 +127,7 @@ class _ProductListPageState extends State<ProductListPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        Navigator.of(context).push(
-                          CupertinoPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context) =>  const StartLevelPage(),
-                          ),
-                        );
+                        Navigator.pop(context);
                       });
 
                     },
@@ -170,22 +165,28 @@ class _ProductListPageState extends State<ProductListPage> {
               ),
             ),
             Expanded(
-              child: GridView.builder(
-                itemCount: productItemsModel
-                    .length, // Change this to your actual item count
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio:(itemWidth / itemHeight), // Number of columns
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(20, 0, 20, 5),
+                child: GridView.builder(
+                  itemCount: productItemsModel
+                      .length, // Change this to your actual item count
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio:(itemWidth / itemHeight),
+                   crossAxisSpacing: 10.0, // Spacing between columns
+                  mainAxisSpacing: 10.0,
+                     // Number of columns
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return InkWell(
+                      onTap: () {
+                        onItemClick(productItemsModel[index]);
+                      },
+                      child: ProductListCardViewItem(
+                          productItemsModel: productItemsModel[index]),
+                    );
+                  },
                 ),
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: () {
-                      onItemClick(productItemsModel[index]);
-                    },
-                    child: ProductListCardViewItem(
-                        productItemsModel: productItemsModel[index]),
-                  );
-                },
               ),
             ),
             Visibility(

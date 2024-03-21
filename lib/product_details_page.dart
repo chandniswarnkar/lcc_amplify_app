@@ -16,7 +16,7 @@ class ProductDetailPage extends StatefulWidget {
 }
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
-  double _currentSliderValue = 20;
+  double _currentSliderValue = 5;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -96,12 +96,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        Navigator.of(context).push(
-                          CupertinoPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context) =>  const StartLevelPage(),
-                          ),
-                        );
+                        Navigator.pop(context);
                       });
 
                     },

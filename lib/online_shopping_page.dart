@@ -13,7 +13,7 @@ class OnlineShoppingPage extends StatefulWidget {
 }
 
 class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
-  double _currentSliderValue = 20;
+  double _currentSliderValue = 0;
   List<Widget> cardPageList = [];
   bool isNextButtonPressed = false;
   String coinText = "0";
@@ -94,12 +94,8 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                   ),
                   onPressed: () {
                     setState(() {
-                      Navigator.of(context).push(
-                        CupertinoPageRoute(
-                          fullscreenDialog: true,
-                          builder: (context) =>  const StartLevelPage(),
-                        ),
-                      );
+
+                      Navigator.pop(context);
                     });
 
                   },
