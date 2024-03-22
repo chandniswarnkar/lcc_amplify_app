@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/Level3/link_bank_quiz_page.dart';
+import 'package:lcc_flutter_app/level3/list_drag_component.dart';
 
 class LinkBankAccountPage extends StatefulWidget {
   const LinkBankAccountPage({ super.key });
@@ -133,29 +134,9 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
           ),
           const SizedBox(height: 20,),
           Container(
-            width: 34.60,
-            height: 34.60,
-            margin: const EdgeInsets.all(10),
-            decoration: const ShapeDecoration(
-              color: Colors.grey,
-              shape: OvalBorder(),
-            ),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 16),
-                backgroundColor: Colors.grey,
-                foregroundColor: Colors.black,
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) =>  LinkBankQuizPage()));
-
-              },
-              child: const Text('X'
-              ),
-            ),
+            color: Colors.orangeAccent,
+            height: 300,
+            child: ReorderableApp(),
           ),
 
 
