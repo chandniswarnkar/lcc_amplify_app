@@ -198,10 +198,16 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                       Container(   padding: const EdgeInsets.all(20),
                         child:
                       TextField(
-
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                          // height: 0.07,
+                        ),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Enter a search term',
+                          hintText: 'Enter value from below  options',
                           labelText: textFormFieldValue,
 
                         ),
@@ -231,7 +237,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                        if (_currentAnsValue ==
                            linkBankQuizData[questions[_quesIndex]]) {
                          textFormFieldValue = _currentAnsValue;
-                         Timer(Duration(seconds: 2), () {
+                         Timer(Duration(seconds: 1), () {
                            coinText = coinText + 10;
                            hideCurrentQuestion();
                          });
@@ -304,7 +310,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   Widget bottomBarWithHintPanel(BuildContext context) {
     return   Container(
       height: 90,
-      color: Colors.orangeAccent,
+      color: Colors.white,
       child:
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

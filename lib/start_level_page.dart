@@ -403,7 +403,7 @@ class StartLevelWidget extends StatelessWidget {
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         fullscreenDialog: true,
-                        builder: (context) => ReorderableApp(), //LinkBankAccountPage(),
+                        builder: (context) => LinkBankAccountPage(),
                       ),
                     );
 

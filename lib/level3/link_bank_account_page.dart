@@ -102,10 +102,10 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
           ]
           ),
           ),
-          const Column(
+           Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+               Container(child: Text(
                   'Link a Bank Account',
 
                   textAlign: TextAlign.center,
@@ -117,7 +117,9 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                     // height: 0.07,
                   ),
                 ),
+    ),
                 SizedBox(height: 20,),
+                Container(child:
                 Text(
                   'You need to repay the 100 coins to your friend Alex.',
                   maxLines: 2,
@@ -130,13 +132,58 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                     // height: 0.07,
                   ),
                 ),
+    ),
+                SizedBox(height: 40,),
+                Container(child:
+                Text(
+                  'Drag and re-order the sequence.',
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    // height: 0.07,
+                  ),
+                ),
+    )
               ]
           ),
           const SizedBox(height: 20,),
           Container(
-            color: Colors.orangeAccent,
+            margin: const EdgeInsets.all(20),
+            color: Colors.white,
             height: 300,
-            child: ReorderableApp(),
+            child: ReorderableListComponent(),
+          ),
+
+          Container(
+            width: 120.60,
+            height: 80.60,
+            margin: const EdgeInsets.all(10),
+            decoration: const ShapeDecoration(
+              color: Colors.grey,
+              shape: OvalBorder(),
+            ),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 16),
+                backgroundColor: Colors.grey,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () {
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LinkBankQuizPage()),
+                  );
+                });
+
+              },
+              child: const Text('Continue'
+              ),
+            ),
           ),
 
 
@@ -145,3 +192,4 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
     );
   }
 }
+//Drag and re-order the sequence
