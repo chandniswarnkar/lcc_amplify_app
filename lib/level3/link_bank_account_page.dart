@@ -1,18 +1,32 @@
 
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/Level3/link_bank_quiz_page.dart';
+import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/level3/list_drag_component.dart';
+
+
+//typedef parentFunctionCallback = void Function(String value);
 
 class LinkBankAccountPage extends StatefulWidget {
   const LinkBankAccountPage({ super.key });
 
   @override
   State<LinkBankAccountPage> createState() => LinkBankAccountState();
+
 }
 
 class LinkBankAccountState extends State<LinkBankAccountPage> {
   String coinText = '0';
   double _currentSliderValue = 0;
+  bool reorderSuccess = false;
+
+  void updateParentView(String param) {
+
+    setState(() {
+      reorderSuccess = true;
+      print('param is $param');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,35 +169,16 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
             margin: const EdgeInsets.all(20),
             color: Colors.white,
             height: 300,
-            child: ReorderableListComponent(),
+            child: ReorderableListComponent(methodFromParent: updateParentView),
           ),
 
           Container(
-            width: 120.60,
-            height: 80.60,
-            margin: const EdgeInsets.all(10),
-            decoration: const ShapeDecoration(
-              color: Colors.grey,
-              shape: OvalBorder(),
-            ),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 16),
-                backgroundColor: Colors.grey,
-                foregroundColor: Colors.white,
-              ),
-              onPressed: () {
-                setState(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LinkBankQuizPage()),
-                  );
-                });
-
-              },
-              child: const Text('Continue'
-              ),
-            ),
+            width: 220.60,
+            height:200.60,
+           color:  Colors.orangeAccent,
+            child: reorderSuccess ? RightAnswerComponent(successText: "You earned \n 5 coins", onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
+            }) : Container()
           ),
 
 
