@@ -5,8 +5,6 @@ import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/level3/list_drag_component.dart';
 
 
-//typedef parentFunctionCallback = void Function(String value);
-
 class LinkBankAccountPage extends StatefulWidget {
   const LinkBankAccountPage({ super.key });
 
@@ -125,7 +123,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 26,
+                    fontSize: 28,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     // height: 0.07,
@@ -135,7 +133,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                 SizedBox(height: 20,),
                 Container(child:
                 Text(
-                  'You need to repay the 100 coins to your friend Alex.',
+                  'You need to repay the 100 coins \n to your friend Alex.',
                   maxLines: 2,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -147,10 +145,10 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                   ),
                 ),
     ),
-                SizedBox(height: 40,),
+                SizedBox(height: 30,),
                 Container(child:
                 Text(
-                  'Drag and re-order the sequence.',
+                  'Drag and re-order the \n sequence',
                   maxLines: 2,
                   textAlign: TextAlign.center,
                   style: TextStyle(

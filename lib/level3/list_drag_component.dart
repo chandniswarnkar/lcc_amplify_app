@@ -95,14 +95,11 @@ class _ReorderableListViewState extends State<ReorderableListView> {
              setState(() {
                final CardItem cardItem = list.removeAt(oldIndex);
                list.insert(newIndex, cardItem);
-               print("****** new index ***** ");
+
                print(newIndex);
 
               isCorrect = list[newIndex].name == cardMapData[newIndex] ? true : false;
-              print("****** display card list ***** ");
-               print(list[newIndex].name);
-              print("**** actual  card list ********");
-              print(cardMapData[newIndex]);
+
              _cardColor = isCorrect ? CardColor.RIGHT_ANSWER_COLOR : CardColor.WRONG_ANSWER_COLOR;
 
                cardStatusMap[newIndex] = isCorrect;
