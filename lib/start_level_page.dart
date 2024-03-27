@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lcc_flutter_app/badge_screen.dart';
 import 'package:lcc_flutter_app/expertise_page.dart';
+
 import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/know_your_card.dart';
@@ -17,6 +18,7 @@ import 'package:lcc_flutter_app/rewards_page.dart';
 import 'common/wrong_ans_component.dart';
 import 'image_slider_widget.dart';
 import 'learning_page.dart';
+
 
 class StartLevelPage extends StatefulWidget {
   const StartLevelPage({ super.key });
@@ -47,13 +49,13 @@ class _StartLevelPageState extends State<StartLevelPage> {
 
 
   scrollTo(BuildContext context, int i) => controller.animateTo(
-  i == 0.0
-  ? 0.0
-      : i == 1
-  ? MediaQuery.of(context).size.height * .18
-      : MediaQuery.of(context).size.height * 1.5,
-  duration: scrollAnimationDuration,
-  curve: scrollAnimationCurve,
+    i == 0.0
+        ? 0.0
+        : i == 1
+        ? MediaQuery.of(context).size.height * .18
+        : MediaQuery.of(context).size.height * 1.5,
+    duration: scrollAnimationDuration,
+    curve: scrollAnimationCurve,
   );
 
 
@@ -346,7 +348,7 @@ class StartLevelWidget extends StatelessWidget {
       ),
       Stack( children:[
         Container(
-          height: 480,
+          height: MediaQuery.of(context).size.height - 385,
           child:
           CustomScrollView(
             controller: controller,
@@ -401,7 +403,7 @@ class StartLevelWidget extends StatelessWidget {
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         fullscreenDialog: true,
-                        builder: (context) =>  KnowYourCardPage(),
+                        builder: (context) => KnowYourCardPage(),
                       ),
                     );
 

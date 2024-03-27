@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/start_level2_page.dart';
 import 'package:video_player/video_player.dart';
 
+import 'level3/start_level3_page.dart';
+
 class VideoPlayerScreen extends StatefulWidget {
   const VideoPlayerScreen({super.key,required this.levelComlpetionText});
   final String levelComlpetionText;
@@ -59,6 +61,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
               builder: (context) =>  const StartLevel2Page(),
             ),
           );
+        } else if (widget.levelComlpetionText == "Level 2 Completed") {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              fullscreenDialog: true,
+              builder: (context) =>  const StartLevel3Page(),
+            ),
+          );
         }
         // Navigator.of(context).push(
         //         CupertinoPageRoute(
@@ -66,7 +75,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         //           builder: (context) =>  const StartLevel2Page(),
         //         ),
         //       );
-
+     // Need to add the code to navigate to the next level
+        _controller.removeListener(() { });
       }
 
     });
