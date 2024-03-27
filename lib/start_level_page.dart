@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lcc_flutter_app/badge_screen.dart';
 import 'package:lcc_flutter_app/expertise_page.dart';
-import 'package:lcc_flutter_app/level3/link_bank_account_page.dart';
+
 import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/know_your_card.dart';
@@ -18,7 +18,7 @@ import 'package:lcc_flutter_app/rewards_page.dart';
 import 'common/wrong_ans_component.dart';
 import 'image_slider_widget.dart';
 import 'learning_page.dart';
-import 'level3/list_drag_component.dart';
+
 
 class StartLevelPage extends StatefulWidget {
   const StartLevelPage({ super.key });
@@ -403,7 +403,7 @@ class StartLevelWidget extends StatelessWidget {
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         fullscreenDialog: true,
-                        builder: (context) => LinkBankAccountPage(),
+                        builder: (context) => KnowYourCardPage(),
                       ),
                     );
 
