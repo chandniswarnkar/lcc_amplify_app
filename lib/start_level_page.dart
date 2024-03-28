@@ -18,7 +18,6 @@ import 'package:lcc_flutter_app/rewards_page.dart';
 import 'common/wrong_ans_component.dart';
 import 'image_slider_widget.dart';
 import 'learning_page.dart';
-import 'level3/start_level3_page.dart';
 
 
 class StartLevelPage extends StatefulWidget {
