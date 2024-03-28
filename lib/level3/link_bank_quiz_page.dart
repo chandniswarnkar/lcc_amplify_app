@@ -23,12 +23,8 @@ enum BottomBarComponent {
 
 class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
-
-
-  int coinText = 0;
-  double _currentSliderValue = 0;
-  // List <String> questions = ['Name of your bank','Account Holder Name','Sort Code','Branch Code','Account Number'];
-  // List <String> answers = ['HSBC Bank','Alex Wood','400515','0515','10719035'];
+  int coinText = 25;
+  double _currentSliderValue = 20;
   String _currentQuesValue = '';
   String textFormFieldValue = '';
   String _currentAnsValue = '';
@@ -39,25 +35,20 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   bool _textContainerVisible = true;
   bool showHintView = false;
   String _hintText = '';
-  BottomBarComponent _currentBottomBarComponent = BottomBarComponent.NO_HINT_PANEL;
+  bool _hintPanelVisible = false;
+  bool isAnswerCorrect = false;
 
+  BottomBarComponent _currentBottomBarComponent = BottomBarComponent.NO_HINT_PANEL;
 
   Map<String, String> linkBankQuizData = {'Name of the bank': 'HSBC Bank', 'Account Holder Name': 'Alex Wood','Sort Code': '400515','Branch Code': '0515', 'Account Number' : '10719035'};
 
-  double opacityLevel = 1.0;
-
-  bool _hintPanelVisible = false;
-
-  void _changeOpacity() {
-    setState(() => opacityLevel = opacityLevel == 0 ? 1.0 : 0.0);
-  }
 
   @override
   void initState() {
     super.initState();
      questions = linkBankQuizData.keys.toList();
      answers = linkBankQuizData.values.toList();
-
+      answers.shuffle();
   }
 
   @override
@@ -197,20 +188,40 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                       SizedBox(height: 5,),
                       Container(   padding: const EdgeInsets.all(20),
                         child:
-                      TextField(
+                        TextField(
+
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 20,
                           fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w500,
                           // height: 0.07,
                         ),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Enter value from below  options',
                           labelText: textFormFieldValue,
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500,
+                            // height: 0.07,
+                          ),
+                          filled: true,
+                          fillColor: isAnswerCorrect ? Color(0xFFD9FFDB) : Colors.white,
+                          suffixIcon : Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: isAnswerCorrect ? Image.asset(
+                              'assets/images/green_tick.png',
+                              width: 30,
+                              height: 30,
+                              fit: BoxFit.fill,
+                            ) : null,
+                          ),
 
                         ),
+
                       ),
     ),
                     ],
@@ -219,24 +230,58 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                 ),
     ),
                 SizedBox(height: 30,),
+               Container(
+                 height: 25,
+                 alignment: Alignment.centerLeft,
+                 margin: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                 decoration: ShapeDecoration(
+                  // color:   Color(0xFFD2EAFF),
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(15),
+                   ),
+                 ),
+                 child: Text(
+                   'Options',
+                   textAlign: TextAlign.left,
+                   style: TextStyle(
+                     color: Colors.black,
+                     fontSize: 20,
+                     fontFamily: 'Inter',
+                     fontWeight: FontWeight.w600,
+                     // height: 0.07,
+                   ),
+                 ),
+               ),
+
                 Container(
                   height: 300,
                 margin: const EdgeInsets.all(20),
-                color: Color(0xFFD2EAFF),
+
+                  alignment: Alignment.center,
+                  decoration: ShapeDecoration(
+                    color:   Color(0xFFD2EAFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+
                 child: GridView.count(
             crossAxisCount: 2,
                   childAspectRatio: 2.5,
+            padding: const EdgeInsets.all(20),
+
             children: List.generate(answers.length, (ansIndex) {
             return GestureDetector(
               onTap: (){
                 setState(() {
-
 
                      if(answers.length > 0) {
                        _currentAnsValue = answers[ansIndex];
                        if (_currentAnsValue ==
                            linkBankQuizData[questions[_quesIndex]]) {
                          textFormFieldValue = _currentAnsValue;
+                         isAnswerCorrect = true;
+                         _currentSliderValue = _currentSliderValue + 10;
                          Timer(Duration(seconds: 1), () {
                            coinText = coinText + 10;
                            hideCurrentQuestion();
@@ -253,7 +298,11 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
               },
               child: Container(
               height: 50,
-            color: Colors.white,
+           // color: Colors.white,
+              decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              ),
             margin: const EdgeInsets.all(10),
             child: Center(
             child: Text(
@@ -263,12 +312,15 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
             fontSize: 20,
             ),
             ),
+
             ),
-            ),
-              );
+              ),
+
+            );
             },
             ),
                         ),
+
                 )
 
               ]
@@ -408,7 +460,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   }
 
   Future<void> hideCurrentQuestion() async {
-
+    isAnswerCorrect = false;
     Timer(Duration(seconds: 1), () {
       setState(() {
         _textContainerVisible = false;

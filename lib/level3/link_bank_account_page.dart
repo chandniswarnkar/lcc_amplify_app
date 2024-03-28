@@ -1,18 +1,32 @@
 
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/Level3/link_bank_quiz_page.dart';
+import 'package:lcc_flutter_app/common/right_ans_component.dart';
 import 'package:lcc_flutter_app/level3/list_drag_component.dart';
+
 
 class LinkBankAccountPage extends StatefulWidget {
   const LinkBankAccountPage({ super.key });
 
   @override
   State<LinkBankAccountPage> createState() => LinkBankAccountState();
+
 }
 
 class LinkBankAccountState extends State<LinkBankAccountPage> {
-  String coinText = '0';
+  int coinText = 0;
   double _currentSliderValue = 0;
+  bool reorderSuccess = false;
+
+  void updateParentView(String param) {
+
+    setState(() {
+      reorderSuccess = true;
+      coinText = 20;
+      _currentSliderValue = 20;
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +39,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
             SizedBox(height: 100,),
             Container(
 
-              width: 60,
+              width: 80,
               height: 40,
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
@@ -37,7 +51,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 24,
+                    width: 30,
                     height: 24,
                     decoration: const BoxDecoration(
                       // color: Colors.deepOrange,
@@ -48,7 +62,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                     ),
                   ),
                   Text(
-                    coinText,
+                    coinText.toString(),
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -111,7 +125,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 26,
+                    fontSize: 28,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     // height: 0.07,
@@ -121,7 +135,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                 SizedBox(height: 20,),
                 Container(child:
                 Text(
-                  'You need to repay the 100 coins to your friend Alex.',
+                  'You need to repay the 100 coins \n to your friend Alex.',
                   maxLines: 2,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -133,10 +147,10 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                   ),
                 ),
     ),
-                SizedBox(height: 40,),
+                SizedBox(height: 30,),
                 Container(child:
                 Text(
-                  'Drag and re-order the sequence.',
+                  'Drag and re-order the \n sequence',
                   maxLines: 2,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -151,44 +165,32 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
               ]
           ),
           const SizedBox(height: 20,),
+          Stack(
+            alignment: Alignment.center,
+            children: [
           Container(
             margin: const EdgeInsets.all(20),
             color: Colors.white,
             height: 300,
-            child: ReorderableListComponent(),
+            child: ReorderableListComponent(methodFromParent: updateParentView),
           ),
-
-          Container(
-            width: 120.60,
-            height: 80.60,
-            margin: const EdgeInsets.all(10),
-            decoration: const ShapeDecoration(
-              color: Colors.grey,
-              shape: OvalBorder(),
-            ),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 16),
-                backgroundColor: Colors.grey,
-                foregroundColor: Colors.white,
-              ),
-              onPressed: () {
-                setState(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LinkBankQuizPage()),
-                  );
-                });
-
-              },
-              child: const Text('Continue'
-              ),
-            ),
-          ),
+   ] ),
 
 
         ],
+
       ),
+      bottomSheet: Visibility(visible: reorderSuccess,
+        child: Container(
+          width: 320,
+          height:350,
+          child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
+          })
+
+
+      ),
+    ),
     );
   }
 }

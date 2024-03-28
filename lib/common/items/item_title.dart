@@ -30,7 +30,13 @@ class ItemTile extends StatelessWidget {
             child: Center(
               child: Text(
                   cardTitle ?? '',
-                style: const TextStyle(fontSize: 25),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w500,
+                  // height: 0.07,
+                ),
               ),
             ),
           ),
