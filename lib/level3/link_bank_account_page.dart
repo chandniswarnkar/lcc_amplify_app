@@ -14,7 +14,7 @@ class LinkBankAccountPage extends StatefulWidget {
 }
 
 class LinkBankAccountState extends State<LinkBankAccountPage> {
-  String coinText = '0';
+  int coinText = 0;
   double _currentSliderValue = 0;
   bool reorderSuccess = false;
 
@@ -22,6 +22,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
 
     setState(() {
       reorderSuccess = true;
+      coinText = 20;
       print('param is $param');
     });
   }
@@ -37,7 +38,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
             SizedBox(height: 100,),
             Container(
 
-              width: 60,
+              width: 80,
               height: 40,
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
@@ -49,7 +50,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 24,
+                    width: 30,
                     height: 24,
                     decoration: const BoxDecoration(
                       // color: Colors.deepOrange,
@@ -60,7 +61,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                     ),
                   ),
                   Text(
-                    coinText,
+                    coinText.toString(),
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -163,25 +164,49 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
               ]
           ),
           const SizedBox(height: 20,),
+          Stack(
+            alignment: Alignment.center,
+            children: [
           Container(
             margin: const EdgeInsets.all(20),
             color: Colors.white,
             height: 300,
             child: ReorderableListComponent(methodFromParent: updateParentView),
           ),
-
-          Container(
-            width: 220.60,
-            height:200.60,
-           color:  Colors.orangeAccent,
-            child: reorderSuccess ? RightAnswerComponent(successText: "You earned \n 5 coins", onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
-            }) : Container()
-          ),
+    //       Visibility(visible: reorderSuccess,
+    //           child:
+    //
+    //       Container(
+    //         //margin: const EdgeInsets.all(40),
+    //          width: 320,
+    //          height:400,
+    //        color:  Colors.orangeAccent,
+    //         child: RightAnswerComponent(successText: "You earned \n 5 coins", onPressed: (){
+    //           Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
+    //         })
+    //
+    //
+    // ),
+    //       ),
+   ] ),
 
 
         ],
+
       ),
+      bottomSheet: Visibility(visible: reorderSuccess,
+        child: Container(
+        //margin: const EdgeInsets.all(40),
+          width: 320,
+          height:350,
+          color:  Colors.orangeAccent,
+          child: RightAnswerComponent(successText: "You earned \n 5 coins", onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
+          })
+
+
+      ),
+    ),
     );
   }
 }
