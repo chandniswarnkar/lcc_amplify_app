@@ -76,10 +76,10 @@ class RightAnswerComponent extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 28),
+                          const SizedBox(height: 10),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 30),
-                            padding: const EdgeInsets.symmetric(vertical: 5),
+                            padding: const EdgeInsets.symmetric(vertical: 3),
                             decoration: ShapeDecoration(
                               color: Colors.black,
                               shape: RoundedRectangleBorder(

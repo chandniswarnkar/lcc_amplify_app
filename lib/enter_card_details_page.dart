@@ -39,78 +39,101 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
 
   //Click of Name
   void _updateCardHolderName(String newText) {
-    if(cardHolderName!=''){
+    if( _isCardCVVValueVisible() == true){
+
+    }else{
+      showHintView = false;
+      if(cardHolderName!=''){
         _fieldsContainer = false;
         showWrongAnswerView = true;
 
+      }else{
+        setState(() {
+          cardHolderName = newText;
+          nameBackgroundFlag = true;
+          // Set the new value for labelText
+        });
+      }
     }
 
-    setState(() {
-      cardHolderName = newText;
-      nameBackgroundFlag = true;
-      // Set the new value for labelText
-    });
+
+
   }
 
   //Click of Number
   void _updateCardNumber(String newText) {
-    setState(() {
-      if(cardHolderName == ''){
-        _fieldsContainer = false;
-        showWrongAnswerView = true;
-      } else if(cardNumber !=''){
-        _fieldsContainer = false;
-        showWrongAnswerView = true;
-      }
-      else{
-        setState(() {
-          cardNumber = newText;
-          nameBackgroundFlag = false;
-          numberBackgroundFlag = true;// Set the new value for labelText
-        });
-      }
-    });
+    if( _isCardCVVValueVisible() == true){
+
+    }else {
+      setState(() {
+        showHintView = false;
+        if (cardHolderName == '') {
+          _fieldsContainer = false;
+          showWrongAnswerView = true;
+        } else if (cardNumber != '') {
+          _fieldsContainer = false;
+          showWrongAnswerView = true;
+        }
+        else {
+          setState(() {
+            cardNumber = newText;
+            nameBackgroundFlag = false;
+            numberBackgroundFlag = true; // Set the new value for labelText
+          });
+        }
+      });
+    }
 
   }
 //Click of date
   void _updateCardExpiry(String newText) {
-    if(cardHolderName == ''){
-      _fieldsContainer = false;
-      showWrongAnswerView = true;
-    }else if(cardNumber == ''){
-      _fieldsContainer = false;
-      showWrongAnswerView = true;
-    }else if(cardExpiry != ''){
-      _fieldsContainer = false;
-      showWrongAnswerView = true;
-    }
+    if( _isCardCVVValueVisible() == true){
 
-    else{
-      setState(() {
-        cardExpiry = newText;
-        numberBackgroundFlag = false;
-        dateBackgroundFlag = true;
-       // Set the new value for labelText
-      });
+    }else {
+      showHintView = false;
+      if (cardHolderName == '') {
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      } else if (cardNumber == '') {
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      } else if (cardExpiry != '') {
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      }
+
+      else {
+        setState(() {
+          cardExpiry = newText;
+          numberBackgroundFlag = false;
+          dateBackgroundFlag = true;
+          // Set the new value for labelText
+        });
+      }
     }
 
   }
 
   //Click of CVV
   void _updateCardCVV(String newText) {
-    if(cardHolderName == ''){
-      _fieldsContainer = false;
-      showWrongAnswerView = true;
-    }else if(cardExpiry == ''){
-      _fieldsContainer = false;
-      showWrongAnswerView = true;
-    }
-    else{
-      setState(() {
-        cardCVV = newText;
-        dateBackgroundFlag = false;
-        cvvBackgroundFlag =true;// Set the new value for labelText
-      });
+    if( _isCardCVVValueVisible() == true){
+
+    }else {
+      showHintView = false;
+      if (cardHolderName == '') {
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      } else if (cardExpiry == '') {
+        _fieldsContainer = false;
+        showWrongAnswerView = true;
+      }
+      else {
+        setState(() {
+          cardCVV = newText;
+          dateBackgroundFlag = false;
+          cvvBackgroundFlag = true; // Set the new value for labelText
+        });
+      }
     }
 
   }
@@ -226,6 +249,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                       onPressed: () {
 
                         setState(() {
+                          showWrongAnswerView = false;
                           if(cardNumber == ''){
                             hintText = 'The card number is a\n 16-digit number.';
                             showHintView = true;
