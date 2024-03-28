@@ -404,7 +404,7 @@ class StartLevelWidget extends StatelessWidget {
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         fullscreenDialog: true,
-                        builder: (context) => StartLevel3Page(),
+                        builder: (context) => KnowYourCardPage(),
                       ),
                     );
 

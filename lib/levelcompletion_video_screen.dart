@@ -69,12 +69,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         }
-        // Navigator.of(context).push(
-        //         CupertinoPageRoute(
-        //           fullscreenDialog: true,
-        //           builder: (context) =>  const StartLevel2Page(),
-        //         ),
-        //       );
+
      // Need to add the code to navigate to the next level
         _controller.removeListener(() { });
       }

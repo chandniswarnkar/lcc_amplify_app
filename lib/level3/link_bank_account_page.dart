@@ -23,7 +23,8 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
     setState(() {
       reorderSuccess = true;
       coinText = 20;
-      print('param is $param');
+      _currentSliderValue = 20;
+
     });
   }
 
@@ -173,21 +174,6 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
             height: 300,
             child: ReorderableListComponent(methodFromParent: updateParentView),
           ),
-    //       Visibility(visible: reorderSuccess,
-    //           child:
-    //
-    //       Container(
-    //         //margin: const EdgeInsets.all(40),
-    //          width: 320,
-    //          height:400,
-    //        color:  Colors.orangeAccent,
-    //         child: RightAnswerComponent(successText: "You earned \n 5 coins", onPressed: (){
-    //           Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
-    //         })
-    //
-    //
-    // ),
-    //       ),
    ] ),
 
 
@@ -196,11 +182,9 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
       ),
       bottomSheet: Visibility(visible: reorderSuccess,
         child: Container(
-        //margin: const EdgeInsets.all(40),
           width: 320,
           height:350,
-          color:  Colors.orangeAccent,
-          child: RightAnswerComponent(successText: "You earned \n 5 coins", onPressed: (){
+          child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
           })
 

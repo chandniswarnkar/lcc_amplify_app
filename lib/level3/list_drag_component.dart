@@ -48,7 +48,6 @@ class ReorderableListView extends StatefulWidget {
   State<ReorderableListView> createState() => _ReorderableListViewState();
 
 
-
 }
 
 class _ReorderableListViewState extends State<ReorderableListView> {
@@ -62,6 +61,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
   late List<CardItem> list =
    List.generate(4, (index) => CardItem( index: index, name: cardTextList[index]));
   bool isCorrect = false;
+  bool isDragged = false;
    CardColor _cardColor = CardColor.DEFAULT_COLOR;
 
    List<AnimationEffect> animations = [];
@@ -77,14 +77,13 @@ class _ReorderableListViewState extends State<ReorderableListView> {
            items: list,
            itemBuilder: (BuildContext context, int index) {
 
-             _cardColor = cardStatusMap[index] == true ? CardColor.RIGHT_ANSWER_COLOR : CardColor.DEFAULT_COLOR;
+             _cardColor = cardStatusMap[index] == true ? CardColor.RIGHT_ANSWER_COLOR : isDragged ? CardColor.WRONG_ANSWER_COLOR : CardColor.DEFAULT_COLOR;
 
              return ItemTile(
                  key: Key(list[index].name),
                  index: list[index].index,
                  cardTitle: list[index].name,
                  cardColor: _cardColor == CardColor.RIGHT_ANSWER_COLOR ? rightAnswerColor : _cardColor == CardColor.WRONG_ANSWER_COLOR ? wrongAnswerColor : Color(0xFFE9ECED),
-
               );
            },
            enterTransition: [FadeIn(), ScaleIn()],
@@ -96,19 +95,25 @@ class _ReorderableListViewState extends State<ReorderableListView> {
                final CardItem cardItem = list.removeAt(oldIndex);
                list.insert(newIndex, cardItem);
 
-               print(newIndex);
+               isDragged = true;
 
-              isCorrect = list[newIndex].name == cardMapData[newIndex] ? true : false;
+             //_cardColor = isCorrect ? CardColor.RIGHT_ANSWER_COLOR : CardColor.WRONG_ANSWER_COLOR;
+              // isCorrect = list[newIndex].name == cardMapData[newIndex] ? true : false;
+               for (int i = 0; i < list.length; i++) {
+                 if (list[i].name == cardMapData[i]) {
+                   cardStatusMap[i] = true;
+                 } else {
+                   cardStatusMap[i] = false;
+                 }
+               }
 
-             _cardColor = isCorrect ? CardColor.RIGHT_ANSWER_COLOR : CardColor.WRONG_ANSWER_COLOR;
-
-               cardStatusMap[newIndex] = isCorrect;
+             //  cardStatusMap[newIndex] = isCorrect;
                  if (  cardStatusMap[0] == true && cardStatusMap[1] == true && cardStatusMap[2] == true )  {
                    cardStatusMap[3] = true;
                    widget.methodFromParent?.call("Reorder Done");
                  }
 
-               print(cardStatusMap);
+
              });
            },
 

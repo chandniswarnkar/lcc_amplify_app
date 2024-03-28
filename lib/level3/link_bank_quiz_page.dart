@@ -24,7 +24,7 @@ enum BottomBarComponent {
 class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
   int coinText = 25;
-  double _currentSliderValue = 0;
+  double _currentSliderValue = 20;
   String _currentQuesValue = '';
   String textFormFieldValue = '';
   String _currentAnsValue = '';
@@ -48,7 +48,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
     super.initState();
      questions = linkBankQuizData.keys.toList();
      answers = linkBankQuizData.values.toList();
-
+      answers.shuffle();
   }
 
   @override
@@ -189,6 +189,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                       Container(   padding: const EdgeInsets.all(20),
                         child:
                         TextField(
+
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,
@@ -200,6 +201,13 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                           border: OutlineInputBorder(),
                           hintText: 'Enter value from below  options',
                           labelText: textFormFieldValue,
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500,
+                            // height: 0.07,
+                          ),
                           filled: true,
                           fillColor: isAnswerCorrect ? Color(0xFFD9FFDB) : Colors.white,
                           suffixIcon : Padding(
@@ -222,6 +230,29 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                 ),
     ),
                 SizedBox(height: 30,),
+               Container(
+                 height: 25,
+                 alignment: Alignment.centerLeft,
+                 margin: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                 decoration: ShapeDecoration(
+                  // color:   Color(0xFFD2EAFF),
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(15),
+                   ),
+                 ),
+                 child: Text(
+                   'Options',
+                   textAlign: TextAlign.left,
+                   style: TextStyle(
+                     color: Colors.black,
+                     fontSize: 20,
+                     fontFamily: 'Inter',
+                     fontWeight: FontWeight.w600,
+                     // height: 0.07,
+                   ),
+                 ),
+               ),
+
                 Container(
                   height: 300,
                 margin: const EdgeInsets.all(20),
@@ -239,12 +270,10 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                   childAspectRatio: 2.5,
             padding: const EdgeInsets.all(20),
 
-
             children: List.generate(answers.length, (ansIndex) {
             return GestureDetector(
               onTap: (){
                 setState(() {
-
 
                      if(answers.length > 0) {
                        _currentAnsValue = answers[ansIndex];
@@ -252,6 +281,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                            linkBankQuizData[questions[_quesIndex]]) {
                          textFormFieldValue = _currentAnsValue;
                          isAnswerCorrect = true;
+                         _currentSliderValue = _currentSliderValue + 10;
                          Timer(Duration(seconds: 1), () {
                            coinText = coinText + 10;
                            hideCurrentQuestion();
@@ -268,7 +298,11 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
               },
               child: Container(
               height: 50,
-            color: Colors.white,
+           // color: Colors.white,
+              decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              ),
             margin: const EdgeInsets.all(10),
             child: Center(
             child: Text(
@@ -278,12 +312,15 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
             fontSize: 20,
             ),
             ),
+
             ),
-            ),
-              );
+              ),
+
+            );
             },
             ),
                         ),
+
                 )
 
               ]
