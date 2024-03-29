@@ -3,34 +3,27 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:lcc_flutter_app/badge_screen.dart';
 import 'package:lcc_flutter_app/expertise_page.dart';
-
+import 'package:lcc_flutter_app/level3/link_bank_account_page.dart';
 import 'package:lcc_flutter_app/online_shopping_page.dart';
-import 'package:lcc_flutter_app/common/right_ans_component.dart';
-import 'package:lcc_flutter_app/know_your_card.dart';
-import 'package:lcc_flutter_app/levelcompletion_video_screen.dart';
-import 'package:lcc_flutter_app/common/constants.dart';
 import 'package:lcc_flutter_app/practice_page.dart';
 import 'package:lcc_flutter_app/rewards_page.dart';
 
-import 'common/wrong_ans_component.dart';
-import 'image_slider_widget.dart';
-import 'learning_page.dart';
+import '../common/constants.dart';
+import '../image_slider_widget.dart';
+import '../learning_page.dart';
 
 
-class StartLevelPage extends StatefulWidget {
-  const StartLevelPage({ super.key });
+
+class StartLevel3Page extends StatefulWidget {
+  const StartLevel3Page({ super.key });
 
   @override
-  State<StartLevelPage> createState() => _StartLevelPageState();
+  State<StartLevel3Page> createState() => _StartLevel2PageState();
 
 }
-
 final controller = ScrollController();
-class _StartLevelPageState extends State<StartLevelPage> {
-
+class _StartLevel2PageState extends State<StartLevel3Page> {
   int _selectedIndex = 0;
   bool isTabSelected = false;
 
@@ -47,31 +40,31 @@ class _StartLevelPageState extends State<StartLevelPage> {
 
 
 
-
   scrollTo(BuildContext context, int i) => controller.animateTo(
     i == 0.0
-        ? 0.0
-        : i == 1
-        ? MediaQuery.of(context).size.height * .18
+        ? 0.0 :
+    i == 2
+        ? MediaQuery.of(context).size.height * .35
         : MediaQuery.of(context).size.height * 1.5,
     duration: scrollAnimationDuration,
     curve: scrollAnimationCurve,
   );
 
-
   @override
   Widget build(BuildContext context) {
 
+
     Timer(Duration(seconds: 1), () {
       if (this.mounted) {
-        scrollTo(context, 1);
+        scrollTo(context, 2);
       }
     });
 
     return Scaffold(
 
-        body:  isTabSelected == false?
-        StartLevelWidget():_widgetOptions [_selectedIndex],
+        body: isTabSelected == false?
+        StartLevel2Widget() : _widgetOptions [_selectedIndex],
+
         bottomNavigationBar:Row(
           children: [
             GestureDetector( onTap: () {
@@ -220,215 +213,219 @@ class _StartLevelPageState extends State<StartLevelPage> {
             ),
           ],
         )
+
+
     );
   }
 }
 
-class StartLevelWidget extends StatelessWidget {
-  const StartLevelWidget({super.key});
+class StartLevel2Widget extends StatelessWidget {
+  const StartLevel2Widget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column( children: [
-      Container(
-        width: double.infinity,
-        height: 90,
-        color: const Color(0xFF11442B),
-        padding:EdgeInsets.fromLTRB(30, 10, 0, 0),
-        child: Row(
-
-          children: [
-            const Text('Transacting',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 28,
-                fontFamily: 'Inter',
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w600,
-
-              ),
-            ),
-            Spacer(),
-            Container(
-              width: 34.60,
-              height: 34.60,
-              margin: const EdgeInsets.all(20),
-              decoration: const ShapeDecoration(
-                color: Colors.white,
-                shape: OvalBorder(),
-              ),
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 16),
-                  backgroundColor: const Color(0xFFE9ECED),
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('X',style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
-
-      ),
-      // Row1
-      Row(children: [
-        Container (
-          height: 210,
-          width: MediaQuery.of(context).size.width,
-          color: Color(0xFF2A5C43),
-          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-          child:
-          Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 30,),
-                Container(
-                  width: 80,
-                  height: 30,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(width: 1,color:Colors.white),
-                      borderRadius: BorderRadius.circular(26),
-                    ),
-                  ),
-                  padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-                  margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  child: const Text(
-                    textAlign: TextAlign.center,
-                    'Skill 01',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                      // height: 0.09,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10,),
-                Container(
-                  height: 50,
-                  padding: EdgeInsets.only(left: 10),
-                  alignment: Alignment.topLeft,
-                  child: const Text(
-                    'Make online payments for \ngoods/services',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
-                      // height: 0.08,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10,),
-                Container( padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
-                  child: const Text(
-                    'Use various payment methods like credit/debit cards, direct bank transfers, and mobile accounts for online purchases.',
-                    maxLines: 4,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-
-                    ),
-                  ),
-                ),
-
-              ]
-          ),
-        ),
-
-      ]
-      ),
-      Stack( children:[
+    return
+      Column( children: [
         Container(
-          height: MediaQuery.of(context).size.height - 385,
-          child:
-          CustomScrollView(
-            controller: controller,
-            slivers: <Widget>[
+          width: double.infinity,
+          height: 90,
+          color: const Color(0xFF11442B),
+          padding:EdgeInsets.fromLTRB(30, 10, 0, 0),
+          child: Row(
 
-              SliverList(
-                delegate: SliverChildBuilderDelegate( (BuildContext context, int index) {
-                  return Container(
-                    alignment: Alignment.center,
-                    color: Colors.green,
-                    child: Container(
-                      width:MediaQuery.of(context).size.width ,
-                      height: 1300,
-                      // alignment: Alignment.to,
-                      child:
-                      Image(
-                        image: AssetImage("assets/images/level1_new.png"),
-                        fit: BoxFit.fill,
+            children: [
+              const Text('Transacting',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.w600,
+
+                ),
+              ),
+              Spacer(),
+              Container(
+                width: 34.60,
+                height: 34.60,
+                margin: const EdgeInsets.all(20),
+                decoration: const ShapeDecoration(
+                  color: Colors.white,
+                  shape: OvalBorder(),
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 16),
+                    backgroundColor: const Color(0xFFE9ECED),
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+
+                    Navigator.of(context).push(
+                      CupertinoPageRoute(
+                        fullscreenDialog: true,
+                        builder: (context) =>   ImageSliderPage(),
                       ),
-                    ),
-                  );
-                },
-                  childCount: 1,
+                    );
+
+
+                  },
+                  child: const Text('X',style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ],
           ),
+
         ),
-        Positioned(
-          bottom: 50,
-          child:
-          Container(
-            padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
-            // margin: const EdgeInsets.symmetric(horizontal: 100,  vertical: 10),
-            margin: const EdgeInsets.only(left: 70),
-            alignment: Alignment.center,
-            decoration: ShapeDecoration(
-              color:   Colors.black,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50),
-              ),
+        // Row1
+        Row(children: [
+          Container (
+            height: 150,
+            width: MediaQuery.of(context).size.width,
+            color: const Color(0xFF2A5C43),
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child:
+            Column(
+              // mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 30,),
+                  Container(
+                    width: 80,
+                    height: 30,
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(width: 1,color:Colors.white),
+                        borderRadius: BorderRadius.circular(26),
+                      ),
+                    ),
+                    padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
+                    margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: const Text(
+                      textAlign: TextAlign.center,
+                      'Skill 01',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                        // height: 0.09,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10,),
+                  Container(
+                    height: 60,
+                    padding: const EdgeInsets.only(left: 10),
+                    alignment: Alignment.topLeft,
+                    child: const Text(
+                      'Make online payments for \ngoods/services',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+                        // height: 0.08,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10,),
+
+
+                ]
             ),
-            child: Row(
+          ),
 
-              // mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TextButton(
+        ]
+        ),
+        Stack( children:[
+          Container(
+            height: 570,
+            child:
+            CustomScrollView(
+              controller: controller,
+              slivers: <Widget>[
 
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute(
-                        fullscreenDialog: true,
-                        builder: (context) => KnowYourCardPage(),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate( (BuildContext context, int index) {
+                    return Container(
+                      alignment: Alignment.center,
+                      color: Colors.green,
+                      child: Container(
+                        width:MediaQuery.of(context).size.width ,
+                        height: 1300,
+                        // alignment: Alignment.to,
+                        child:
+                        const Image(
+                          image: AssetImage("assets/images/level_03.png"),
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     );
-
                   },
-                  child: const Text('Start', style:TextStyle(
-                    color: Colors.white ,
-                    fontSize:28,
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.w600,
-                    // height: 0.07,
-                  ),
+                    childCount: 1,
                   ),
                 ),
               ],
             ),
           ),
-        ),
-        ///
-      ]
-      )
-    ]
-    );
+
+          Positioned(
+            bottom: 50,
+            child:
+            Container(
+              padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
+              // margin: const EdgeInsets.symmetric(horizontal: 100,  vertical: 10),
+              margin: const EdgeInsets.only(left: 70),
+              alignment: Alignment.center,
+              decoration: ShapeDecoration(
+                color:   Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+              child: Row(
+
+                // mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextButton(
+
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) =>  const LinkBankAccountPage(),
+                        ),
+                      );
+
+                    },
+                    child: const Text('Start', style:TextStyle(
+                      color: Colors.white ,
+                      fontSize:28,
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w600,
+                      // height: 0.07,
+                    ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+
+          ///
+        ]
+        )
+      ]);
+
   }
 }
+
 
 
 // image:  AssetImage("assets/images/bg_skill1.png"),

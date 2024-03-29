@@ -18,16 +18,29 @@ class BadgeScreen extends StatefulWidget {
 
 class _BadgeScreenState extends State<BadgeScreen> {
 
-
+ String videoLabel = 'Level 1 Completed';
   @override
   void initState() {
     super.initState();
+
+    switch(widget.flag) {
+      case 'Level_1':
+        videoLabel = 'Level 1 Completed';
+        break;
+      case 'Level_2':
+        videoLabel = 'Level 2 Completed';
+        break;
+      case 'Level_3':
+        videoLabel = 'Level 3 Completed';
+        break;
+
+    }
 
     Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) =>  VideoPlayerScreen(levelComlpetionText: widget.flag=="Level_1"?'Level 1 Completed':'Level 2 Completed',),
+          builder: (context) =>  VideoPlayerScreen(levelComlpetionText: videoLabel),
         ),
       );
     });

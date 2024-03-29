@@ -21,12 +21,12 @@ class RightAnswerComponent extends StatelessWidget {
             children: [
               Container(
                 width: 300,
-                height: 310,
+                height: 330,
                 child: Stack(
                   children: [
                     Container(
                       width: 300,
-                      height: 310,
+                      height: 330,
                       decoration: ShapeDecoration(
                         color: Color(0xFF70E7A7),
                         shape: RoundedRectangleBorder(
@@ -76,10 +76,10 @@ class RightAnswerComponent extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 28),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 30),
-                            padding: const EdgeInsets.symmetric(vertical: 3),
+                            padding: const EdgeInsets.symmetric(vertical: 5),
                             decoration: ShapeDecoration(
                               color: Colors.black,
                               shape: RoundedRectangleBorder(
