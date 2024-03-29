@@ -23,7 +23,7 @@ class _RewardsPageState extends State<RewardsPage> {
 
       body: isIconsPresented ? RewardsIcons()
             : Container(
-          color: const Color(0xFF530C17)
+          color: const Color(0xFF656F62)
           // child: Text('Reward'),
         ),
     );
@@ -36,7 +36,7 @@ class RewardsIcons extends StatelessWidget {
     return Scaffold(
         //appBar: AppBar(title: Text("Rewards")),
         body: Container(
-            color: const Color(0xFF9F4A4A),
+            color: const Color(0xFF656F62),
             child: ListView(
               padding:EdgeInsets.all(40),
               children: [
@@ -60,14 +60,14 @@ class RewardsIcons extends StatelessWidget {
                   height: 80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/quick_learner.png"),
+                      image: AssetImage("assets/images/quick_learner_2.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                     Image.asset("assets/images/shadow.png"),
                     Text("Quick Learner"),
-                  Text("09.09.23")
+               //   Text("09.09.23")
                 ],
                 ),
                 ),
@@ -84,7 +84,7 @@ class RewardsIcons extends StatelessWidget {
       ),
          Image.asset("assets/images/shadow.png"),
          const Text("Curious Explorer"),
-        const Text("09.09.23")
+        //const Text("09.09.23")
       ],
       ),
       ),
@@ -105,7 +105,7 @@ class RewardsIcons extends StatelessWidget {
                 ),
                     Image.asset("assets/images/shadow.png"),
                     Text("Sharp Scholar"),
-                Text("09.09.23")
+              //  Text("09.09.23")
               ],
             ),
         ),
@@ -115,13 +115,13 @@ class RewardsIcons extends StatelessWidget {
       height: 80,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/eager_student.png"),
+          image: AssetImage("assets/images/eager_student_2.png"),
           fit: BoxFit.fill,
         ),
       ),
     ), Image.asset("assets/images/shadow.png"),
                       Text("Eager Student"),
-      Text("09.09.23")
+    //  Text("09.09.23")
     ],
     ),
     ),
@@ -135,14 +135,13 @@ class RewardsIcons extends StatelessWidget {
                   height: 80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/good_player_lock.png"),
+                      image: AssetImage("assets/images/good_player_lock_green.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                     Image.asset("assets/images/shadow.png"),
-                //     Text("Curious Explorer"),
-                // Text("09.09.23")
+
               ],
             ),
         ),
@@ -152,14 +151,13 @@ class RewardsIcons extends StatelessWidget {
                   height: 80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/king_player_lock.png"),
+                      image: AssetImage("assets/images/king_player_lock_green.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                       Image.asset("assets/images/shadow.png"),
-                  //     Text("Curious Explorer"),
-                  // Text("09.09.23")
+
                 ],
                 ),
                 ),
