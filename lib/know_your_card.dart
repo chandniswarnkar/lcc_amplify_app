@@ -124,7 +124,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
           ),
           ),
 
-          const SizedBox(height: 80,),
+          const SizedBox(height: 30,),
           const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -142,7 +142,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ),
               ]
           ),
-          const SizedBox(height: 40,),
+          const SizedBox(height: 20,),
           Row( mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 Container(
@@ -225,7 +225,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16,
+                        fontSize: 20,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
                         // height: 0.07,
@@ -334,8 +334,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
           children: [
             Container(
               width: 280,
-              height: 55,
-              margin: EdgeInsets.symmetric(vertical: 30),
+              height: 60,
+              margin: EdgeInsets.symmetric(vertical: 40),
               child:
               TextButton(
                 style: TextButton.styleFrom(

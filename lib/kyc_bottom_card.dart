@@ -54,7 +54,7 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
     List<String> texts = ["GFG Text 1", "GFG Text 2", "GFG Text 3"];
     int currentIndex = 0; // Index to track the currently displayed text
     bool levelTwoPresented = widget.isLevelTwoPresented;
-      print('is level 2 presented  $levelTwoPresented');
+
      //var currentBottomView =  widget.isLevelTwoPresented ? BottomView.questionTwoPresented : (isLevelOneCompleted ? BottomView.questionOneDone : BottomView.questionOnePresented)
     return Container(
 
