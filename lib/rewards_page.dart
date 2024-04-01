@@ -74,7 +74,7 @@ class RewardsIcons extends StatelessWidget {
         SizedBox(width: 10),
        Container(child:Column(children: [Container(
         width: 80,
-        height: 80,
+        height: 90,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/curious_explorer.png"),
@@ -94,8 +94,8 @@ class RewardsIcons extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [ Container(child:Column(children: [Container(
-                  width: 80,
-                  height: 80,
+                  width: 90,
+                  height: 70,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/sharp_scholar.png"),
@@ -111,8 +111,8 @@ class RewardsIcons extends StatelessWidget {
         ),
                     SizedBox(width: 10),
                     Container(child:Column(children: [Container(
-      width: 80,
-      height: 80,
+      width: 70,
+      height: 70,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/eager_student_2.png"),
@@ -131,8 +131,8 @@ class RewardsIcons extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [ Container(child:Column(children: [Container(
-                  width: 80,
-                  height: 80,
+                  width: 90,
+                  height: 70,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/good_player_lock_green.png"),
@@ -147,7 +147,7 @@ class RewardsIcons extends StatelessWidget {
         ),
                     SizedBox(width: 10),
                     Container(child:Column(children: [Container(
-                  width: 80,
+                  width: 90,
                   height: 80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
