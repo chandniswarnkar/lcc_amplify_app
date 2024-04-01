@@ -124,7 +124,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
           ),
           ),
 
-          const SizedBox(height: 30,),
+          const SizedBox(height: 20,),
           const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

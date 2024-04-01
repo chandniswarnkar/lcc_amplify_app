@@ -356,7 +356,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
               alignment: Alignment.center,
-              height: 250,
+              height: 300,
               width: MediaQuery.of(context).size.width,//Tochange
               child: FlipCardComponent(
                 isTappingRequired: true,
@@ -752,9 +752,9 @@ class FrontTappableWidget extends StatelessWidget {
                     '1234 5678 1234 5678',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 22,
+                      fontSize: 26,
                       fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       //  height: 0,
                     ),
                   ),
@@ -765,7 +765,7 @@ class FrontTappableWidget extends StatelessWidget {
               ),
             ]),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               GestureDetector(

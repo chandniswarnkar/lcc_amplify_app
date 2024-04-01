@@ -51,8 +51,10 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       Duration duration = _controller.value.duration;
       Duration position = _controller.value.position;
 
-      if (_controller.value.position >= _controller.value.duration)  {
-        print("video completed");
+     // if (_controller.value.position == _controller.value.duration)  {
+      if (!_controller.value.isPlaying &&_controller.value.isInitialized &&
+          (_controller.value.duration ==_controller.value.position)) {
+      print("video completed");
 
         if (widget.levelComlpetionText == "Level 1 Completed") {
           Navigator.of(context).push(
@@ -105,26 +107,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         child: VideoPlayer(_controller),
       ),
           ),
-          // FutureBuilder(
-          //   future: _controller.initialize(),
-          //   builder: (context, snapshot) {
-          //     if (snapshot.connectionState == ConnectionState.done) {
-          //       // If the VideoPlayerController has finished initialization, use
-          //       // the data it provides to limit the aspect ratio of the video.
-          //       return AspectRatio(
-          //         aspectRatio: 1 / 2.05, //_controller.value.aspectRatio,
-          //         // Use the VideoPlayer widget to display the video.
-          //         child: VideoPlayer(_controller),
-          //       );
-          //     } else {
-          //       // If the VideoPlayerController is still initializing, show a
-          //       // loading spinner.
-          //       return const Center(
-          //         child: CircularProgressIndicator(),
-          //       );
-          //     }
-          //   },
-          // ),
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -160,16 +143,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                         fontWeight: FontWeight.bold
                     ),),
 
-                 /* Countup(
-                    begin: 0,
-                    end: 100,
-                    duration: const Duration(seconds: 12),
-                    separator: ',',
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),*/
                 ],
               ),
             ],
