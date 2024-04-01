@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/common/hint_component.dart';
 import 'package:lcc_flutter_app/common/wrong_ans_component.dart';
 import 'dart:math' as math;
@@ -100,33 +101,30 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               },
             ),
             ),
-            Container(
-              width: 34.60,
-              height: 34.60,
-              margin: const EdgeInsets.all(10),
-              decoration: const ShapeDecoration(
-                color: Colors.grey,
-                shape: OvalBorder(),
-              ),
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 16),
-                  backgroundColor: Colors.grey,
-                  foregroundColor: Colors.white,
+            GestureDetector(
+              child: Container(
+                width: 34.60,
+                height: 34.60,
+                margin: const EdgeInsets.all(10),
+                decoration: const ShapeDecoration(
+                  color: Color(0xFFE9ECED),
+                  shape: OvalBorder(),
                 ),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
+                child: Icon( Icons.close,
+                  color: Colors.black, ),
 
-                },
-                child: const Text('X'
-                ),
               ),
+              onTap: (){
+                setState(() {
+                  Navigator.pop(context);
+                });
+              }
             ),
           ]
           ),
           ),
+
+          const SizedBox(height: 80,),
           const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -144,7 +142,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ),
               ]
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(height: 40,),
           Row( mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 Container(
@@ -220,9 +218,9 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [ Expanded(
                   child: Container(
-                    margin: EdgeInsets.all(20),
+                    margin: EdgeInsets.symmetric(horizontal: 20),
                     child: const Text(
-                      'You have been given a new virtual credit card that you can use in this App. Use your finger to drag and explore your card around.',
+                      'You have been given a new virtual \ncredit card that you can use in this \nApp. Use your finger to drag and \nexplore your card around.',
                       maxLines:5 ,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -324,43 +322,46 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
           ),
           /////
           SizedBox(height: 10,),
-          Visibility(visible: showMainView,
-            child:
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
 
-              children: [ Container(
-                width: 250,
-                height: 70,
-                child:
-                TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20),
-                    backgroundColor: Colors.black,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      isNextButtonPressed = true;
-                      showMainView = false;
-                      showQuizView = true;
-                    });
+        ],
+      ),
+      bottomNavigationBar: Visibility(visible: showMainView,
+        child:
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
 
-                  },
-                  child: const Text('Next', style:TextStyle(
-                    color: Colors.white ,
-                    fontSize: 18,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                    // height: 0.07,
-                  ),
-                  ),
+          children: [
+            Container(
+              width: 280,
+              height: 55,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child:
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                  backgroundColor: Colors.black,
+                ),
+                onPressed: () {
+                  setState(() {
+                    isNextButtonPressed = true;
+                    showMainView = false;
+                    showQuizView = true;
+                  });
+
+                },
+                child: const Text('Next', style:TextStyle(
+                  color: Colors.white ,
+                  fontSize: 26,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w600,
+                  // height: 0.07,
+                ),
                 ),
               ),
-              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

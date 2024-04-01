@@ -99,15 +99,52 @@ class CardQuestionComponent extends StatelessWidget {
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                         ),
-                      )  : const Text(
-                        'Completed',
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        style: TextStyle(
+                      )  : Container(
+                        width: 200,
+                        decoration: ShapeDecoration(
                           color: Colors.green,
-                          fontSize: 22,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
+                          shape: RoundedRectangleBorder(
+
+                            borderRadius: BorderRadius.circular(7),
+                          ),
+                        ),
+                        child: Row(
+
+                          children: [
+
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5),
+                              width: 25, // Adjust the width and height as needed
+                              height: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white, // Background color of the circular container
+                              ),
+
+                                child: Icon(
+                                  Icons.check,
+                                  color: Colors.green, // Color of the tick icon
+                                  size: 20, // Size of the tick icon
+                                ),
+
+                            ),
+                            const Text(
+                              'Completed',
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Image.asset(
+                              'assets/images/Animation_badge_completion.gif',
+                              fit: BoxFit.cover,
+                            ),
+
+                          ],
                         ),
                       ),
                     ),

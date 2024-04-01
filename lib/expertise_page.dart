@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/start_level_page.dart';
 
 
@@ -63,7 +64,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
 
 
                         setState(() {
-                          isRowOneTapped = !isRowOneTapped!;
+                          isRowOneTapped = true;
+                          isRowTwoTapped = false;
+                          isRowThreeTapped = false;
                         });
                       },
                       child:
@@ -84,10 +87,8 @@ class _ExpertisePageState extends State<ExpertisePage> {
                           children: [
                             Container(
 
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                              child: Stack(
+                                alignment: Alignment.center,
                                 children: [
                                   Container(
                                     width: 33,
@@ -98,6 +99,12 @@ class _ExpertisePageState extends State<ExpertisePage> {
                                       shape: OvalBorder(side: BorderSide(width: 1)),
                                     ),
 
+                                  ),
+                                  
+                                  Visibility(
+                                    visible: isRowOneTapped,
+                                    child: Icon( Icons.check,
+                                      color: Colors.black, ),
                                   ),
                                 ],
                               ),
@@ -128,7 +135,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      isRowTwoTapped = !isRowTwoTapped!;
+                      isRowOneTapped = false;
+                      isRowTwoTapped = true;
+                      isRowThreeTapped = false;
                     });
                   },
                    child:
@@ -149,10 +158,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
                         children: [
                           Container(
 
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Stack(
+                              alignment: Alignment.center,
+
                               children: [
                                 Container(
                                   width: 33,
@@ -164,6 +172,12 @@ class _ExpertisePageState extends State<ExpertisePage> {
                                   ),
 
                                 ),
+                                Visibility(
+                                  visible: isRowTwoTapped,
+                                  child: Icon( Icons.check,
+                                    color: Colors.black, ),
+                                ),
+
                               ],
                             ),
 
@@ -194,7 +208,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     onTap: () {
 
                       setState(() {
-                        isRowThreeTapped = !isRowThreeTapped!;
+                        isRowOneTapped = false;
+                        isRowTwoTapped = false;
+                        isRowThreeTapped = true;
                       });
                     },
                     child:
@@ -214,10 +230,8 @@ class _ExpertisePageState extends State<ExpertisePage> {
 
                         children: [
                           Container(
-                            child: Row(
-                              // mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Stack(
+                              alignment: Alignment.center,
                               children: [
                                 Container(
                                   width: 33,
@@ -226,6 +240,11 @@ class _ExpertisePageState extends State<ExpertisePage> {
                                     color: isRowThreeTapped ? Colors.white : Color(0xFFCAE1D6) ,
                                     shape: OvalBorder(side: BorderSide(width: 1)),
                                   ),
+                                ),
+                                Visibility(
+                                  visible: isRowThreeTapped,
+                                  child: Icon( Icons.check,
+                                    color: Colors.black, ),
                                 ),
                               ],
                             ),
