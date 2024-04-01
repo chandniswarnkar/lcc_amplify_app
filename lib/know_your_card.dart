@@ -142,13 +142,13 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ),
               ]
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(height: 10,),
           Row( mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 Container(
                   alignment: Alignment.center,
-                  height: 280,
-                  width: 320, //MediaQuery.of(context).size.width,//Tochange
+                  height: 300,
+                  width: MediaQuery.of(context).size.width,
                   child: FlipCardComponent(isTappingRequired: true,frontWidget: FrontTappableWidget(dateValueSetter: () {
                if  (isNextButtonPressed) {
                     setState(() {
@@ -212,6 +212,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 )
               ]
           ),
+          SizedBox(height: 10,),
           Visibility(visible: showMainView,
             child:
             Row(
@@ -382,7 +383,7 @@ class FrontTappableWidget extends StatelessWidget {
           //color: Colors.blue,
           image: DecorationImage(
             image: AssetImage("assets/images/card_front_blank.png"),
-            // fit: BoxFit.cover,
+             fit: BoxFit.fill,
           ),
         ),
         child: Column(
@@ -423,9 +424,9 @@ class FrontTappableWidget extends StatelessWidget {
 
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 22,
+                          fontSize: 26,
                           fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w500,
                           //  height: 0,
                         ),
                       ),
@@ -436,7 +437,7 @@ class FrontTappableWidget extends StatelessWidget {
                 ]
 
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 30,),
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[

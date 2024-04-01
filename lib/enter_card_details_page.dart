@@ -357,7 +357,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
             Container(
               alignment: Alignment.center,
               height: 250,
-              width: 342, //MediaQuery.of(context).size.width,//Tochange
+              width: MediaQuery.of(context).size.width,//Tochange
               child: FlipCardComponent(
                 isTappingRequired: true,
                 frontWidget: FrontTappableWidget(
