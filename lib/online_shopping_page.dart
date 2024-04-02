@@ -76,30 +76,24 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                   },
                 ),
               ),
-              Container(
-                width: 34.60,
-                height: 34.60,
-                margin: const EdgeInsets.all(20),
-                decoration: const ShapeDecoration(
-                  color: Colors.grey,
-                  shape: OvalBorder(),
-                ),
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    backgroundColor: const Color(0xFFE9ECED),
-                    foregroundColor: Colors.grey,
-                  ),
-                  onPressed: () {
-                    setState(() {
+              GestureDetector(
+                  child: Container(
+                    width: 34.60,
+                    height: 34.60,
+                    margin: const EdgeInsets.all(10),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFFE9ECED),
+                      shape: OvalBorder(),
+                    ),
+                    child: Icon( Icons.close,
+                      color: Colors.black, ),
 
+                  ),
+                  onTap: (){
+                    setState(() {
                       Navigator.pop(context);
                     });
-
-                  },
-                  child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
+                  }
               ),
             ]),
           ),

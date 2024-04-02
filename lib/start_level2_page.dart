@@ -242,22 +242,21 @@ class StartLevel2Widget extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                Container(
-                  width: 34.60,
-                  height: 34.60,
-                  margin: const EdgeInsets.all(20),
-                  decoration: const ShapeDecoration(
-                    color: Colors.white,
-                    shape: OvalBorder(),
-                  ),
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 16),
-                      backgroundColor: const Color(0xFFE9ECED),
-                      foregroundColor: Colors.white,
-                    ),
-                    onPressed: () {
 
+                GestureDetector(
+                    child: Container(
+                      width: 34.60,
+                      height: 34.60,
+                      margin: const EdgeInsets.all(10),
+                      decoration: const ShapeDecoration(
+                        color: Colors.white,
+                        shape: OvalBorder(),
+                      ),
+                      child: Icon( Icons.close,
+                        color: Colors.black, ),
+
+                    ),
+                    onTap: (){
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           fullscreenDialog: true,
@@ -265,12 +264,9 @@ class StartLevel2Widget extends StatelessWidget {
                         ),
                       );
 
-
-                    },
-                    child: const Text('X',style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                    }
                 ),
+
               ],
             ),
 
