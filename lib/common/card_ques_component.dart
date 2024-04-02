@@ -100,7 +100,7 @@ class CardQuestionComponent extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                         ),
                       )  : Container(
-                        width: 200,
+                        width: 210,
                         decoration: ShapeDecoration(
                           color: Colors.green,
                           shape: RoundedRectangleBorder(
@@ -128,6 +128,8 @@ class CardQuestionComponent extends StatelessWidget {
                                 ),
 
                             ),
+                            Container(
+                              child:
                             const Text(
                               'Completed',
                               textAlign: TextAlign.center,
@@ -139,6 +141,8 @@ class CardQuestionComponent extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
+    ),
+
                             Image.asset(
                               'assets/images/Animation_badge_completion.gif',
                               fit: BoxFit.cover,
