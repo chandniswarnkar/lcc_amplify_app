@@ -25,6 +25,7 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
   int count = 0;
 
 
+
   static Widget defaultTransitionBuilder(Widget child, Animation<double> animation) {
     return FadeTransition(
       opacity: animation,
@@ -74,8 +75,8 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                         height: 230,
                         child: widget.isLevelOneCompleted  ?
 
-                        widget.isLevelTwoPresented  ? CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Find and tap on expiry date of the card',
-                            bgColor: Color(0xFFD2EAFF), showCompletedStatus: false) :
+                        widget.isLevelTwoPresented  ? CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
+                            bgColor: Color(0xFFDFBEEE), showCompletedStatus: false) :
 
                         AnimatedSwitcher(
                             duration: const Duration(milliseconds: 1),
@@ -94,10 +95,6 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
 
                             :  CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
                     bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)
-
-
-
-
                     ),
 
                   ),
@@ -163,7 +160,8 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                 Expanded(child:
                 Container(
                   height: 350,
-                  child: HintComponent(hintText: 'The Expiry date is a four-digit number printed on the front of the card.',onPressed: (){
+                  child: HintComponent(hintText: widget.isLevelTwoPresented ? 'The CVV is a three digit number printed on the back of the card' : 'The Expiry date is a four-digit number printed on the front of the card.',
+                    onPressed: (){
                     setState(() {
                       isHintOneShown = false;
 

@@ -335,8 +335,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
           children: [
             Container(
               width: 280,
-              height: 60,
-              margin: EdgeInsets.symmetric(vertical: 40),
+              height: 80,
+              margin: EdgeInsets.symmetric(vertical: 60),
               child:
               TextButton(
                 style: TextButton.styleFrom(
@@ -413,12 +413,13 @@ class FrontTappableWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 30,),
-            Row( mainAxisAlignment: MainAxisAlignment.center,
+            Row( mainAxisAlignment: MainAxisAlignment.start,
                 children:[
                   GestureDetector(
                     child:
                     Container(
                       alignment: Alignment.center,
+                      margin: EdgeInsets.symmetric(horizontal: 25),
                       child: const Text(
                         '1234 5678 1234 5678',
 

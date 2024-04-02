@@ -334,7 +334,7 @@ class StartLevel2Widget extends StatelessWidget {
           ),
           Stack( children:[
             Container(
-              height: 540,
+              height: 570,
               child:
               CustomScrollView(
                 controller: controller,

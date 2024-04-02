@@ -22,9 +22,10 @@ class FlipCardComponent extends StatelessWidget//State<FlipCardComponent>
       backgroundColor:Colors.white ,
       body:
         DragFlipper(
-             width: 380,
+             width: MediaQuery.of(context).size.width-20,//EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            //  padding: const EdgeInsets.all(10.0),
               height: 235,
-              margin: const EdgeInsets.all(10.0),
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
               front: isTappingRequired ? frontWidget! :  const FrontWidget(),
               back: isTappingRequired ? backWidget! : const BackWidget(),
               controller: controller,
