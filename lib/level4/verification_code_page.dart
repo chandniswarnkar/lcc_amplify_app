@@ -111,11 +111,8 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
                   height: 20,
                 ),
                 Container(
-                  width: 80,
-                  height: 40,
                   margin: const EdgeInsets.all(20),
-                  padding: const EdgeInsets.only(
-                      top: 8, left: 8, right: 8, bottom: 8),
+                  padding: const EdgeInsets.all(8),
                   decoration: ShapeDecoration(
                     color: Color(0xFFE9ECED),
                     shape: RoundedRectangleBorder(
@@ -247,12 +244,7 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
                         border: Border.all(color: _getBorderColor()),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
-                   /* decoration: ShapeDecoration(
-                      color: Color(0xFFE9ECED),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),*/
+
                     child: TextFormField(
 
                       cursorColor: Colors.black,

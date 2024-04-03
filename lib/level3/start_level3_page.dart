@@ -336,7 +336,7 @@ class StartLevel2Widget extends StatelessWidget {
         ),
         Stack( children:[
           Container(
-            height: 570,
+            height: MediaQuery.of(context).size.height - 325,
             child:
             CustomScrollView(
               controller: controller,
