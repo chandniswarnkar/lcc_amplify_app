@@ -380,8 +380,8 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
               alignment: Alignment.center,
-              height: 250,
-              width: 342, //MediaQuery.of(context).size.width,//Tochange
+              height: 300,
+              width: MediaQuery.of(context).size.width,//Tochange
               child: FlipCardComponent(
                 isTappingRequired: true,
                 frontWidget: FrontTappableWidget(
@@ -768,17 +768,18 @@ class FrontTappableWidget extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               GestureDetector(
                 child: Container(
                   alignment: Alignment.center,
+                  margin: EdgeInsets.symmetric(horizontal: 25),
                   child: const Text(
                     '1234 5678 1234 5678',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 22,
+                      fontSize: 26,
                       fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       //  height: 0,
                     ),
                   ),
@@ -789,12 +790,14 @@ class FrontTappableWidget extends StatelessWidget {
               ),
             ]),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               GestureDetector(
                 child: Container(
+
                   margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   child: const Text(
                     'JOHN SENIOR',
                     textAlign: TextAlign.center,
@@ -816,6 +819,7 @@ class FrontTappableWidget extends StatelessWidget {
               GestureDetector(
                 child: Container(
                     margin: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(5),
                     child: const Row(
                       children: [
                         Text(
