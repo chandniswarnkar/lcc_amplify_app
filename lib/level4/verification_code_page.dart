@@ -84,7 +84,7 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
     } else if (isCorrectCode) {
       return Colors.green;
     } else {
-      return Colors.grey;
+      return Color(0xFFE9ECED);
     }
   }
 
@@ -162,27 +162,24 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
                     },
                   ),
                 ),
-                Container(
-                  width: 34.60,
-                  height: 34.60,
-                  margin: const EdgeInsets.all(10),
-                  decoration: const ShapeDecoration(
-                    color: Colors.grey,
-                    shape: OvalBorder(),
-                  ),
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 16),
-                      backgroundColor: Colors.grey,
-                      foregroundColor: Colors.white,
+                GestureDetector(
+                    child: Container(
+                      width: 34.60,
+                      height: 34.60,
+                      margin: const EdgeInsets.all(10),
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFFE9ECED),
+                        shape: OvalBorder(),
+                      ),
+                      child: Icon( Icons.close,
+                        color: Colors.grey, ),
+
                     ),
-                    onPressed: () {
+                    onTap: (){
                       setState(() {
                         Navigator.pop(context);
                       });
-                    },
-                    child: const Text('X'),
-                  ),
+                    }
                 ),
               ]),
             ),
@@ -226,7 +223,7 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
                 color: Colors.black,
                 fontSize: 24,
                 fontFamily: 'Inter',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 height: 0,
               ),
             ),
@@ -272,9 +269,9 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
                       ),
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 22,
+                        fontSize: 26,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.bold,
                       ),
 
                         //SoftKeyboard done click
@@ -307,7 +304,7 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
 
             Visibility(
               visible:  isWrongCode == true ? true : false,
-              child: Text('You have enter the wrong code.\nPlease try again',
+              child: Text('You have entered the wrong code.\nPlease try again.',
                  textAlign: TextAlign.center,
                    style: TextStyle(
                    color: Color(0xFFDF2525),

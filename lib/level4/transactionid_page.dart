@@ -83,29 +83,24 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                   },
                 ),
               ),
-              Container(
-                width: 34.60,
-                height: 34.60,
-                margin: const EdgeInsets.all(20),
-                decoration: const ShapeDecoration(
-                  color: Colors.grey,
-                  shape: OvalBorder(),
-                ),
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    backgroundColor: const Color(0xFFE9ECED),
-                    foregroundColor: Colors.grey,
+              GestureDetector(
+                  child: Container(
+                    width: 34.60,
+                    height: 34.60,
+                    margin: const EdgeInsets.all(10),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFFE9ECED),
+                      shape: OvalBorder(),
+                    ),
+                    child: Icon( Icons.close,
+                      color: Colors.grey, ),
+
                   ),
-                  onPressed: () {
+                  onTap: (){
                     setState(() {
                       Navigator.pop(context);
                     });
-
-                  },
-                  child: const Text('X',style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
+                  }
               ),
             ]),
           ),
@@ -150,7 +145,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                                 fontSize: 18,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
-                              ),
+                               ),
                             ),
                          SizedBox(height: 5,),
                          Text(
@@ -165,7 +160,6 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                          ),
                        ],
                      ),
-
 
 
                   ),
@@ -237,7 +231,9 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) =>  BadgeScreen(msgTextTop: 'You are an \nEager Student', image: '', flag: '', msgTextBottom: 'Badge:\nEager Student',)));
+                              builder: (BuildContext context) =>  BadgeScreen(msgTextTop: 'You are an \nEager Student',
+                                image: 'assets/images/eager_student_badge.gif', flag: 'Level_4', msgTextBottom: 'Badge:\nEager Student',))
+                      );
 
 
                     },
