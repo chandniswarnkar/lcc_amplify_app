@@ -7,6 +7,8 @@ import 'package:lcc_flutter_app/start_level2_page.dart';
 import 'package:video_player/video_player.dart';
 
 import 'level3/start_level3_page.dart';
+import 'level4/start_level4_page.dart';
+import 'level4/start_level5_page.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
   const VideoPlayerScreen({super.key,required this.levelComlpetionText});
@@ -70,7 +72,22 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
               builder: (context) =>  const StartLevel3Page(),
             ),
           );
+        }else if (widget.levelComlpetionText == "Level 3 Completed") {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              fullscreenDialog: true,
+              builder: (context) =>  const StartLevel4Page(),
+            ),
+          );
+        }else if (widget.levelComlpetionText == "Level 4 Completed") {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              fullscreenDialog: true,
+              builder: (context) =>  const StartLevel5Page(),
+            ),
+          );
         }
+
 
      // Need to add the code to navigate to the next level
         _controller.removeListener(() { });

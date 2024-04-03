@@ -33,6 +33,9 @@ class _BadgeScreenState extends State<BadgeScreen> {
       case 'Level_3':
         videoLabel = 'Level 3 Completed';
         break;
+      case 'Level_4':
+        videoLabel = 'Level 4 Completed';
+        break;
 
     }
 

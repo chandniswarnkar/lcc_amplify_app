@@ -14,8 +14,6 @@ class OnlineShoppingPage extends StatefulWidget {
 
 class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
   double _currentSliderValue = 0;
-  List<Widget> cardPageList = [];
-  bool isNextButtonPressed = false;
   String coinText = "0";
 
   @override
