@@ -13,9 +13,7 @@ class ProductListCardViewItem extends StatelessWidget {
 
     return
       Container(
-        //margin: const EdgeInsets.fromLTRB(20, 0, 20, 5),
-
-          alignment: Alignment.center,
+        alignment: Alignment.center,
           child: Card(
             color:  const Color(0xFFE9ECED),
             elevation: 5,
@@ -71,11 +69,9 @@ class ProductListCardViewItem extends StatelessWidget {
 
 
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 2),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                     child: Container(
-                      width: 140,
-                      height: 38,
-
+                      padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                       decoration: ShapeDecoration(
                         color: Colors.black,
                         shape: RoundedRectangleBorder(
