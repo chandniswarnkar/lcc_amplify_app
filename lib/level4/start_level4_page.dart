@@ -3,10 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lcc_flutter_app/expertise_page.dart';
-import 'package:lcc_flutter_app/level3/link_bank_account_page.dart';
 import 'package:lcc_flutter_app/level4/select_payee_page.dart';
-import 'package:lcc_flutter_app/online_shopping_page.dart';
 import 'package:lcc_flutter_app/practice_page.dart';
 import 'package:lcc_flutter_app/rewards_page.dart';
 
@@ -260,7 +257,11 @@ class StartLevel4Widget extends StatelessWidget {
 
                   ),
                   onTap: (){
-                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => ImageSliderPage()));
+
 
                   }
               ),

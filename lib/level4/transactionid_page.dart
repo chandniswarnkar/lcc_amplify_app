@@ -33,11 +33,8 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
             child: Row(children: [
 
               Container(
-                width: 70,
-                height: 50,
                 margin: const EdgeInsets.all(20),
-                padding: const EdgeInsets.only(
-                    top: 1, left: 8, right: 8, bottom: 1),
+                padding: const EdgeInsets.all(8),
                 decoration: ShapeDecoration(
                   color: const Color(0xFFE9ECED),
                   shape: RoundedRectangleBorder(
@@ -47,8 +44,8 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      width: 30,
-                      height: 30,
+                      width: 24,
+                      height: 24,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/coin 2.png'),
@@ -60,7 +57,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                       coinText,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 18,
+                        fontSize: 20,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w600,
                         height: 0,

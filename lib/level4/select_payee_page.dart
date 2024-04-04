@@ -32,11 +32,8 @@ Color backgroundColor = Color(0xFFE9EDF8);
             child: Row(children: [
 
               Container(
-                width: 60,
-                height: 40,
                 margin: const EdgeInsets.all(20),
-                padding: const EdgeInsets.only(
-                    top: 8, left: 8, right: 8, bottom: 8),
+                padding: const EdgeInsets.all(8),
                 decoration: ShapeDecoration(
                   color: const Color(0xFFE9ECED),
                   shape: RoundedRectangleBorder(
