@@ -167,7 +167,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       .length, // Change this to your actual item count
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio:(itemWidth / itemHeight),
+                    childAspectRatio:0.7,
                    crossAxisSpacing: 10.0, // Spacing between columns
                   mainAxisSpacing: 10.0,
                      // Number of columns
@@ -217,7 +217,8 @@ class _ProductListPageState extends State<ProductListPage> {
                         ),
 
                         TextButton(
-                          child: const Text('X',style: TextStyle(fontSize: 20),),
+                          child: Icon( Icons.close,
+                            color: Colors.grey, ),
                           onPressed: (){
                             setState(() {
                               _isErrorContainerVisible = false;

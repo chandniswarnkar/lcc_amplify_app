@@ -22,7 +22,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   Widget build(BuildContext context) {
     return  MaterialApp(
       home: Scaffold(
-        body: Column(
+        body: ListView(
           children: [
 
             SafeArea(
@@ -91,7 +91,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                         shape: OvalBorder(),
                       ),
                       child: Icon( Icons.close,
-                        color: Colors.black, ),
+                        color: Colors.grey, ),
 
                     ),
                     onTap: (){

@@ -454,7 +454,7 @@ class _InstructionPageState extends State<InstructionPage> {
                   },
                   child: Container(
                     // height: 40,
-                    margin: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(7),
                     decoration: ShapeDecoration(
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -466,7 +466,7 @@ class _InstructionPageState extends State<InstructionPage> {
                         answers1[ansIndex],
                         style: const TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 17,
                         ),
                       ),
                     ),
