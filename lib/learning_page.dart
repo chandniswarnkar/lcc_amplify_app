@@ -237,8 +237,8 @@ class LCCLearningPageState extends State<LCCLearningPage> {
 
                                 Stack(children: [
                                   Container(
-                                    width: 70,
-                                    height: 70,
+                                    width: 80,
+                                    height: 80,
                                     decoration: ShapeDecoration(
                                       image: DecorationImage(
                                         image: listOfImages[index] ,

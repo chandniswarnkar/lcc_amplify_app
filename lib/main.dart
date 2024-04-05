@@ -75,11 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     PracticePage()
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -122,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
                     height: 0,
                   ),
                 ),
@@ -173,6 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
                     height: 0,
                   ),
                 ),
@@ -224,6 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
                     height: 0,
                   ),
                 ),

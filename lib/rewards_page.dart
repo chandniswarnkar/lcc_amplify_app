@@ -46,10 +46,11 @@ class RewardsIcons extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
+                    fontSize: 28,
                     fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
-                    height: 0.09,
+                    fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
+                    height: 0,
                   ),
                 ),
                 SizedBox(height: 60,),
@@ -66,8 +67,15 @@ class RewardsIcons extends StatelessWidget {
                   ),
                 ),
                     Image.asset("assets/images/shadow.png"),
-                    Text("Quick Learner"),
-               //   Text("09.09.23")
+                    Text("Quick Learner", style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.21,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.normal,
+                      height: 0.09,
+                    ),),
+
                 ],
                 ),
                 ),
@@ -83,8 +91,15 @@ class RewardsIcons extends StatelessWidget {
         ),
       ),
          Image.asset("assets/images/shadow.png"),
-         const Text("Curious Explorer"),
-        //const Text("09.09.23")
+         const Text("Curious Explorer", style: TextStyle(
+           color: Colors.white,
+           fontSize: 16.21,
+           fontFamily: 'Inter',
+           fontWeight: FontWeight.w500,
+           fontStyle: FontStyle.normal,
+           height: 0.09,
+         ),),
+
       ],
       ),
       ),
@@ -104,8 +119,15 @@ class RewardsIcons extends StatelessWidget {
                   ),
                 ),
                     Image.asset("assets/images/shadow.png"),
-                    Text("Sharp Scholar"),
-              //  Text("09.09.23")
+                    Text("Sharp Scholar", style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.21,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.normal,
+                      height: 0.09,
+                    ),),
+
               ],
             ),
         ),
@@ -120,8 +142,15 @@ class RewardsIcons extends StatelessWidget {
         ),
       ),
     ), Image.asset("assets/images/shadow.png"),
-                      Text("Eager Student"),
-    //  Text("09.09.23")
+                      Text("Eager Student", style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.21,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.normal,
+                        height: 0.09,
+                      ),),
+
     ],
     ),
     ),
