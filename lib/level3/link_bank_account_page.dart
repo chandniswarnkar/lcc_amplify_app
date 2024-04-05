@@ -38,9 +38,6 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
           Row( children:[
             SizedBox(height: 100,),
             Container(
-
-              width: 80,
-              height: 40,
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
               decoration: ShapeDecoration(
@@ -99,7 +96,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
                     shape: OvalBorder(),
                   ),
                   child: Icon( Icons.close,
-                    color: Colors.black, ),
+                    color: Colors.grey, ),
 
                 ),
                 onTap: (){

@@ -278,7 +278,7 @@ Color backgroundColor = Color(0xFFE9EDF8);
                         color: Colors.white,
                         fontSize: 24,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         // height: 0.07,
                       ),
                     ),

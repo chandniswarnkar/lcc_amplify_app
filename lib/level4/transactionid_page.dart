@@ -205,7 +205,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                               color: Colors.white,
                               fontSize: 24,
                               fontFamily: 'Inter',
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                               // height: 0.07,
                             ),
                           ),
