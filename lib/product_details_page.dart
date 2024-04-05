@@ -90,7 +90,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         shape: OvalBorder(),
                       ),
                       child: Icon( Icons.close,
-                        color: Colors.black, ),
+                        color: Colors.grey, ),
 
                     ),
                     onTap: (){

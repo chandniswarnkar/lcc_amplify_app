@@ -55,7 +55,7 @@ class _BadgeScreenState extends State<BadgeScreen> {
       Container(
         width: double.infinity,
         decoration: const BoxDecoration(color: Color(0xFF99369B)),
-        child: Column(
+        child: ListView(
           children: <Widget>[
             const SizedBox(height: 150,),
             const Text(
@@ -84,13 +84,15 @@ class _BadgeScreenState extends State<BadgeScreen> {
             ),
 Stack(
   children: [
-    Container(
-      width: 350,
-      height: 300,
-      decoration:  BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(widget.image),
-          // fit: BoxFit.fill,
+    Center(
+      child: Container(
+        width: 350,
+        height: 300,
+        decoration:  BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(widget.image),
+            // fit: BoxFit.fill,
+          ),
         ),
       ),
     ),

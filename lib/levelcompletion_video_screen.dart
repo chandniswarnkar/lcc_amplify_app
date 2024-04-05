@@ -114,58 +114,63 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return Scaffold(
       // Use a FutureBuilder to display a loading spinner while waiting for the
       // VideoPlayerController to finish initializing.
-      body: Stack(
-        alignment: Alignment.center,
+      body:ListView(
         children: [
-          Container(
-            child:  AspectRatio(
-      aspectRatio: 1 / 2.05, //_controller.value.aspectRatio,
-        // Use the VideoPlayer widget to display the video.
-        child: VideoPlayer(_controller),
-      ),
-          ),
-
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          Stack(
+            alignment: Alignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 80, 0, 0),
-                child:  Text(widget.levelComlpetionText,
-
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
+                child:  AspectRatio(
+                  aspectRatio: 1 / 2.05, //_controller.value.aspectRatio,
+                  // Use the VideoPlayer widget to display the video.
+                  child: VideoPlayer(_controller),
                 ),
               ),
-              const SizedBox(height: 550),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Image.asset(
-                      "assets/images/coin 2.png",
-                      fit: BoxFit.fill,
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 80, 0, 0),
+                    child:  Text(widget.levelComlpetionText,
+
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
+                  const SizedBox(height: 550),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Image.asset(
+                          "assets/images/coin 2.png",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
 
 
-                  Text('$_secondsElapsed',
+                      Text('$_secondsElapsed',
                         style: const TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold
-                    ),),
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold
+                        ),),
 
+                    ],
+                  ),
                 ],
               ),
             ],
           ),
         ],
       ),
+
     );
   }
 }

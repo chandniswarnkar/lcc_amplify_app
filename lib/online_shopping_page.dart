@@ -86,7 +86,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                       shape: OvalBorder(),
                     ),
                     child: Icon( Icons.close,
-                      color: Colors.black, ),
+                      color: Colors.grey, ),
 
                   ),
                   onTap: (){
