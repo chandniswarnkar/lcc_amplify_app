@@ -37,16 +37,16 @@ class _ExpertisePageState extends State<ExpertisePage> {
             ),
           ),
           child: Column(
+
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(  padding: const EdgeInsets.all(20),//margin:const EdgeInsets.symmetric(horizontal: 20),
+              Container(
+                padding: const EdgeInsets.fromLTRB(30, 10, 20, 0),//margin:const EdgeInsets.symmetric(horizontal: 20),
                 child:
-                const Text(
-                  'How much do you know about Transacting?',
-                  maxLines: 3,
-                  // overflow: TextOverflow.ellipsis,
+                const Text('How much \ndo you know about \nTransacting?',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 25,
+                    fontSize: 30,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     // height: 0,
@@ -72,7 +72,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                       child:
                       Container(
                         margin:const EdgeInsets.symmetric(horizontal: 30,  vertical: 8),
-                        height: 80,
+                        height: 90,
                         padding: const EdgeInsets.all(15),
                         decoration: ShapeDecoration(
                           color: isRowOneTapped ? Colors.black : Color(0xFFCAE1D6) ,
@@ -118,9 +118,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   color: isRowOneTapped ? Colors.white : Colors.black,
-                                  fontSize: 16,
+                                  fontSize: 20,
                                   fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                   //  height: 0.07,
                                 ),
                               ),
@@ -143,7 +143,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                    child:
                     Container(
                       margin:const EdgeInsets.symmetric(horizontal: 30,  vertical: 8),
-                      height: 80,
+                      height: 90,
                       padding: const EdgeInsets.all(15),
                       decoration: ShapeDecoration(
                       color: isRowTwoTapped ? Colors.black : Color(0xFFCAE1D6) ,
@@ -190,9 +190,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   color: isRowTwoTapped ? Colors.white : Colors.black,
-                                  fontSize: 16,
+                                  fontSize: 20,
                                   fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                   //  height: 0.07,
                                 ),
                               ),
@@ -216,7 +216,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     child:
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30,  vertical: 8),
-                      height: 80,
+                      height: 115,
                       padding: const EdgeInsets.all(15),
                       decoration: ShapeDecoration(
                         color: isRowThreeTapped ? Colors.black : Color(0xFFCAE1D6) ,
@@ -252,14 +252,14 @@ class _ExpertisePageState extends State<ExpertisePage> {
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
-                              'I have done some online transactions but wish to learn more',
+                              'I have done some online transactions but wish to \nlearn more',
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: isRowThreeTapped ? Colors.white : Colors.black,
-                                fontSize: 16,
+                                fontSize: 20,
                                 fontFamily: 'Inter',
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                                 // height: 0.07,
                               ),
                             ),
