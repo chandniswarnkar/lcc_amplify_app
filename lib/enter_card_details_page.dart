@@ -220,8 +220,6 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
               ),
               Container(
-                height: 45,
-                width: 130,
                 margin: const EdgeInsets.only(right: 20),
                 // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                 clipBehavior: Clip.antiAlias,
@@ -236,14 +234,17 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     TextButton(
-                      child:  Text(
-                        " Give me a Hint",
-                        textAlign: TextAlign.center,
-                        style:const TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
+                      child:  Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(
+                          "Give me a Hint",
+                          textAlign: TextAlign.center,
+                          style:const TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                       onPressed: () {
@@ -289,8 +290,6 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 height: 20,
               ),
               Container(
-                width: 70,
-                height: 40,
                 margin: const EdgeInsets.all(20),
                 padding:
                     const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
@@ -750,6 +749,7 @@ class FrontTappableWidget extends StatelessWidget {
                 Container(
                   // color: Colors.deepOrange,
                   margin: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 20, 0),
                   height: 20,
                   //  alignment: Alignment.topRight,
                   child: const Text(
@@ -797,7 +797,7 @@ class FrontTappableWidget extends StatelessWidget {
                 child: Container(
 
                   margin: const EdgeInsets.all(10),
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.fromLTRB(20, 5, 5, 5),
                   child: const Text(
                     'JOHN SENIOR',
                     textAlign: TextAlign.center,
@@ -819,7 +819,7 @@ class FrontTappableWidget extends StatelessWidget {
               GestureDetector(
                 child: Container(
                     margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.fromLTRB(5, 5, 20, 5),
                     child: const Row(
                       children: [
                         Text(
@@ -833,7 +833,7 @@ class FrontTappableWidget extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '08/30',
+                          ' 08/30',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

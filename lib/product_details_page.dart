@@ -30,8 +30,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   height: 20,
                 ),
                 Container(
-                  width: 60,
-                  height: 40,
                   margin: const EdgeInsets.all(20),
                   padding:
                   const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
@@ -237,7 +235,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         color: Colors.white,
                         fontSize: 24,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         // height: 0.07,
                       ),
                     ),

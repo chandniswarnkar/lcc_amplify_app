@@ -41,7 +41,7 @@ class CardQuestionComponent extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 20,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         height: 0,
                       ),
                     ),
@@ -78,7 +78,7 @@ class CardQuestionComponent extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style:  const TextStyle(
                           color: Colors.black,
-                          fontSize: 22,
+                          fontSize: 24,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
                           height: 0,
