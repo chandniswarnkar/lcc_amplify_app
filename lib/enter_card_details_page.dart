@@ -349,7 +349,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                       shape: OvalBorder(),
                     ),
                     child: Icon( Icons.close,
-                      color: Colors.black, ),
+                      color: Colors.grey, ),
 
                   ),
                   onTap: (){

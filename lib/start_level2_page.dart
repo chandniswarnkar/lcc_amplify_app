@@ -369,8 +369,7 @@ class StartLevel2Widget extends StatelessWidget {
               child:
               Container(
                 padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
-                // margin: const EdgeInsets.symmetric(horizontal: 100,  vertical: 10),
-                margin: const EdgeInsets.only(left: 70),
+                margin: const EdgeInsets.fromLTRB(70, 0, 0, 30),
                 alignment: Alignment.center,
                 decoration: ShapeDecoration(
                   color:   Colors.black,
