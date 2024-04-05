@@ -1,7 +1,9 @@
 
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../badge_screen.dart';
 import '../common/hint_component.dart';
@@ -61,9 +63,6 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
           Row( children:[
             SizedBox(height: 20,),
             Container(
-
-              width: 80,
-              height: 40,
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
               decoration: ShapeDecoration(
@@ -121,7 +120,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                     shape: OvalBorder(),
                   ),
                   child: Icon( Icons.close,
-                    color: Colors.black, ),
+                    color: Colors.grey, ),
 
                 ),
                 onTap: (){
@@ -142,25 +141,41 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 26,
+                    fontSize: 28,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     // height: 0.07,
                   ),
                 ),
                 SizedBox(height: 20,),
-                const Text(
-                  'Tap and choose the corresponding details of Alex\'s bank account details',
-                  maxLines: 2,
+
+                RichText(
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                    // height: 0.07,
+                  text: TextSpan(
+                    text: 'Tap and choose ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w700,
+                      // height: 0.07,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text:
+                        'the corresponding \ndetails of Alex\'s bank account details',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                          // height: 0.07,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+
                 SizedBox(height: 30,),
                 Visibility(visible : _textContainerVisible,
 
@@ -225,28 +240,6 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                 ),
     ),
                 SizedBox(height: 30,),
-               Container(
-                 height: 25,
-                 alignment: Alignment.centerLeft,
-                 margin: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                 decoration: ShapeDecoration(
-                  // color:   Color(0xFFD2EAFF),
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(15),
-                   ),
-                 ),
-                 child: Text(
-                   'Options',
-                   textAlign: TextAlign.left,
-                   style: TextStyle(
-                     color: Colors.black,
-                     fontSize: 20,
-                     fontFamily: 'Inter',
-                     fontWeight: FontWeight.w600,
-                     // height: 0.07,
-                   ),
-                 ),
-               ),
 
                 Container(
                   height: 300,
@@ -260,61 +253,83 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                     ),
                   ),
 
-                child: GridView.count(
-            crossAxisCount: 2,
-                  childAspectRatio: 2.5,
-            padding: const EdgeInsets.all(20),
-
-            children: List.generate(answers.length, (ansIndex) {
-            return GestureDetector(
-              onTap: (){
-                setState(() {
-
-                     if(answers.length > 0) {
-                       _currentAnsValue = answers[ansIndex];
-                       if (_currentAnsValue ==
-                           linkBankQuizData[questions[_quesIndex]]) {
-                         textFormFieldValue = _currentAnsValue;
-                         isAnswerCorrect = true;
-                         _currentSliderValue = _currentSliderValue + 10;
-                         Timer(Duration(seconds: 1), () {
-                           coinText = coinText + 10;
-                           hideCurrentQuestion();
-                         });
-
-                       } else {
-                          _currentBottomBarComponent = BottomBarComponent.WRONG_ANSWER_VIEW;
-
-                       }
-                     }
-
-                });
-
-              },
-              child: Container(
-              height: 50,
-           // color: Colors.white,
-              decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              ),
-            margin: const EdgeInsets.all(10),
-            child: Center(
-            child: Text(
-            answers[ansIndex],
-            style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            ),
-            ),
-
-            ),
-              ),
-
-            );
-            },
-            ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 15, 0, 8),
+                      child: Text(
+                        'Options',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
                         ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: GridView.count(
+                          crossAxisCount: 2,
+                          childAspectRatio: 2.5,
+                          children: List.generate(answers.length, (ansIndex) {
+                            return
+                              GestureDetector(
+                                onTap: (){
+                                  setState(() {
+
+                                    if(answers.length > 0) {
+                                      _currentAnsValue = answers[ansIndex];
+                                      if (_currentAnsValue ==
+                                          linkBankQuizData[questions[_quesIndex]]) {
+                                        textFormFieldValue = _currentAnsValue;
+                                        isAnswerCorrect = true;
+                                        _currentSliderValue = _currentSliderValue + 10;
+                                        Timer(Duration(seconds: 1), () {
+                                          coinText = coinText + 10;
+                                          hideCurrentQuestion();
+                                        });
+
+                                      } else {
+                                        _currentBottomBarComponent = BottomBarComponent.WRONG_ANSWER_VIEW;
+
+                                      }
+                                    }
+
+                                  });
+
+                                },
+                                child: Container(
+                                  // color: Colors.white,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  margin: const EdgeInsets.all(10),
+                                  child: Center(
+                                    child: Text(
+                                      answers[ansIndex],
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+
+                                  ),
+                                ),
+
+                              );
+                          },
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
 
                 )
 
@@ -370,7 +385,6 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
             Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
           Container(
-            height: 60,
             // color: Colors.blue,
             margin: const EdgeInsets.only(right: 20),
             // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
@@ -391,7 +405,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                     "Give me a Hint",
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 16,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
                     ),
