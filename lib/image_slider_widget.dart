@@ -1,6 +1,8 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/expertise_page.dart';
 
 
@@ -94,6 +96,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   fontSize: 20,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w700,
+                  fontStyle: FontStyle.normal,
                   height: 0,
                 ),
               ),
@@ -120,7 +123,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   setState(() {
                     _current = index;
                     textLabel = _current == 0 ? "Transacting" : (_current == 1 ? "Communication" : "Handling Content") ;
-                    descriptionLabel = _current == 0 ? "Register, transact, and manage online transactions effortlessly" : (_current == 1 ? "Communication, Collaborate & Share" : "Secure find, manage & store digital content") ;
+                    descriptionLabel = _current == 0 ? "Register, transact, and manage \nonline transactions effortlessly" : (_current == 1 ? "Communication, Collaborate & Share" : "Secure find, manage & store digital content") ;
                     skillsLabel = _current == 0 ? "06" : (_current == 1 ? "08" : "09") ;
                     coinsLabel = _current == 0 ? "1000" : (_current == 1 ? "500" : "800") ;
                     badgesLabel = _current == 0 ? "10" : (_current == 1 ? "12" : "17") ;
@@ -152,8 +155,9 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                 color: Colors.white,
                 fontSize: 16,
                 fontFamily: 'Inter',
-                fontWeight: FontWeight.w400,
-                height: 1,
+                fontWeight: FontWeight.w500,
+
+
               ),
             ),
 
@@ -162,15 +166,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   children: <Widget>[Column(
                  // scrollDirection: Axis.vertical,
                   children:  [
-                  const Text(
-                  'Skills',
-                  style: TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,),
-                ),
+                  Opacity(
+                    opacity: 0.60,
+                    child: const Text(
+                    'Skills',
+                    style: TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,fontStyle: FontStyle.normal),
+                                    ),
+                  ),
                   Text(
                   skillsLabel,
                   style: TextStyle(color: Colors.white, fontSize: 24.0,fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,),
+                    fontWeight: FontWeight.w600, fontStyle: FontStyle.normal,),
                ),
                ],
                 ),
@@ -178,14 +185,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   Column(
                   //  scrollDirection: Axis.vertical,
                     children: [
-                    const Text(
-                      'Coins',
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    Opacity(
+                      opacity: 0.60,
+                      child: const Text(
+                        'Coins',
+                        style: TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500, fontStyle: FontStyle.normal),
+                      ),
                     ),
                     Text(
                       coinsLabel,
                       style: TextStyle(color: Colors.white,fontSize: 24.0,fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,),
+                        fontWeight: FontWeight.w600,fontStyle: FontStyle.normal),
                     ),
                   ],
                   ),
@@ -193,14 +204,18 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                   Column(
                   //  scrollDirection: Axis.vertical,
                     children: [
-                    const Text(
-                      'Badges',
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    Opacity(
+                      opacity: 0.60,
+                      child: const Text(
+                        'Badges',
+                        style: TextStyle(color: Colors.white, fontSize: 16.0,fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500, fontStyle: FontStyle.normal),
+                      ),
                     ),
                     Text(
                      badgesLabel,
                       style: TextStyle(color: Colors.white, fontSize: 24.0,fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,),
+                        fontWeight: FontWeight.w600,fontStyle: FontStyle.normal),
                     ),
                   ],
                   ),
@@ -229,6 +244,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                         fontSize: 20,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w600,
+                          fontStyle: FontStyle.normal
 
                       ),
                     ) : Text(
@@ -238,6 +254,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                         fontSize: 20,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w600,
+                          fontStyle: FontStyle.normal
 
                       ),
                     ),
@@ -247,7 +264,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                       isScrollControlled: true,
                           constraints: BoxConstraints.loose(Size(
                               MediaQuery.of(context).size.width,
-                              MediaQuery.of(context).size.height * 0.65)),
+                              MediaQuery.of(context).size.height * 0.70)),
                           builder: (context)
                       {
                         return  ExpertisePage(); //ExpertisePage();
