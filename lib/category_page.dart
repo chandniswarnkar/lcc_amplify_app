@@ -71,6 +71,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       fontSize: 16,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
                       height: 0,
                     ),
                   ),
@@ -122,6 +123,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       fontSize: 16,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
                       height: 0,
                     ),
                   ),
@@ -173,6 +175,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       fontSize: 16,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
                       height: 0,
                     ),
                   ),
@@ -187,10 +190,6 @@ class _CategoryPageState extends State<CategoryPage> {
     );
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+
 
 }
