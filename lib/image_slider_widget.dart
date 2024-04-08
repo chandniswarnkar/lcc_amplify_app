@@ -181,7 +181,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                ),
                ],
                 ),
-                  Text('|'),
+                    Container(height: 50, child: VerticalDivider(color: Colors.white,thickness: 0.5,)),
                   Column(
                   //  scrollDirection: Axis.vertical,
                     children: [
@@ -200,7 +200,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                     ),
                   ],
                   ),
-                    Text('|'),
+                    Container(height: 50, child: VerticalDivider(color: Colors.white,thickness: 0.5,)),
                   Column(
                   //  scrollDirection: Axis.vertical,
                     children: [
