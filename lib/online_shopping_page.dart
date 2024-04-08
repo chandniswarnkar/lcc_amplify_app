@@ -215,6 +215,7 @@ class FrontTappableWidget extends StatelessWidget {
                 Container(
                   // color: Colors.deepOrange,
                   margin: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 20, 0),
                   height: 20,
                   //  alignment: Alignment.topRight,
                   child: const Text(
@@ -261,7 +262,7 @@ class FrontTappableWidget extends StatelessWidget {
               GestureDetector(
                 child: Container(
                   margin: const EdgeInsets.all(10),
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                   child: const Text(
                     'JOHN SENIOR',
                     textAlign: TextAlign.center,
