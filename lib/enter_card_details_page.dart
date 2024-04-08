@@ -584,7 +584,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                     ),
                   ]),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Visibility(
                     visible: _isCardCVVValueVisible(),

@@ -115,10 +115,9 @@ class _BadgeScreenState extends State<BadgeScreen> {
               height: 100,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 140),
-              color: Colors.white,
-              height: 1,
-              width: 30,
+              height: 7,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child:Image.asset("assets/images/white_line_segment.png") ,
             ),
             const SizedBox(
               height: 10,

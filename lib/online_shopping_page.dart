@@ -282,7 +282,7 @@ class FrontTappableWidget extends StatelessWidget {
               GestureDetector(
                 child: Container(
                     margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.fromLTRB(5, 0, 20, 0),
                     child: const Row(
                       children: [
                         Text(
@@ -296,7 +296,7 @@ class FrontTappableWidget extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '08/30',
+                          ' 08/30',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
