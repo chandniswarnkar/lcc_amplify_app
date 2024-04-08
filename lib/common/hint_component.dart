@@ -21,7 +21,7 @@ class HintComponent extends StatelessWidget {
         Column(
         children: [
         SizedBox(
-        width: 300,
+        width: double.infinity,
           height: 320,
           child: Stack(
             children: [

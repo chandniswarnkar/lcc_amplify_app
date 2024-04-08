@@ -20,7 +20,7 @@ class RightAnswerComponent extends StatelessWidget {
           Column(
             children: [
               Container(
-                width: 300,
+                width: double.infinity,
                 height: 330,
                 child: Stack(
                   children: [
