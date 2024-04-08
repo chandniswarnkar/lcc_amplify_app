@@ -41,7 +41,7 @@ class CardQuestionComponent extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 20,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         height: 0,
                       ),
                     ),
@@ -78,7 +78,7 @@ class CardQuestionComponent extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style:  const TextStyle(
                           color: Colors.black,
-                          fontSize: 22,
+                          fontSize: 24,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
                           height: 0,
@@ -99,7 +99,7 @@ class CardQuestionComponent extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                         ),
                       )  : Container(
-                        width: 210,
+                        width: 160,
                         decoration: ShapeDecoration(
                           color: Colors.green,
                           shape: RoundedRectangleBorder(
@@ -113,8 +113,6 @@ class CardQuestionComponent extends StatelessWidget {
 
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 5),
-                              width: 25, // Adjust the width and height as needed
-                              height: 25,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.white, // Background color of the circular container
@@ -142,10 +140,10 @@ class CardQuestionComponent extends StatelessWidget {
                             ),
     ),
 
-                            Image.asset(
+                           /* Image.asset(
                               'assets/images/Animation_badge_completion.gif',
                               fit: BoxFit.cover,
-                            ),
+                            ),*/
 
                           ],
                         ),

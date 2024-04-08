@@ -199,7 +199,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                       padding: EdgeInsets.all(20),
                       alignment: Alignment.center,
                       child: const Text(
-                        'A stranger calls you and requests you to share your CVV number for an urgent verification process.\nWhat would you do?',
+                        'A stranger calls you and \nrequests you to share your \nCVV number for an urgent \nverification process.\nWhat would you do?',
                         textAlign: TextAlign.center,
                         maxLines: 5,
                         style: TextStyle(
@@ -429,7 +429,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                                       color: Colors.black,
                                       fontSize: 16,
                                       fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       // height: 0.09,
                                     ),
                                   ),

@@ -50,9 +50,6 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
           Row( children:[
             SizedBox(height: 20,),
             Container(
-
-              width: 60,
-              height: 40,
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
               decoration: ShapeDecoration(
@@ -111,7 +108,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                   shape: OvalBorder(),
                 ),
                 child: Icon( Icons.close,
-                  color: Colors.black, ),
+                  color: Colors.grey, ),
 
               ),
               onTap: (){
@@ -226,7 +223,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
                         // height: 0.07,
@@ -334,8 +331,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
 
           children: [
             Container(
-              width: 280,
-              height: 80,
+
               margin: EdgeInsets.symmetric(vertical: 60),
               child:
               TextButton(
@@ -351,13 +347,16 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                   });
 
                 },
-                child: const Text('Next', style:TextStyle(
-                  color: Colors.white ,
-                  fontSize: 26,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w600,
-                  // height: 0.07,
-                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 100),
+                  child: const Text('Next', style:TextStyle(
+                    color: Colors.white ,
+                    fontSize: 26,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    // height: 0.07,
+                  ),
+                  ),
                 ),
               ),
             ),
@@ -396,6 +395,7 @@ class FrontTappableWidget extends StatelessWidget {
                 Container(
                   // color: Colors.deepOrange,
                   margin: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 20, 0),
                   height: 20,
                   child: const Text(
                     'BANK',
@@ -446,6 +446,7 @@ class FrontTappableWidget extends StatelessWidget {
                     child:
                     Container(
                       margin: EdgeInsets.all(10),
+                      padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                       child: const Text(
                         'JOHN SENIOR',
                         textAlign: TextAlign.center,
@@ -464,6 +465,7 @@ class FrontTappableWidget extends StatelessWidget {
                   GestureDetector(
                     child:
                     Container( margin: EdgeInsets.all(10),
+                        padding: const EdgeInsets.fromLTRB(5, 0, 20, 0),
 
                         child: const Row(children: [
                           Text(
@@ -477,7 +479,7 @@ class FrontTappableWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '08/30',
+                            ' 08/30',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,

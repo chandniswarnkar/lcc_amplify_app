@@ -374,7 +374,7 @@ class _InstructionPageState extends State<InstructionPage> {
                                     });
                                   },
                                   child: Container(
-                                    // height: 40,
+                                    margin: EdgeInsets.symmetric(vertical: 7,horizontal: 20),
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
