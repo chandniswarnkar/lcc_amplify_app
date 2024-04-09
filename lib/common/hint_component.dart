@@ -12,22 +12,22 @@ class HintComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
+      // theme: ThemeData.dark().copyWith(
+      //   scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
+      // ),
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         body: ListView(children: [
         Column(
         children: [
         SizedBox(
         width: double.infinity,
-          height: 320,
+          height: 350,
           child: Stack(
             children: [
                Container(
-                  width: 300,
-                  height: 320,
+                  width: double.infinity,
+                  height: 350,
                   decoration: ShapeDecoration(
                     color: Color(0xFF8FDDEE),
                     shape: RoundedRectangleBorder(
@@ -37,16 +37,21 @@ class HintComponent extends StatelessWidget {
                 ),
 
               Container(
+
                   child: Column(
                     //mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        //   padding
                         child: Column(
-                         // mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               width: 150,
@@ -76,8 +81,10 @@ class HintComponent extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        width: 80,
+
+                      // margin: const EdgeInsets.symmetric(horizontal: 20),
+                      //   padding: const EdgeInsets.symmetric(vertical: 5),
                         decoration: ShapeDecoration(
                           color: Colors.black,
                           shape: RoundedRectangleBorder(
@@ -88,11 +95,13 @@ class HintComponent extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+
                             TextButton(
 
                               onPressed: onPressed,
 
-                              child: const Text(
+                              child:
+                                Text(
                                 "OK",
                                 style: TextStyle(
                                   color: Colors.white,
@@ -103,7 +112,9 @@ class HintComponent extends StatelessWidget {
                                 ),
                               ),
 
+
                             ),
+
                           ],
                         ),
                       ),

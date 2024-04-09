@@ -283,7 +283,31 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                          });
 
                        } else {
-                          _currentBottomBarComponent = BottomBarComponent.WRONG_ANSWER_VIEW;
+                         // _currentBottomBarComponent = BottomBarComponent.WRONG_ANSWER_VIEW;
+                         showModalBottomSheet<void>(
+                           context: context,
+                           isDismissible: false,
+                           enableDrag: false,
+                           builder: (BuildContext context) {
+                             return  Container(
+                                 width: double.infinity,
+                                 height:350,
+                                 color: Colors.transparent,
+                                 child: Container(
+                                   height: 350,
+                                   child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
+                                     setState(() {
+                                       _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
+                                      });
+                                      Navigator.pop(context);
+                                   },
+                                   ),
+                                 )
+
+                             );
+                           },
+                         );
+
 
                        }
                      }
@@ -333,16 +357,12 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
     switch(_currentBottomBarComponent) {
       case BottomBarComponent.HINT_PANEL:
         return bottomBarWithHintPanel(context);
-      case BottomBarComponent.HINT_VIEW:
-        return bottomBarWithHintView(context);
-      case BottomBarComponent.NO_HINT_PANEL:
-        return bottomBarWithoutHintPanel(context);
-      case BottomBarComponent.WRONG_ANSWER_VIEW:
-        return bottomBarWithWrongAnswerView(context);
+        case BottomBarComponent.NO_HINT_PANEL:
+          return bottomBarWithoutHintPanel(context);
+
       default:
         return bottomBarWithoutHintPanel(context);
     }
-
 
 
   }
@@ -351,8 +371,6 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   Widget bottomBarWithoutHintPanel(BuildContext context) {
     return Container(height: 90,color: Colors.white,);
   }
-
-
 
   Widget bottomBarWithHintPanel(BuildContext context) {
     return   Container(
@@ -397,10 +415,28 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                     ),
                   ),
                   onPressed: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      isDismissible: false,
+                      enableDrag: false,
+                      builder: (BuildContext context) {
+                        return  Container(
+                            width: double.infinity,
+                            height:350,
+                            color: Colors.transparent,
+                            child: HintComponent(hintText: _hintText, onPressed: () {
+                                setState(() {
+                                  _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
 
-                    setState(() {
-                      _currentBottomBarComponent = BottomBarComponent.HINT_VIEW;
-                    });
+                                });
+                                Navigator.pop(context);
+                              },
+                              ),
+
+
+                        );
+                      },
+                    );
 
                   },
                 ),

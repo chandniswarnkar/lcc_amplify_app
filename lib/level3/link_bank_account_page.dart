@@ -21,11 +21,32 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
   void updateParentView(String param) {
 
     setState(() {
-      reorderSuccess = true;
+
       coinText = 20;
       _currentSliderValue = 20;
 
     });
+
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+
+      builder: (BuildContext context) {
+        return  Container(
+            width: double.infinity,
+            height:350,
+            color: Colors.transparent,
+            child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
+            })
+
+        );
+
+
+      },
+    );
+
   }
 
   @override
@@ -164,9 +185,9 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
             alignment: Alignment.center,
             children: [
           Container(
-            margin: const EdgeInsets.all(20),
-            color: Colors.white,
-            height: 300,
+           // margin: const EdgeInsets.all(20),
+            color: Colors.orangeAccent,
+            height: 350,
             child: ReorderableListComponent(methodFromParent: updateParentView),
           ),
    ] ),
@@ -175,17 +196,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
         ],
 
       ),
-      bottomSheet: Visibility(visible: reorderSuccess,
-        child: Container(
-          width: 320,
-          height:350,
-          child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));
-          })
 
-
-      ),
-    ),
     );
   }
 }

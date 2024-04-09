@@ -18,6 +18,7 @@ import 'package:lcc_flutter_app/rewards_page.dart';
 import 'common/wrong_ans_component.dart';
 import 'image_slider_widget.dart';
 import 'learning_page.dart';
+import 'level3/link_bank_account_page.dart';
 
 
 class StartLevelPage extends StatefulWidget {
@@ -400,7 +401,7 @@ class StartLevelWidget extends StatelessWidget {
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         fullscreenDialog: true,
-                        builder: (context) => KnowYourCardPage(),
+                        builder: (context) => LinkBankAccountPage(),//KnowYourCardPage(),
                       ),
                     );
 

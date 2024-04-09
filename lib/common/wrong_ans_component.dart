@@ -26,7 +26,7 @@ class WrongAnswerComponent extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                      width: 300,
+                      width: double.infinity,
                       height: 320,
                       decoration: ShapeDecoration(
                         color: Color(0xFFFBD4CF),

@@ -142,10 +142,36 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                               ),
                             ),
                             onPressed: () {
+                              //
 
-                              setState(() {
-                                isHintOneShown = true;
-                              });
+                              showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return SizedBox(
+                height: 200,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                  HintComponent(hintText: widget.isLevelTwoPresented ? 'The CVV is a three digit number printed on the back of the card' : 'The Expiry date is a four-digit number printed on the front of the card.',
+                    onPressed: (){
+                    Navigator.pop(context);
+                      // setState(() {
+                         isHintOneShown = false;
+                      //
+                      // });
+                    },
+                  ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+          //
+
+
 
                             },
                           ),
