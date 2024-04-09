@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/category_page.dart';
 import 'package:lcc_flutter_app/learning_page.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:lcc_flutter_app/practice_page.dart';
 import 'package:lcc_flutter_app/rewards_page.dart';
 
@@ -21,8 +21,15 @@ class LCCHomePage extends StatelessWidget {
         scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
       ),
         debugShowCheckedModeBanner:false,
-      home: const MyHomePage(title: 'LCC',)
+      home: AnimatedSplashScreen(
+        splash: 'assets/images/Splash_screen_Image_2x.gif',
+        splashIconSize: double.infinity,
+        nextScreen: MyHomePage(title: 'LCC'),
+        splashTransition: SplashTransition.fadeTransition,
+      ),
     );
+
+
   }
 }
 
@@ -55,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ///hide your splash screen
   Future<void> hideScreen() async {
     Future.delayed(Duration(milliseconds: 1800), () {
-      FlutterSplashScreen.hide();
+    //  FlutterSplashScreen.hide();
     });
   }
 
@@ -68,11 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     PracticePage()
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
                     height: 0,
                   ),
                 ),
@@ -166,6 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
                     height: 0,
                   ),
                 ),
@@ -217,6 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
                     height: 0,
                   ),
                 ),

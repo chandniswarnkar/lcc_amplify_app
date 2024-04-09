@@ -115,7 +115,6 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                       Image(image: AssetImage('assets/images/OWL_Default.gif')),
                     ),
                     Container(
-                      height: 45,
                       // color: Colors.blue,
                       margin: const EdgeInsets.only(right: 20),
                       // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
@@ -132,13 +131,16 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           TextButton(
-                            child: const Text(
-                              "Give me a Hint",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: const Text(
+                                "Give me a Hint",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
                             onPressed: () {

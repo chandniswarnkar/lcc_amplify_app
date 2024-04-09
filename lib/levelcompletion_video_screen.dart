@@ -131,7 +131,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 80, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 50, 0, 0),
                     child:  Text(widget.levelComlpetionText,
 
                       textAlign: TextAlign.center,

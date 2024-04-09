@@ -171,7 +171,7 @@ class _InstructionPageState extends State<InstructionPage> {
                     color: Colors.black,
                     fontSize: 18,
                     fontFamily: 'Inter',
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
                     // height: 0.07,
                   ),
                   children: <TextSpan>[
@@ -397,8 +397,7 @@ class _InstructionPageState extends State<InstructionPage> {
                                     });
                                   },
                                   child: Container(
-                                    // height: 40,
-                                    margin: const EdgeInsets.all(10),
+                                    margin: EdgeInsets.symmetric(vertical: 7,horizontal: 20),
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -411,6 +410,9 @@ class _InstructionPageState extends State<InstructionPage> {
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 20,
+                                            fontFamily: 'Inter',
+                                            fontWeight: FontWeight.w500,
+
                                         ),
                                       ),
                                     ),
@@ -509,7 +511,10 @@ class _InstructionPageState extends State<InstructionPage> {
                         answers1[ansIndex],
                         style: const TextStyle(
                           color: Colors.black,
-                          fontSize: 17,
+                          fontSize: 18,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+
                         ),
                       ),
                     ),
@@ -569,7 +574,7 @@ class _InstructionPageState extends State<InstructionPage> {
                 color: Colors.white,
                 fontSize: 24,
                 fontFamily: 'Inter',
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 // height: 0.07,
               ),
             ),
@@ -593,8 +598,6 @@ class _InstructionPageState extends State<InstructionPage> {
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
           Container(
-            height: 45,
-            width: 130,
             margin: const EdgeInsets.only(right: 20),
             // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             clipBehavior: Clip.antiAlias,
@@ -610,13 +613,13 @@ class _InstructionPageState extends State<InstructionPage> {
               children: [
                 TextButton(
                   child: Text(
-                    " Give me a Hint",
+                    "Give me a Hint",
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 16,
                       fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   onPressed: () {

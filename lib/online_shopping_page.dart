@@ -26,8 +26,6 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
             child: Row(children: [
 
               Container(
-                width: 60,
-                height: 40,
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.only(
                     top: 8, left: 8, right: 8, bottom: 8),
@@ -180,7 +178,7 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
                       color: Colors.white,
                       fontSize: 24,
                       fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w600,
                       // height: 0.07,
                     ),
                   ),
@@ -217,6 +215,7 @@ class FrontTappableWidget extends StatelessWidget {
                 Container(
                   // color: Colors.deepOrange,
                   margin: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 20, 0),
                   height: 20,
                   //  alignment: Alignment.topRight,
                   child: const Text(
@@ -263,7 +262,7 @@ class FrontTappableWidget extends StatelessWidget {
               GestureDetector(
                 child: Container(
                   margin: const EdgeInsets.all(10),
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                   child: const Text(
                     'JOHN SENIOR',
                     textAlign: TextAlign.center,
