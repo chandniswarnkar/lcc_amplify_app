@@ -676,6 +676,11 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                         ),
                       ],
                     ),
+
+                  ]),
+                  const SizedBox(
+                    height: 10,
+
                   ),
                 ]),
                 const SizedBox(
