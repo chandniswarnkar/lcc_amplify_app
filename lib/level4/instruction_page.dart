@@ -56,7 +56,7 @@ class _InstructionPageState extends State<InstructionPage> {
   };
 
   Map<String, List<String>> secondLinkBankQuizData = {
-    'Description': ['Charity Payment', 'gift', 'Rent', 'Deposit']
+    'Description': ['Charity Payment', 'Gift', 'Rent', 'Deposit']
   };
 
   @override
