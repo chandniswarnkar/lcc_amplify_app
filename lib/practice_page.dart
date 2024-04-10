@@ -68,11 +68,11 @@ class PracticeView extends StatelessWidget {
                     height: 0.09,
                   ),
                 ),
-              SizedBox(height: 20),
+              SizedBox(height: 40),
                Container(
-                 height: 120,
+                 height: 109,
                   width: MediaQuery.of(context).size.width,
-                 margin: EdgeInsets.all(20),
+                 margin: EdgeInsets.symmetric(horizontal: 40),
                   padding: const EdgeInsets.only(
                     top: 40,
                     left: 0,
@@ -117,10 +117,11 @@ class PracticeView extends StatelessWidget {
                     ],
                   ),
                 ),
+              SizedBox(height: 10),
               Container(
-                height: 120,
+                height: 109,
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.all(20),
+                margin: EdgeInsets.symmetric(horizontal: 40),
                 padding: const EdgeInsets.only(
                   top: 40,
                   left: 0,
