@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/start_level_page.dart';
 
-
 class ExpertisePage extends StatefulWidget {
   const ExpertisePage({ super.key });
 
