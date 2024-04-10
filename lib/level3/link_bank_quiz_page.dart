@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 
 import '../badge_screen.dart';
 import '../common/hint_component.dart';
+import '../common/right_ans_component.dart';
 import '../common/wrong_ans_component_retry_btn.dart';
 
 class LinkBankQuizPage extends StatefulWidget {
@@ -293,6 +294,32 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
                                           } else {
                                             _currentBottomBarComponent = BottomBarComponent.WRONG_ANSWER_VIEW;
+                                            showModalBottomSheet<void>(
+                                              context: context,
+                                              isDismissible: false,
+                                              enableDrag: false,
+                                              builder: (BuildContext context) {
+                                                return  Container(
+                                                    width: double.infinity,
+                                                    height:350,
+                                                    color: Colors.transparent,
+                                                    child: Container(
+                                                      height: 350,
+                                                      child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
+                                                        setState(() {
+                                                          _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
+                                                        });
+                                                        Navigator.pop(context);
+                                                      }, onHintPressed: () {
+
+
+                                                      },
+                                                      ),
+                                                    )
+
+                                                );
+                                              },
+                                            );
 
                                           }
                                         }
@@ -348,12 +375,12 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
     switch(_currentBottomBarComponent) {
       case BottomBarComponent.HINT_PANEL:
         return bottomBarWithHintPanel(context);
-      case BottomBarComponent.HINT_VIEW:
-        return bottomBarWithHintView(context);
+      // case BottomBarComponent.HINT_VIEW:
+      //   return bottomBarWithHintView(context);
       case BottomBarComponent.NO_HINT_PANEL:
         return bottomBarWithoutHintPanel(context);
-      case BottomBarComponent.WRONG_ANSWER_VIEW:
-        return bottomBarWithWrongAnswerView(context);
+      // case BottomBarComponent.WRONG_ANSWER_VIEW:
+      //   return bottomBarWithWrongAnswerView(context);
       default:
         return bottomBarWithoutHintPanel(context);
     }
@@ -415,6 +442,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                     setState(() {
                       _currentBottomBarComponent = BottomBarComponent.HINT_VIEW;
                     });
+                    showHintViewBottomSheet();
 
                   },
                 ),
@@ -426,6 +454,30 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
     );
   }
 
+  void showHintViewBottomSheet() {
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+      builder: (BuildContext context) {
+        return  Container(
+          width: double.infinity,
+          height:350,
+          color: Colors.transparent,
+          child: HintComponent(hintText: _hintText, onPressed: () {
+            setState(() {
+              _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
+
+            });
+            Navigator.pop(context);
+          },
+          ),
+
+
+        );
+      },
+    );
+  }
   Widget bottomBarWithWrongAnswerView(BuildContext context) {
     return
       Container( height: 350,
@@ -437,8 +489,13 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
               setState(() {
                 _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
               });
+              Navigator.pop(context);
+            }, onHintPressed: () {
+              Navigator.pop(context);
+              showHintViewBottomSheet();
+
             },
-            ),
+            ) ,
           )
           )
         ]
@@ -514,12 +571,35 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         }
       }
       else {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const BadgeScreen(msgTextTop: 'You are a \n Sharp Scholar',msgTextBottom: 'Badge:\nSharp Scholar',image: "assets/images/curious_explorer_badge.gif",flag: 'Level_3',),
-            )
+
+        showModalBottomSheet<void>(
+          context: context,
+          isDismissible: false,
+          enableDrag: false,
+
+          builder: (BuildContext context) {
+            return  Container(
+                width: double.infinity,
+                height:350,
+                color: Colors.transparent,
+                child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
+
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BadgeScreen(msgTextTop: 'You are a \n Sharp Scholar',msgTextBottom: 'Badge:\nSharp Scholar',image: "assets/images/curious_explorer_badge.gif",flag: 'Level_3',),
+                      )
+                  );
+
+                })
+
+            );
+
+
+          },
         );
+
+
       }
     });
   }

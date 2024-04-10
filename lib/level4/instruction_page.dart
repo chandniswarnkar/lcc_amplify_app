@@ -35,6 +35,7 @@ class _InstructionPageState extends State<InstructionPage> {
   int _quesIndex = 0;
   bool isSelected = false;
 
+
   late List<String> questions;
   late List<String> answers;
   late List<String> answers1;
@@ -373,23 +374,27 @@ class _InstructionPageState extends State<InstructionPage> {
                                             context: context,
                                             isDismissible: false,
                                             enableDrag: false,
-                                            builder: (BuildContext context) {
-                                              return  Container(
-                                                  width: double.infinity,
-                                                  height:350,
-                                                  color: Colors.transparent,
-                                                  child: Container(
-                                                    height: 350,
-                                                    child: WrongAnswerComponent( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
-                                                      // setState(() {
-                                                      //  // _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
-                                                      // });
-                                                      Navigator.pop(context);
-                                                    }, onHintPressed: () {  },
-                                                    ),
-                                                  )
+                                       builder: (context) { return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
 
-                                              );
+                                      return Container(
+                                      height: 350,
+                                      width: double.infinity,
+                                      child: WrongAnswerComponent( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
+                                      setState(() {
+
+                                      // _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
+                                      });
+                                      Navigator.pop(context);
+                                      }, onHintPressed: () {
+                                          Navigator.pop(context);
+                                          showHintViewBottomSheet();
+                                      },
+                                      )
+
+
+                                      );
+                                      });
+
                                             },
                                           );
                                         }
@@ -627,31 +632,11 @@ class _InstructionPageState extends State<InstructionPage> {
                       if (questions[_quesIndex] == 'From') {
                         _hintText = 'The Account number is an \n8-digit number';
                       }
-                     // _currentBottomBarComponent = BottomBarComponent.HINT_VIEW;
+                      _currentBottomBarComponent = BottomBarComponent.HINT_VIEW;
                     });
-                    showModalBottomSheet<void>(
-                      context: context,
-                      isDismissible: false,
-                      enableDrag: false,
-                      builder: (BuildContext context) {
-                        return  Container(
-                          width: double.infinity,
-                          height:350,
-                          color: Colors.transparent,
-                          child: HintComponent(hintText: _hintText, onPressed: () {
-                            setState(() {
-                              _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
-
-                            });
-                            Navigator.pop(context);
-                          },
-                          ),
-
-
-                        );
-                      },
-                    );
+                    showHintViewBottomSheet();
                   },
+
                 ),
               ],
             ),
@@ -659,6 +644,32 @@ class _InstructionPageState extends State<InstructionPage> {
         ],
       ),
     );
+  }
+
+  void showHintViewBottomSheet(){
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+      builder: (BuildContext context) {
+        return  Container(
+          width: double.infinity,
+          height:350,
+          color: Colors.transparent,
+          child: HintComponent(hintText: _hintText, onPressed: () {
+            setState(() {
+              _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
+
+            });
+            Navigator.pop(context);
+          },
+          ),
+
+
+        );
+      },
+    );
+
   }
 
   Widget bottomBarWithWrongAnswerView(BuildContext context) {
@@ -738,8 +749,8 @@ class _InstructionPageState extends State<InstructionPage> {
        return bottomBarWithoutHintPanel(context);
       // case BottomBarComponent.WRONG_ANSWER_VIEW:
       //   return bottomBarWithWrongAnswerView(context);
-      // case BottomBarComponent.VIEW_OPTION_BUTTON_VIEW:
-      //   return ViewOptionButton(context);
+      case BottomBarComponent.VIEW_OPTION_BUTTON_VIEW:
+        return ViewOptionButton(context);
       // case BottomBarComponent.EARN_COINS_VIEW:
       //   return bottomEarnedHint(context);
       default:

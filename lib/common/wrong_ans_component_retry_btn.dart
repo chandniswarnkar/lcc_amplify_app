@@ -6,7 +6,7 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
   final String errorText;
 
   final VoidCallback onRetryPressed;
-  WrongAnswerComponentRetryBtn({super.key, required this.errorText, required this.onRetryPressed});
+  WrongAnswerComponentRetryBtn({super.key, required this.errorText, required this.onRetryPressed, required Null Function() onHintPressed});
 
   @override
   Widget build(BuildContext context) {
