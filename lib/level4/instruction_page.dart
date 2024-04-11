@@ -57,7 +57,7 @@ class _InstructionPageState extends State<InstructionPage> {
   };
 
   Map<String, List<String>> secondLinkBankQuizData = {
-    'Description': ['Charity Payment', 'Gift', 'Rent', 'Deposit']
+    'Description': ['Charity', 'Gift', 'Rent', 'Deposit'] //Charity Payment
   };
 
   @override
@@ -514,6 +514,7 @@ class _InstructionPageState extends State<InstructionPage> {
                     child: Center(
                       child: Text(
                         answers1[ansIndex],
+
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18,

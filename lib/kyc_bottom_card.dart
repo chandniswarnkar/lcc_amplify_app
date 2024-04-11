@@ -75,10 +75,22 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                             widget.isLevelTwoPresented ?
                             CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
                                     bgColor: Color(0xFFDFBEEE), showCompletedStatus: false) :
-
+                              Stack(children: [
                                  CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
                           bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
-                          key:UniqueKey(),)
+                          key:UniqueKey(),),
+                                Container(
+                                  width: 150,
+                                  height: 150,
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/animation.gif",),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ])
 
                             :  CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
                     bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)

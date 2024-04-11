@@ -676,16 +676,9 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                         ),
                       ],
                     ),
-
-                  ]),
-                  const SizedBox(
-                    height: 10,
-
                   ),
-                ]),
-                const SizedBox(
-                  height: 20,
-                ),
+                  ]),
+                const SizedBox(height: 20,),
                 Visibility(
                   visible: _isCardCVVValueVisible(),
                   child: Container(
@@ -732,88 +725,12 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 ),
 
 
-              ],
-            ),
-          ),
-          // Visibility( visible: showWrongAnswerView,
-          //   child: Row(children:[
-          //     Expanded( child :
-          //     SizedBox(
-          //       height: 320,
-          //       child: (cardHolderName == '')? WrongAnswerComponentRetryBtn(errorText: 'Oops\n Wrong Answer', onRetryPressed: () {
-          //         setState(() {
-          //           showWrongAnswerView = false;
-          //           _fieldsContainer = true;
-          //
-          //         });
-          //       }, onHintPressed: () {  },
-          //
-          //
-          //       ):WrongAnswerComponent(errorText: 'Oops\n Wrong Answer', onHintPressed: () {
-          //         setState(() {
-          //
-          //           if(cardNumber == ''){
-          //             hintText = 'The card number is a\n 16-digit number.';
-          //             showHintView = true;
-          //             showWrongAnswerView = false;
-          //           }
-          //           else if(cardExpiry == ''){
-          //             hintText = 'The Expiry date is a four \n-digit number printed on the \nfront of the card.';
-          //             showHintView = true;
-          //             showWrongAnswerView = false;
-          //           }
-          //           else if(cardCVV == ''){
-          //             hintText = 'The CVV is a three digit\nnumber printed on the back \nof the card';
-          //             showHintView = true;
-          //             showWrongAnswerView = false;
-          //           }else{
-          //             showHintView = false;
-          //             showWrongAnswerView = false;
-          //
-          //           }
-          //
-          //         });
-          //       }, onRetryPressed: () {
-          //         setState(() {
-          //           showWrongAnswerView = false;
-          //           _fieldsContainer = true;
-          //
-          //         });
-          //       },
-          //
-          //
-          //       ),
-          //     )
-          //     )
-          //   ]
-          //   ),
-          // ),
-          // Visibility( visible: showHintView ,
-          //   child: Row(children:[
-          //     Expanded( child :
-          //     Container(
-          //       height: 320,
-          //       child: HintComponent(hintText: hintText, onPressed: () {
-          //         setState(() {
-          //           showHintView = false;
-          //           _fieldsContainer = true;
-          //
-          //         });
-          //
-          //
-          //       }, ),
-          //     )
-          //     )
-          //   ]
-          //   ),
-          // ),
-
-
-
-
-        ],
-      ),
+    ]),
+    ),
+          ]),
     );
+
+     
   }
 }
 

@@ -71,7 +71,7 @@ class ProductListCardViewItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                     child: Container(
-                      padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                      padding: const EdgeInsets.fromLTRB(15, 5, 10, 5),
                       decoration: ShapeDecoration(
                         color: Colors.black,
                         shape: RoundedRectangleBorder(
