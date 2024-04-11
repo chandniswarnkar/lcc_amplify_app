@@ -35,6 +35,7 @@ class _InstructionPageState extends State<InstructionPage> {
   int _quesIndex = 0;
   bool isSelected = false;
 
+
   late List<String> questions;
   late List<String> answers;
   late List<String> answers1;
@@ -369,6 +370,33 @@ class _InstructionPageState extends State<InstructionPage> {
                                               BottomBarComponent
                                                   .WRONG_ANSWER_VIEW;
                                           isSelected = false;
+                                          showModalBottomSheet<void>(
+                                            context: context,
+                                            isDismissible: false,
+                                            enableDrag: false,
+                                       builder: (context) { return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+
+                                      return Container(
+                                      height: 350,
+                                      width: double.infinity,
+                                      child: WrongAnswerComponent( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
+                                      setState(() {
+
+                                      // _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
+                                      });
+                                      Navigator.pop(context);
+                                      }, onHintPressed: () {
+                                          Navigator.pop(context);
+                                          showHintViewBottomSheet();
+                                      },
+                                      )
+
+
+                                      );
+                                      });
+
+                                            },
+                                          );
                                         }
                                       }
                                     });
@@ -451,6 +479,26 @@ class _InstructionPageState extends State<InstructionPage> {
         
                         _currentBottomBarComponent =
                             BottomBarComponent.EARN_COINS_VIEW;
+
+                        showModalBottomSheet<void>(
+                          context: context,
+                          isDismissible: false,
+                          enableDrag: false,
+
+                          builder: (BuildContext context) {
+                            return  Container(
+                                width: double.infinity,
+                                height:350,
+                                color: Colors.transparent,
+                                child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationCodePage()));
+                                })
+
+                            );
+
+
+                          },
+                        );
                       }
                     });
                   },
@@ -586,7 +634,9 @@ class _InstructionPageState extends State<InstructionPage> {
                       }
                       _currentBottomBarComponent = BottomBarComponent.HINT_VIEW;
                     });
+                    showHintViewBottomSheet();
                   },
+
                 ),
               ],
             ),
@@ -594,6 +644,32 @@ class _InstructionPageState extends State<InstructionPage> {
         ],
       ),
     );
+  }
+
+  void showHintViewBottomSheet(){
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+      builder: (BuildContext context) {
+        return  Container(
+          width: double.infinity,
+          height:350,
+          color: Colors.transparent,
+          child: HintComponent(hintText: _hintText, onPressed: () {
+            setState(() {
+              _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
+
+            });
+            Navigator.pop(context);
+          },
+          ),
+
+
+        );
+      },
+    );
+
   }
 
   Widget bottomBarWithWrongAnswerView(BuildContext context) {
@@ -667,16 +743,16 @@ class _InstructionPageState extends State<InstructionPage> {
     switch (_currentBottomBarComponent) {
       case BottomBarComponent.HINT_PANEL:
         return bottomBarWithHintPanel(context);
-      case BottomBarComponent.HINT_VIEW:
-        return bottomBarWithHintView(context);
+      // case BottomBarComponent.HINT_VIEW:
+      //   return bottomBarWithHintView(context);
       case BottomBarComponent.NO_HINT_PANEL:
-      // return bottomBarWithoutHintPanel(context);
-      case BottomBarComponent.WRONG_ANSWER_VIEW:
-        return bottomBarWithWrongAnswerView(context);
+       return bottomBarWithoutHintPanel(context);
+      // case BottomBarComponent.WRONG_ANSWER_VIEW:
+      //   return bottomBarWithWrongAnswerView(context);
       case BottomBarComponent.VIEW_OPTION_BUTTON_VIEW:
         return ViewOptionButton(context);
-      case BottomBarComponent.EARN_COINS_VIEW:
-        return bottomEarnedHint(context);
+      // case BottomBarComponent.EARN_COINS_VIEW:
+      //   return bottomEarnedHint(context);
       default:
         return bottomBarWithoutHintPanel(context);
     }

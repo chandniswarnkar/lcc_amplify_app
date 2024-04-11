@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/common/hint_component.dart';
 import 'package:lcc_flutter_app/common/wrong_ans_component.dart';
+import 'package:lcc_flutter_app/common/wrong_ans_component_retry_btn.dart';
 import 'dart:math' as math;
 import 'common/card_flip_component.dart';
 import 'common/right_ans_component.dart';
@@ -22,7 +25,7 @@ class KnowYourCardPage extends StatefulWidget {
   KnowYourCardPage({ super.key});
   @override
   State<KnowYourCardPage> createState() => _KnowYourCardPageState();
-//bool showCorrectAnswer = false;
+
 }
 
 class _KnowYourCardPageState extends State<KnowYourCardPage> {
@@ -47,14 +50,16 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       body: ListView(
         children: [
           SafeArea(child:
-          Row( children:[
+          Row(children: [
             SizedBox(height: 20,),
             Container(
               margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
+              padding: const EdgeInsets.only(
+                  top: 8, left: 8, right: 8, bottom: 8),
               decoration: ShapeDecoration(
                 color: Color(0xFFE9ECED),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6)),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -63,14 +68,14 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                     width: 24,
                     height: 24,
                     decoration: const BoxDecoration(
-                     // color: Colors.deepOrange,
+                      // color: Colors.deepOrange,
                       image: DecorationImage(
                         image: AssetImage('assets/images/coin 2.png'),
                         fit: BoxFit.fill,
                       ),
                     ),
                   ),
-                   Text(
+                  Text(
                     coinText,
                     style: TextStyle(
                       color: Colors.black,
@@ -87,7 +92,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             Slider(
               value: _currentSliderValue,
               activeColor: Colors.green,
-            // thumbColor: Colors.white,
+              // thumbColor: Colors.white,
               max: 100,
               divisions: 5,
               // label: _currentSliderValue.round().toString(),
@@ -99,29 +104,29 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             ),
             ),
             GestureDetector(
-              child: Container(
-                width: 34.60,
-                height: 34.60,
-                margin: const EdgeInsets.all(10),
-                decoration: const ShapeDecoration(
-                  color: Color(0xFFE9ECED),
-                  shape: OvalBorder(),
-                ),
-                child: Icon( Icons.close,
-                  color: Colors.grey, ),
+                child: Container(
+                  width: 34.60,
+                  height: 34.60,
+                  margin: const EdgeInsets.all(10),
+                  decoration: const ShapeDecoration(
+                    color: Color(0xFFE9ECED),
+                    shape: OvalBorder(),
+                  ),
+                  child: Icon(Icons.close,
+                    color: Colors.grey,),
 
-              ),
-              onTap: (){
-                setState(() {
-                  Navigator.pop(context);
-                });
-              }
+                ),
+                onTap: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                }
             ),
           ]
           ),
           ),
 
-          const SizedBox(height: 20,),
+        //  const SizedBox(height: 10,),
           const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -139,76 +144,74 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ),
               ]
           ),
-          const SizedBox(height: 10,),
-          Row( mainAxisAlignment: MainAxisAlignment.center,
-              children:[
+         // const SizedBox(height: 5,),
+          Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 Container(
                   alignment: Alignment.center,
-                  height: 300,
-                  width: MediaQuery.of(context).size.width,
-                  child: FlipCardComponent(isTappingRequired: true,frontWidget: FrontTappableWidget(dateValueSetter: () {
-               if  (isNextButtonPressed) {
-                    setState(() {
-                      if (isQuestionOneDone) {
-                      showCorrectAnswerView =  false;
-                      showWrongAnswerView =  true;
-                      _currentSliderValue = 5;
-                        isQuestionTwoPresented = true;
 
-                      } else {
-                        showCorrectAnswerView =  true;
-                        isQuestionOneDone = true;
+                  height: 290,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  child: FlipCardComponent(isTappingRequired: true,
+                    frontWidget: FrontTappableWidget(dateValueSetter: () {
+                      if (isNextButtonPressed) {
+                        print("hi there");
 
-                        coinText = "5";
-                      }
-                         showHintView = false;
-                        showQuizView =  false;
+                          if (isQuestionOneDone) {
+                            showWrongAnswerBottomView();
+                          } else {
+                                coinText = "5";
+                               showRightAnswerBottomView();
+                          }
 
-                    });
-                    }
-                  }, wrongDateValueSetter: () {
-                    if (isNextButtonPressed) {
-                    setState(() {
-
-                      if (isQuestionOneDone) {
-                        showCorrectAnswerView =  false;
-                        showWrongAnswerView =  true;
-                        isQuestionTwoPresented = true;
-
-                      } else {
-                        showCorrectAnswerView =  true;
-                       // isQuestionOneDone = true;
 
                       }
-                      showQuizView = false;
-                      showCorrectAnswerView = false;
-                      showHintView = false;
-                      showWrongAnswerView = true;
-                      isQuestionTwoDone = false;
+                    }, wrongDateValueSetter: () {
+                      if (isNextButtonPressed) {
+                        print("here i am ");
+                        showWrongAnswerBottomView();
+                      }
 
-                    });
-                    }
 
-                  },
-                  ),backWidget: BackTappableWidget(cvvValueSetter: () {
-                    if (isNextButtonPressed) {
-                      setState(() {
-                        isQuestionTwoPresented = true;
-                        showCorrectAnswerView =
-                        isQuestionOneDone ? true : false;
-                        showHintView = false;
-                        showWrongAnswerView = isQuestionOneDone ? false : true;
-                        showQuizView = false;
-                        isQuestionTwoDone = true;
-                        showHintView = false;
-                      });
-                    }
-                  },
-                  ),
+                    },
+                    ),
+                    backWidget: BackTappableWidget(cvvValueSetter: () {
+                      if (isNextButtonPressed) {
+
+                         // isQuestionTwoPresented = true;
+                          if (isQuestionOneDone) {
+                            showRightAnswerBottomView();
+                            isQuestionTwoDone = true;
+                          } else {
+                            showWrongAnswerBottomView();
+                          }
+
+                      }
+                    },
+                    ),
                   ),
                 )
               ]
           ),
+          Visibility(visible: showQuizView,
+            child:
+            Row(
+                children: [ Container(
+                  height: 380,
+                  width:MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  child: KYCBottomPage(isLevelOneCompleted: isQuestionOneDone,
+                    isLevelTwoPresented: isQuestionTwoPresented,),
+                ),
+                ]
+            ),
+          ),
+
           SizedBox(height: 10,),
           Visibility(visible: showMainView,
             child:
@@ -219,7 +222,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                     margin: EdgeInsets.symmetric(horizontal: 20),
                     child: const Text(
                       'You have been given a new virtual \ncredit card that you can use in this \nApp. Use your finger to drag and \nexplore your card around.',
-                      maxLines:5 ,
+                      maxLines: 5,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
@@ -234,138 +237,202 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ]
             ),
           ),
+
           /// testing row
-          Visibility(visible: showQuizView ,
-            child:
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [ Expanded(
-                  child: KYCBottomPage(isLevelOneCompleted: isQuestionOneDone, isLevelTwoPresented: isQuestionTwoPresented,),
-                ),
-                ]
-            ),
-          ),
-          Visibility( visible: showCorrectAnswerView,
-            child: Row(children:[
-              Expanded( child :
-              Container(
-                height: 320,
-                child: RightAnswerComponent(successText: 'You have got 5 coins',onPressed: () {
-                  if (isQuestionTwoDone) {
-
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>  LessonOneFinalQuizPage()));
-                  } else {
-                    setState(() {
-                      showCorrectAnswerView = false;
-                      showQuizView = true;
-                    });
-                  }
-
-
-                },
-
-                ),
-              )
-              )
-            ]
-            ),
-          ),
-
-          Visibility( visible: showWrongAnswerView,
-            child: Row(children:[
-              Expanded( child :
-              Container(
-                height: 320,
-                child: WrongAnswerComponent(errorText: 'Oops\n Wrong Answer', onHintPressed: () {
-
-                  setState(() {
-                    showHintView = true;
-                    showWrongAnswerView = false;
-                  });
-                }, onRetryPressed: () {
-                  setState(() {
-                    showWrongAnswerView = false;
-                    showQuizView = true;
-                  });
-                },
-
-
-                ),
-              )
-              )
-            ]
-            ),
-          ),
-
-          Visibility( visible: showHintView,
-            child: Row(children:[
-              Expanded( child :
-              Container(
-                height: 320,
-                child: HintComponent(hintText: 'The Expiry date is a four-digit number printed on the front of the card.', onPressed: () {
-                  setState(() {
-                    showHintView = false;
-                    showQuizView = true;
-                  });
-
-
-                }, ),
-              )
-              )
-            ]
-            ),
-          ),
-          /////
-          SizedBox(height: 10,),
 
         ],
       ),
-      bottomNavigationBar: Visibility(visible: showMainView,
-        child:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+      bottomNavigationBar: !isNextButtonPressed ?
 
-          children: [
-            Container(
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
 
-              margin: EdgeInsets.symmetric(vertical: 60),
-              child:
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 20),
-                  backgroundColor: Colors.black,
+        children: [
+          Container(
+
+            margin: EdgeInsets.symmetric(vertical: 60),
+            child:
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 20),
+                backgroundColor: Colors.black,
+              ),
+              onPressed: () {
+                setState(() {
+                  isNextButtonPressed = true;
+                  showMainView = false;
+                  showQuizView = true;
+                });
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 100),
+                child: const Text('Next', style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w600,
                 ),
-                onPressed: () {
-                  setState(() {
-                    isNextButtonPressed = true;
-                    showMainView = false;
-                    showQuizView = true;
-                  });
-
-                },
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 100),
-                  child: const Text('Next', style:TextStyle(
-                    color: Colors.white ,
-                    fontSize: 26,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                    // height: 0.07,
-                  ),
-                  ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ) : Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 60,
+            height: 80,
+            margin: const EdgeInsets.only(left: 20),
+            child:
+            Image(image: AssetImage('assets/images/OWL_Default.gif')),
+          ),
+          Container(
+            // color: Colors.blue,
+            height: 60,
+            margin: const EdgeInsets.only(right: 20),
+            // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+            clipBehavior: Clip.antiAlias,
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 1),
+                borderRadius: BorderRadius.circular(26),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextButton(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: const Text(
+                      "Give me a Hint",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    showHintBottomModalView();
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
+
     );
   }
 
+  void showHintBottomModalView() {
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+      builder: (BuildContext context) {
+        return Container(
+          height: 350,
+          width: double.infinity,
+          child: HintComponent(hintText: isQuestionOneDone
+              ? 'The CVV is a three digit number printed on the back of the card'
+              : 'The Expiry date is a four-digit number printed on the front of the card.',
+            onPressed: () {
+              setState(() {
+                showHintView = false;
+                Navigator.pop(context);
+              });
+            },),
+        );
+      },
+    );
+  }
+
+  void showRightAnswerBottomView() {
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+
+      builder: (BuildContext context) {
+        return Container(
+            width: double.infinity,
+            height: 350,
+            color: Colors.transparent,
+            child: RightAnswerComponent(
+                successText: "You earned \n 5 coins", onPressed: ()
+        {
+          Navigator.pop(context);
+
+          _currentSliderValue = _currentSliderValue + 5;
+            if (isQuestionTwoDone == true) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) =>  LessonOneFinalQuizPage()));
+            } else {
+              Timer(Duration(seconds: 1), ()
+              {
+                print("Yeah, this line is printed after 3 seconds");
+                setState(() {
+                  isQuestionOneDone = true;
+                  isQuestionTwoPresented = false;
+
+                  Timer(Duration(seconds: 2), ()
+                  {
+                    print("Yeah, this line is printed after 3 seconds");
+                    setState(() {
+                      isQuestionTwoPresented = true;
+                    });
+                  });
+                });
+              });
+
+
+            }
+
+
+
+        }),
+
+        );
+      },
+    );
+  }
+
+  void showWrongAnswerBottomView() {
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+
+      builder: (BuildContext context) {
+        return Container(
+            width: double.infinity,
+            height: 350,
+            color: Colors.transparent,
+            child: WrongAnswerComponent(
+                errorText: 'Oops! \nWrong Answer',
+                onRetryPressed: () {
+                  Navigator.pop(context);
+                }
+                ,
+                onHintPressed: () {
+                  Navigator.pop(context);
+                  showHintBottomModalView();
+                })
+
+        );
+      },
+    );
+
+  }
 }
 
 class FrontTappableWidget extends StatelessWidget {

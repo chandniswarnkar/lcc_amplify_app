@@ -17,9 +17,9 @@ class CardQuestionComponent extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 230,
-
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          height: 300,
+         // width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: ShapeDecoration(
             color: bgColor, //bgColor
             shape: RoundedRectangleBorder(
@@ -88,7 +88,7 @@ class CardQuestionComponent extends StatelessWidget {
                     const SizedBox(height: 30),
                     SizedBox(
                       //  width: 279,
-                      height: 50,
+                      height: 48,
                       child: showCompletedStatus == false ? const Text(
                         'Use your finger to drag and explore your card around.',
                         maxLines: 2,

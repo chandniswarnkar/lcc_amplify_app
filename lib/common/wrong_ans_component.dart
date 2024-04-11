@@ -16,18 +16,18 @@ class WrongAnswerComponent extends StatelessWidget {
         scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
       ),
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         body: ListView(children: [
           Column(
             children: [
               Container(
-                width: 300,
-                height: 320,
+                width: double.infinity,
+                height: 350,
                 child: Stack(
                   children: [
                     Container(
-                      width: 300,
-                      height: 320,
+                      width: double.infinity,
+                      height: 350,
                       decoration: ShapeDecoration(
                         color: Color(0xFFFBD4CF),
                         shape: RoundedRectangleBorder(

@@ -58,40 +58,27 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
 
      //var currentBottomView =  widget.isLevelTwoPresented ? BottomView.questionTwoPresented : (isLevelOneCompleted ? BottomView.questionOneDone : BottomView.questionOnePresented)
     return Container(
-
+        height: 350,
         color: Colors.white,
         child:
         Column(
           children: [
-            Visibility( visible: (!isHintOneShown ),
-              child:
               Row(
                 children: [
                   Expanded(child:
                   Container(
-                    margin: EdgeInsets.all(20),
+                    margin: EdgeInsets.symmetric(horizontal: 20),
                     color: Colors.white,
                     child: Container(
-                        height: 230,
+                        height: 300,
                         child: widget.isLevelOneCompleted  ?
+                            widget.isLevelTwoPresented ?
+                            CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
+                                    bgColor: Color(0xFFDFBEEE), showCompletedStatus: false) :
 
-                        widget.isLevelTwoPresented  ? CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                            bgColor: Color(0xFFDFBEEE), showCompletedStatus: false) :
-
-                        AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 1),
-                            transitionBuilder: (Widget child, Animation<double> animation) {
-                              return ScaleTransition(child: child, scale: animation);
-                            },
-                            child: isVisible ? CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
-                              bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
-                              key:UniqueKey(),)
-
-                                : CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
-                              bgColor: Color(0xFFDFBEEE), showCompletedStatus: false, key: UniqueKey(),)
-
-                        )
-
+                                 CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
+                          bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
+                          key:UniqueKey(),)
 
                             :  CardQuestionComponent( questionNumber: '01/03', questionDescription: 'Find and tap on expiry date of the card',
                     bgColor: Color(0xFFD2EAFF), showCompletedStatus: false)
@@ -101,86 +88,13 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                   ),
                 ],
               ),
-            ),
-            Visibility( visible: (!isHintOneShown ),
-                child:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 60,
-                      height: 60,
-                      margin: const EdgeInsets.only(left: 20),
-                      child:
-                      Image(image: AssetImage('assets/images/OWL_Default.gif')),
-                    ),
-                    Container(
-                      // color: Colors.blue,
-                      margin: const EdgeInsets.only(right: 20),
-                      // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                      clipBehavior: Clip.antiAlias,
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(width: 1),
-                          borderRadius: BorderRadius.circular(26),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: const Text(
-                                "Give me a Hint",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                            onPressed: () {
 
-                              setState(() {
-                                isHintOneShown = true;
-                              });
 
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-            ),
-            Visibility( visible: isHintOneShown,
-              child: Row(children:[
-                Expanded(child:
-                Container(
-                  height: 350,
-                  child: HintComponent(hintText: widget.isLevelTwoPresented ? 'The CVV is a three digit number printed on the back of the card' : 'The Expiry date is a four-digit number printed on the front of the card.',
-                    onPressed: (){
-                    setState(() {
-                      isHintOneShown = false;
-
-                    });
-                  },
-
-                  ),
-                )
-                ),
-                // ),
-              ]
-              ),
-            ),
 
           ],
         )
 
     );
+
   }
 }
