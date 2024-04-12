@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import '../badge_screen.dart';
 import '../common/hint_component.dart';
 import '../common/right_ans_component.dart';
+import '../common/wrong_ans_component.dart';
 import '../common/wrong_ans_component_retry_btn.dart';
 
 class LinkBankQuizPage extends StatefulWidget {
@@ -200,7 +201,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                           Container(   padding: const EdgeInsets.all(20),
                             child:
                             TextField(
-
+                            readOnly: true,
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20,
@@ -303,7 +304,22 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                                     width: double.infinity,
                                                     height:350,
                                                     color: Colors.transparent,
-                                                    child: Container(
+                                                    child: _hintPanelVisible ? Container(
+                                                      height: 350,
+                                                      child: WrongAnswerComponent( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
+                                                        setState(() {
+                                                          _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
+                                                        });
+                                                        Navigator.pop(context);
+                                                      }, onHintPressed: () {
+                                                        Navigator.pop(context);
+                                                        showHintViewBottomSheet();
+
+                                                      },
+                                                      ),
+                                                    )
+
+                                                    : Container(
                                                       height: 350,
                                                       child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
                                                         setState(() {
@@ -478,52 +494,52 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
       },
     );
   }
-  Widget bottomBarWithWrongAnswerView(BuildContext context) {
-    return
-      Container( height: 350,
-        child: Row(children:[
-          Expanded( child :
-          Container(
-            height: 320,
-            child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
-              setState(() {
-                _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
-              });
-              Navigator.pop(context);
-            }, onHintPressed: () {
-              Navigator.pop(context);
-              showHintViewBottomSheet();
+  // Widget bottomBarWithWrongAnswerView(BuildContext context) {
+  //   return
+  //     Container( height: 350,
+  //       child: Row(children:[
+  //         Expanded( child :
+  //         Container(
+  //           height: 320,
+  //           child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
+  //             setState(() {
+  //               _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
+  //             });
+  //             Navigator.pop(context);
+  //           }, onHintPressed: () {
+  //             Navigator.pop(context);
+  //             showHintViewBottomSheet();
+  //
+  //           },
+  //           ) ,
+  //         )
+  //         )
+  //       ]
+  //       ),
+  //     );
+  // }
 
-            },
-            ) ,
-          )
-          )
-        ]
-        ),
-      );
-  }
-
-  Widget bottomBarWithHintView(BuildContext context) {
-    return Container( height: 350,
-      child: Row(children:[
-        Expanded( child :
-        Container(
-          height: 320,
-          child: HintComponent(hintText: _hintText, onPressed: () {
-            setState(() {
-              _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
-
-            });
-
-          },
-          ),
-        )
-        )
-      ]
-      ),
-    );
-
-  }
+  // Widget bottomBarWithHintView(BuildContext context) {
+  //   return Container( height: 350,
+  //     child: Row(children:[
+  //       Expanded( child :
+  //       Container(
+  //         height: 320,
+  //         child: HintComponent(hintText: _hintText, onPressed: () {
+  //           setState(() {
+  //             _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
+  //
+  //           });
+  //
+  //         },
+  //         ),
+  //       )
+  //       )
+  //     ]
+  //     ),
+  //   );
+  //
+  // }
 
   Future<void> hideCurrentQuestion() async {
     isAnswerCorrect = false;

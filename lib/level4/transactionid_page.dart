@@ -53,7 +53,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                         ),
                       ),
                     ),
-                     Text(
+                    Text(
                       coinText,
                       style: TextStyle(
                         color: Colors.black,
@@ -89,11 +89,11 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                       color: Color(0xFFE9ECED),
                       shape: OvalBorder(),
                     ),
-                    child: Icon( Icons.close,
-                      color: Colors.grey, ),
+                    child: Icon(Icons.close,
+                      color: Colors.grey,),
 
                   ),
-                  onTap: (){
+                  onTap: () {
                     setState(() {
                       Navigator.pop(context);
                     });
@@ -101,8 +101,8 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
               ),
             ]),
           ),
-           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Image.asset( 'assets/images/Animation_badge_completion.gif'),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Image.asset('assets/images/Animation_badge_completion.gif'),
           ]),
           const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
@@ -121,45 +121,45 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
           const SizedBox(
             height: 20,
           ),
-             Container(
-                  margin: EdgeInsets.symmetric(horizontal: 30),
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  height: 100,
-                  decoration: ShapeDecoration(
-                    color:  Color(0xFFF1D4FF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(7),
-                    ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            height: 100,
+            decoration: ShapeDecoration(
+              color: Color(0xFFF1D4FF),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(7),
+              ),
+            ),
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Your Transaction ID is',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
                   ),
-
-                     child:   Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         Text(
-                             'Your Transaction ID is',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
-                               ),
-                            ),
-                         SizedBox(height: 5,),
-                         Text(
-                           'UK123ABC4567',
-                           style: TextStyle(
-                             color: Colors.black,
-                             fontSize: 20,
-                             fontFamily: 'Inter',
-                             fontWeight: FontWeight.w700,
-
-                           ),
-                         ),
-                       ],
-                     ),
-
+                ),
+                SizedBox(height: 5,),
+                Text(
+                  'UK123ABC4567',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
 
                   ),
+                ),
+              ],
+            ),
+
+
+          ),
 
 
           Stack(
@@ -175,7 +175,8 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),
-                    margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 8),
                     decoration: ShapeDecoration(
                       color: Colors.black,
                       shape: RoundedRectangleBorder(
@@ -193,10 +194,10 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                             backgroundColor: Colors.black,
                           ),
                           onPressed: () {
-                            setState(() {
-                              isEarnCoin = true;
-                            });
-
+                            // setState(() {
+                            //   isEarnCoin = true;
+                            // });
+                            _showModalBottomSheet(context);
 
                           },
                           child: const Text(
@@ -219,20 +220,23 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                 ],
               ),
 
-              Visibility( visible: isEarnCoin,
-                child: Row(children:[
-                  Expanded( child :
+              Visibility(visible: isEarnCoin,
+                child: Row(children: [
+                  Expanded(child:
                   Container(
                     height: 330,
-                    child: RightAnswerComponent(successText: 'You earned \n5 Coins',onPressed: () {
+                    child: RightAnswerComponent(
+                      successText: 'You earned \n5 Coins', onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) =>  BadgeScreen(msgTextTop: 'You are an \nEager Student',
-                                image: 'assets/images/eager_student_badge.gif', flag: 'Level_4', msgTextBottom: 'Badge:\nEager Student',))
+                              builder: (BuildContext context) =>
+                                  BadgeScreen(
+                                    msgTextTop: 'You are an \nEager Student',
+                                    image: 'assets/images/eager_student_badge.gif',
+                                    flag: 'Level_4',
+                                    msgTextBottom: 'Badge:\nEager Student',))
                       );
-
-
                     },
 
                     ),
@@ -246,14 +250,36 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
           )
 
 
-
-
-
-
         ],
       ),
     );
   }
+
+  void _showModalBottomSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+      builder: (BuildContext context) {
+        return Container(
+          height: 350,
+          child: RightAnswerComponent(successText: 'You earned \n5 Coins',onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) =>  BadgeScreen(msgTextTop: 'You are an \nEager Student',
+                      image: 'assets/images/eager_student_badge.gif', flag: 'Level_4', msgTextBottom: 'Badge:\nEager Student',))
+            );
+
+          },
+
+          ),
+        );
+      },
+    );
+  }
+
+
 }
 
 
