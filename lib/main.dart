@@ -22,8 +22,16 @@ class LCCHomePage extends StatelessWidget {
       ),
         debugShowCheckedModeBanner:false,
       home: AnimatedSplashScreen(
-        splash: 'assets/images/Splash_screen_Image_2x.gif',
-        splashIconSize: double.infinity,
+       // splash: Image.asset('assets/images/Splash_screen_Image_2x.gif'),
+        splash:Container(
+          width: MediaQuery.of(context).size.width,
+        //  height: MediaQuery.of(context).size.height,
+          child: Image.asset(
+            'assets/images/Splash_screen_Image_2x.gif',
+            fit: BoxFit.cover,
+          ),
+        ),
+        splashIconSize: MediaQuery.of(context).size.height,
         nextScreen: MyHomePage(title: 'LCC'),
         splashTransition: SplashTransition.fadeTransition,
       ),
