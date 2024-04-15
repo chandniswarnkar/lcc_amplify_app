@@ -301,78 +301,81 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar:   Padding(
-        padding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+        padding: EdgeInsets.fromLTRB(0, 0, 5, 10),
         child: Visibility(
           visible: cardHolderName=='' ? false : !_isCardCVVValueVisible(),
-          child:  Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 60,
-                height: 60,
-                margin: const EdgeInsets.only(left: 20),
-                child:
-                const Image(image: AssetImage('assets/images/OWL_Default.gif')),
-              ),
-              Container(
-                margin: const EdgeInsets.only(right: 20),
-                // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                clipBehavior: Clip.antiAlias,
-                decoration: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 1),
-                    borderRadius: BorderRadius.circular(26),
-                  ),
+          child:  Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  //margin: const EdgeInsets.only(left: 20),
+                  child:
+                  const Image(image: AssetImage('assets/images/OWL_Default.gif')),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      child:  Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text(
-                          "Give me a Hint",
-                          textAlign: TextAlign.center,
-                          style:const TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
+                Container(
+                 // margin: const EdgeInsets.only(right: 20),
+                  // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 1),
+                      borderRadius: BorderRadius.circular(26),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        child:  Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text(
+                            "Give me a Hint",
+                            textAlign: TextAlign.center,
+                            style:const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
+                        onPressed: () {
+
+                          setState(() {
+                            showWrongAnswerView = false;
+                            if(cardNumber == ''){
+                              hintText = 'The card number is a\n 16-digit number.';
+                              showHintView = true;
+                              _fieldsContainer = false;
+                            }
+                            else if(cardExpiry == ''){
+                              hintText = 'The Expiry date is a four \n-digit number printed on the \nfront of the card.';
+                              showHintView = true;
+                              _fieldsContainer = false;
+                            }
+                            else if(cardCVV == ''){
+                              hintText = 'The CVV is a three digit\nnumber printed on the back \nof the card';
+                              showHintView = true;
+                              _fieldsContainer = false;
+                            }else{
+                              showHintView = false;
+                              _fieldsContainer = true;
+                            }
+
+                          });
+                          showHintBottoModalView();
+                        },
                       ),
-                      onPressed: () {
-
-                        setState(() {
-                          showWrongAnswerView = false;
-                          if(cardNumber == ''){
-                            hintText = 'The card number is a\n 16-digit number.';
-                            showHintView = true;
-                            _fieldsContainer = false;
-                          }
-                          else if(cardExpiry == ''){
-                            hintText = 'The Expiry date is a four \n-digit number printed on the \nfront of the card.';
-                            showHintView = true;
-                            _fieldsContainer = false;
-                          }
-                          else if(cardCVV == ''){
-                            hintText = 'The CVV is a three digit\nnumber printed on the back \nof the card';
-                            showHintView = true;
-                            _fieldsContainer = false;
-                          }else{
-                            showHintView = false;
-                            _fieldsContainer = true;
-                          }
-
-                        });
-                        showHintBottoModalView();
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -380,79 +383,80 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       body: ListView(
         children: <Widget>[
           SafeArea(
-            child: Row(children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                margin: const EdgeInsets.all(20),
-                padding:
-                const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFE9ECED),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
+            child: Container(
+              margin: EdgeInsets.fromLTRB(30, 10, 30, 20),
+              child: Row(children: [
+                const SizedBox(
+                  height: 20,
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      width: 24,
-                      height: 24,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/coin 2.png'),
-                          fit: BoxFit.fill,
+                Container(
+                  padding:
+                  const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFE9ECED),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6)),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 24,
+                        height: 24,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/coin 2.png'),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                    ),
-                    Text(
-                      coinText,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,
-                        height: 0,
+                      Text(
+                        coinText,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
+                          height: 0,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Slider(
-                  value: _currentSliderValue,
-                  activeColor: Colors.green,
-                  max: 100,
-                  divisions: 5,
-                  // label: _currentSliderValue.round().toString(),
-                  onChanged: (double value) {
-                    setState(() {
-                      _currentSliderValue = value;
-                    });
-                  },
-                ),
-              ),
-              GestureDetector(
-                  child: Container(
-                    width: 34.60,
-                    height: 34.60,
-                    margin: const EdgeInsets.all(10),
-                    decoration: const ShapeDecoration(
-                      color: Color(0xFFE9ECED),
-                      shape: OvalBorder(),
-                    ),
-                    child: Icon( Icons.close,
-                      color: Colors.grey, ),
-
+                    ],
                   ),
-                  onTap: (){
-                    setState(() {
-                      Navigator.pop(context);
-                    });
-                  }
-              ),
-            ]),
+                ),
+                Expanded(
+                  child: Slider(
+                    value: _currentSliderValue,
+                    activeColor: Colors.green,
+                    max: 100,
+                    divisions: 5,
+                    // label: _currentSliderValue.round().toString(),
+                    onChanged: (double value) {
+                      setState(() {
+                        _currentSliderValue = value;
+                      });
+                    },
+                  ),
+                ),
+                GestureDetector(
+                    child: Container(
+                      width: 34.60,
+                      height: 34.60,
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFFE9ECED),
+                        shape: OvalBorder(),
+                      ),
+                      child: Icon( Icons.close,
+                        color: Colors.grey, ),
+
+                    ),
+                    onTap: (){
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    }
+                ),
+              ]),
+            ),
           ),
           const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
@@ -595,13 +599,14 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
                   Visibility(
                     visible: _isCardExpiryFieldVisible(),
                     child: Column(
                       children: [
                         Container(
-                          width: 120,
+                          width: 170,
                           margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
                           child: const Text(
                             'Expiry Date',
@@ -614,7 +619,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                           ),
                         ),
                         Container(
-                          width: 120,
+                          width: 170,
                           margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
                           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                           decoration: ShapeDecoration(
@@ -643,18 +648,22 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                     visible: _isCardCVVFieldVisible(),
                     child: Column(
                       children: [
-                        const Text(
-                          'CVV',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
+                        Container(
+                          width: 170,
+                          child: const Text(
+                            'CVV',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                         Container(
+                          width: 170,
                           margin: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                          padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
+                          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                           decoration: ShapeDecoration(
                             color: cvvBackgroundFlag == true
                                 ? const Color(0xFFD9FFDB)

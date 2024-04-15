@@ -106,79 +106,82 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
         body: ListView(
           children: [
             SafeArea(
-              child: Row(children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  margin: const EdgeInsets.all(20),
-                  padding: const EdgeInsets.all(8),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFE9ECED),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+              child: 
+              Container(
+                margin: EdgeInsets.fromLTRB(25, 10, 25, 20),
+                child: Row(children: [
+                  SizedBox(
+                    height: 20,
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        decoration: const BoxDecoration(
-                          // color: Colors.deepOrange,
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/coin 2.png'),
-                            fit: BoxFit.fill,
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: ShapeDecoration(
+                      color: Color(0xFFE9ECED),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 24,
+                          height: 24,
+                          decoration: const BoxDecoration(
+                            // color: Colors.deepOrange,
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/coin 2.png'),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        coinText,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
+                        Text(
+                          coinText,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    activeColor: Colors.green,
-                    max: 100,
-                    divisions: 5,
-                    // label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
-                  ),
-                ),
-                GestureDetector(
-                    child: Container(
-                      width: 34.60,
-                      height: 34.60,
-                      margin: const EdgeInsets.all(10),
-                      decoration: const ShapeDecoration(
-                        color: Color(0xFFE9ECED),
-                        shape: OvalBorder(),
-                      ),
-                      child: Icon( Icons.close,
-                        color: Colors.grey, ),
-
+                      ],
                     ),
-                    onTap: (){
-                      setState(() {
-                        Navigator.pop(context);
-                      });
-                    }
-                ),
-              ]),
+                  ),
+                  Expanded(
+                    child: Slider(
+                      value: _currentSliderValue,
+                      activeColor: Colors.green,
+                      max: 100,
+                      divisions: 5,
+                      // label: _currentSliderValue.round().toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          _currentSliderValue = value;
+                        });
+                      },
+                    ),
+                  ),
+                  GestureDetector(
+                      child: Container(
+                        width: 34.60,
+                        height: 34.60,
+                
+                        decoration: const ShapeDecoration(
+                          color: Color(0xFFE9ECED),
+                          shape: OvalBorder(),
+                        ),
+                        child: Icon( Icons.close,
+                          color: Colors.grey, ),
+                
+                      ),
+                      onTap: (){
+                        setState(() {
+                          Navigator.pop(context);
+                        });
+                      }
+                  ),
+                ]),
+              ),
             ),
             Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text(
@@ -228,6 +231,7 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
               height: 15,
             ),
             Container(
+              width: double.infinity,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(
@@ -487,6 +491,8 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
+          width: double.infinity,
+          margin: EdgeInsets.symmetric(horizontal: 25),
           decoration: ShapeDecoration(
             color: Color(0xFFD2EAFF),
             shape: RoundedRectangleBorder(
