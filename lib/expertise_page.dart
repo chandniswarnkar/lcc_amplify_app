@@ -17,11 +17,14 @@ class _ExpertisePageState extends State<ExpertisePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color:Color(0xFFCAE1D6) ,
+    return Container(
+   //   color:Color(0xFFCAE1D6) ,
+
     child:
 
    // QuestionsPage(),
     ListView(
+
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
@@ -272,9 +275,12 @@ class _ExpertisePageState extends State<ExpertisePage> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 30,),
               Visibility(visible: isRowOneTapped || isRowTwoTapped || isRowThreeTapped,
                 child:
               Container(
+
                 padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 margin: const EdgeInsets.symmetric(horizontal: 85,  vertical: 10),
                 decoration: ShapeDecoration(
@@ -283,12 +289,13 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
+
                 child: Row(
 
                   // mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: [ Center(child:
                     TextButton(
                       style: TextButton.styleFrom(
                         textStyle: const TextStyle(fontSize: 20),
@@ -311,6 +318,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                         // height: 0.07,
                       ),
                       ),
+                    ),
                     ),
                   ],
                 ),
