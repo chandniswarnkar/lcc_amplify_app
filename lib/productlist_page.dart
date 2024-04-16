@@ -54,81 +54,83 @@ class _ProductListPageState extends State<ProductListPage> {
     double _currentSliderValue = 0;
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Column(
           children: [
             SafeArea(
-              child: Row(children: [
+              child: Container(
+                margin: EdgeInsets.fromLTRB(25, 10, 25, 20),
+                child: Row(children: [
 
-                Container(
-                  margin: const EdgeInsets.all(20),
-                  padding: const EdgeInsets.only(
-                      top: 8, left: 8, right: 8, bottom: 8),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFE9ECED),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/coin 2.png'),
-                            fit: BoxFit.fill,
+                  Container(
+                    padding: const EdgeInsets.only(
+                        top: 8, left: 8, right: 8, bottom: 8),
+                    decoration: ShapeDecoration(
+                      color: const Color(0xFFE9ECED),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 24,
+                          height: 24,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/coin 2.png'),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
-                      ),
-                      const Text(
-                        '0',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
+                        const Text(
+                          '0',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    activeColor: Colors.green,
-                    max: 100,
-                    divisions: 5,
-                    // label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
-                  ),
-                ),
-                GestureDetector(
-                    child: Container(
-                      width: 34.60,
-                      height: 34.60,
-                      margin: const EdgeInsets.all(10),
-                      decoration: const ShapeDecoration(
-                        color: Color(0xFFE9ECED),
-                        shape: OvalBorder(),
-                      ),
-                      child: Icon( Icons.close,
-                        color: Colors.grey, ),
-
+                      ],
                     ),
-                    onTap: (){
-                      setState(() {
-                        Navigator.pop(context);
-                      });
-                    }
-                ),
-              ]),
+                  ),
+                  Expanded(
+                    child: Slider(
+                      value: _currentSliderValue,
+                      activeColor: Colors.green,
+                      max: 100,
+                      divisions: 5,
+                      // label: _currentSliderValue.round().toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          _currentSliderValue = value;
+                        });
+                      },
+                    ),
+                  ),
+                  GestureDetector(
+                      child: Container(
+                        width: 34.60,
+                        height: 34.60,
+                        decoration: const ShapeDecoration(
+                          color: Color(0xFFE9ECED),
+                          shape: OvalBorder(),
+                        ),
+                        child: Icon( Icons.close,
+                          color: Colors.grey, ),
+
+                      ),
+                      onTap: (){
+                        setState(() {
+                          Navigator.pop(context);
+                        });
+                      }
+                  ),
+                ]),
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -159,13 +161,13 @@ class _ProductListPageState extends State<ProductListPage> {
             ),
             Expanded(
               child: Container(
-                margin: const EdgeInsets.fromLTRB(20, 0, 20, 5),
+                margin: const EdgeInsets.fromLTRB(25, 0, 25, 5),
                 child: GridView.builder(
                   itemCount: productItemsModel
                       .length, // Change this to your actual item count
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio:0.7,
+                    childAspectRatio:0.75,
                    crossAxisSpacing: 10.0, // Spacing between columns
                   mainAxisSpacing: 10.0,
                      // Number of columns

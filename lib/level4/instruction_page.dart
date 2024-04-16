@@ -75,79 +75,80 @@ class _InstructionPageState extends State<InstructionPage> {
         body: ListView(
           children: [
             SafeArea(
-              child: Row(children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  margin: const EdgeInsets.all(20),
-                  padding: const EdgeInsets.all(8),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFE9ECED),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+              child: Container(
+                margin: EdgeInsets.fromLTRB(25, 10, 25, 20),
+                child: Row(children: [
+                  SizedBox(
+                    height: 20,
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        decoration: const BoxDecoration(
-                          // color: Colors.deepOrange,
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/coin 2.png'),
-                            fit: BoxFit.fill,
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: ShapeDecoration(
+                      color: Color(0xFFE9ECED),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 24,
+                          height: 24,
+                          decoration: const BoxDecoration(
+                            // color: Colors.deepOrange,
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/coin 2.png'),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        coinText.toString(),
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
-                          height: 0,
+                        Text(
+                          coinText.toString(),
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Slider(
+                      value: _currentSliderValue,
+                      activeColor: Colors.green,
+                      max: 100,
+                      divisions: 5,
+                      // label: _currentSliderValue.round().toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          _currentSliderValue = value;
+                        });
+                      },
+                    ),
+                  ),
+                  GestureDetector(
+                      child: Container(
+                        width: 34.60,
+                        height: 34.60,
+                        decoration: const ShapeDecoration(
+                          color: Color(0xFFE9ECED),
+                          shape: OvalBorder(),
+                        ),
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.grey,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    activeColor: Colors.green,
-                    max: 100,
-                    divisions: 5,
-                    // label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
-                  ),
-                ),
-                GestureDetector(
-                    child: Container(
-                      width: 34.60,
-                      height: 34.60,
-                      margin: const EdgeInsets.all(10),
-                      decoration: const ShapeDecoration(
-                        color: Color(0xFFE9ECED),
-                        shape: OvalBorder(),
-                      ),
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    onTap: () {
-                      setState(() {
-                        Navigator.pop(context);
-                      });
-                    }),
-              ]),
+                      onTap: () {
+                        setState(() {
+                          Navigator.pop(context);
+                        });
+                      }),
+                ]),
+              ),
             ),
             Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text(
@@ -212,7 +213,7 @@ class _InstructionPageState extends State<InstructionPage> {
                         height: 10,
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 30),
+                        margin: EdgeInsets.symmetric(horizontal: 25),
                         padding:
                             EdgeInsets.symmetric(horizontal: 15, vertical: 14),
                         decoration: ShapeDecoration(
@@ -265,7 +266,7 @@ class _InstructionPageState extends State<InstructionPage> {
                       //GestureDetector(
                       // child:
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 30),
+                        margin: EdgeInsets.symmetric(horizontal: 25),
                         padding:
                             EdgeInsets.symmetric(horizontal: 15, vertical: 12),
                         decoration: ShapeDecoration(
@@ -281,6 +282,10 @@ class _InstructionPageState extends State<InstructionPage> {
                         child: Center(
                             child: Row(
                           children: [
+                            Visibility(
+                                visible: false,
+                                child: Image.asset('assets/images/tic.png')),
+                            Spacer(),
                             Text(
                               textFormFieldValue == ''
                                   ? hintTextone
@@ -310,7 +315,7 @@ class _InstructionPageState extends State<InstructionPage> {
                 visible: isOptionContainerVisible,
                 child: Container(
                   height: 200,
-                  margin: const EdgeInsets.all(30),
+                  margin: const EdgeInsets.all(25),
                   decoration: ShapeDecoration(
                     color: Color(0xFFD2EAFF),
                     shape: RoundedRectangleBorder(
@@ -592,19 +597,19 @@ class _InstructionPageState extends State<InstructionPage> {
 
   Widget bottomBarWithHintPanel(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(5, 0, 5, 20),
+      padding: EdgeInsets.fromLTRB(0, 0, 5, 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             width: 60,
             height: 60,
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 25),
             child:
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 20),
+            margin: const EdgeInsets.only(right: 25),
             // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             clipBehavior: Clip.antiAlias,
             decoration: ShapeDecoration(
