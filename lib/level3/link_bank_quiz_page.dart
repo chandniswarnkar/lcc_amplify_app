@@ -27,7 +27,7 @@ enum BottomBarComponent {
 
 class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
-  int coinText = 25;
+  int coinText = 20;
   double _currentSliderValue = 20;
   String _currentQuesValue = '';
   String textFormFieldValue = '';
@@ -289,7 +289,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                             isAnswerCorrect = true;
                                             _currentSliderValue = _currentSliderValue + 10;
                                             Timer(Duration(seconds: 1), () {
-                                              coinText = coinText + 10;
+                                              coinText = coinText + 5;
                                               hideCurrentQuestion();
                                             });
 
@@ -414,7 +414,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
   Widget bottomBarWithHintPanel(BuildContext context) {
     return   Container(
-      height: 90,
+      height: 70,
       color: Colors.white,
       child:
       Row(

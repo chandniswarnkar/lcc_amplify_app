@@ -143,7 +143,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
               ),
             ),
 
-                SizedBox(height: 40,),
+                SizedBox(height: 25,),
                 Row( mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                   children: <Widget>[Column(
                  // scrollDirection: Axis.vertical,

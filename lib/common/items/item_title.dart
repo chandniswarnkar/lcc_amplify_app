@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../level3/list_drag_component.dart';
+
 class ItemTile extends StatelessWidget {
   final VoidCallback? onTap;
   final int index;
@@ -11,11 +13,12 @@ class ItemTile extends StatelessWidget {
     super.key,
     this.onTap,
     required this.index,
-    this.selected = false,  this.cardColor, this.cardTitle
+    required this.selected,  this.cardColor, this.cardTitle
   });
 
   @override
   Widget build(BuildContext context) {
+    print(cardColor);
     return Padding(
       padding: const EdgeInsets.all(2),
       child: Column(
@@ -31,7 +34,7 @@ class ItemTile extends StatelessWidget {
               child: Text(
                   cardTitle ?? '',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: selected ? Colors.white : Colors.black,
                   fontSize: 20,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w500,
@@ -41,7 +44,7 @@ class ItemTile extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           )
         ],
       ),
