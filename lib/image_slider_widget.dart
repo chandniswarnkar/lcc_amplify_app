@@ -21,26 +21,7 @@ final List<Widget> imageSliders = images
         child: Stack(
           children: <Widget>[
             Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-            Positioned(
-              bottom: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(200, 0, 0, 0),
-                      Color.fromARGB(0, 0, 0, 0)
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                ),
-                padding: EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 20.0),
 
-              ),
-            ),
             Visibility(visible: item != "assets/images/category1.png",
 
               child:
@@ -108,21 +89,22 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                 )
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
         Container(
-            width: 300,
-            height: 250,
+            width: MediaQuery.of(context).size.width -20,
+            height: 320,
             child:CarouselSlider(
             items: imageSliders,
            // carouselController: _controller,
             options: CarouselOptions(
+
                 autoPlay: false,
                 enlargeCenterPage: true,
                 aspectRatio: 1.0,
                 onPageChanged: (index, reason) {
                   setState(() {
                     _current = index;
-                    textLabel = _current == 0 ? "Transacting" : (_current == 1 ? "Communication" : "Handling Content") ;
+                    textLabel = _current == 0 ? "Transacting" : (_current == 1 ? "Communicating" : "Handling Content") ;
                     descriptionLabel = _current == 0 ? "Register, transact, and manage \nonline transactions effortlessly" : (_current == 1 ? "Communication, Collaborate & Share" : "Secure find, manage & store digital content") ;
                     skillsLabel = _current == 0 ? "06" : (_current == 1 ? "08" : "09") ;
                     coinsLabel = _current == 0 ? "1000" : (_current == 1 ? "500" : "800") ;
@@ -161,7 +143,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
               ),
             ),
 
-                SizedBox(height: 40,),
+                SizedBox(height: 25,),
                 Row( mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                   children: <Widget>[Column(
                  // scrollDirection: Axis.vertical,
@@ -259,15 +241,26 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
                       ),
                     ),
                     onPressed: _current ==0 ? () {
-                    showModalBottomSheet(
+                      showModalBottomSheet(
+
                       context: context,
-                      isScrollControlled: true,
-                          constraints: BoxConstraints.loose(Size(
-                              MediaQuery.of(context).size.width,
-                              MediaQuery.of(context).size.height * 0.70)),
-                          builder: (context)
+                      backgroundColor: Colors.transparent,
+                          barrierColor: Colors.white.withOpacity(0),
+
+                       isScrollControlled: true,
+
+                         builder: (context)
                       {
-                        return  ExpertisePage(); //ExpertisePage();
+                        return Container( height: MediaQuery.of(context).size.height * 0.75,
+                          decoration: new BoxDecoration(
+                            color:Color(0xFFCAE1D6) ,
+                            borderRadius: new BorderRadius.only(
+                              topLeft: const Radius.circular(25.0),
+                              topRight: const Radius.circular(25.0),
+                            ),
+                          ),
+
+                          child: ExpertisePage(),); //ExpertisePage();
                       }
                       );
 

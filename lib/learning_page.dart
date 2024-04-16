@@ -33,16 +33,6 @@ class LCCLearningPage extends StatefulWidget {
 class LCCLearningPageState extends State<LCCLearningPage> {
   bool _isAmplifyConfigured = false;
 
-  // Future<List<Question?>> questionList =  [ Question(id: "123",questionLabel: "Transacting", questionDescription: "4 Skills"),
-  //   Question(id: "124",questionLabel: "Communicating", questionDescription: "7 Skills"),
-  //   Question(id: "125",questionLabel: "Handling Content", questionDescription: "8 Skills"),
-  //   Question(id: "126",questionLabel: "Problem Solving", questionDescription: "4 Skills"),
-  //   Question(id: "127",questionLabel: "Online Safety", questionDescription: "4 Skills")
-  //
-  // ] as Future<List<Question?>> ;
-
-
-
   List<AssetImage> listOfImages = [ AssetImage("assets/images/transacting_ellipse.png"),
   AssetImage("assets/images/communicating_ellipse.png"),
   AssetImage("assets/images/handling_ellipse.png"),
@@ -106,8 +96,6 @@ class LCCLearningPageState extends State<LCCLearningPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
    backgroundColor: Color(0xFFD6C4E4) ,
       body: FutureBuilder(
@@ -120,7 +108,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
             return Text('Error: ${snapshot.error}');
           } else {
             return Column(children: [
-              SizedBox(height: 60,),
+              SizedBox(height: 55,),
               Container(
                 height: 40,
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
@@ -169,9 +157,10 @@ class LCCLearningPageState extends State<LCCLearningPage> {
               itemCount: snapshot.data != null ? snapshot.data?.length : 5,
               itemBuilder: (context, index) {
                 return Container(
-                  height: 110,
+                  height: 120,
                   child:
                   ListView(
+                    shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                   children: [
                   GestureDetector(
@@ -183,7 +172,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                 } : (){},
                 child:
                     Container(
-                    height: 100,
+                    height: 110,
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 0),
                     decoration: ShapeDecoration(
                       color:   snapshot.data?[index]?.contentLabel  == "Transacting" ? const Color.fromRGBO(255, 255, 255, 1) :
@@ -198,8 +187,8 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                       children: [
                         Expanded(
                           child: Container(
-                            height: 100,
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            height: 115,
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

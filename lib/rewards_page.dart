@@ -40,7 +40,7 @@ class RewardsIcons extends StatelessWidget {
             child: ListView(
               padding:EdgeInsets.all(40),
               children: [
-                SizedBox(height: 80,),
+                SizedBox(height: 50,),
                 const Text(
                   'Rewards',
                   textAlign: TextAlign.center,
@@ -53,16 +53,16 @@ class RewardsIcons extends StatelessWidget {
                     height: 0,
                   ),
                 ),
-                SizedBox(height: 60,),
+                SizedBox(height: 30,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [Container(child:Column(children: [Container(
-                  width: 90,
-                  height: 80,
+                  width: 110,
+                  height: 130,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/quick_learner_2.png"),
-                      fit: BoxFit.fill,
+                     // fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -79,14 +79,15 @@ class RewardsIcons extends StatelessWidget {
                 ],
                 ),
                 ),
-        SizedBox(width: 10),
+        SizedBox(width: 25),
        Container(child:Column(children: [Container(
-        width: 80,
-        height: 90,
+        width: 110,
+        height: 130,
+       // padding: EdgeInsets.all(0),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/curious_explorer.png"),
-            fit: BoxFit.fill,
+            //fit: BoxFit.fill,
           ),
         ),
       ),
@@ -105,16 +106,16 @@ class RewardsIcons extends StatelessWidget {
       ),
                 ]
                   ,),
-                SizedBox(height:50 ,),
+                SizedBox(height:30 ,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [ Container(child:Column(children: [Container(
-                  width: 90,
-                  height: 70,
+                  width: 100,
+                  height: 120,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/sharp_scholar.png"),
-                      fit: BoxFit.fill,
+                     // fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -131,14 +132,14 @@ class RewardsIcons extends StatelessWidget {
               ],
             ),
         ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 25),
                     Container(child:Column(children: [Container(
-      width: 70,
-      height: 70,
+      width: 90,
+      height: 110,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/eager_student_2.png"),
-          fit: BoxFit.fill,
+        //  fit: BoxFit.fill,
         ),
       ),
     ), Image.asset("assets/images/shadow.png"),
@@ -160,12 +161,12 @@ class RewardsIcons extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [ Container(child:Column(children: [Container(
-                  width: 90,
-                  height: 70,
+                  width: 110,
+                  height: 130,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/good_player_lock_green.png"),
-                      fit: BoxFit.fill,
+                     // fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -174,14 +175,14 @@ class RewardsIcons extends StatelessWidget {
               ],
             ),
         ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 25),
                     Container(child:Column(children: [Container(
-                  width: 90,
-                  height: 80,
+                  width: 110,
+                  height: 130,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/king_player_lock_green.png"),
-                      fit: BoxFit.fill,
+                    //  fit: BoxFit.fill,
                     ),
                   ),
                 ),

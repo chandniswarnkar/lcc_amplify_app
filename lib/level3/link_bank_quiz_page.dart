@@ -27,7 +27,7 @@ enum BottomBarComponent {
 
 class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
-  int coinText = 25;
+  int coinText = 20;
   double _currentSliderValue = 20;
   String _currentQuesValue = '';
   String textFormFieldValue = '';
@@ -201,6 +201,8 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                           Container(   padding: const EdgeInsets.all(20),
                             child:
                             TextField(
+                              textAlign: TextAlign.center,
+
                             readOnly: true,
                               style: TextStyle(
                                 color: Colors.black,
@@ -210,14 +212,20 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                 // height: 0.07,
                               ),
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter value from below  options',
+                                border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                color: Colors.black, width: 3.0),
+                                ),
+                                contentPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.3),
+
+                               // hintText: 'Enter value from below  options',
                                 labelText: textFormFieldValue,
                                 labelStyle: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.w500,
+
                                   // height: 0.07,
                                 ),
                                 filled: true,
@@ -231,7 +239,6 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                     fit: BoxFit.fill,
                                   ) : null,
                                 ),
-
                               ),
 
                             ),
@@ -289,7 +296,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                             isAnswerCorrect = true;
                                             _currentSliderValue = _currentSliderValue + 10;
                                             Timer(Duration(seconds: 1), () {
-                                              coinText = coinText + 10;
+                                              coinText = coinText + 5;
                                               hideCurrentQuestion();
                                             });
 
@@ -414,7 +421,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
   Widget bottomBarWithHintPanel(BuildContext context) {
     return   Container(
-      height: 90,
+      height: 70,
       color: Colors.white,
       child:
       Row(

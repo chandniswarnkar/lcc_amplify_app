@@ -72,7 +72,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
      Color rightAnswerColor = Colors.green;
 
      return  Container(height: 320,
-       padding: const EdgeInsets.all(8),
+       padding: const EdgeInsets.symmetric(horizontal: 8.0),
        child: AnimatedReorderableListView(
            items: list,
            itemBuilder: (BuildContext context, int index) {
@@ -83,6 +83,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
                  key: Key(list[index].name),
                  index: list[index].index,
                  cardTitle: list[index].name,
+                 selected: isDragged,
                  cardColor: _cardColor == CardColor.RIGHT_ANSWER_COLOR ? rightAnswerColor : _cardColor == CardColor.WRONG_ANSWER_COLOR ? wrongAnswerColor : Color(0xFFE9ECED),
               );
            },
@@ -102,6 +103,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
                for (int i = 0; i < list.length; i++) {
                  if (list[i].name == cardMapData[i]) {
                    cardStatusMap[i] = true;
+                   widget.methodFromParent?.call("Coin_update");
                  } else {
                    cardStatusMap[i] = false;
                  }
@@ -110,7 +112,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
              //  cardStatusMap[newIndex] = isCorrect;
                  if (  cardStatusMap[0] == true && cardStatusMap[1] == true && cardStatusMap[2] == true )  {
                    cardStatusMap[3] = true;
-                   widget.methodFromParent?.call("Reorder Done");
+                   widget.methodFromParent?.call("Reorder_Done");
                  }
 
 

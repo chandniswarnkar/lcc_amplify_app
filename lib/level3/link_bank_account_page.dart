@@ -19,19 +19,14 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
   bool reorderSuccess = false;
 
   void updateParentView(String param) {
-
+    if (param == "Reorder_Done") {
     setState(() {
 
-      coinText = 20;
-      _currentSliderValue = 20;
-
-    });
-
+      _currentSliderValue = _currentSliderValue + 5;
     showModalBottomSheet<void>(
       context: context,
       isDismissible: false,
       enableDrag: false,
-
       builder: (BuildContext context) {
         return  Container(
             width: double.infinity,
@@ -46,6 +41,18 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
 
       },
     );
+    });
+    }
+    else {
+      if (coinText < 20) {
+      setState(() {
+      coinText = coinText + 5;
+      _currentSliderValue = _currentSliderValue + 5;
+      });
+      }
+
+    }
+
 
   }
 
@@ -134,7 +141,6 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
               children: [
                Container(child: Text(
                   'Link a Bank Account',
-
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -182,18 +188,14 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
             alignment: Alignment.center,
             children: [
           Container(
-           // margin: const EdgeInsets.all(20),
-            color: Colors.orangeAccent,
+            padding: const EdgeInsets.symmetric(horizontal: 10 ),
+            color: Colors.white,
             height: 350,
             child: ReorderableListComponent(methodFromParent: updateParentView),
           ),
    ] ),
-
-
         ],
-
       ),
-
     );
   }
 }
