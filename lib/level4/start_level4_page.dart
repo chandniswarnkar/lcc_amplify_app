@@ -363,7 +363,7 @@ class StartLevel4Widget extends StatelessWidget {
           ),
 
           Positioned(
-            bottom: 50,
+            bottom: 20,
             child:
             Container(
               padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),

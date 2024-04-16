@@ -311,7 +311,7 @@ class StartLevelWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 10,),
                 Container(
-                  height: 50,
+                  height: 60,
                   padding: EdgeInsets.only(left: 10),
                   alignment: Alignment.topLeft,
                   child: const Text(
@@ -325,7 +325,7 @@ class StartLevelWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+               // SizedBox(height: 10,),
                 Container( padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
                   child: const Text(
                     'Use various payment methods like credit/debit cards, direct bank transfers, and mobile accounts for online purchases.',
@@ -378,7 +378,7 @@ class StartLevelWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 50,
+          bottom: 20,
           child:
           Container(
             padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
