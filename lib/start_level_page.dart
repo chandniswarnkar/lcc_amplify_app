@@ -381,9 +381,9 @@ class StartLevelWidget extends StatelessWidget {
           bottom: 20,
           child:
           Container(
-            padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
-            // margin: const EdgeInsets.symmetric(horizontal: 100,  vertical: 10),
-            margin: const EdgeInsets.only(left: 70),
+            margin: const EdgeInsets.symmetric(horizontal: 35),
+
+            width: 300,
             alignment: Alignment.center,
             decoration: ShapeDecoration(
               color:   Colors.black,
@@ -393,10 +393,15 @@ class StartLevelWidget extends StatelessWidget {
             ),
             child: Row(
 
-              // mainAxisSize: MainAxisSize.min,
+               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Container(
+                   alignment: Alignment.center,
+                  height: 75,
+                   width: 300,
+                  child:
                 TextButton(
 
                   onPressed: () {
@@ -418,6 +423,7 @@ class StartLevelWidget extends StatelessWidget {
                   ),
                   ),
                 ),
+    ),
               ],
             ),
           ),

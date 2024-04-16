@@ -48,6 +48,7 @@ class RightAnswerComponent extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
+                                  alignment: Alignment.center,
                                   width: 200,
                                   height: 200,
                                   margin: const EdgeInsets.all(20),
@@ -59,7 +60,7 @@ class RightAnswerComponent extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-
+                                  alignment: Alignment.center,
                                   child: Text(
                                     successText,
                                     maxLines: 3,
@@ -78,8 +79,11 @@ class RightAnswerComponent extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 120),
-                            padding: const EdgeInsets.symmetric(vertical: 5 , horizontal: 40),
+                            alignment: Alignment.center,
+                            width: 100,
+                            height: 50,
+                             margin: const EdgeInsets.symmetric(horizontal: 80),
+                            // padding: const EdgeInsets.symmetric(vertical: 5 , horizontal: 20),
                             decoration: ShapeDecoration(
                               color: Colors.black,
                               shape: RoundedRectangleBorder(
