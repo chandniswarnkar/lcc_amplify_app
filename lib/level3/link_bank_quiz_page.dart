@@ -309,10 +309,10 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                               builder: (BuildContext context) {
                                                 return  Container(
                                                     width: double.infinity,
-                                                    height:350,
+                                                    height:420,
                                                     color: Colors.transparent,
                                                     child: _hintPanelVisible ? Container(
-                                                      height: 350,
+                                                      height: 420,
                                                       child: WrongAnswerComponent( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
                                                         setState(() {
                                                           _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
@@ -327,7 +327,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                                     )
 
                                                     : Container(
-                                                      height: 350,
+                                                      height: 420,
                                                       child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
                                                         setState(() {
                                                           _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
@@ -421,16 +421,16 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
   Widget bottomBarWithHintPanel(BuildContext context) {
     return   Container(
-      height: 70,
+      height: 120,
       color: Colors.white,
       child:
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 60,
-            height: 60,
-            margin: const EdgeInsets.only(left: 20),
+            width: 75,
+            height: 75,
+            margin: const EdgeInsets.all(20),
             child:
             Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
@@ -485,7 +485,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
       builder: (BuildContext context) {
         return  Container(
           width: double.infinity,
-          height:350,
+          height:400,
           color: Colors.transparent,
           child: HintComponent(hintText: _hintText, onPressed: () {
             setState(() {
@@ -603,7 +603,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
           builder: (BuildContext context) {
             return  Container(
                 width: double.infinity,
-                height:350,
+                height:420,
                 color: Colors.transparent,
                 child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
 

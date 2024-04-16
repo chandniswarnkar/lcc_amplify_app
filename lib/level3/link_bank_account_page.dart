@@ -30,7 +30,7 @@ class LinkBankAccountState extends State<LinkBankAccountPage> {
       builder: (BuildContext context) {
         return  Container(
             width: double.infinity,
-            height:350,
+            height:420,
             color: Colors.transparent,
             child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => LinkBankQuizPage()));

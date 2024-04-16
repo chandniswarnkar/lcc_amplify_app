@@ -200,7 +200,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             child:
             Row(
                 children: [ Container(
-                  height: 380,
+                  height: 300,
                   width:MediaQuery
                       .of(context)
                       .size
@@ -282,8 +282,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 60,
-            height: 80,
+            width: 80,
+            height: 100,
             margin: const EdgeInsets.only(left: 20),
             child:
             Image(image: AssetImage('assets/images/OWL_Default.gif')),
@@ -298,7 +298,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               color: Colors.white,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(26),
+                borderRadius: BorderRadius.circular(30),
               ),
             ),
             child: Row(
@@ -338,8 +338,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       enableDrag: false,
       builder: (BuildContext context) {
         return Container(
-          height: 350,
-          width: double.infinity,
+          height: 400,
+          width: MediaQuery.of(context).size.width,
           child: HintComponent(hintText: isQuestionOneDone
               ? 'The CVV is a three digit number printed on the back of the card'
               : 'The Expiry date is a four-digit number printed on the front of the card.',
@@ -363,7 +363,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       builder: (BuildContext context) {
         return Container(
             width: double.infinity,
-            height: 350,
+            height: 420,
             color: Colors.transparent,
             child: RightAnswerComponent(
                 successText: "You earned \n 5 coins", onPressed: ()
@@ -415,7 +415,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       builder: (BuildContext context) {
         return Container(
             width: double.infinity,
-            height: 350,
+            height: 420,
             color: Colors.transparent,
             child: WrongAnswerComponent(
                 errorText: 'Oops! \nWrong Answer',

@@ -17,7 +17,7 @@ class CardQuestionComponent extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 300,
+          height: 260,
          // width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: ShapeDecoration(

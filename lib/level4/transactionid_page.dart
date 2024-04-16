@@ -225,7 +225,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                 child: Row(children: [
                   Expanded(child:
                   Container(
-                    height: 330,
+                    height: 420,
                     child: RightAnswerComponent(
                       successText: 'You earned \n5 Coins', onPressed: () {
                       Navigator.push(
@@ -263,7 +263,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
       enableDrag: false,
       builder: (BuildContext context) {
         return Container(
-          height: 350,
+          height: 420,
           child: RightAnswerComponent(successText: 'You earned \n5 Coins',onPressed: () {
             Navigator.push(
                 context,

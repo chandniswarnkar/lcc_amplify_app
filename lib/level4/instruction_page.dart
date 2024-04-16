@@ -382,7 +382,7 @@ class _InstructionPageState extends State<InstructionPage> {
                                        builder: (context) { return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
 
                                       return Container(
-                                      height: 350,
+                                      height: 420,
                                       width: double.infinity,
                                       child: WrongAnswerComponent( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
                                       setState(() {
@@ -493,7 +493,7 @@ class _InstructionPageState extends State<InstructionPage> {
                           builder: (BuildContext context) {
                             return  Container(
                                 width: double.infinity,
-                                height:350,
+                                height:420,
                                 color: Colors.transparent,
                                 child: RightAnswerComponent(successText: "You earned \n 20 coins", onPressed: (){
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationCodePage()));
@@ -602,9 +602,9 @@ class _InstructionPageState extends State<InstructionPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 60,
-            height: 60,
-            margin: const EdgeInsets.only(left: 25),
+            width: 75,
+            height: 75,
+            margin: const EdgeInsets.all(20),
             child:
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
@@ -660,7 +660,7 @@ class _InstructionPageState extends State<InstructionPage> {
       builder: (BuildContext context) {
         return  Container(
           width: double.infinity,
-          height:350,
+          height:400,
           color: Colors.transparent,
           child: HintComponent(hintText: _hintText, onPressed: () {
             setState(() {
@@ -684,7 +684,7 @@ class _InstructionPageState extends State<InstructionPage> {
       child: Row(children: [
         Expanded(
             child: Container(
-          height: 320,
+          height: 420,
           child: WrongAnswerComponent(
             errorText: 'Oops\n Wrong Answer',
             onHintPressed: () {
@@ -705,11 +705,11 @@ class _InstructionPageState extends State<InstructionPage> {
 
   Widget bottomBarWithHintView(BuildContext context) {
     return Container(
-      height: 350,
+      height: 400,
       child: Row(children: [
         Expanded(
             child: Container(
-          height: 320,
+          height: 350,
           child: HintComponent(
             hintText: _hintText,
             onPressed: () {
@@ -732,7 +732,7 @@ class _InstructionPageState extends State<InstructionPage> {
 
   Widget bottomEarnedHint(BuildContext context) {
     return Container(
-      height: 330,
+      height: 420,
       child: RightAnswerComponent(
         successText: 'You earned \n25 Coins',
         onPressed: () {
