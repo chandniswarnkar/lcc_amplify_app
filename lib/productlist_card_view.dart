@@ -66,7 +66,7 @@ class ProductListCardViewItem extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+                margin: EdgeInsets.symmetric(horizontal: 18,vertical: 5),
                 width: double.infinity,
                 padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                 decoration: ShapeDecoration(
