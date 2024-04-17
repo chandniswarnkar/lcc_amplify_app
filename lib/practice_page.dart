@@ -36,15 +36,15 @@ class PracticeView extends StatelessWidget {
               SizedBox(height: 20),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 200,
+                height: 240,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/OWL_Practice.gif"),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ),
-               SizedBox(height: 20),
+               SizedBox(height: 15),
                Text(
                   'Practice',
                   textAlign: TextAlign.center,

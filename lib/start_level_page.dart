@@ -237,7 +237,7 @@ class StartLevelWidget extends StatelessWidget {
         width: double.infinity,
         height: 90,
         color: const Color(0xFF11442B),
-        padding:EdgeInsets.fromLTRB(30, 10, 30, 0),
+        padding:EdgeInsets.fromLTRB(30, 20, 30, 0),
         child: Row(
 
           children: [

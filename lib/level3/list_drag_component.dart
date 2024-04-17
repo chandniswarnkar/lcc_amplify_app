@@ -103,6 +103,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
                for (int i = 0; i < list.length; i++) {
                  if (list[i].name == cardMapData[i]) {
                    cardStatusMap[i] = true;
+
                    widget.methodFromParent?.call("Coin_update");
                  } else {
                    cardStatusMap[i] = false;
