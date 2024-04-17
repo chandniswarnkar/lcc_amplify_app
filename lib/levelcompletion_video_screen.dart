@@ -117,12 +117,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 if (_secondsElapsed >= 130) {
 
                   timer.cancel();
-                  // Navigator.of(context).push(
-                  //   CupertinoPageRoute(
-                  //     fullscreenDialog: true,
-                  //     builder: (context) =>  const StartLevel5Page(),
-                  //   ),
-                  // );
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel5Page(),
+                    ),
+                  );
 
                 }
               });
