@@ -606,7 +606,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                     child: Column(
                       children: [
                         Container(
-                          width: 170,
+                          width: MediaQuery.of(context).size.width/2.5,
                           margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
                           child: const Text(
                             'Expiry Date',
@@ -619,7 +619,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                           ),
                         ),
                         Container(
-                          width: 170,
+                          width: MediaQuery.of(context).size.width/2.5,
                           margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
                           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                           decoration: ShapeDecoration(
@@ -649,7 +649,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                     child: Column(
                       children: [
                         Container(
-                          width: 170,
+                          width: MediaQuery.of(context).size.width/2.5,
                           child: const Text(
                             'CVV',
                             style: TextStyle(
@@ -661,7 +661,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                           ),
                         ),
                         Container(
-                          width: 170,
+                          width: MediaQuery.of(context).size.width/2.5,
                           margin: const EdgeInsets.fromLTRB(0, 0, 30, 0),
                           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                           decoration: ShapeDecoration(
