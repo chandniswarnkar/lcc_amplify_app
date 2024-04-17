@@ -132,60 +132,60 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
 
       });
-    /*
-    _controller.addListener(() {
 
-      Duration duration = _controller.value.duration;
-      Duration position = _controller.value.position;
-
-     // if (_controller.value.position == _controller.value.duration)  {
-      if (!_controller.value.isPlaying &&_controller.value.isInitialized &&
-          (_controller.value.duration ==_controller.value.position)) {
-      print("video completed");
-
-
-        if (widget.levelComlpetionText == "Level 1 Completed" && _secondsElapsed == 110 ) {
-          addCurrentLevelToSF("Level_1");
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              fullscreenDialog: true,
-              builder: (context) =>  const StartLevel2Page(),
-            ),
-          );
-
-        } else if (widget.levelComlpetionText == "Level 2 Completed" && _secondsElapsed == 120) {
-          addCurrentLevelToSF("Level_2");
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              fullscreenDialog: true,
-              builder: (context) => const StartLevel3Page(),
-            ),
-          );
-        } else if (widget.levelComlpetionText == "Level 3 Completed" && _secondsElapsed == 150) {
-          addCurrentLevelToSF("Level_3");
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              fullscreenDialog: true,
-              builder: (context) => const StartLevel4Page(),
-            ),
-          );
-        } else if (widget.levelComlpetionText == "Level 4 Completed" && _secondsElapsed == 130) {
-
-          addCurrentLevelToSF("Level_0");
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              fullscreenDialog: true,
-              builder: (context) =>  const StartLevel5Page(),
-            ),
-          );
-        }
-
-
-     // Need to add the code to navigate to the next level
-        _controller.removeListener(() { });
-      }
-
-    });*/
+    // _controller.addListener(() {
+    //
+    //   Duration duration = _controller.value.duration;
+    //   Duration position = _controller.value.position;
+    //
+    //  // if (_controller.value.position == _controller.value.duration)  {
+    //   if (!_controller.value.isPlaying &&_controller.value.isInitialized &&
+    //       (_controller.value.duration ==_controller.value.position)) {
+    //   print("video completed");
+    //
+    //
+    //     if (widget.levelComlpetionText == "Level 1 Completed" && _secondsElapsed == 110 ) {
+    //       addCurrentLevelToSF("Level_1");
+    //       Navigator.of(context).push(
+    //         CupertinoPageRoute(
+    //           fullscreenDialog: true,
+    //           builder: (context) =>  const StartLevel2Page(),
+    //         ),
+    //       );
+    //
+    //     } else if (widget.levelComlpetionText == "Level 2 Completed" && _secondsElapsed == 120) {
+    //       addCurrentLevelToSF("Level_2");
+    //       Navigator.of(context).push(
+    //         CupertinoPageRoute(
+    //           fullscreenDialog: true,
+    //           builder: (context) => const StartLevel3Page(),
+    //         ),
+    //       );
+    //     } else if (widget.levelComlpetionText == "Level 3 Completed" && _secondsElapsed == 150) {
+    //       addCurrentLevelToSF("Level_3");
+    //       Navigator.of(context).push(
+    //         CupertinoPageRoute(
+    //           fullscreenDialog: true,
+    //           builder: (context) => const StartLevel4Page(),
+    //         ),
+    //       );
+    //     } else if (widget.levelComlpetionText == "Level 4 Completed" && _secondsElapsed == 130) {
+    //
+    //       addCurrentLevelToSF("Level_0");
+    //       Navigator.of(context).push(
+    //         CupertinoPageRoute(
+    //           fullscreenDialog: true,
+    //           builder: (context) =>  const StartLevel5Page(),
+    //         ),
+    //       );
+    //     }
+    //
+    //
+    //  // Need to add the code to navigate to the next level
+    //     _controller.removeListener(() { });
+    //   }
+    //
+    // });
 
 
   }
@@ -224,25 +224,24 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                   child: VideoPlayer(_controller),
                 ),
               ),
+              Positioned(
+                top: 30.0,
+                child: Container(
+                  child:  Text(widget.levelComlpetionText,
 
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Positioned(
-                    top: 10.0,
-                    child: Container(
-                      child:  Text(widget.levelComlpetionText,
-                    
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
                   const SizedBox(height: 550),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

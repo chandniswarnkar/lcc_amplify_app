@@ -71,6 +71,7 @@ Color backgroundColor = Color(0xFFE9EDF8);
                     child: Slider(
                       value: _currentSliderValue,
                       activeColor: Colors.green,
+                      inactiveColor: Color(0xFFE9ECED),
                       max: 100,
                       divisions: 5,
                       // label: _currentSliderValue.round().toString(),
