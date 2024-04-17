@@ -230,7 +230,7 @@ class StartLevel2Widget extends StatelessWidget {
           width: double.infinity,
           height: 90,
           color: const Color(0xFF11442B),
-          padding:EdgeInsets.fromLTRB(30, 10, 0, 0),
+          padding:EdgeInsets.fromLTRB(30, 10, 30, 0),
           child: Row(
 
             children: [
@@ -249,7 +249,6 @@ class StartLevel2Widget extends StatelessWidget {
                   child: Container(
                     width: 34.60,
                     height: 34.60,
-                    margin: const EdgeInsets.all(10),
                     decoration: const ShapeDecoration(
                       color: Colors.white,
                       shape: OvalBorder(),
@@ -334,7 +333,9 @@ class StartLevel2Widget extends StatelessWidget {
 
         ]
         ),
-        Stack( children:[
+        Stack(
+          alignment: Alignment.center,
+            children:[
           Container(
             height: MediaQuery.of(context).size.height - 325,
             child:
@@ -369,29 +370,18 @@ class StartLevel2Widget extends StatelessWidget {
           Positioned(
             bottom: 20,
             child:
-            Container(
-             // padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
-              // margin: const EdgeInsets.symmetric(horizontal: 100,  vertical: 10),
-             // margin: const EdgeInsets.only(left: 70),
-              width: 300,
-             margin: const EdgeInsets.symmetric(horizontal: 35),
-              alignment: Alignment.center,
-              decoration: ShapeDecoration(
-                color:   Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              child: Row(
 
-                // mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
                   Container(
                     alignment: Alignment.center,
                     height: 75,
-                    width: 300,child:
+                    width: 300,
+                    decoration: ShapeDecoration(
+                      color:   Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                    child:
                   TextButton(
 
                     onPressed: () {
@@ -414,9 +404,8 @@ class StartLevel2Widget extends StatelessWidget {
                     ),
                   ),
     ),
-                ],
-              ),
-            ),
+
+
           ),
 
 
