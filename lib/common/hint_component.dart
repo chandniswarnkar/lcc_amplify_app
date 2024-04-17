@@ -21,13 +21,13 @@ class HintComponent extends StatelessWidget {
         Column(
         children: [
         SizedBox(
-        width: double.infinity,
-          height: 350,
+        width: MediaQuery.of(context).size.width,
+          height: 400,
           child: Stack(
             children: [
                Container(
-                  width: double.infinity,
-                  height: 350,
+                  width: MediaQuery.of(context).size.width,
+                  height: 400,
                   decoration: ShapeDecoration(
                     color: Color(0xFF8FDDEE),
                     shape: RoundedRectangleBorder(
@@ -45,13 +45,13 @@ class HintComponent extends StatelessWidget {
                     children: [
                       Container(
                         width: double.infinity,
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 40),
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         //   padding
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          // crossAxisAlignment: CrossAxisAlignment.center,
+                         // mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               width: 150,
@@ -70,7 +70,7 @@ class HintComponent extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 color: Colors.black,
-                                fontSize: 16,
+                                fontSize: 20,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w500,
                                // height: 0.07,
@@ -81,7 +81,7 @@ class HintComponent extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Container(
-                        width: 80,
+                        width: 100,
 
                       // margin: const EdgeInsets.symmetric(horizontal: 20),
                       //   padding: const EdgeInsets.symmetric(vertical: 5),
@@ -102,7 +102,7 @@ class HintComponent extends StatelessWidget {
 
                               child:
                                 Text(
-                                "OK",
+                                "Ok",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,

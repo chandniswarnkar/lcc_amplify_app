@@ -58,7 +58,7 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
 
      //var currentBottomView =  widget.isLevelTwoPresented ? BottomView.questionTwoPresented : (isLevelOneCompleted ? BottomView.questionOneDone : BottomView.questionOnePresented)
     return Container(
-        height: 350,
+        height: 280,
         color: Colors.white,
         child:
         Column(
@@ -67,10 +67,10 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                 children: [
                   Expanded(child:
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    margin: EdgeInsets.symmetric(horizontal: 25),
                     color: Colors.white,
                     child: Container(
-                        height: 300,
+                        height: 260,
                         child: widget.isLevelOneCompleted  ?
                             widget.isLevelTwoPresented ?
                             CardQuestionComponent( questionNumber: '02/03', questionDescription: 'Move around your card and find CVV number',
@@ -80,8 +80,8 @@ class _KYCBottomPageState extends State<KYCBottomPage> {
                           bgColor: Color(0xFFD2EAFF), showCompletedStatus: true,
                           key:UniqueKey(),),
                                 Container(
-                                  width: 150,
-                                  height: 150,
+                                  width: 200,
+                                  height: 200,
                                   margin: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
                                     image: DecorationImage(

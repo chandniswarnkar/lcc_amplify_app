@@ -311,7 +311,7 @@ class StartLevelWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 10,),
                 Container(
-                  height: 50,
+                  height: 60,
                   padding: EdgeInsets.only(left: 10),
                   alignment: Alignment.topLeft,
                   child: const Text(
@@ -325,7 +325,7 @@ class StartLevelWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+               // SizedBox(height: 10,),
                 Container( padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
                   child: const Text(
                     'Use various payment methods like credit/debit cards, direct bank transfers, and mobile accounts for online purchases.',
@@ -378,12 +378,12 @@ class StartLevelWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 50,
+          bottom: 20,
           child:
           Container(
-            padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
-            // margin: const EdgeInsets.symmetric(horizontal: 100,  vertical: 10),
-            margin: const EdgeInsets.only(left: 70),
+            margin: const EdgeInsets.symmetric(horizontal: 35),
+
+            width: 300,
             alignment: Alignment.center,
             decoration: ShapeDecoration(
               color:   Colors.black,
@@ -393,10 +393,15 @@ class StartLevelWidget extends StatelessWidget {
             ),
             child: Row(
 
-              // mainAxisSize: MainAxisSize.min,
+               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Container(
+                   alignment: Alignment.center,
+                  height: 75,
+                   width: 300,
+                  child:
                 TextButton(
 
                   onPressed: () {
@@ -418,6 +423,7 @@ class StartLevelWidget extends StatelessWidget {
                   ),
                   ),
                 ),
+    ),
               ],
             ),
           ),

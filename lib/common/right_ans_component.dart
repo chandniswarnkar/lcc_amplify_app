@@ -21,12 +21,12 @@ class RightAnswerComponent extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 350,
+                height: 420,
                 child: Stack(
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 350,
+                      height: 420,
                       decoration: ShapeDecoration(
                         color: Color(0xFF70E7A7),
                         shape: RoundedRectangleBorder(
@@ -48,8 +48,9 @@ class RightAnswerComponent extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 150,
-                                  height: 150,
+                                  alignment: Alignment.center,
+                                  width: 200,
+                                  height: 200,
                                   margin: const EdgeInsets.all(20),
                                   decoration: const BoxDecoration(
                                     image: DecorationImage(
@@ -59,16 +60,16 @@ class RightAnswerComponent extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-
+                                  alignment: Alignment.center,
                                   child: Text(
                                     successText,
                                     maxLines: 3,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 16,
+                                      fontSize: 24,
                                       fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       // height: 0.07,
                                     ),
                                   ),
@@ -76,10 +77,13 @@ class RightAnswerComponent extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 28),
+                          const SizedBox(height: 20),
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 30),
-                            padding: const EdgeInsets.symmetric(vertical: 5),
+                            alignment: Alignment.center,
+                            width: 100,
+                            height: 50,
+                             margin: const EdgeInsets.symmetric(horizontal: 80),
+                            // padding: const EdgeInsets.symmetric(vertical: 5 , horizontal: 20),
                             decoration: ShapeDecoration(
                               color: Colors.black,
                               shape: RoundedRectangleBorder(
@@ -90,8 +94,8 @@ class RightAnswerComponent extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  width: 150,
+                                Container(
+                                  width: 80,
                                   height: 50,
                                   child:
                                 TextButton(
@@ -99,7 +103,7 @@ class RightAnswerComponent extends StatelessWidget {
                                     "Next",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 20,
+                                      fontSize: 24,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w600,
 

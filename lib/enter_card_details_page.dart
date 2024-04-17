@@ -219,7 +219,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       enableDrag: false,
       builder: (BuildContext context) {
         return  Container(
-          height: 350,
+          height: 400,
           width: double.infinity,
           child: HintComponent(hintText: hintText, onPressed: () {
             setState(() {
@@ -243,7 +243,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       builder: (context) { return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
 
         return SizedBox(
-          height: 350,
+          height: 420,
           child: (cardHolderName == '')? WrongAnswerComponentRetryBtn(errorText: 'Oops\n Wrong Answer', onRetryPressed: () {
             setState(() {
               showWrongAnswerView = false;

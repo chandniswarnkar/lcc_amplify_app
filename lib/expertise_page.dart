@@ -312,9 +312,9 @@ class _ExpertisePageState extends State<ExpertisePage> {
                       },
                       child: const Text('Continue', style:TextStyle(
                         color: Colors.white ,
-                        fontSize: 18,
+                        fontSize: 20,
                         fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         // height: 0.07,
                       ),
                       ),
