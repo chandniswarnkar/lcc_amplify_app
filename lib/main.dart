@@ -87,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     currentLevelValue = prefs.getString('currentLevel') ?? "Level_0";
+
     print("currentLevelValue: $currentLevelValue");
 
   }

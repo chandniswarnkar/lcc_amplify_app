@@ -39,22 +39,100 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       ..initialize().then((_) {
         _controller.play();
         // Ensure the first frame is shown after the video is initialized
-        setState(() {
 
-          // Start the timer when the video starts playing
-          _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
-            setState(() {
-              _secondsElapsed++;
-              if (_secondsElapsed >= 100) {
+          if (widget.levelComlpetionText == "Level 1 Completed") {
+            _secondsElapsed = 10;
+            // Start the timer when the video starts playing
+            _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
+              setState(() {
 
-                timer.cancel();
+                _secondsElapsed++;
+                if (_secondsElapsed >= 110) {
 
-              }
+                  timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel2Page(),
+                    ),
+                  );
+
+
+                }
+              });
+
             });
+          }
+          else if (widget.levelComlpetionText == "Level 2 Completed") {
+            _secondsElapsed = 20;
+            // Start the timer when the video starts playing
+            _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
+              setState(() {
 
-          });
-        });
+                _secondsElapsed++;
+                if (_secondsElapsed >= 120) {
+
+                  timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel3Page(),
+                    ),
+                  );
+
+                }
+              });
+
+            });
+          }
+          else if (widget.levelComlpetionText == "Level 3 Completed") {
+            _secondsElapsed = 50;
+            // Start the timer when the video starts playing
+            _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
+              setState(() {
+
+                _secondsElapsed++;
+                if (_secondsElapsed >= 150) {
+
+                  timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel4Page(),
+                    ),
+                  );
+
+                }
+              });
+
+            });
+          }
+          else if (widget.levelComlpetionText == "Level 4 Completed") {
+            _secondsElapsed = 30;
+            // Start the timer when the video starts playing
+            _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
+              setState(() {
+
+                _secondsElapsed++;
+                if (_secondsElapsed >= 130) {
+
+                  timer.cancel();
+                  // Navigator.of(context).push(
+                  //   CupertinoPageRoute(
+                  //     fullscreenDialog: true,
+                  //     builder: (context) =>  const StartLevel5Page(),
+                  //   ),
+                  // );
+
+                }
+              });
+
+            });
+          }
+
+
       });
+    /*
     _controller.addListener(() {
 
       Duration duration = _controller.value.duration;
@@ -65,7 +143,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           (_controller.value.duration ==_controller.value.position)) {
       print("video completed");
 
-        if (widget.levelComlpetionText == "Level 1 Completed") {
+
+        if (widget.levelComlpetionText == "Level 1 Completed" && _secondsElapsed == 110 ) {
           addCurrentLevelToSF("Level_1");
           Navigator.of(context).push(
             CupertinoPageRoute(
@@ -73,23 +152,25 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
               builder: (context) =>  const StartLevel2Page(),
             ),
           );
-        } else if (widget.levelComlpetionText == "Level 2 Completed") {
+
+        } else if (widget.levelComlpetionText == "Level 2 Completed" && _secondsElapsed == 120) {
           addCurrentLevelToSF("Level_2");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
-              builder: (context) =>  const StartLevel3Page(),
+              builder: (context) => const StartLevel3Page(),
             ),
           );
-        }else if (widget.levelComlpetionText == "Level 3 Completed") {
+        } else if (widget.levelComlpetionText == "Level 3 Completed" && _secondsElapsed == 150) {
           addCurrentLevelToSF("Level_3");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
-              builder: (context) =>  const StartLevel4Page(),
+              builder: (context) => const StartLevel4Page(),
             ),
           );
-        }else if (widget.levelComlpetionText == "Level 4 Completed") {
+        } else if (widget.levelComlpetionText == "Level 4 Completed" && _secondsElapsed == 130) {
+
           addCurrentLevelToSF("Level_0");
           Navigator.of(context).push(
             CupertinoPageRoute(
@@ -104,7 +185,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         _controller.removeListener(() { });
       }
 
-    });
+    });*/
 
 
   }
@@ -138,7 +219,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             children: [
               Container(
                 child:  AspectRatio(
-                  aspectRatio: 1 / 2.05, //_controller.value.aspectRatio,
+                  aspectRatio: 1 / 2.20, //_controller.value.aspectRatio,
                   // Use the VideoPlayer widget to display the video.
                   child: VideoPlayer(_controller),
                 ),
@@ -147,16 +228,18 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                    child:  Text(widget.levelComlpetionText,
-
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,
+                  Positioned(
+                    top: 10.0,
+                    child: Container(
+                      child:  Text(widget.levelComlpetionText,
+                    
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),

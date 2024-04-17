@@ -67,17 +67,21 @@ Color backgroundColor = Color(0xFFE9EDF8);
                   ),
                 ),
                 Expanded(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    activeColor: Colors.green,
-                    max: 100,
-                    divisions: 5,
-                    // label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
+                  child: SliderTheme(
+                    child: Slider(
+                      value: _currentSliderValue,
+                      activeColor: Colors.green,
+                      max: 100,
+                      divisions: 5,
+                      // label: _currentSliderValue.round().toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          _currentSliderValue = value;
+                        });
+                      },
+                    ),
+                    data: SliderTheme.of(context).copyWith(
+                        thumbShape: SliderComponentShape.noThumb),
                   ),
                 ),
                 GestureDetector(

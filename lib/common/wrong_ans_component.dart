@@ -31,7 +31,10 @@ class WrongAnswerComponent extends StatelessWidget {
                       decoration: ShapeDecoration(
                         color: Color(0xFFFBD4CF),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
+                            borderRadius:BorderRadius.only(
+                              topRight: Radius.circular(16),
+                              topLeft: Radius.circular(16),
+                            ),
                         ),
                       ),
                     ),
