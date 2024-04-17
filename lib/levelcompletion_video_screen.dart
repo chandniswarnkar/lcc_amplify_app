@@ -9,6 +9,8 @@ import 'package:video_player/video_player.dart';
 import 'level3/start_level3_page.dart';
 import 'level4/start_level4_page.dart';
 import 'level4/start_level5_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class VideoPlayerScreen extends StatefulWidget {
   const VideoPlayerScreen({super.key,required this.levelComlpetionText});
@@ -23,11 +25,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late Future<void> _initializeVideoPlayerFuture;
   late Timer _timer;
   int _secondsElapsed = 0;
+  late SharedPreferences prefs;
 
 
   @override
   void initState() {
     super.initState();
+// Initialize shared preferences
+
+    addCurrentLevelToSF("Level_0");
 
     _controller = VideoPlayerController.asset('assets/images/Level_Completion_blank.mp4')
       ..initialize().then((_) {
@@ -50,6 +56,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         });
       });
     _controller.addListener(() {
+
       Duration duration = _controller.value.duration;
       Duration position = _controller.value.position;
 
@@ -59,6 +66,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       print("video completed");
 
         if (widget.levelComlpetionText == "Level 1 Completed") {
+          addCurrentLevelToSF("Level_1");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
@@ -66,6 +74,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         } else if (widget.levelComlpetionText == "Level 2 Completed") {
+          addCurrentLevelToSF("Level_2");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
@@ -73,6 +82,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         }else if (widget.levelComlpetionText == "Level 3 Completed") {
+          addCurrentLevelToSF("Level_3");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
@@ -80,6 +90,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         }else if (widget.levelComlpetionText == "Level 4 Completed") {
+          addCurrentLevelToSF("Level_0");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
@@ -96,6 +107,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     });
 
 
+  }
+
+  addCurrentLevelToSF(String stringValue ) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(stringValue, "currentLevel");
+    print(prefs.getString('currentLevel'));
   }
 
   @override

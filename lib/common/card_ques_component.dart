@@ -88,7 +88,7 @@ class CardQuestionComponent extends StatelessWidget {
                     const SizedBox(height: 30),
                     SizedBox(
                       //  width: 279,
-                      height: 48,
+                    //  height: 48,
                       child: showCompletedStatus == false ? const Text(
                         'Use your finger to drag and explore your card around.',
                         maxLines: 2,
