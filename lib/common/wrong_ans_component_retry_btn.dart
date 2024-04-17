@@ -22,12 +22,13 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 350,
+                height: 420,
                 child: Stack(
                   children: [
+
                     Container(
                       width: double.infinity,
-                      height: 350,
+                      height: 420,
                       decoration: ShapeDecoration(
                         color: Color(0xFFFBD4CF),
                         shape: RoundedRectangleBorder(
@@ -50,9 +51,10 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 150,
-                                  height: 150,
-                                  margin: const EdgeInsets.all(20),
+                                  width: 160,
+                                  height: 180,
+                                  padding: const EdgeInsets.all(10),
+                                  margin: const EdgeInsets.only(top: 20),
                                   decoration: const BoxDecoration(
                                     image: DecorationImage(
                                       image: AssetImage("assets/images/OWL_Oops.gif",),
@@ -68,9 +70,9 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 20,
+                                      fontSize: 24,
                                       fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       // height: 0.07,
                                     ),
                                   ),
@@ -78,13 +80,15 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 30),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
 
-                              Container( decoration: ShapeDecoration(
+                              Container(
+                                width: 80 ,
+                                decoration: ShapeDecoration(
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(width: 1),
                                   borderRadius: BorderRadius.circular(26),
@@ -97,9 +101,9 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                                     "Retry",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 14,
+                                      fontSize: 16,
                                       fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w500,
 
                                     ),
                                   ),

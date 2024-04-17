@@ -135,8 +135,8 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
             children: [
               Container(
                //
-                width: 350,
-                height: 600,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.7,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Color(0xFFD2EAFF),
@@ -151,20 +151,22 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                       alignment: Alignment.center,
                       child: Stack(
                         children: [
-                          Opacity(
-                            opacity: 0.44,
-                            child: Container(
-                              width: 120,
-                              height: 49,
-                              decoration: ShapeDecoration(
-                                color: Color(0xFFE9ECED),
-                                shape: OvalBorder(),
-                              ),
-                            ),
-                          ),
+                          // Opacity(
+                          //   opacity: 0.1,
+                          //   child: Container(
+                          //     width: 180,
+                          //     height: 50,
+                          //     margin: const EdgeInsets.only(top: 70),
+                          //     decoration: ShapeDecoration(
+                          //       color: Colors.grey,
+                          //       shape: OvalBorder(),
+                          //     ),
+                          //   ),
+                          // ),
                           Container(
                             width: 100,
-                              height: 120,
+                              height: 100,
+                           // margin: const EdgeInsets.only( left: 30),
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image:
@@ -317,36 +319,42 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
             children: [
               Container(
                 //
-                width: 350,
-                height: 600,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.7,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Color(0xFFFBD4CF),
                 ),
                 child: Column(
-                  // mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                   mainAxisSize: MainAxisSize.min,
+                // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-
                       alignment: Alignment.center,
                       child: Stack(
                         children: [
-                          Opacity(
-                            opacity: 0.44,
-                            child: Container(
-                              width: 120,
-                              height: 49,
-                              decoration: ShapeDecoration(
-                                color: Color(0xFFE9ECED),
-                                shape: OvalBorder(),
-                              ),
-                            ),
-                          ),
+
+                          // Opacity(
+                          //   opacity: 0.1,
+                          //   child: Container(
+                          //     width: 180,
+                          //     height: 50,
+                          //     alignment: Alignment.center,
+                          //     margin: const EdgeInsets.only(top: 110),
+                          //     decoration: ShapeDecoration(
+                          //       color: Colors.grey,
+                          //       shape: OvalBorder(),
+                          //     ),
+                          //   ),
+                         // ),
+
                           Container(
-                            width: 100,
+
+                            width: 120,
                             height: 120,
+                            alignment: Alignment.center,
+                           margin: const EdgeInsets.only(top: 40,),
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image:

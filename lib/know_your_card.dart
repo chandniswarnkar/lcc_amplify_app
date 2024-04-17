@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:lcc_flutter_app/common/hint_component.dart';
 import 'package:lcc_flutter_app/common/wrong_ans_component.dart';
 import 'package:lcc_flutter_app/common/wrong_ans_component_retry_btn.dart';
+import 'package:video_player/video_player.dart';
 import 'dart:math' as math;
 import 'common/card_flip_component.dart';
 import 'common/right_ans_component.dart';
@@ -41,7 +42,28 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
   bool isQuestionTwoDone = false;
   String coinText = "0";
   bool isNextButtonPressed = false;
+  late VideoPlayerController _controller;
 
+  @override
+  void initState() {
+    // _controller = VideoPlayerController.asset('assets/images/Blue_Card_reveal.mp4')..initialize().then((_) {
+    //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+    //   setState(() {});
+    // });;
+
+    super.initState();
+    // _controller = VideoPlayerController.asset('assets/images/Blue_Card_reveal.mp4')
+    //   ..initialize().then((_) {
+    //     // _controller.play();
+    //     // _controller.setLooping(false);
+    //     // Ensure the first frame is shown after the video is initialized
+    //     setState(() {
+    //
+    //       // Start the timer when the video starts playing
+    //
+    //     });
+    //   });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +177,9 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       .of(context)
                       .size
                       .width,
-                  child: FlipCardComponent(isTappingRequired: true,
+                  child:
+                  //isNextButtonPressed ?
+                  FlipCardComponent(isTappingRequired: true,
                     frontWidget: FrontTappableWidget(dateValueSetter: () {
                       if (isNextButtonPressed) {
                         print("hi there");
@@ -192,7 +216,14 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                       }
                     },
                     ),
-                  ),
+                  )
+                    //   : Container(
+                    // height: 290,
+                    // child: AspectRatio(
+                    //   aspectRatio: 1 / 2.05, //_controller.value.aspectRatio,
+                    //   // Use the VideoPlayer widget to display the video.
+                    //   child: VideoPlayer(_controller),
+                    // ),)
                 )
               ]
           ),
@@ -200,7 +231,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             child:
             Row(
                 children: [ Container(
-                  height: 380,
+                  height: 300,
                   width:MediaQuery
                       .of(context)
                       .size
@@ -282,8 +313,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 60,
-            height: 80,
+            width: 80,
+            height: 100,
             margin: const EdgeInsets.only(left: 20),
             child:
             Image(image: AssetImage('assets/images/OWL_Default.gif')),
@@ -298,7 +329,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
               color: Colors.white,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(26),
+                borderRadius: BorderRadius.circular(30),
               ),
             ),
             child: Row(
@@ -338,8 +369,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       enableDrag: false,
       builder: (BuildContext context) {
         return Container(
-          height: 350,
-          width: double.infinity,
+          height: 400,
+          width: MediaQuery.of(context).size.width,
           child: HintComponent(hintText: isQuestionOneDone
               ? 'The CVV is a three digit number printed on the back of the card'
               : 'The Expiry date is a four-digit number printed on the front of the card.',
@@ -363,7 +394,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       builder: (BuildContext context) {
         return Container(
             width: double.infinity,
-            height: 350,
+            height: 420,
             color: Colors.transparent,
             child: RightAnswerComponent(
                 successText: "You earned \n 5 coins", onPressed: ()
@@ -415,7 +446,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
       builder: (BuildContext context) {
         return Container(
             width: double.infinity,
-            height: 350,
+            height: 420,
             color: Colors.transparent,
             child: WrongAnswerComponent(
                 errorText: 'Oops! \nWrong Answer',
