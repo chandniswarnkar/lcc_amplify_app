@@ -237,7 +237,7 @@ class StartLevelWidget extends StatelessWidget {
         width: double.infinity,
         height: 90,
         color: const Color(0xFF11442B),
-        padding:EdgeInsets.fromLTRB(30, 10, 0, 0),
+        padding:EdgeInsets.fromLTRB(30, 10, 30, 0),
         child: Row(
 
           children: [
@@ -256,7 +256,6 @@ class StartLevelWidget extends StatelessWidget {
                 child: Container(
                   width: 34.60,
                   height: 34.60,
-                  margin: const EdgeInsets.all(10),
                   decoration: const ShapeDecoration(
                     color: Colors.white,
                     shape: OvalBorder(),
@@ -346,7 +345,9 @@ class StartLevelWidget extends StatelessWidget {
 
       ]
       ),
-      Stack( children:[
+      Stack(
+        alignment: Alignment.center,
+          children:[
         Container(
           height: MediaQuery.of(context).size.height - 385,
           child:
@@ -379,28 +380,17 @@ class StartLevelWidget extends StatelessWidget {
         ),
         Positioned(
           bottom: 20,
-          child:
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 35),
-
-            width: 300,
-            alignment: Alignment.center,
-            decoration: ShapeDecoration(
-              color:   Colors.black,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50),
-              ),
-            ),
-            child: Row(
-
-               mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+            child:
                 Container(
                    alignment: Alignment.center,
                   height: 75,
                    width: 300,
+                  decoration: ShapeDecoration(
+                    color:   Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
                   child:
                 TextButton(
 
@@ -424,9 +414,9 @@ class StartLevelWidget extends StatelessWidget {
                   ),
                 ),
     ),
-              ],
-            ),
-          ),
+
+
+
         ),
         ///
       ]

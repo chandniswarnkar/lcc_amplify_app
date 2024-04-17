@@ -218,7 +218,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     child:
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30,  vertical: 8),
-                      height: 115,
+                      height: 117,
                       padding: const EdgeInsets.all(15),
                       decoration: ShapeDecoration(
                         color: isRowThreeTapped ? Colors.black : Color(0xFFCAE1D6) ,
