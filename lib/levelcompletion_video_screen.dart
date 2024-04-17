@@ -44,6 +44,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 if (_secondsElapsed >= 110) {
 
                   timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel2Page(),
+                    ),
+                  );
+
 
                 }
               });
@@ -60,6 +67,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 if (_secondsElapsed >= 120) {
 
                   timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel3Page(),
+                    ),
+                  );
 
                 }
               });
@@ -76,6 +89,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 if (_secondsElapsed >= 150) {
 
                   timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel4Page(),
+                    ),
+                  );
 
                 }
               });
@@ -92,6 +111,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 if (_secondsElapsed >= 130) {
 
                   timer.cancel();
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) =>  const StartLevel5Page(),
+                    ),
+                  );
 
                 }
               });
@@ -110,28 +135,28 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           (_controller.value.duration ==_controller.value.position)) {
       print("video completed");
 
-        if (widget.levelComlpetionText == "Level 1 Completed") {
+        if (widget.levelComlpetionText == "Level 1 Completed" && _secondsElapsed == 110 ) {
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
               builder: (context) =>  const StartLevel2Page(),
             ),
           );
-        } else if (widget.levelComlpetionText == "Level 2 Completed") {
+        } else if (widget.levelComlpetionText == "Level 2 Completed" && _secondsElapsed == 120) {
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
               builder: (context) =>  const StartLevel3Page(),
             ),
           );
-        }else if (widget.levelComlpetionText == "Level 3 Completed") {
+        }else if (widget.levelComlpetionText == "Level 3 Completed" && _secondsElapsed == 150) {
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
               builder: (context) =>  const StartLevel4Page(),
             ),
           );
-        }else if (widget.levelComlpetionText == "Level 4 Completed") {
+        }else if (widget.levelComlpetionText == "Level 4 Completed" && _secondsElapsed == 130) {
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
