@@ -30,7 +30,10 @@ class RightAnswerComponent extends StatelessWidget {
                       decoration: ShapeDecoration(
                         color: Color(0xFF70E7A7),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius:BorderRadius.only(
+                        topRight: Radius.circular(16),
+                        topLeft: Radius.circular(16),
+                      ),
                         ),
                       ),
                     ),

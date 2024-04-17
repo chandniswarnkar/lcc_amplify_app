@@ -186,7 +186,6 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                   FlipCardComponent(isTappingRequired: true,
                     frontWidget: FrontTappableWidget(dateValueSetter: () {
                       if (isNextButtonPressed) {
-                        print("hi there");
 
                           if (isQuestionOneDone) {
                             showWrongAnswerBottomView();
@@ -414,14 +413,14 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             } else {
               Timer(Duration(seconds: 1), ()
               {
-                print("Yeah, this line is printed after 3 seconds");
+
                 setState(() {
                   isQuestionOneDone = true;
                   isQuestionTwoPresented = false;
 
                   Timer(Duration(seconds: 2), ()
                   {
-                    print("Yeah, this line is printed after 3 seconds");
+
                     setState(() {
                       isQuestionTwoPresented = true;
                     });

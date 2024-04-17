@@ -2,16 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:lcc_flutter_app/category_page.dart';
 import 'package:lcc_flutter_app/learning_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:lcc_flutter_app/level3/start_level3_page.dart';
+import 'package:lcc_flutter_app/level4/start_level4_page.dart';
 import 'package:lcc_flutter_app/practice_page.dart';
 import 'package:lcc_flutter_app/rewards_page.dart';
+import 'package:lcc_flutter_app/start_level2_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 void main() {
   runApp(const LCCHomePage());
+
 }
+
 
 class LCCHomePage extends StatelessWidget {
   const LCCHomePage({super.key});
+
 
   // This widget is the root of your application.
   @override
@@ -39,6 +46,10 @@ class LCCHomePage extends StatelessWidget {
 
 
   }
+
+
+
+
 }
 
 class MyHomePage extends StatefulWidget {
@@ -60,11 +71,39 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+ String currentLevelValue = "Level_0";
   @override
   void initState() {
     super.initState();
     hideScreen();
+    WidgetsFlutterBinding.ensureInitialized();
+    getCurrentLevel();
+
+  }
+
+
+  getCurrentLevel() async {
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    currentLevelValue = prefs.getString('currentLevel') ?? "Level_0";
+
+    print("currentLevelValue: $currentLevelValue");
+
+  }
+  Widget getCurrentScreen() {
+    switch (currentLevelValue) {
+      case "Level_0":
+        return _widgetOptions [_selectedIndex];
+      case "Level_1":
+        return StartLevel2Page();
+      case "Level_2":
+        return StartLevel3Page();
+      case "Level_3":
+        return StartLevel4Page();
+      default:
+        return _widgetOptions [_selectedIndex];
+    }
   }
 
   ///hide your splash screen
@@ -84,12 +123,11 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
 
-
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body:_widgetOptions [_selectedIndex],
+      body: getCurrentScreen(),
 
       bottomNavigationBar:Row(
         children: [
