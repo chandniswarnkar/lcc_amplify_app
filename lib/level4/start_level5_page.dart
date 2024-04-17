@@ -227,7 +227,7 @@ class StartLevel5Widget extends StatelessWidget {
           width: double.infinity,
           height: 90,
           color: const Color(0xFF11442B),
-          padding:EdgeInsets.fromLTRB(30, 10, 0, 0),
+          padding:EdgeInsets.fromLTRB(30, 10, 30, 0),
           child: Row(
 
             children: [
@@ -246,7 +246,6 @@ class StartLevel5Widget extends StatelessWidget {
                   child: Container(
                     width: 34.60,
                     height: 34.60,
-                    margin: const EdgeInsets.all(10),
                     decoration: const ShapeDecoration(
                       color: Colors.white,
                       shape: OvalBorder(),
