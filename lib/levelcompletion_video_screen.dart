@@ -33,7 +33,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.initState();
 // Initialize shared preferences
 
-    addCurrentLevelToSF("Level_0");
+   saveValue();
+
 
     _controller = VideoPlayerController.asset('assets/images/Level_Completion_blank.mp4')
       ..initialize().then((_) {
@@ -41,6 +42,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         // Ensure the first frame is shown after the video is initialized
 
           if (widget.levelComlpetionText == "Level 1 Completed") {
+            addCurrentLevelToSF("Level_1");
             _secondsElapsed = 10;
             // Start the timer when the video starts playing
             _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
@@ -64,6 +66,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             });
           }
           else if (widget.levelComlpetionText == "Level 2 Completed") {
+            addCurrentLevelToSF("Level_2");
             _secondsElapsed = 20;
             // Start the timer when the video starts playing
             _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
@@ -86,6 +89,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             });
           }
           else if (widget.levelComlpetionText == "Level 3 Completed") {
+            addCurrentLevelToSF("Level_3");
             _secondsElapsed = 50;
             // Start the timer when the video starts playing
             _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
@@ -108,6 +112,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             });
           }
           else if (widget.levelComlpetionText == "Level 4 Completed") {
+            addCurrentLevelToSF("Level_0");
             _secondsElapsed = 30;
             // Start the timer when the video starts playing
             _timer = Timer.periodic(const Duration(milliseconds: 70), (timer) {
@@ -190,11 +195,19 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   }
 
+  saveValue() async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setString('currentLevel', "Level_0");
+  }
+
   addCurrentLevelToSF(String stringValue ) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(stringValue, "currentLevel");
+
+    prefs.setString('currentLevel', stringValue);
+    print("store value $prefs");
     print(prefs.getString('currentLevel'));
   }
+
+
 
   @override
   void dispose() {

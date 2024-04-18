@@ -7,22 +7,38 @@ import 'package:lcc_flutter_app/level4/start_level4_page.dart';
 import 'package:lcc_flutter_app/practice_page.dart';
 import 'package:lcc_flutter_app/rewards_page.dart';
 import 'package:lcc_flutter_app/start_level2_page.dart';
+import 'package:lcc_flutter_app/start_level_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
 void main() {
-  runApp(const LCCHomePage());
+  runApp( LCCHomePage());
 
 }
 
 
 class LCCHomePage extends StatelessWidget {
-  const LCCHomePage({super.key});
+   LCCHomePage({super.key});
+  String currentLevel = "Level_0";
+   Future<String> getCurrentLevel() async {
+     print("init");
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+     String currentValue = prefs.getString('currentLevel') ?? "Level_0";
+     return currentValue;
+     print("currentValue: $currentValue");
+   }
+
 
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+     print("build0");
+     print("currentLevel: $currentLevel");
+
+
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
@@ -39,7 +55,7 @@ class LCCHomePage extends StatelessWidget {
           ),
         ),
         splashIconSize: MediaQuery.of(context).size.height,
-        nextScreen: MyHomePage(title: 'LCC'),
+        nextScreen: MyHomePage(title: 'LCC', currentLevel : currentLevel),
         splashTransition: SplashTransition.fadeTransition,
       ),
     );
@@ -53,7 +69,7 @@ class LCCHomePage extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title,required this.currentLevel});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -65,46 +81,45 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final String currentLevel;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- String currentLevelValue = "Level_0";
+ int _selectedIndex = 0;
+
+ static const TextStyle optionStyle =
+ TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+ static const List<Widget> _widgetOptions = <Widget>[
+   LCCLearningPage(),
+   RewardsPage(),
+   PracticePage()
+ ];
+
+ late Widget mainScreenWidget = _widgetOptions[0];
   @override
   void initState() {
     super.initState();
     hideScreen();
     WidgetsFlutterBinding.ensureInitialized();
-    getCurrentLevel();
+   // getCurrentLevel();
 
   }
 
 
-  getCurrentLevel() async {
+  //  Future<String> getCurrentLevel() async {
+  //    print("init");
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //
+  //   String currentValue = prefs.getString('currentLevel') ?? "Level_0";
+  //   print("currentValue: $currentValue");
+  //   return currentValue;
+  //
+  // }
+  //
 
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    currentLevelValue = prefs.getString('currentLevel') ?? "Level_0";
-
-    print("currentLevelValue: $currentLevelValue");
-
-  }
-  Widget getCurrentScreen() {
-    switch (currentLevelValue) {
-      case "Level_0":
-        return _widgetOptions [_selectedIndex];
-      case "Level_1":
-        return StartLevel2Page();
-      case "Level_2":
-        return StartLevel3Page();
-      case "Level_3":
-        return StartLevel4Page();
-      default:
-        return _widgetOptions [_selectedIndex];
-    }
-  }
 
   ///hide your splash screen
   Future<void> hideScreen() async {
@@ -113,21 +128,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    LCCLearningPage(),
-    RewardsPage(),
-    PracticePage()
-  ];
 
 
   @override
   Widget build(BuildContext context) {
+    print("current build");
+   print(widget.currentLevel.toString());
 
-    return Scaffold(
-      body: getCurrentScreen(),
+
+
+    return widget.currentLevel.toString() == "Level_0" ?  Scaffold(
+      body: _widgetOptions [_selectedIndex],
 
       bottomNavigationBar:Row(
         children: [
@@ -278,6 +289,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
         ],
       )
-    );
+    ) : widget.currentLevel == "Level_1" ?  StartLevel2Page() : widget.currentLevel == "Level_2" ?  StartLevel3Page() : widget.currentLevel == "Level_3" ?  StartLevel4Page() : StartLevelPage();
+    ;
   }
 }

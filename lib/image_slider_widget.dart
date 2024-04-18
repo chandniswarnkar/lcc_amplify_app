@@ -65,7 +65,9 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
     return Scaffold(
      // appBar: AppBar(title: Text('Carousel with indicator controller demo')),
       backgroundColor: viewBGColor,//const Color.fromARGB(255, 18, 32, 47),
+
       body: Column(
+
           children: [
             SizedBox(height: 30,),
             Row(
@@ -93,6 +95,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
         Container(
             width: MediaQuery.of(context).size.width -20,
             height: 320,
+
             child:CarouselSlider(
             items: imageSliders,
            // carouselController: _controller,
