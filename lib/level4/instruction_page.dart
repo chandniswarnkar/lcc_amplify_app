@@ -601,26 +601,29 @@ class _InstructionPageState extends State<InstructionPage> {
   }
 
   Widget bottomBarWithHintPanel(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(0, 0, 5, 20),
+    return Container(
+      height: 120,
+      color: Colors.white,
+      //padding: EdgeInsets.fromLTRB(0, 0, 5, 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 75,
-            height: 75,
-            margin: const EdgeInsets.all(20),
+            width: 80,
+            height: 100,
+            margin: const EdgeInsets.only(left: 20),
             child:
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 25),
+            height: 60,
+            margin: const EdgeInsets.only(right: 20),
             // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             clipBehavior: Clip.antiAlias,
             decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(26),
+                borderRadius: BorderRadius.circular(30),
               ),
             ),
             child: Row(

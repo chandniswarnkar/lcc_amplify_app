@@ -43,7 +43,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                //padding: const EdgeInsets.fromLTRB(30, 10, 20, 0),
+                padding: const EdgeInsets.fromLTRB(30, 40, 20, 0),
               //  height: 10,//margin:const EdgeInsets.symmetric(horizontal: 20),
                 child:
                 const Text('How much \ndo you know about \nTransacting?',
@@ -52,7 +52,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                     fontSize: 32,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
-                    // height: 0,
+                     height: 0,
                   ),
                 ),
               ),

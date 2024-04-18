@@ -325,6 +325,7 @@ class StartLevelWidget extends StatelessWidget {
                   ),
                 ),
                // SizedBox(height: 10,),
+
                 Container( padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
                   child: const Text(
                     'Use various payment methods like credit/debit cards, direct bank transfers, and mobile accounts for online purchases.',
@@ -338,6 +339,7 @@ class StartLevelWidget extends StatelessWidget {
                     ),
                   ),
                 ),
+
 
               ]
           ),
@@ -359,7 +361,7 @@ class StartLevelWidget extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate( (BuildContext context, int index) {
                   return Container(
                     alignment: Alignment.center,
-                    color: Colors.green,
+                      color: Color(0xFF2A5C43),
                     child: Container(
                       width:MediaQuery.of(context).size.width ,
                       height: 1300,
@@ -380,7 +382,16 @@ class StartLevelWidget extends StatelessWidget {
         ),
         Positioned(
           bottom: 20,
-            child:
+            child:GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(
+                  CupertinoPageRoute(
+                    fullscreenDialog: true,
+                    builder: (context) => KnowYourCardPage(),//KnowYourCardPage(),
+                  ),
+                );
+              },
+              child:
                 Container(
                    alignment: Alignment.center,
                   height: 75,
@@ -392,17 +403,9 @@ class StartLevelWidget extends StatelessWidget {
                     ),
                   ),
                   child:
-                TextButton(
+                Container(
 
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute(
-                        fullscreenDialog: true,
-                        builder: (context) => KnowYourCardPage(),//KnowYourCardPage(),
-                      ),
-                    );
 
-                  },
                   child: const Text('Start', style:TextStyle(
                     color: Colors.white ,
                     fontSize:28,
@@ -413,6 +416,7 @@ class StartLevelWidget extends StatelessWidget {
                   ),
                   ),
                 ),
+    ),
     ),
 
 
