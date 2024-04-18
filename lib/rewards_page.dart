@@ -106,12 +106,14 @@ class RewardsIcons extends StatelessWidget {
       ),
                 ]
                   ,),
-                SizedBox(height:30 ,),
+                SizedBox(height:40 ,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [ Container(child:Column(children: [Container(
-                  width: 100,
-                  height: 120,
+                  children: [ Container(child:
+                  Column(children:
+                  [Container(
+                  width: 95,
+                  height: 115,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/sharp_scholar.png"),
@@ -134,8 +136,8 @@ class RewardsIcons extends StatelessWidget {
         ),
                     SizedBox(width: 25),
                     Container(child:Column(children: [Container(
-      width: 90,
-      height: 110,
+      width: 95,
+      height: 115,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/eager_student_2.png"),
