@@ -628,7 +628,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                         Container(
                           width: MediaQuery.of(context).size.width/2.5,
                           margin: const EdgeInsets.fromLTRB(30, 0, 5, 0),
-                          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                          padding: const EdgeInsets.fromLTRB(20, 13, 0, 13),
                           decoration: ShapeDecoration(
                             color: dateBackgroundFlag == true
                                 ? const Color(0xFFD9FFDB)
@@ -670,7 +670,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                         Container(
                           width: MediaQuery.of(context).size.width/2.5,
                           margin: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                          padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                          padding: const EdgeInsets.fromLTRB(20, 13, 0, 13),
                           decoration: ShapeDecoration(
                             color: cvvBackgroundFlag == true
                                 ? const Color(0xFFD9FFDB)
