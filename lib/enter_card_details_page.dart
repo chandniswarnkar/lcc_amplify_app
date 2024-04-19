@@ -173,6 +173,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       setState(() {
         if (cardNumber == '1234 5678 1234 5678') {
           _isCardNumberVisible = true;
+          numberBackgroundFlag = false;
           coinText ='10';
           _currentSliderValue = 50;
 
@@ -187,6 +188,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
       setState(() {
         if (cardExpiry == '08/30') {
           _isCardExpiryVisible = true;
+          dateBackgroundFlag = false;
           coinText ='15';
           _currentSliderValue = 75;
         }
@@ -540,6 +542,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                             fontWeight: FontWeight.w500,
 
                           ),
+                            enabled:false,
                           controller: TextEditingController(text: cardHolderName),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
@@ -588,6 +591,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
                             ),
+                            enabled:false,
                             controller: TextEditingController(text: cardNumber),
                             decoration: const InputDecoration(
                               border: InputBorder.none,
@@ -653,7 +657,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                     child: Column(
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width/2.5,
+                          width: MediaQuery.of(context).size.width/2.1,
                           child: const Text(
                             'CVV',
                             style: TextStyle(
@@ -952,8 +956,10 @@ class HintGuideCard extends StatelessWidget {
                 const Image(image: AssetImage('assets/images/OWL_Default.gif')),
               ),
               const Padding(
-                padding: EdgeInsets.fromLTRB(20, 30, 0, 0),
+                padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Find and tap the\ncorrect details on the \nvirtual card to enter \nthe data. ',
