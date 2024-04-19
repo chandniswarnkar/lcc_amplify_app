@@ -118,7 +118,6 @@ class _OnlineShoppingPageState extends State<OnlineShoppingPage> {
           const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               'You are buying a new pair of shoes\nfor your granddaughter who is \n about to participate in a tennis \nmatch at school.',
-              maxLines: 3,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
