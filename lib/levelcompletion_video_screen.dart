@@ -62,10 +62,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                   secondsToDisplay++;
                   _secondsElapsed++;
 
-                  if (_secondsElapsed >= 100 && secondsToDisplay >= secondsToStop) {
-                    timer.cancel();
-                  }
+
                 });
+                if (_secondsElapsed >= 100 && secondsToDisplay >= secondsToStop) {
+                  timer.cancel();
+                }
               });
             });
           });
@@ -75,7 +76,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 // if (_controller.value.position == _controller.value.duration)  {
       if (!_controller.value.isPlaying &&
           _controller.value.isInitialized &&
-          (_controller.value.duration == _controller.value.position)) {
+          (_controller.value.duration == _controller.value.position )) {
         print("video completed");
 
         if (widget.levelComlpetionText == "Level 1 Completed") {
