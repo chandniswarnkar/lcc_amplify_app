@@ -91,7 +91,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
             ),
             SizedBox(height: 30,),
         Container(
-            width: MediaQuery.of(context).size.width -20,
+            width: MediaQuery.of(context).size.width ,
             height: 320,
             child:CarouselSlider(
             items: imageSliders,

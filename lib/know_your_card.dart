@@ -46,8 +46,6 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
 
   @override
   void initState() {
-
-
     super.initState();
 
   }
@@ -156,7 +154,7 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ),
               ]
           ),
-         // const SizedBox(height: 5,),
+         const SizedBox(height: 5,),
           Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -180,15 +178,11 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                                showRightAnswerBottomView();
                           }
 
-
                       }
                     }, wrongDateValueSetter: () {
                       if (isNextButtonPressed) {
-                        print("here i am ");
                         showWrongAnswerBottomView();
                       }
-
-
                     },
                     ),
                     backWidget: BackTappableWidget(cvvValueSetter: () {
@@ -206,9 +200,11 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                     },
                     ),
                   )
-                )
+                ),
+
               ]
           ),
+
           Visibility(visible: showQuizView,
             child:
             Row(

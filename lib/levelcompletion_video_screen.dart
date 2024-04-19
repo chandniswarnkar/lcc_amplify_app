@@ -98,10 +98,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         } else if (widget.levelComlpetionText == "Level 3 Completed") {
-          // print("Seconds to display");
-          // print(secondsToDisplay);
-          // print("Seconds to stop");
-          // print(secondsToStop);
 
             addCurrentLevelToSF("Level_3");
             Navigator.of(context).push(
@@ -114,10 +110,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
         } else if (widget.levelComlpetionText == "Level 4 Completed") {
 
-            // print("Seconds to display");
-            // print(secondsToDisplay);
-            // print("Seconds to stop");
-            // print(secondsToStop);
             addCurrentLevelToSF("Level_0");
             Navigator.of(context).push(
               CupertinoPageRoute(

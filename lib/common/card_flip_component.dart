@@ -21,17 +21,21 @@ class FlipCardComponent extends StatelessWidget//State<FlipCardComponent>
     return Scaffold(
       backgroundColor:Colors.white ,
       body:
+
         DragFlipper(
              width: MediaQuery.of(context).size.width-20,//EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
             //  padding: const EdgeInsets.all(10.0),
               height: 235,
+              showShadow: true,
               margin: EdgeInsets.symmetric(horizontal: 10.0),
               front: isTappingRequired ? frontWidget! :  const FrontWidget(),
               back: isTappingRequired ? backWidget! : const BackWidget(),
               controller: controller,
              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               backgroundColor: Colors.white,
-            ),
+
+            )
+
     );
   }
 }
