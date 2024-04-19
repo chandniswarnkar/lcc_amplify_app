@@ -343,7 +343,7 @@ class StartLevel4Widget extends StatelessWidget {
                   delegate: SliverChildBuilderDelegate( (BuildContext context, int index) {
                     return Container(
                       alignment: Alignment.center,
-                      color: Colors.green,
+                      color: const Color(0xFF2A5C43),
                       child: Container(
                         width:MediaQuery.of(context).size.width ,
                         height: 1300,
@@ -367,6 +367,15 @@ class StartLevel4Widget extends StatelessWidget {
             bottom: 20,
             child:
 
+
+    GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => SelectPayeePage()));
+                      },
+                      child:
                   Container(
                     alignment: Alignment.center,
                     height: 75,
@@ -377,18 +386,6 @@ class StartLevel4Widget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                       ),
                     ),
-                    child:
-                  TextButton(
-
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        CupertinoPageRoute(
-                          fullscreenDialog: true,
-                          builder: (context) =>  const SelectPayeePage(),
-                        ),
-                      );
-
-                    },
                     child: const Text('Start', style:TextStyle(
                       color: Colors.white ,
                       fontSize:28,
@@ -398,7 +395,8 @@ class StartLevel4Widget extends StatelessWidget {
                       // height: 0.07,
                     ),
                     ),
-                  ),
+
+    ),
     ),
 
           ),
@@ -414,4 +412,3 @@ class StartLevel4Widget extends StatelessWidget {
 
 
 
-// image:  AssetImage("assets/images/bg_skill1.png"),

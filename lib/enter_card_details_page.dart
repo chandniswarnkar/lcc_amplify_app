@@ -425,21 +425,18 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                   ),
                 ),
                 Expanded(
-                  child: SliderTheme(
-                    child: Slider(
-                      value: _currentSliderValue,
-                      activeColor: Colors.green,
-                      max: 100,
-                      divisions: 5,
-                      // label: _currentSliderValue.round().toString(),
-                      onChanged: (double value) {
-                        setState(() {
-                          _currentSliderValue = value;
-                        });
-                      },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
+
+                    child:
+                    LinearProgressIndicator(
+                      backgroundColor: Color(0xFFE9ECED),
+                      value: _currentSliderValue * 0.01,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+
+
                     ),
-                    data: SliderTheme.of(context).copyWith(
-                        thumbShape: SliderComponentShape.noThumb),
+
                   ),
                 ),
                 GestureDetector(

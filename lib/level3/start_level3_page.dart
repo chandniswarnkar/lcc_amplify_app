@@ -347,7 +347,7 @@ class StartLevel2Widget extends StatelessWidget {
                   delegate: SliverChildBuilderDelegate( (BuildContext context, int index) {
                     return Container(
                       alignment: Alignment.center,
-                      color: Colors.green,
+                      color: const Color(0xFF2A5C43),
                       child: Container(
                         width:MediaQuery.of(context).size.width ,
                         height: 1300,
@@ -370,7 +370,17 @@ class StartLevel2Widget extends StatelessWidget {
           Positioned(
             bottom: 20,
             child:
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      CupertinoPageRoute(
+                        fullscreenDialog: true,
+                        builder: (context) =>  const LinkBankAccountPage(),
+                      ),
+                    );
 
+                  },
+                  child:
                   Container(
                     alignment: Alignment.center,
                     height: 75,
@@ -382,18 +392,7 @@ class StartLevel2Widget extends StatelessWidget {
                       ),
                     ),
                     child:
-                  TextButton(
-
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        CupertinoPageRoute(
-                          fullscreenDialog: true,
-                          builder: (context) =>  const LinkBankAccountPage(),
-                        ),
-                      );
-
-                    },
-                    child: const Text('Start', style:TextStyle(
+                   Text('Start', style:TextStyle(
                       color: Colors.white ,
                       fontSize:28,
                       fontFamily: 'Inter',
@@ -402,8 +401,9 @@ class StartLevel2Widget extends StatelessWidget {
                       // height: 0.07,
                     ),
                     ),
-                  ),
+
     ),
+                ),
 
 
           ),
