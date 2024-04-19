@@ -35,6 +35,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
               child: Row(children: [
 
                 Container(
+                  width: 70,
                   padding: const EdgeInsets.all(8),
                   decoration: ShapeDecoration(
                     color: const Color(0xFFE9ECED),

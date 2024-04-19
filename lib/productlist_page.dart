@@ -64,6 +64,7 @@ class _ProductListPageState extends State<ProductListPage> {
                 child: Row(children: [
 
                   Container(
+                    width: 70,
                     padding: const EdgeInsets.only(
                         top: 8, left: 8, right: 8, bottom: 8),
                     decoration: ShapeDecoration(
