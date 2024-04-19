@@ -197,7 +197,7 @@ Color backgroundColor = Color(0xFFE9EDF8);
           },
         ),
         SizedBox(height: 15),
-        Container(
+      /*  Container(
           padding: EdgeInsets.symmetric(horizontal: 15),
           margin: EdgeInsets.symmetric(horizontal: 25),
           height: 80,
@@ -233,7 +233,7 @@ Color backgroundColor = Color(0xFFE9EDF8);
                 ),
               ),
             ],
-          ),),
+          ),),*/
 
       ],
     ),

@@ -288,18 +288,21 @@ class _InstructionPageState extends State<InstructionPage> {
                                 visible: false,
                                 child: Image.asset('assets/images/tic.png')),
                             Spacer(),
-                            Text(
-                              textFormFieldValue == ''
-                                  ? hintTextone
-                                  : textFormFieldValue,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: textFormFieldValue == ''
-                                    ? Colors.grey
-                                    : Colors.black,
-                                fontSize: 20,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w500,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4),
+                              child: Text(
+                                textFormFieldValue == ''
+                                    ? hintTextone
+                                    : textFormFieldValue,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: textFormFieldValue == ''
+                                      ? Colors.grey
+                                      : Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                             Spacer(),
