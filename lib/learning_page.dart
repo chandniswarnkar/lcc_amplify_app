@@ -187,7 +187,8 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                       children: [
                         Expanded(
                           child: Container(
-                            height: 115,
+                            height: 110,
+
                             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -195,8 +196,9 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                  Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.start,
+
+                                 // mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(

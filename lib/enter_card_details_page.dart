@@ -307,25 +307,26 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
         child: Visibility(
           visible: cardHolderName=='' ? false : !_isCardCVVValueVisible(),
           child:  Container(
-            margin: const EdgeInsets.symmetric(horizontal: 30),
+           // margin: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: 60,
-                  height: 60,
-                  //margin: const EdgeInsets.only(left: 20),
+                  width: 80,
+                  height: 100,
+                  margin: const EdgeInsets.only(left: 20),
                   child:
                   const Image(image: AssetImage('assets/images/OWL_Default.gif')),
                 ),
                 Container(
-                 // margin: const EdgeInsets.only(right: 20),
+                  height: 60,
+                  margin: const EdgeInsets.only(right: 20),
                   // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                   clipBehavior: Clip.antiAlias,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(width: 1),
-                      borderRadius: BorderRadius.circular(26),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   child: Row(
@@ -426,21 +427,18 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                   ),
                 ),
                 Expanded(
-                  child: SliderTheme(
-                    child: Slider(
-                      value: _currentSliderValue,
-                      activeColor: Colors.green,
-                      max: 100,
-                      divisions: 5,
-                      // label: _currentSliderValue.round().toString(),
-                      onChanged: (double value) {
-                        setState(() {
-                          _currentSliderValue = value;
-                        });
-                      },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
+
+                    child:
+                    LinearProgressIndicator(
+                      backgroundColor: Color(0xFFE9ECED),
+                      value: _currentSliderValue * 0.01,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+
+
                     ),
-                    data: SliderTheme.of(context).copyWith(
-                        thumbShape: SliderComponentShape.noThumb),
+
                   ),
                 ),
                 GestureDetector(

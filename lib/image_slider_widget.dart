@@ -128,6 +128,8 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
               ),
             ),
             SizedBox(height: 10,),
+             Container(height: 60,
+               child:
              Text(
                descriptionLabel,
               textAlign: TextAlign.center,
@@ -142,6 +144,7 @@ class _ImageSliderPageState extends State<ImageSliderPage> {
 
               ),
             ),
+    ),
 
                 SizedBox(height: 25,),
                 Row( mainAxisAlignment:MainAxisAlignment.spaceEvenly,

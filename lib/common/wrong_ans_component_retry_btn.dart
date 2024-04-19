@@ -47,17 +47,18 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          SizedBox(height: 25),
                           Container(
                             child: Column(
-                              // mainAxisSize: MainAxisSize.min,
+                              mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 160,
-                                  height: 180,
-                                  padding: const EdgeInsets.all(10),
-                                  margin: const EdgeInsets.only(top: 20),
+                                  width: 200,
+                                  height: 200,
+                                  padding: const EdgeInsets.all(20),
+                                 // margin: const EdgeInsets.only(top: 20),
                                   decoration: const BoxDecoration(
                                     image: DecorationImage(
                                       image: AssetImage("assets/images/OWL_Oops.gif",),
@@ -83,7 +84,7 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 35),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,

@@ -99,24 +99,21 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                 ),
               ),
               Expanded(
-                child: SliderTheme(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    activeColor: Colors.green,
-                    inactiveColor: Color(0xFFE9ECED),
-                    max: 100,
-                    divisions: 5,
-                    // label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
+                child: Container(
+                  margin: EdgeInsets.only(left: 15, right: 15),
+
+                  child:
+                  LinearProgressIndicator(
+                    backgroundColor: Color(0xFFE9ECED),
+                    value: _currentSliderValue * 0.01,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+
+
                   ),
-                  data: SliderTheme.of(context).copyWith(
-                      thumbShape: SliderComponentShape.noThumb),
+
                 ),
               ),
+
               GestureDetector(
                   child: Container(
                     width: 34.60,
@@ -188,6 +185,8 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
                     child:
                     Container(
+                  //    height: 64,
+                      padding: const EdgeInsets.symmetric(horizontal: 25),
                       color: Colors.white,
                       child: Column(
                         children: [
@@ -203,12 +202,13 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                             ),
                           ),
                           SizedBox(height: 8,),
-                          Container(   padding: const EdgeInsets.symmetric(horizontal: 20),
+                          Container(
+                           // padding: const EdgeInsets.symmetric(horizontal: 20),
                             //height: 100,
                             child:
                             TextField(
-                              textAlign: TextAlign.center,
 
+                              textAlign: TextAlign.center,
                             readOnly: true,
                               style: TextStyle(
                                 color: Colors.black,
@@ -219,11 +219,16 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                               ),
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                color: Colors.black, width: 1.0),
-                                ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(color: Colors.black),
 
-                                contentPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.3),
+                                ),
+                               // enabledBorder: UnderlineInputBorder(
+                               //    borderSide: BorderSide(color: Colors.transparent),
+                               //
+                               //  ),
+
+                                contentPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.4),
 
                                // hintText: 'Enter value from below  options',
                                 labelText: textFormFieldValue,
@@ -435,14 +440,15 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 75,
-            height: 75,
-            margin: const EdgeInsets.all(20),
+            width: 80,
+            height: 100,
+            margin: const EdgeInsets.only(left: 20),
             child:
             Image(image: AssetImage('assets/images/OWL_Default.gif')),
           ),
           Container(
             // color: Colors.blue,
+            height: 60,
             margin: const EdgeInsets.only(right: 20),
             // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             clipBehavior: Clip.antiAlias,
@@ -450,7 +456,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
               color: Colors.white,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(26),
+                borderRadius: BorderRadius.circular(30),
               ),
             ),
             child: Row(
@@ -508,52 +514,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
       },
     );
   }
-  // Widget bottomBarWithWrongAnswerView(BuildContext context) {
-  //   return
-  //     Container( height: 350,
-  //       child: Row(children:[
-  //         Expanded( child :
-  //         Container(
-  //           height: 320,
-  //           child: WrongAnswerComponentRetryBtn( errorText: 'Oops! \nWrong Answer', onRetryPressed: () {
-  //             setState(() {
-  //               _currentBottomBarComponent = _hintPanelVisible ? BottomBarComponent.HINT_PANEL : BottomBarComponent.NO_HINT_PANEL;
-  //             });
-  //             Navigator.pop(context);
-  //           }, onHintPressed: () {
-  //             Navigator.pop(context);
-  //             showHintViewBottomSheet();
-  //
-  //           },
-  //           ) ,
-  //         )
-  //         )
-  //       ]
-  //       ),
-  //     );
-  // }
 
-  // Widget bottomBarWithHintView(BuildContext context) {
-  //   return Container( height: 350,
-  //     child: Row(children:[
-  //       Expanded( child :
-  //       Container(
-  //         height: 320,
-  //         child: HintComponent(hintText: _hintText, onPressed: () {
-  //           setState(() {
-  //             _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
-  //
-  //           });
-  //
-  //         },
-  //         ),
-  //       )
-  //       )
-  //     ]
-  //     ),
-  //   );
-  //
-  // }
 
   Future<void> hideCurrentQuestion() async {
     isAnswerCorrect = false;

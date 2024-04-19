@@ -91,20 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print("currentLevelValue: $currentLevelValue");
 
   }
-  Widget getCurrentScreen() {
-    switch (currentLevelValue) {
-      case "Level_0":
-        return _widgetOptions [_selectedIndex];
-      case "Level_1":
-        return StartLevel2Page();
-      case "Level_2":
-        return StartLevel3Page();
-      case "Level_3":
-        return StartLevel4Page();
-      default:
-        return _widgetOptions [_selectedIndex];
-    }
-  }
+
 
   ///hide your splash screen
   Future<void> hideScreen() async {
@@ -127,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: getCurrentScreen(),
+      body: _widgetOptions[_selectedIndex],
 
       bottomNavigationBar:Row(
         children: [

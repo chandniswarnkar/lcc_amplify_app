@@ -46,23 +46,10 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
 
   @override
   void initState() {
-    // _controller = VideoPlayerController.asset('assets/images/Blue_Card_reveal.mp4')..initialize().then((_) {
-    //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-    //   setState(() {});
-    // });;
+
 
     super.initState();
-    // _controller = VideoPlayerController.asset('assets/images/Blue_Card_reveal.mp4')
-    //   ..initialize().then((_) {
-    //     // _controller.play();
-    //     // _controller.setLooping(false);
-    //     // Ensure the first frame is shown after the video is initialized
-    //     setState(() {
-    //
-    //       // Start the timer when the video starts playing
-    //
-    //     });
-    //   });
+
   }
 
   @override
@@ -77,8 +64,8 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
             child: Row(children: [
               SizedBox(height: 20,),
               Container(
-                padding: const EdgeInsets.only(
-                    top: 8, left: 8, right: 8, bottom: 8),
+               padding: const EdgeInsets.only(
+                   top: 8, left: 8, right: 8, bottom: 8),
                 decoration: ShapeDecoration(
                   color: Color(0xFFE9ECED),
                   shape: RoundedRectangleBorder(
@@ -112,28 +99,25 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                 ),
               ),
               Expanded(
-                child: SliderTheme(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    activeColor: Colors.green,
-                    inactiveColor: Color(0xFFE9ECED),
-                    max: 100,
-                    divisions: 5,
-                    // label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
-                  ),
-                  data: SliderTheme.of(context).copyWith(
-                      thumbShape: SliderComponentShape.noThumb),
-                ),
+                child: Container(
+              margin: EdgeInsets.only(left: 15, right: 15),
+
+            child:
+            LinearProgressIndicator(
+              backgroundColor: Color(0xFFE9ECED),
+              value: _currentSliderValue * 0.01,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+
+
+            ),
+
+          ),
               ),
+
               GestureDetector(
                   child: Container(
-                    width: 34.60,
-                    height: 34.60,
+                    width: 40,
+                    height: 40,
                     decoration: const ShapeDecoration(
                       color: Color(0xFFE9ECED),
                       shape: OvalBorder(),
@@ -221,13 +205,6 @@ class _KnowYourCardPageState extends State<KnowYourCardPage> {
                     },
                     ),
                   )
-                    //   : Container(
-                    // height: 290,
-                    // child: AspectRatio(
-                    //   aspectRatio: 1 / 2.05, //_controller.value.aspectRatio,
-                    //   // Use the VideoPlayer widget to display the video.
-                    //   child: VideoPlayer(_controller),
-                    // ),)
                 )
               ]
           ),

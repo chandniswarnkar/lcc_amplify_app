@@ -43,21 +43,22 @@ class WrongAnswerComponent extends StatelessWidget {
 
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                      //  mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          SizedBox(height: 25),
                           Container(
 
                             child: Column(
-                              // mainAxisSize: MainAxisSize.min,
+                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 160,
-                                  height: 180,
+                                  width: 200,
+                                  height: 200,
 
-                                  padding: const EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(20),
                                   decoration: const BoxDecoration(
                                     image: DecorationImage(
                                       image: AssetImage("assets/images/OWL_Oops.gif",),
@@ -83,7 +84,7 @@ class WrongAnswerComponent extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 35),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -94,6 +95,7 @@ class WrongAnswerComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(26),
                                   ),
                                 ),
+                                  width: 150,
                                   child :
                                 TextButton(
 
