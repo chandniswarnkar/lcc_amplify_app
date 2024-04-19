@@ -41,8 +41,10 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   String _hintText = '';
   bool _hintPanelVisible = false;
   bool isAnswerCorrect = false;
-
+  bool isAnswerWrong = false;
   BottomBarComponent _currentBottomBarComponent = BottomBarComponent.NO_HINT_PANEL;
+  bool isSelected = false;
+  String hintTextone = 'Select Your account number';
 
   Map<String, String> linkBankQuizData = {'Name of the bank': 'HSBC Bank', 'Account Holder Name': 'Alex Wood','Sort Code': '400515','Branch Code': '0515', 'Account Number' : '10719035'};
 
@@ -205,56 +207,53 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                           ),
                           SizedBox(height: 8,),
                           Container(
-                           // padding: const EdgeInsets.symmetric(horizontal: 20),
+                           // padding: const EdgeInsets.symmetric(horizontal: 0),
                             //height: 100,
                             child:
-                            TextField(
-
-                              textAlign: TextAlign.center,
-                            readOnly: true,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w500,
-                                // height: 0.07,
-                              ),
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: Colors.black),
-
-                                ),
-                               // enabledBorder: UnderlineInputBorder(
-                               //    borderSide: BorderSide(color: Colors.transparent),
-                               //
-                               //  ),
-
-                                contentPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.4),
-
-                               // hintText: 'Enter value from below  options',
-                                labelText: textFormFieldValue,
-                                labelStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
-
-                                  // height: 0.07,
-                                ),
-                                filled: true,
-                                fillColor: isAnswerCorrect ? Color(0xFFD9FFDB) : Colors.white,
-                                suffixIcon : Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: isAnswerCorrect ? Image.asset(
-                                    'assets/images/green_tick.png',
-                                    width: 30,
-                                    height: 30,
-                                    fit: BoxFit.fill,
-                                  ) : null,
+                            Container(
+                              //margin: EdgeInsets.symmetric(horizontal: 8),
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+                              decoration: ShapeDecoration(
+                                color: isSelected == true
+                                    ? const Color(0xFFD9FFDB)
+                                    : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(width: 1),
+                                  borderRadius: BorderRadius.circular(6),
                                 ),
                               ),
-
+                              alignment: Alignment.center,
+                              child: Center(
+                                  child: Row(
+                                    children: [
+                                      Visibility(
+                                          visible: false,
+                                          child: Image.asset('assets/images/tic.png')),
+                                      Spacer(),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 4),
+                                        child: Text(
+                                          textFormFieldValue == ''
+                                              ? hintTextone
+                                              : textFormFieldValue,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: textFormFieldValue == ''
+                                                ? Colors.grey
+                                                : Colors.black,
+                                            fontSize: 20,
+                                            fontFamily: 'Inter',
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      Visibility(
+                                          visible: isSelected,
+                                          child: Image.asset('assets/images/tic.png')),
+                                    ],
+                                  )),
                             ),
                           ),
                         ],
@@ -304,18 +303,22 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
                                         if(answers.length > 0) {
                                           _currentAnsValue = answers[ansIndex];
+                                          isSelected = true;
                                           if (_currentAnsValue ==
                                               linkBankQuizData[questions[_quesIndex]]) {
                                             textFormFieldValue = _currentAnsValue;
                                             isAnswerCorrect = true;
                                             _currentSliderValue = _currentSliderValue + 10;
                                             Timer(Duration(seconds: 1), () {
-                                              coinText = coinText + 5;
+
+
+                                              coinText = coinText< 40 ? coinText + 5 : coinText +10;
                                               hideCurrentQuestion();
                                             });
 
                                           } else {
                                             _currentBottomBarComponent = BottomBarComponent.WRONG_ANSWER_VIEW;
+                                            isSelected = false;
                                             showModalBottomSheet<void>(
                                               context: context,
                                               isDismissible: false,
@@ -533,7 +536,8 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
 
   Future<void> movingToNextQuestion() async {
     setState(() {
-
+      isSelected = false;
+      hintTextone = '';
       _textContainerVisible = true;
       textFormFieldValue = '';
       if (answers.length > 1) {
