@@ -114,6 +114,7 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
                     height: 20,
                   ),
                   Container(
+                    width: 70,
                     padding: const EdgeInsets.all(8),
                     decoration: ShapeDecoration(
                       color: Color(0xFFE9ECED),

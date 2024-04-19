@@ -39,6 +39,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                   height: 20,
                 ),
                 Container(
+                  width: 70,
                   padding:
                       const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
                   decoration: ShapeDecoration(
@@ -50,8 +51,8 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 30,
-                        height: 30,
+                        width: 24,
+                        height: 24,
                         decoration: const BoxDecoration(
                         //  color: Colors.deepOrange,
                           image: DecorationImage(
