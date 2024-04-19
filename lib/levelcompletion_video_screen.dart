@@ -62,24 +62,26 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                   secondsToDisplay++;
                   _secondsElapsed++;
 
-
+                  if (_secondsElapsed >= 100 && secondsToDisplay >= secondsToStop) {
+                    _timer.cancel();
+                  }
                 });
-                if (_secondsElapsed >= 100 && secondsToDisplay >= secondsToStop) {
-                  timer.cancel();
-                }
+
               });
+
             });
           });
     _controller.addListener(() {
       Duration duration = _controller.value.duration;
       Duration position = _controller.value.position;
-// if (_controller.value.position == _controller.value.duration)  {
+
       if (!_controller.value.isPlaying &&
           _controller.value.isInitialized &&
           (_controller.value.duration == _controller.value.position )) {
-        print("video completed");
+
 
         if (widget.levelComlpetionText == "Level 1 Completed") {
+
           addCurrentLevelToSF("Level_1");
           Navigator.of(context).push(
             CupertinoPageRoute(
@@ -96,21 +98,34 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         } else if (widget.levelComlpetionText == "Level 3 Completed") {
-          addCurrentLevelToSF("Level_3");
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              fullscreenDialog: true,
-              builder: (context) => const StartLevel4Page(),
-            ),
-          );
+          // print("Seconds to display");
+          // print(secondsToDisplay);
+          // print("Seconds to stop");
+          // print(secondsToStop);
+
+            addCurrentLevelToSF("Level_3");
+            Navigator.of(context).push(
+              CupertinoPageRoute(
+                fullscreenDialog: true,
+                builder: (context) => const StartLevel4Page(),
+              ),
+            );
+
+
         } else if (widget.levelComlpetionText == "Level 4 Completed") {
-          addCurrentLevelToSF("Level_0");
-          Navigator.of(context).push(
-            CupertinoPageRoute(
-              fullscreenDialog: true,
-              builder: (context) => const StartLevel5Page(),
-            ),
-          );
+
+            // print("Seconds to display");
+            // print(secondsToDisplay);
+            // print("Seconds to stop");
+            // print(secondsToStop);
+            addCurrentLevelToSF("Level_0");
+            Navigator.of(context).push(
+              CupertinoPageRoute(
+                fullscreenDialog: true,
+                builder: (context) => const StartLevel5Page(),
+              ),
+            );
+
         }
 
 // Need to add the code to navigate to the next level
@@ -179,8 +194,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      Text(
-                        '$secondsToDisplay',
+                      Text(secondsToDisplay> secondsToStop ? '$secondsToStop' :'$secondsToDisplay',
+
                         style: const TextStyle(
                             fontSize: 40, fontWeight: FontWeight.bold),
                       ),
