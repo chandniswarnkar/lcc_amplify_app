@@ -62,79 +62,81 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         body: ListView(
           children: [
             SafeArea(child:
-            Row( children:[
-              SizedBox(height: 20,),
-              Container(
-                margin: const EdgeInsets.all(20),
-                padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
-                decoration: ShapeDecoration(
-                  color: Color(0xFFE9ECED),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      width: 24,
-                      height: 24,
-                      decoration: const BoxDecoration(
-                        // color: Colors.deepOrange,
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/coin 2.png'),
-                          fit: BoxFit.fill,
+            Container(
+              margin: EdgeInsets.fromLTRB(25, 10, 25, 20),
+              child: Row( children:[
+                SizedBox(height: 20,),
+                Container(
+                  width: 70,
+                  padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
+                  decoration: ShapeDecoration(
+                    color: Color(0xFFE9ECED),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 24,
+                        height: 24,
+                        decoration: const BoxDecoration(
+                          // color: Colors.deepOrange,
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/coin 2.png'),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                    ),
-                    Text(
-                      coinText.toString(),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,
-                        height: 0,
+                      Text(
+                        coinText.toString(),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
+                          height: 0,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(left: 15, right: 15),
-
-                  child:
-                  LinearProgressIndicator(
-                    backgroundColor: Color(0xFFE9ECED),
-                    value: _currentSliderValue * 0.01,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-
-
+                    ],
                   ),
-
                 ),
-              ),
-
-              GestureDetector(
+                Expanded(
                   child: Container(
-                    width: 34.60,
-                    height: 34.60,
-                    margin: const EdgeInsets.all(10),
-                    decoration: const ShapeDecoration(
-                      color: Color(0xFFE9ECED),
-                      shape: OvalBorder(),
+                    margin: EdgeInsets.only(left: 15, right: 15),
+
+                    child:
+                    LinearProgressIndicator(
+                      backgroundColor: Color(0xFFE9ECED),
+                      value: _currentSliderValue * 0.01,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+
+
                     ),
-                    child: Icon( Icons.close,
-                      color: Colors.grey, ),
 
                   ),
-                  onTap: (){
-                    setState(() {
-                      Navigator.pop(context);
-                    });
-                  }
-              ),
+                ),
 
-            ]
+                GestureDetector(
+                    child: Container(
+                      width: 34.60,
+                      height: 34.60,
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFFE9ECED),
+                        shape: OvalBorder(),
+                      ),
+                      child: Icon( Icons.close,
+                        color: Colors.grey, ),
+
+                    ),
+                    onTap: (){
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    }
+                ),
+
+              ]
+              ),
             ),
             ),
             Column(
