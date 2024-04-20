@@ -28,7 +28,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   void initState() {
     super.initState();
-// Initialize shared preferences
+
 
     if (widget.levelComlpetionText == "Level 1 Completed") {
 
@@ -52,7 +52,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         VideoPlayerController.asset('assets/images/Level_Completion_blank.mp4')
           ..initialize().then((_) {
             _controller.play();
-// Ensure the first frame is shown after the video is initialized
 
             setState(() {
 // Start the timer when the video starts playing
