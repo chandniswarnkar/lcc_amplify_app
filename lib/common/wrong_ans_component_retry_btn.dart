@@ -55,8 +55,8 @@ class WrongAnswerComponentRetryBtn extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 200,
-                                  height: 200,
+                                  width: 150,
+                                  height: 180,
                                   padding: const EdgeInsets.all(20),
                                  // margin: const EdgeInsets.only(top: 20),
                                   decoration: const BoxDecoration(

@@ -190,9 +190,11 @@ class _ProductListPageState extends State<ProductListPage> {
             Visibility(
                   visible: _isErrorContainerVisible,
                   child: Container(
+                   // color: Colors.orangeAccent,
+                    alignment: Alignment.topCenter,
                     width: MediaQuery.of(context).size.width,
                     height: 80,
-                    margin: const EdgeInsets.fromLTRB(40, 20, 40, 8),
+                    margin: const EdgeInsets.fromLTRB(40, 0, 40, 50),
                     padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                     decoration: ShapeDecoration(
                       color: const Color(0xFFFBD4CF),
@@ -205,8 +207,9 @@ class _ProductListPageState extends State<ProductListPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
+                         Container(
                           width: 235,
+                          alignment: Alignment.center,
                           child: Text(
                             'Insufficient coins. Choose another\nproduct under 100 coins.',
                             style: TextStyle(
@@ -234,6 +237,7 @@ class _ProductListPageState extends State<ProductListPage> {
                     ),
                   ),
                 ),
+
 
           ],
         ),

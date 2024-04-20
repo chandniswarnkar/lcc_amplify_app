@@ -44,7 +44,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   bool isAnswerWrong = false;
   BottomBarComponent _currentBottomBarComponent = BottomBarComponent.NO_HINT_PANEL;
   bool isSelected = false;
-  String hintTextone = 'Select Your account number';
+  String hintTextone = 'Select Your Bank';
 
   Map<String, String> linkBankQuizData = {'Name of the bank': 'HSBC Bank', 'Account Holder Name': 'Alex Wood','Sort Code': '400515','Branch Code': '0515', 'Account Number' : '10719035'};
 
