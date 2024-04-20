@@ -283,7 +283,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (BuildContext context) =>  const BadgeScreen(msgTextTop: 'You are a\nQuick Learner',msgTextBottom: 'Badge:\nQuick Lerner',image: "assets/images/Badge_01.gif",flag: 'Level_1',)));
+                                          builder: (BuildContext context) =>  const BadgeScreen(msgTextTop: 'You are a\nQuick Learner',msgTextBottom: 'Badge:\nQuick Learner',image: "assets/images/Badge_01.gif",flag: 'Level_1',)));
                                 },
                                 child:
                                 const Text(

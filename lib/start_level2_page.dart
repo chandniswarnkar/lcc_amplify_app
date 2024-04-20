@@ -227,7 +227,7 @@ class StartLevel2Widget extends StatelessWidget {
             width: double.infinity,
             height: 90,
             color: const Color(0xFF11442B),
-            padding:EdgeInsets.fromLTRB(30, 20, 30, 0),
+            padding:EdgeInsets.fromLTRB(30, 25, 30, 0),
             child: Row(
 
               children: [
@@ -275,7 +275,7 @@ class StartLevel2Widget extends StatelessWidget {
             Container (
               height: 150,
               width: MediaQuery.of(context).size.width,
-              color: const Color(0xFF2A5C43),
+              color: Color(0xFF2A5C43),
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child:
               Column(
@@ -335,6 +335,7 @@ class StartLevel2Widget extends StatelessWidget {
             alignment: Alignment.center,
               children:[
             Container(
+              width:MediaQuery.of(context).size.width ,
               height: MediaQuery.of(context).size.height - 325,
               child:
               CustomScrollView(
@@ -368,7 +369,17 @@ class StartLevel2Widget extends StatelessWidget {
             Positioned(
               bottom: 20,
               child:
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) =>  const OnlineShoppingPage(),
+                        ),
+                      );
 
+                    },
+                    child:
                     Container(
                       alignment: Alignment.center,
                       height: 75,
@@ -380,18 +391,7 @@ class StartLevel2Widget extends StatelessWidget {
                         ),
                       ),
                       child:
-                    TextButton(
-
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          CupertinoPageRoute(
-                            fullscreenDialog: true,
-                            builder: (context) =>  const OnlineShoppingPage(),
-                          ),
-                        );
-
-                      },
-                      child: const Text('Start', style:TextStyle(
+                     const Text('Start', style:TextStyle(
                         color: Colors.white ,
                         fontSize:28,
                         fontFamily: 'Inter',
@@ -400,7 +400,8 @@ class StartLevel2Widget extends StatelessWidget {
                         // height: 0.07,
                       ),
                       ),
-                    ),
+
+    ),
     ),
 
 

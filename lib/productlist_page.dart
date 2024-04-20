@@ -190,10 +190,10 @@ class _ProductListPageState extends State<ProductListPage> {
             Visibility(
                   visible: _isErrorContainerVisible,
                   child: Container(
-                    width: 335,
+                    width: MediaQuery.of(context).size.width,
                     height: 80,
-                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                    padding: const EdgeInsets.fromLTRB(20, 0, 3, 0),
+                    margin: const EdgeInsets.fromLTRB(40, 20, 40, 8),
+                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                     decoration: ShapeDecoration(
                       color: const Color(0xFFFBD4CF),
                       shape: RoundedRectangleBorder(
@@ -201,7 +201,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       ),
                     ),
                     child:  Row(
-                      mainAxisSize: MainAxisSize.min,
+                     // mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -221,7 +221,7 @@ class _ProductListPageState extends State<ProductListPage> {
 
                         TextButton(
                           child: Icon( Icons.close,
-                            color: Colors.grey, ),
+                            color: Colors.black, ),
                           onPressed: (){
                             setState(() {
                               _isErrorContainerVisible = false;

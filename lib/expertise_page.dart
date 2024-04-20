@@ -116,7 +116,7 @@ class _ExpertisePageState extends State<ExpertisePage> {
                             const SizedBox(width: 10),
                             Expanded(
                               child: Text(
-                                'I have never done any  online transactions',
+                                'I have never done any online transactions',
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
