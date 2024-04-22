@@ -134,7 +134,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+     // backgroundColor: Colors.orangeAccent,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/first_image.png"),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: ListView(
         children: [
           Stack(
             alignment: Alignment.center,
@@ -188,6 +196,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           ),
         ],
       ),
+    ),
     );
   }
 }

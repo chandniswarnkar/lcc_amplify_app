@@ -346,7 +346,7 @@ class StartLevel5Widget extends StatelessWidget {
                         // alignment: Alignment.to,
                         child:
                         const Image(
-                          image: AssetImage("assets/images/level_05.png"),
+                          image: AssetImage("assets/images/coming_soon.png"),
                           fit: BoxFit.fill,
                         ),
                       ),
