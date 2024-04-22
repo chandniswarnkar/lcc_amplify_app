@@ -236,7 +236,7 @@ class StartLevelWidget extends StatelessWidget {
       Container(
         width: double.infinity,
         height: 90,
-        color: const Color.fromRGBO(17, 68, 43, 1),//Color(0xFF11442B)
+        color: const Color(0xFF11442B),
         padding:EdgeInsets.fromLTRB(30, 25, 30, 0),
         child: Row(
 
