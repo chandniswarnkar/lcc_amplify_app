@@ -187,15 +187,15 @@ class _ProductListPageState extends State<ProductListPage> {
                 ),
               ),
             ),
+          //  SizedBox(height: 20,),
             Visibility(
                   visible: _isErrorContainerVisible,
                   child: Container(
                    // color: Colors.orangeAccent,
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.center,
                     width: MediaQuery.of(context).size.width,
                     height: 80,
-
-                    margin: const EdgeInsets.fromLTRB(25, 20, 25, 50),
+                    margin: const EdgeInsets.fromLTRB(25, 0, 25, 40),
                     padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                     decoration: ShapeDecoration(
                       color: const Color(0xFFFBD4CF),
@@ -223,6 +223,7 @@ class _ProductListPageState extends State<ProductListPage> {
                           ),
                         ),
                       Container(child:
+
                         TextButton(
                           child: Icon( Icons.close,
                             color: Colors.black, ),
