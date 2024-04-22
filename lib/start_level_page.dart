@@ -327,17 +327,22 @@ class StartLevelWidget extends StatelessWidget {
                // SizedBox(height: 10,),
 
                 Container( padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
-                  child: const Text(
+                  child: const Opacity(opacity: 0.7,
+                    child:
+                  Text(
                     'Use various payment methods like credit/debit cards, direct bank transfers, and mobile accounts for online purchases.',
                     maxLines: 4,
                     style: TextStyle(
+
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
 
+
                     ),
                   ),
+    ),
                 ),
 
 
