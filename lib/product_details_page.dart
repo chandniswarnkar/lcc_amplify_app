@@ -123,7 +123,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             const Padding(
               padding: EdgeInsets.fromLTRB(30, 0,30, 10),
               child: Text(
-                'This product is now in your cart. Click \non Buy Now to proceed to payment',
+                'This product is now in your cart. Click \non \'Buy Now\' to proceed to payment',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,

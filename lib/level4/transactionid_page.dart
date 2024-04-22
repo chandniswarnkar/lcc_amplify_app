@@ -272,7 +272,7 @@ class _TransactionIdPageState extends State<TransactionIdPage> {
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) =>  BadgeScreen(msgTextTop: 'You are an \nEager Student',
-                      image: 'assets/images/eager_student_badge.gif', flag: 'Level_4', msgTextBottom: 'Badge:\nEager Student',))
+                      image: 'assets/images/Badge_eager_student.gif', flag: 'Level_4', msgTextBottom: 'Badge:\nEager Student',))
             );
 
           },

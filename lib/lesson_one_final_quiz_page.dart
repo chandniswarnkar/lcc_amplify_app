@@ -203,7 +203,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                       padding: EdgeInsets.all(20),
                       alignment: Alignment.center,
                       child: const Text(
-                        'A stranger calls you and \nrequests you to share your \nCVV number for an urgent \nverification process.\nWhat would you do?',
+                        'A stranger calls you and \nrequests you to share your \n\'CVV\' number for an urgent \nverification process.\nWhat would you do?',
                         textAlign: TextAlign.center,
                         maxLines: 5,
                         style: TextStyle(
@@ -283,7 +283,7 @@ class _LessonOneFinalQuizPageState extends State<LessonOneFinalQuizPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (BuildContext context) =>  const BadgeScreen(msgTextTop: 'You are a\nQuick Learner',msgTextBottom: 'Badge:\nQuick Learner',image: "assets/images/Badge_01.gif",flag: 'Level_1',)));
+                                          builder: (BuildContext context) =>  const BadgeScreen(msgTextTop: 'You are a\nQuick Learner',msgTextBottom: 'Badge:\nQuick Learner',image: "assets/images/Badge_quick_learner.gif",flag: 'Level_1',)));
                                 },
                                 child:
                                 const Text(

@@ -135,6 +135,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
      // backgroundColor: Colors.orangeAccent,
+      appBar:PreferredSize(
+          preferredSize: Size.fromHeight(0),
+          child: AppBar(
+            backgroundColor: Colors.black,
+      ),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(

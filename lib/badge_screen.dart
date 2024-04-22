@@ -54,7 +54,7 @@ class _BadgeScreenState extends State<BadgeScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(color: Color(0xFF99369B)),
+        decoration: const BoxDecoration(color: Color(0xFF742976)),
         child: ListView(
           children: <Widget>[
             const SizedBox(

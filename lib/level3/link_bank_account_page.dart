@@ -15,7 +15,7 @@ class LinkBankAccountPage extends StatefulWidget {
 
 class LinkBankAccountState extends State<LinkBankAccountPage> {
   int coinText = 0;
-  double _currentSliderValue = 0;
+  double _currentSliderValue = 5;
   bool reorderSuccess = false;
 
   void updateParentView(String param) {

@@ -720,7 +720,7 @@ class _EnterCardDetailsPageState extends State<EnterCardDetailsPage> {
                             Navigator.of(context).push(
                               CupertinoPageRoute(
                                 fullscreenDialog: true,
-                                builder: (context) =>  const BadgeScreen(msgTextTop: 'You are a \nCurious Explorer',msgTextBottom: 'Badge:\nCurious Explorer',image: "assets/images/curious_explorer_badge.gif",flag: 'Level_2',),
+                                builder: (context) =>  const BadgeScreen(msgTextTop: 'You are a \nCurious Explorer',msgTextBottom: 'Badge:\nCurious Explorer',image: "assets/images/Badge_curious_explorer.gif",flag: 'Level_2',),
                               ),
                             );
                           },
