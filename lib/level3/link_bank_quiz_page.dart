@@ -546,7 +546,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         _quesIndex++;
         answers.remove(_currentAnsValue);
         _currentQuesValue = questions[_quesIndex];
-        disableTouchOnAnswerList = false;
+
         switch (_currentQuesValue) {
           case "Account Number":
             _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
@@ -569,6 +569,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         // showHintView = false;
 
         }
+        disableTouchOnAnswerList = false;
 
       }
       else {
