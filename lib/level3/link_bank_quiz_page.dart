@@ -45,6 +45,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
   BottomBarComponent _currentBottomBarComponent = BottomBarComponent.NO_HINT_PANEL;
   bool isSelected = false;
   String hintTextone = 'Select Your Bank';
+  bool disableTouchOnAnswerList = false;
 
   Map<String, String> linkBankQuizData = {'Name of the bank': 'HSBC Bank', 'Account Holder Name': 'Alex Wood','Sort Code': '400515','Branch Code': '0515', 'Account Number' : '10719035'};
 
@@ -296,7 +297,9 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                               crossAxisCount: 2,
                               childAspectRatio: 2.5,
                               children: List.generate(answers.length, (ansIndex) {
-                                return
+                                return AbsorbPointer(
+                                  absorbing: disableTouchOnAnswerList,
+                                  child:
                                   GestureDetector(
                                     onTap: (){
                                       setState(() {
@@ -309,6 +312,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                             textFormFieldValue = _currentAnsValue;
                                             isAnswerCorrect = true;
                                             _currentSliderValue = _currentSliderValue + 10;
+                                            disableTouchOnAnswerList = true;
                                             Timer(Duration(seconds: 1), () {
 
 
@@ -388,7 +392,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                                       ),
                                     ),
 
-                                  );
+                                  ),);
                               },
                               ),
                             ),
@@ -424,8 +428,6 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
       default:
         return bottomBarWithoutHintPanel(context);
     }
-
-
 
   }
 
@@ -544,6 +546,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         _quesIndex++;
         answers.remove(_currentAnsValue);
         _currentQuesValue = questions[_quesIndex];
+        disableTouchOnAnswerList = false;
         switch (_currentQuesValue) {
           case "Account Number":
             _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
@@ -566,6 +569,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
         // showHintView = false;
 
         }
+
       }
       else {
 
