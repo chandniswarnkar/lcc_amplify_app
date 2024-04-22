@@ -8,9 +8,14 @@ import 'package:lcc_flutter_app/practice_page.dart';
 import 'package:lcc_flutter_app/rewards_page.dart';
 import 'package:lcc_flutter_app/start_level2_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const LCCHomePage());
 
 }
@@ -18,6 +23,7 @@ void main() {
 
 class LCCHomePage extends StatelessWidget {
   const LCCHomePage({super.key});
+// Set portrait orientation
 
 
   // This widget is the root of your application.
