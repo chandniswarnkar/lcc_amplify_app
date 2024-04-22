@@ -7,21 +7,6 @@ import 'models/ModelProvider.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_api/amplify_api.dart';
 
-//
-// class YellowBird extends StatefulWidget {
-//   const YellowBird({ super.key });
-//
-//   @override
-//   State<YellowBird> createState() => _YellowBirdState();
-// }
-//
-// class _YellowBirdState extends State<YellowBird> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(color: const Color(0xFFFFE306));
-//   }
-// }
-
 class LCCLearningPage extends StatefulWidget {
   const LCCLearningPage({super.key});
 
@@ -187,18 +172,25 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                       children: [
                         Expanded(
                           child: Container(
-                            height: 110,
+                            height: 100,
 
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Row(
-                              mainAxisSize: MainAxisSize.min,
+                            //  mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  height: 50,
+                                // color:Colors.green,
+                                 // margin: const EdgeInsets.symmetric(vertical: 10),
+                                  child:
                                  Column(
 
                                  // mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                //  mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -224,6 +216,7 @@ class LCCLearningPageState extends State<LCCLearningPage> {
                                     ),
                                   ],
                                 ),
+                                    ),
                                 //  const SizedBox(width: 80),
 
                                 Stack(children: [

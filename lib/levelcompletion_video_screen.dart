@@ -28,7 +28,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   void initState() {
     super.initState();
-// Initialize shared preferences
+
 
     if (widget.levelComlpetionText == "Level 1 Completed") {
 
@@ -47,12 +47,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       secondsToDisplay = 0;
       secondsToStop = 0;
     }
-    addCurrentLevelToSF("Level_0");
+
     _controller =
         VideoPlayerController.asset('assets/images/Level_Completion_blank.mp4')
           ..initialize().then((_) {
             _controller.play();
-// Ensure the first frame is shown after the video is initialized
 
             setState(() {
 // Start the timer when the video starts playing
@@ -71,6 +70,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
             });
           });
+
     _controller.addListener(() {
       Duration duration = _controller.value.duration;
       Duration position = _controller.value.position;
@@ -79,10 +79,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           _controller.value.isInitialized &&
           (_controller.value.duration == _controller.value.position )) {
 
-
         if (widget.levelComlpetionText == "Level 1 Completed") {
-
-          addCurrentLevelToSF("Level_1");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
@@ -90,7 +87,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         } else if (widget.levelComlpetionText == "Level 2 Completed") {
-          addCurrentLevelToSF("Level_2");
           Navigator.of(context).push(
             CupertinoPageRoute(
               fullscreenDialog: true,
@@ -98,8 +94,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             ),
           );
         } else if (widget.levelComlpetionText == "Level 3 Completed") {
-
-            addCurrentLevelToSF("Level_3");
             Navigator.of(context).push(
               CupertinoPageRoute(
                 fullscreenDialog: true,
@@ -107,10 +101,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
               ),
             );
 
-
         } else if (widget.levelComlpetionText == "Level 4 Completed") {
-
-            addCurrentLevelToSF("Level_0");
             Navigator.of(context).push(
               CupertinoPageRoute(
                 fullscreenDialog: true,
@@ -143,8 +134,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-// Use a FutureBuilder to display a loading spinner while waiting for the
-// VideoPlayerController to finish initializing.
       body: ListView(
         children: [
           Stack(
@@ -154,9 +143,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 child: AspectRatio(
                   aspectRatio: 1 / 2.20, //_controller.value.aspectRatio,
 // Use the VideoPlayer widget to display the video.
-                  child: VideoPlayer(_controller),
-                ),
-              ),
+                  child:  VideoPlayer(_controller),
+                ) ,
+              ) ,
               Positioned(
                 top: 30.0,
                 child: Container(
