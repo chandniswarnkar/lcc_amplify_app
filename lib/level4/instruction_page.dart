@@ -46,6 +46,7 @@ class _InstructionPageState extends State<InstructionPage> {
   bool isDescriptionContainerVisible = false;
   String _hintText = '';
   String hintTextone = 'Select Your account number';
+  bool disableTouchOnAnswerList = false;
   BottomBarComponent _currentBottomBarComponent =
       BottomBarComponent.VIEW_OPTION_BUTTON_VIEW;
 
@@ -351,7 +352,10 @@ class _InstructionPageState extends State<InstructionPage> {
                             children: List.generate(
                               answers.length,
                               (ansIndex) {
-                                return GestureDetector(
+                                return AbsorbPointer(
+                                  absorbing: disableTouchOnAnswerList,
+                                  child:
+                                GestureDetector(
                                   onTap: () {
                                     setState(() {
                                       if (answers.length > 0) {
@@ -360,6 +364,7 @@ class _InstructionPageState extends State<InstructionPage> {
                                         if (_currentAnsValue ==
                                             linkBankQuizData[
                                                 questions[_quesIndex]]) {
+                                          disableTouchOnAnswerList = true;
                                           textFormFieldValue = _currentAnsValue;
                                           Timer(Duration(seconds: 1), () {
                                             coinText = coinText + 5;
@@ -433,6 +438,7 @@ class _InstructionPageState extends State<InstructionPage> {
                                       ),
                                     ),
                                   ),
+                                ),
                                 );
                               },
                             ),
@@ -792,6 +798,7 @@ class _InstructionPageState extends State<InstructionPage> {
         _quesIndex++;
         answers.remove(_currentAnsValue);
         _currentQuesValue = questions[_quesIndex];
+        disableTouchOnAnswerList = false;
         switch (_currentQuesValue) {
           case "From":
             _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
