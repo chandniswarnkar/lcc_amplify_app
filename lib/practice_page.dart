@@ -105,7 +105,7 @@ class PracticeView extends StatelessWidget {
                       ),
                       const SizedBox(width: 120),
                       Text(
-                        '02',
+                        '00',
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           color: Colors.black,
@@ -154,7 +154,7 @@ class PracticeView extends StatelessWidget {
                     ),
                     const SizedBox(width: 120),
                     Text(
-                      '04',
+                      '00',
                       textAlign: TextAlign.right,
                       style: TextStyle(
                         color: Colors.black,
