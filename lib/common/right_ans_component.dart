@@ -98,7 +98,7 @@ class RightAnswerComponent extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 80,
+                                  width: 90,
                                   height: 50,
                                   child:
                                 TextButton(

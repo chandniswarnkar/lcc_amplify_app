@@ -584,7 +584,7 @@ class LinkBankQuizPageState extends State<LinkBankQuizPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const BadgeScreen(msgTextTop: 'You are a \n Sharp Scholar',msgTextBottom: 'Badge:\nSharp Scholar',image: "assets/images/curious_explorer_badge.gif",flag: 'Level_3',),
+                        builder: (context) => const BadgeScreen(msgTextTop: 'You are a \n Sharp Scholar',msgTextBottom: 'Badge:\nSharp Scholar',image: "assets/images/Badge_sharp_scholar.gif",flag: 'Level_3',),
                       )
                   );
 

@@ -31,7 +31,9 @@ final List<Widget> imageSliders = images
                 left: 0,
                 right: 0,
                 child: Center(
-                    child: Image.asset("assets/images/Lock.png",  fit: BoxFit.fill,
+                    child: Image.asset("assets/images/Lock_new.png",  fit: BoxFit.fill,
+                      height: 95,
+                      width: 95,
 
                     )
                 ),

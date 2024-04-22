@@ -30,7 +30,7 @@ class KnowYourCardPage extends StatefulWidget {
 }
 
 class _KnowYourCardPageState extends State<KnowYourCardPage> {
-  double _currentSliderValue = 0;
+  double _currentSliderValue = 5;
   List<Widget> cardPageList = [];
   bool showMainView = true;
   bool showQuizView = false;
