@@ -798,7 +798,7 @@ class _InstructionPageState extends State<InstructionPage> {
         _quesIndex++;
         answers.remove(_currentAnsValue);
         _currentQuesValue = questions[_quesIndex];
-        disableTouchOnAnswerList = false;
+
         switch (_currentQuesValue) {
           case "From":
             _currentBottomBarComponent = BottomBarComponent.HINT_PANEL;
@@ -826,6 +826,7 @@ class _InstructionPageState extends State<InstructionPage> {
           //  _hintPanelVisible = false;
           // showHintView = false;
         }
+        disableTouchOnAnswerList = false;
       } else {
         /* Navigator.push(
             context,
